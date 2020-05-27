@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="193.75px" preserveAspectRatio="none" style="width:438px;height:193px;" version="1.1" viewBox="0 0 438 193" width="438.75px" zoomAndPan="magnify"><defs><filter height="300%" id="fk19om9q2kcl9" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ecaed46f78f8cfe1e9ce18477649be18]
+class Plataforma--><rect fill="#FEFECE" filter="url(#fk19om9q2kcl9)" height="67.2949" id="Plataforma" style="stroke: #A80036; stroke-width: 1.875;" width="128.75" x="7.5" y="61.875"/><ellipse cx="32.4375" cy="81.875" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke: #A80036; stroke-width: 1.25;"/><path d="M34.9375,77.5 Q35.1914,76.875 35.4844,76.5625 Q35.7773,76.25 36.1094,76.25 Q36.6953,76.25 37.0664,76.6016 Q37.4375,76.9531 37.4375,77.7734 L37.4375,79.7266 Q37.4375,80.5469 37.0859,80.8984 Q36.7344,81.25 36.1875,81.25 Q35.6992,81.25 35.3867,81.0352 Q35.0742,80.8203 34.9375,80.2539 Q34.8789,79.8633 34.6641,79.6484 Q34.2734,79.2383 33.5703,79.0039 Q32.8672,78.75 32.1641,78.75 Q31.2852,78.75 30.543,79.1016 Q29.8203,79.4531 29.2539,80.2344 Q28.6875,81.0156 28.6875,82.0898 L28.6875,83.2422 Q28.6875,84.5313 29.7422,85.3906 Q30.7969,86.25 32.6719,86.25 Q33.7852,86.25 34.5664,85.9961 Q35.0156,85.8594 35.5234,85.4102 Q35.8555,85.1563 36.0313,85.0781 Q36.207,85 36.4219,85 Q36.832,85 37.125,85.332 Q37.4375,85.6445 37.4375,86.0938 Q37.4375,86.5234 37.0078,87.0313 Q36.3828,87.7734 35.3867,88.1836 Q34.0781,88.75 32.4766,88.75 Q30.6016,88.75 29.0977,88.0078 Q27.8867,87.4219 27.0273,86.1523 Q26.1875,84.8828 26.1875,83.3789 L26.1875,82.0117 Q26.1875,80.4492 26.9297,79.082 Q27.6914,77.7148 29,76.9922 Q30.3281,76.25 31.8125,76.25 Q32.7109,76.25 33.4922,76.5625 Q34.2734,76.875 34.9375,77.5 Z "/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacingAndGlyphs" textLength="75" x="51.3125" y="88.0127">Plataforma</text><line style="stroke: #A80036; stroke-width: 1.875;" x1="8.75" x2="135" y1="101.875" y2="101.875"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="113.75" x="15" y="121.1487">-String designacao</text><!--MD5=[1f687b5315377fe49fca59b457947463]
+class Freelancer--><rect fill="#FEFECE" filter="url(#fk19om9q2kcl9)" height="171.0645" id="Freelancer" style="stroke: #A80036; stroke-width: 1.875;" width="168.75" x="256.25" y="10"/><ellipse cx="299.75" cy="30" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke: #A80036; stroke-width: 1.25;"/><path d="M302.25,25.625 Q302.5039,25 302.7969,24.6875 Q303.0898,24.375 303.4219,24.375 Q304.0078,24.375 304.3789,24.7266 Q304.75,25.0781 304.75,25.8984 L304.75,27.8516 Q304.75,28.6719 304.3984,29.0234 Q304.0469,29.375 303.5,29.375 Q303.0117,29.375 302.6992,29.1602 Q302.3867,28.9453 302.25,28.3789 Q302.1914,27.9883 301.9766,27.7734 Q301.5859,27.3633 300.8828,27.1289 Q300.1797,26.875 299.4766,26.875 Q298.5977,26.875 297.8555,27.2266 Q297.1328,27.5781 296.5664,28.3594 Q296,29.1406 296,30.2148 L296,31.3672 Q296,32.6563 297.0547,33.5156 Q298.1094,34.375 299.9844,34.375 Q301.0977,34.375 301.8789,34.1211 Q302.3281,33.9844 302.8359,33.5352 Q303.168,33.2813 303.3438,33.2031 Q303.5195,33.125 303.7344,33.125 Q304.1445,33.125 304.4375,33.457 Q304.75,33.7695 304.75,34.2188 Q304.75,34.6484 304.3203,35.1563 Q303.6953,35.8984 302.6992,36.3086 Q301.3906,36.875 299.7891,36.875 Q297.9141,36.875 296.4102,36.1328 Q295.1992,35.5469 294.3398,34.2773 Q293.5,33.0078 293.5,31.5039 L293.5,30.1367 Q293.5,28.5742 294.2422,27.207 Q295.0039,25.8398 296.3125,25.1172 Q297.6406,24.375 299.125,24.375 Q300.0234,24.375 300.8047,24.6875 Q301.5859,25 302.25,25.625 Z "/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacingAndGlyphs" textLength="73.75" x="322.75" y="36.1377">Freelancer</text><line style="stroke: #A80036; stroke-width: 1.875;" x1="257.5" x2="423.75" y1="50" y2="50"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="53.75" x="263.75" y="69.2737">-String id</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="76.25" x="263.75" y="86.5686">-String name</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="142.5" x="263.75" y="103.8635">-String levelOfExpertise</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="62.5" x="263.75" y="121.1584">-String NIF</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="153.75" x="263.75" y="138.4534">-String bankAccountIBAN</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="93.75" x="263.75" y="155.7483">-String address</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacingAndGlyphs" textLength="90" x="263.75" y="173.0432">-String country</text><!--MD5=[39c0de7668d8063a4eb96c23050b3de2]
+link Plataforma to Freelancer--><path d="M136.56,95.625 C172.245,95.625 217.2325,95.625 255.765,95.625 " fill="none" id="Plataforma-Freelancer" style="stroke: #A80036; stroke-width: 1.25;"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacingAndGlyphs" textLength="26.25" x="175" y="91.2439">has</text><polygon fill="#000000" points="205,82.7197,212.5,86.4697,205,90.2197,205,82.7197" style="stroke: #000000; stroke-width: 1.25;"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacingAndGlyphs" textLength="8.75" x="146.2716" y="113.9455">1</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacingAndGlyphs" textLength="6.25" x="239.8916" y="113.6218">*</text><!--MD5=[acff0fa7cfdad340b1b3097537cd3a7e]
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+left to right direction
+
+class Plataforma {
+  -String designacao
+}
+
+
+class Freelancer {
+  -String id
+  -String name
+  -String levelOfExpertise
+  -String NIF
+  -String bankAccountIBAN
+  -String address
+  -String country
+}
+
+
+Plataforma "1" - - "*" Freelancer : has  >
+
+
+
+
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 11:51:06 BST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.6+8-b765.40
+Operating System: Windows 10
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
