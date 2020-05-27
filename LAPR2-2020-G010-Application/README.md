@@ -27,7 +27,7 @@ The tasks's distribution during the development period of the project by the ele
 | Especificação Suplementar   |   (n/a)    |
 | Modelo de Domínio           |  (n/a)   |
 | UC 1 (Requisitos + Design)  |  [1190718](docs/usecases/UC01_RegisterFreelancer.md)   |
-| UC 2 (Requisitos + Design)  |  [1190782](usecases/UC02_RegisterOrganization.md)   |
+| UC 2 (Requisitos + Design)  |  [1190782](docs/usecases/UC02_RegisterOrganization.md)   |
 | UC 3 (Requisitos + Design)  |  [1190708](docs/usecases/UC03_CreateANewTask.md)   |
 | UC 4 (Requisitos + Design)  |  [1191419](docs/usecases/UC04_CreatePaymentTransaction.md)   |
 | UC 5 (Requisitos + Design)  |  [1190811](docs/usecases/UC05_ReceiveFileWithTransactionHistory.md)   |
