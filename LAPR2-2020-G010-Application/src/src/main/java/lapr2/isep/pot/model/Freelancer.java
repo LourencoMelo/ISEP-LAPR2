@@ -1,4 +1,4 @@
-package org.example.Model;
+package lapr2.isep.pot.model;
 
 public class Freelancer {
 

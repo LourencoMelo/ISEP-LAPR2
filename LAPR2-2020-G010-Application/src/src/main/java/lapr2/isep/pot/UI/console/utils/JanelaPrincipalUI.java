@@ -1,4 +1,4 @@
-package org.example.UI;
+package lapr2.isep.pot.UI.console.utils;
 
 import java.net.URL;
 import java.util.ResourceBundle;

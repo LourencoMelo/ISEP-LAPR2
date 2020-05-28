@@ -1,4 +1,4 @@
-package org.example.UI;
+package lapr2.isep.pot.UI.console;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;

@@ -1,4 +1,4 @@
-package org.example.Controller;
+package lapr2.isep.pot.controller;
 
 public class AplicacaoController {
 
