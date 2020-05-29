@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="" />
+    <list default="true" id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/RegistUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/RegistOrganizationUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/AplicationPOT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/RegistOrganizationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/ExternAlgorithmPasswordGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Organization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Platform.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/RegistOrganization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/lapr2-2020-g010-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/lapr2-2020-g010-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/FacadeAuthorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/FacadeAuthorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/UserSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Colaborator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Collaborator.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1cTwjAIYbISztqAT5ow2lhdHYIl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -17,7 +50,30 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DemoMavenAndJavaFXApplication2020" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.20025674" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lapr2.isep.pot.UI.console.MainApp" />
+      <module name="LAPR2-2020-G010-Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lapr2.isep.pot.UI.console.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -31,6 +87,9 @@
       <updated>1590566023294</updated>
       <workItem from="1590566024625" duration="1063000" />
       <workItem from="1590577114918" duration="653000" />
+      <workItem from="1590747651488" duration="144000" />
+      <workItem from="1590747954047" duration="34000" />
+      <workItem from="1590748303819" duration="9995000" />
     </task>
     <servers />
   </component>
@@ -38,9 +97,45 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590577766733">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1590747789238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590577766733" />
+    <state x="440" y="94" key="#Project_Structure/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590747789238" />
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1590756631621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590756631621" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590758481455">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758481455" />
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1590758484983">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484983" />
+    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1590758484982">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484982" />
+    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1590758484982">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484982" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1590758484983">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484983" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1590747972324">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590747972324" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1590758196238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758196238" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1590758198165">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758198165" />
   </component>
 </project>
