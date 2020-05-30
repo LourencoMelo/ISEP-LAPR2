@@ -42,6 +42,28 @@ public class Freelancer {
      */
     private String country;
 
+    /**
+     * Initialize the Freelancer's information with the received data
+     *
+     * @param id Freelancer's id
+     * @param name Freelancer's name
+     * @param levelOfExpertise Freelancer's level of expertise
+     * @param email Freelancer's email
+     * @param nif Freelancer's NIF
+     * @param iban Freelancer's Bank account
+     * @param address Freelancer's address
+     * @param country Freelancer's country
+     */
+    public Freelancer(String id, String name, String levelOfExpertise, String email, String nif, String iban, String address, String country){
+        this.id = id;
+        this.name = name;
+        this.levelOfExpertise = levelOfExpertise;
+        this.email = email;
+        this.nif = nif;
+        this.iban = iban;
+        this.address = address;
+        this.country = country;
+    }
 
     /**
      * Returns freelancer's id.
@@ -130,15 +152,15 @@ public class Freelancer {
         if (otherObject == null || getClass() != otherObject.getClass()) {
             return false;
         }
-        Freelancer outroFreelancer = (Freelancer) otherObject;
-        return id.equalsIgnoreCase(outroFreelancer.id)  &&
-                name.equalsIgnoreCase(outroFreelancer.name)  &&
-                levelOfExpertise.equalsIgnoreCase(outroFreelancer.levelOfExpertise) &&
-                email.equalsIgnoreCase(outroFreelancer.email) &&
-                nif.equalsIgnoreCase(outroFreelancer.nif) &&
-                iban.equalsIgnoreCase(outroFreelancer.iban) &&
-                address.equalsIgnoreCase(outroFreelancer.address) &&
-                country.equalsIgnoreCase(outroFreelancer.country);
+        Freelancer otherFreelancer = (Freelancer) otherObject;
+        return id.equalsIgnoreCase(otherFreelancer.id)  &&
+                name.equalsIgnoreCase(otherFreelancer.name)  &&
+                levelOfExpertise.equalsIgnoreCase(otherFreelancer.levelOfExpertise) &&
+                email.equalsIgnoreCase(otherFreelancer.email) &&
+                nif.equalsIgnoreCase(otherFreelancer.nif) &&
+                iban.equalsIgnoreCase(otherFreelancer.iban) &&
+                address.equalsIgnoreCase(otherFreelancer.address) &&
+                country.equalsIgnoreCase(otherFreelancer.country);
     }
 
     /**

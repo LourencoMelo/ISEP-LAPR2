@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="LAPR2-2020-G010-Application" />
+        <module name="src" />
       </profile>
     </annotationProcessing>
   </component>
