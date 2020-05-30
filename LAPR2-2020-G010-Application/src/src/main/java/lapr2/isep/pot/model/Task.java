@@ -111,7 +111,6 @@ public class Task {
                 costPerHour.equals(otherTask.costPerHour) &&
                 category.equalsIgnoreCase(otherTask.category);
     }
-
     /**
      * Returns the Task's text description in the format: id, description, time duration, cost per hour and category
      *

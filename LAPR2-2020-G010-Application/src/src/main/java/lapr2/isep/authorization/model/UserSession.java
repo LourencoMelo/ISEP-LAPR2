@@ -39,11 +39,15 @@ public class UserSession {
         return null;
     }
 
+    /**
+     * Returns the User's email
+     *
+     * @return User's email
+     */
     public String getUserEmail() {
         if (isLoggedIn()) {
             return this.user.getEmail();
         }
         return null;
     }
-
 }

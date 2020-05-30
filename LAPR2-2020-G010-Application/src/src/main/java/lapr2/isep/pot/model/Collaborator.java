@@ -42,6 +42,16 @@ public class Collaborator {
     }
 
     /**
+     * Verifies if is this the right Collaborator
+     *
+     * @param email Collaborator's email
+     * @return true, if the email matches
+     */
+    public boolean hasEmail(String email){
+        return this.email.equalsIgnoreCase(email);
+    }
+
+    /**
      * Compares two Collaborators
      *
      * @param o other object

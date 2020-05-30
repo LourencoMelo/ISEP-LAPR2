@@ -35,6 +35,11 @@ public class Platform implements ExternAlgorithmPasswordGenerator {
         return null;                                                            //WRITE CODE IF NECESSARY
     }
 
+    /**
+     * Returns Organization
+     *
+     * @return Organization
+     */
     public Organization getRegistOrganization() {
         return organization;
     }
