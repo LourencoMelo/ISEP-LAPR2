@@ -1,7 +1,8 @@
 package lapr2.isep.pot.model;
 
 import lapr2.isep.authorization.FacadeAuthorization;
-import lapr2.isep.pot.controller.AplicationPOT;
+import lapr2.isep.pot.controller.ApplicationPOT;
+import lapr2.isep.pot.model.List.CollaboratorList;
 import sun.security.util.Password;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class RegistOrganization {
     }
 
     public boolean registManagerAsUser(Manager manager) {
-        this.platform = AplicationPOT.getInstance().getPlatform();
+        this.platform = ApplicationPOT.getInstance().getPlatform();
 
         String managerName = Manager.getName();
         String managerEmail = Manager.getEmail();                                            //IMPROVE THIS METHOD
@@ -83,7 +84,7 @@ public class RegistOrganization {
     }
 
     public boolean registCollaboratorAsUser(Collaborator collab) {
-        this.platform = AplicationPOT.getInstance().getPlatform();
+        this.platform = ApplicationPOT.getInstance().getPlatform();
 
         String collaboratorName = Collaborator.getName();                       //WHY THIS ERRORS?!
         String collaboratorEmail = Collaborator.getEmail();                                   //IMPROVE THIS METHOD
@@ -101,6 +102,25 @@ public class RegistOrganization {
     private boolean sendPassword(String email, Password password) {
         //                                                              TO IMPLEMENT THE CODE
         return false;
+    }
+
+    /**
+     * Searches for the Collaborator's Organization
+     *
+     * @param email Collaborator's email
+     * @return Organization in search
+     */
+    public Organization getOrganizationByUserEmail(String email){
+        Organization orgReturn = null;
+
+        for (int i=0;i<this.listOrganizations.size();i++){
+            Organization org = this.listOrganizations.get(i);
+            CollaboratorList cl = org.getCollaboratorList();
+            boolean found = cl.hasCollaboratorWithEmail(email);
+            if (found)
+                orgReturn = org;
+        }
+        return orgReturn;
     }
 
 }

@@ -1,5 +1,8 @@
 package lapr2.isep.pot.model;
 
+import lapr2.isep.pot.model.List.CollaboratorList;
+import lapr2.isep.pot.model.List.TaskList;
+
 import java.util.Objects;
 
 public class Organization {
@@ -15,6 +18,16 @@ public class Organization {
     private String NIF;
 
     /**
+     *  Organization's task list
+     */
+    private TaskList taskList;
+
+    /**
+     *  Organization's collaborator list
+     */
+    private CollaboratorList collaboratorList;
+
+    /**
      * Initialize the Organization's information with the received data
      * @param name Organization's name
      * @param NIF Organizaton's NIF
@@ -22,6 +35,8 @@ public class Organization {
     public Organization(String name, String NIF) {
         this.name = name;
         this.NIF = NIF;
+        this.taskList = new TaskList();
+        this.collaboratorList = new CollaboratorList();
     }
 
     /**
@@ -42,6 +57,24 @@ public class Organization {
      */
     public static Manager newManager(String name, String email) {
         return new Manager(name, email);
+    }
+
+    /**
+     * Returns Task's list.
+     *
+     * @return task list
+     */
+    public TaskList getTaskList(){
+        return this.taskList;
+    }
+
+    /**
+     * Returns Collaborator's list.
+     *
+     * @return collaborator list
+     */
+    public CollaboratorList getCollaboratorList(){
+        return this.collaboratorList;
     }
 
     /**
