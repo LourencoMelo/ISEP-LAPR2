@@ -25,12 +25,12 @@ public class Freelancer {
     /**
      * Freelancer's NIF
      */
-    private String nif;
+    private String NIF;
 
     /**
      * Freelancer's Bank account
      */
-    private String iban;
+    private String bankAccountIBAN;
 
     /**
      * Freelancer's address
@@ -49,18 +49,18 @@ public class Freelancer {
      * @param name Freelancer's name
      * @param levelOfExpertise Freelancer's level of expertise
      * @param email Freelancer's email
-     * @param nif Freelancer's NIF
-     * @param iban Freelancer's Bank account
+     * @param NIF Freelancer's NIF
+     * @param bankAccountIBAN Freelancer's Bank account
      * @param address Freelancer's address
      * @param country Freelancer's country
      */
-    public Freelancer(String id, String name, String levelOfExpertise, String email, String nif, String iban, String address, String country){
+    public Freelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country){
         this.id = id;
         this.name = name;
         this.levelOfExpertise = levelOfExpertise;
         this.email = email;
-        this.nif = nif;
-        this.iban = iban;
+        this.NIF = NIF;
+        this.bankAccountIBAN = bankAccountIBAN;
         this.address = address;
         this.country = country;
     }
@@ -106,8 +106,8 @@ public class Freelancer {
      *
      * @return nif.
      */
-    public String getNif() {
-        return nif;
+    public String getNIF() {
+        return NIF;
     }
 
     /**
@@ -115,8 +115,8 @@ public class Freelancer {
      *
      * @return iban.
      */
-    public String getIban() {
-        return iban;
+    public String getBankAccountIBAN() {
+        return bankAccountIBAN;
     }
 
     /**
@@ -157,8 +157,8 @@ public class Freelancer {
                 name.equalsIgnoreCase(otherFreelancer.name)  &&
                 levelOfExpertise.equalsIgnoreCase(otherFreelancer.levelOfExpertise) &&
                 email.equalsIgnoreCase(otherFreelancer.email) &&
-                nif.equalsIgnoreCase(otherFreelancer.nif) &&
-                iban.equalsIgnoreCase(otherFreelancer.iban) &&
+                NIF.equalsIgnoreCase(otherFreelancer.NIF) &&
+                bankAccountIBAN.equalsIgnoreCase(otherFreelancer.bankAccountIBAN) &&
                 address.equalsIgnoreCase(otherFreelancer.address) &&
                 country.equalsIgnoreCase(otherFreelancer.country);
     }
@@ -170,6 +170,6 @@ public class Freelancer {
      */
     @Override
     public String toString() {
-        return String.format("Freelancer: Id- %s '\n'Name- %s '\n'Level of expertise- %s '\n'Email- %s '\n'NIF- %s '\n'IBAN- %s '\n'Address- %s '\n'Country- %s", id, name, levelOfExpertise, email, nif, iban, address, country);
+        return String.format("Freelancer: Id- %s '\n'Name- %s '\n'Level of expertise- %s '\n'Email- %s '\n'NIF- %s '\n'IBAN- %s '\n'Address- %s '\n'Country- %s", id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
     }
 }
