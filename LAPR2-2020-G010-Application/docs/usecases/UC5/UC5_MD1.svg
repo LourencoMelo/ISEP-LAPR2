@@ -119,8 +119,8 @@
       >-String designation</text
     ></g
     ><g font-size="11px" transform="translate(2,238)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
-    ><text x="27" xml:space="preserve" y="12" clip-path="url(#clipPath6)" stroke="none"
-      >Plataform</text
+    ><text x="30" xml:space="preserve" y="12" clip-path="url(#clipPath6)" stroke="none"
+      >Platform</text
     ></g
     ><g font-size="11px" transform="translate(375,136)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" font-weight="bold" stroke-opacity="1"
     ><rect x="0" width="174" height="263" y="0" clip-path="url(#clipPath7)" stroke="none"
@@ -232,6 +232,10 @@
     ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath14)" stroke="none"
       >1</text
     ></g
+    ><g font-size="11px" transform="translate(184,171)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath14)" stroke="none"
+      >1</text
+    ></g
     ><g font-size="11px" transform="translate(22,218)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath14)" stroke="none"
       >1</text
@@ -243,10 +247,6 @@
     ><g font-size="11px" transform="translate(332,257)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath16)" stroke="none"
       >0..1</text
-    ></g
-    ><g font-size="11px" transform="translate(184,171)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath14)" stroke="none"
-      >1</text
     ></g
     ><g stroke-linecap="butt" font-size="11px" transform="translate(196,19)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
     ><line y2="50" fill="none" x1="50" clip-path="url(#clipPath18)" x2="50" y1="103"
