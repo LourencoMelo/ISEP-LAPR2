@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/images/t4j.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/RegistUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/AlertUI.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/RegistOrganizationUI.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/AplicationPOT.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/RegistOrganizationController.java" afterDir="false" />
@@ -12,14 +14,38 @@
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Organization.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Platform.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/RegistOrganization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/main/resources/fxml/LogInScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/lapr2-2020-g010-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/lapr2-2020-g010-application.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC1/UC01_CD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC1/UC01_CD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC1/UC01_MD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC1/UC01_MD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC1/UC01_SD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC1/UC01_SD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC1/UC01_SSD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC1/UC01_SSD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_CD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_CD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_CD_Algorithm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_CD_Algorithm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_MD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_MD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SD_RegistCollaboratorAsUser.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SD_RegistCollaboratorAsUser.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SD_RegistManagerAsUser.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SD_RegistManagerAsUser.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SSD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC2/UC2_SSD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC3/UC03 - Task Creation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC3/UC03 - Task Creation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC3/UC3_MD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC3/UC3_MD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC5/UC5_CD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC5/UC5_CD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC5/UC5_MD.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC5/UC5_MD.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC5/UC5_MD1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC5/UC5_MD1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC5/UC5_ReceiveFileWithTransactionHistory.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC5/UC5_ReceiveFileWithTransactionHistory.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/usecases/UC5/UC5_SSD1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usecases/UC5/UC5_SSD1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/FacadeAuthorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/FacadeAuthorization.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/UserSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/JanelaPrincipalUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/LogInUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Colaborator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Collaborator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Freelancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Freelancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/resources/fxml/JanelaPrincipalScene.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +76,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/TP9-ListaTelefonicaGUISerializacao" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20025674" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\soare_wi5nw81\IdeaProjects\Trabalhos\LAPR2\lapr2-2020-g010-application\LAPR2-2020-G010-Application\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -91,6 +122,8 @@
       <workItem from="1590747954047" duration="34000" />
       <workItem from="1590748303819" duration="9995000" />
       <workItem from="1590880575216" duration="3032000" />
+      <workItem from="1590946657817" duration="2427000" />
+      <workItem from="1590949660764" duration="398000" />
     </task>
     <servers />
   </component>
@@ -115,27 +148,27 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1590881083426" />
-    <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1590882143557">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590946688763">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590882143557" />
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758481455" />
-    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1590758484983">
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590946688763" />
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1590950060018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484983" />
-    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1590758484982">
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590950060018" />
+    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1590950060018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484982" />
-    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1590758484982">
+    <state width="1877" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590950060018" />
+    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1590950060018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484982" />
-    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1590758484983">
+    <state width="1877" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590950060018" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1590950060018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758484983" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590950060018" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1590747972324">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

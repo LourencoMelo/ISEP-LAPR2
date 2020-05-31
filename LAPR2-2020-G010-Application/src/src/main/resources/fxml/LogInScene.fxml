@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.LogInUI">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ff7802;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="250.0" layoutX="75.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="fileimages\\t4j.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="logInBtn" layoutX="225.0" layoutY="364.0" mnemonicParsing="false" onAction="#LogInOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Login" />
+            <VBox layoutX="150.0" layoutY="135.0" prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
+                     <children>
+                        <TextField prefHeight="116.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
+                     <children>
+                        <TextField prefHeight="136.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -70,8 +70,8 @@ public class RegistOrganization {
     public boolean registManagerAsUser(Manager manager) {
         this.platform = ApplicationPOT.getInstance().getPlatform();
 
-        String managerName = Manager.getName();
-        String managerEmail = Manager.getEmail();                                            //IMPROVE THIS METHOD
+        String managerName = manager.getName();
+        String managerEmail = manager.getEmail();                                            //IMPROVE THIS METHOD
 
         this.algorithm = this.platform.getAlgorithmPasswordGenerator();
 
@@ -86,8 +86,8 @@ public class RegistOrganization {
     public boolean registCollaboratorAsUser(Collaborator collab) {
         this.platform = ApplicationPOT.getInstance().getPlatform();
 
-        String collaboratorName = Collaborator.getName();                       //WHY THIS ERRORS?!
-        String collaboratorEmail = Collaborator.getEmail();                                   //IMPROVE THIS METHOD
+        String collaboratorName = collab.getName();                       //WHY THIS ERRORS?!
+        String collaboratorEmail = collab.getEmail();                                   //IMPROVE THIS METHOD
 
         this.algorithm = this.platform.getAlgorithmPasswordGenerator();
 
