@@ -6,19 +6,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-class AlertaUI {
+public class AlertUI {
 
-    public static Alert criarAlerta(Alert.AlertType tipoAlerta, String titulo, String cabecalho, String mensagem) {
-        Alert alerta = new Alert(tipoAlerta);
+    public static Alert criarAlerta(Alert.AlertType alertType, String title, String header, String message) {
+        Alert alerta = new Alert(alertType);
 
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(cabecalho);
-        alerta.setContentText(mensagem);
+        alerta.setTitle(title);
+        alerta.setHeaderText(header);
+        alerta.setContentText(message);
         ((Stage)alerta.getDialogPane().getScene().getWindow()).getIcons().add(new Image("file:images\\error.png"));
 
-        if (tipoAlerta == Alert.AlertType.CONFIRMATION) {
-            ((Button) alerta.getDialogPane().lookupButton(ButtonType.OK)).setText("Sim");
-            ((Button) alerta.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("Não");
+        if (alertType == Alert.AlertType.CONFIRMATION) {
+            ((Button) alerta.getDialogPane().lookupButton(ButtonType.OK)).setText("Yes");
+            ((Button) alerta.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("No");
         }
 
         return alerta;

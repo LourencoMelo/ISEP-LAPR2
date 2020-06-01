@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="170.0" fitWidth="250.0" layoutX="75.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="fileimages\\t4j.png" />
+                  <Image url="file:images\\t4j.png" />
                </image>
             </ImageView>
          </children>

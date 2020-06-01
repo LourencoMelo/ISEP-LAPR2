@@ -2,40 +2,23 @@ package lapr2.isep.authorization.model;
 
 public class UserSession {
 
-    /**
-     * Object of the class user inicialized as a null.
-     */
     private User user = null;
 
     private UserSession() {
 
     }
 
-    /**
-     * Inicializes the session of the user that is running the program.
-     *
-     * @param user object user.
-     */
-    public void UserSession(User user) {
+    public void SessaoUtilizador(User user) {
         if (user == null) {
             throw new IllegalArgumentException("Argument can't be null.");
         }
         this.user = user;
     }
 
-    /**
-     * Logout of the user´s session. Takes the user´s object and turns it to null.
-     *
-     */
     public void doLogout() {
         this.user = null;
     }
 
-    /**
-     * Verifies if there is an User logged in.
-     *
-     * @return boolean (true or false) if there is a user logged in
-     */
     public boolean isLoggedIn() {
         return this.user != null;
     }
@@ -47,7 +30,7 @@ public class UserSession {
         return false;
     }
 
-
+     */
 
     public String getUserName() {
         if (isLoggedIn()) {
