@@ -63,4 +63,6 @@ public class Platform implements ExternAlgorithmPasswordGenerator {
     public RegistFreelancer getRegistFreelancer(){
         return this.registFreelancer;
     }
+
+
 }

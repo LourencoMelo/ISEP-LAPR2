@@ -22,7 +22,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ESOFT_PROJETO" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../1dd_tp3_1190782_1190811" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -74,6 +74,7 @@
       <workItem from="1590690240730" duration="23000" />
       <workItem from="1590746708453" duration="2074000" />
       <workItem from="1590944345730" duration="2925000" />
+      <workItem from="1591017824086" duration="2325000" />
     </task>
     <servers />
   </component>
