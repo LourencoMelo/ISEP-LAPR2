@@ -1,7 +1,11 @@
 package lapr2.isep.pot.controller;
 
+import lapr2.isep.pot.UI.console.utils.LogInUI;
+
 public class ApplicationController {
 
-    //este nome vai se ter de mudar
+    public static ApplicationController getApplicationController() {
+        return LogInUI.getApplicationController();
+    }
 
 }

@@ -18,6 +18,16 @@ public class Organization {
     private final String NIF;
 
     /**
+     * Organization's Collaborator
+     */
+    private final Collaborator collaborator;
+
+    /**
+     * Organization's Manager
+     */
+    private final Manager manager;
+
+    /**
      *  Organization's task list
      */
     private final TaskList taskList;
@@ -32,9 +42,11 @@ public class Organization {
      * @param name Organization's name
      * @param NIF Organizaton's NIF
      */
-    public Organization(String name, String NIF) {
+    public Organization(String name, String NIF, Collaborator collaborator, Manager manager) {
         this.name = name;
         this.NIF = NIF;
+        this.manager = manager;
+        this.collaborator = collaborator;
         this.taskList = new TaskList();
         this.collaboratorList = new CollaboratorList();
     }

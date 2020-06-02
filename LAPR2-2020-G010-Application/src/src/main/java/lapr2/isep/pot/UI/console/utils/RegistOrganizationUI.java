@@ -1,68 +1,83 @@
 package lapr2.isep.pot.UI.console.utils;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import lapr2.isep.pot.UI.console.MainApp;
+import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegistOrganizationController;
 
-public class RegistOrganizationUI {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class RegistOrganizationUI implements Initializable {
+
+    private LogInUI logInUI;
+
+    private ApplicationController applicationController;
 
     private final RegistOrganizationController registOrganizationController;
+
+    double x = 0;
+    double y = 0;
+
+    @FXML
+    private Button xBtn;
+
+    @FXML
+    private Button goBackBtn;
+
+    @FXML
+    private Button registBtn;
 
     public RegistOrganizationUI() {
         registOrganizationController = new RegistOrganizationController();
     }
 
-    public void run() {
+    @FXML
+    void XOnAction(ActionEvent event) {
+        ((Node) event.getSource()).getScene().getWindow().hide();
+    }
+
+    @FXML
+    void RegistOnAction(ActionEvent event) {
 
     }
 
-    /*                          What was in ESOFT and can help improving this class
-
-    public void run()
-    {
-        System.out.println("\nRegistar Organizacao:");
-
-        if(introduzDados())
-        {
-            apresentaDados();
-
-            if (Utils.confirma("Confirma os dados introduzidos? (S/N)")) {
-                if (m_controller.registaOrganizacao()) {
-                    System.out.println("Registo efetuado com sucesso.");
-                } else {
-                    System.out.println("Não foi possivel concluir o registo com sucesso.");
-                }
-            }
-        }
-        else
-        {
-            System.out.println("Ocorreu um erro. Operação cancelada.");
-        }
+    @FXML
+    void GoBackOnAction(ActionEvent event) {
+        Stage stage = (Stage) registBtn.getScene().getWindow();
+        stage.close();
     }
 
-    private boolean introduzDados() {
-        String strNome = Utils.readLineFromConsole("Nome da Organização: ");
-        String strNIF = Utils.readLineFromConsole("NIF: ");
-        String strWebsite = Utils.readLineFromConsole("Website: ");
-        String strTelefone = Utils.readLineFromConsole("Telefone: ");
-        String strEmail = Utils.readLineFromConsole("EMail: ");
-        System.out.println("\nEndereço Postal:");
-        String strLocal = Utils.readLineFromConsole("Rua/Av.: ");
-        String strCodPostal = Utils.readLineFromConsole("Cod. Postal: ");
-        String strLocalidade = Utils.readLineFromConsole("Localidade: ");
-        System.out.println("\nInformação do Gestor (i.e. de quem procede ao registo):");
-        String strNomeGestor = Utils.readLineFromConsole("Nome da Gestor: ");
-        String strFuncao = Utils.readLineFromConsole("Função Desempenhada: ");
-        String strTelefoneGestor = Utils.readLineFromConsole("Telefone: ");
-        String strEmailGestor = Utils.readLineFromConsole("EMail: ");
-        String strPwd = Utils.readLineFromConsole("Palavra-Passe: ");
+    @FXML
+    void dragged(MouseEvent event) {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
 
-        return m_controller.novaOrganizacao(strNome, strNIF, strWebsite, strTelefone, strEmail,
-                strLocal, strCodPostal, strLocalidade, strNomeGestor, strFuncao,
-                strEmailGestor, strTelefoneGestor, strPwd);
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
     }
 
-    private void apresentaDados()
-    {
-        System.out.println("\n Informação a Registar:\n" + m_controller.getOrganizacaoString());
+    @FXML
+    void pressed(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
     }
-     */
+
+    public void associateParentUI(LogInUI logInUI) {
+        this.logInUI = logInUI;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO
+        //applicationController = new ApplicationController();
+    }
 }

@@ -21,6 +21,9 @@ public class Manager {
      * @param email Manager's name
      */
     public Manager(String name, String email) {
+        if(name == null || email == null || name.isEmpty() || email.isEmpty()) {
+            throw new IllegalArgumentException("Invalid argumentos - Null or empty");
+        }
         this.name = name;
         this.email = email;
     }

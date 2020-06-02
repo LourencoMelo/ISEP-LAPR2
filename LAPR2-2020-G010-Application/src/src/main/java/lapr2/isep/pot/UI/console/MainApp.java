@@ -10,7 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import lapr2.isep.pot.UI.console.utils.AlertUI;
 
@@ -26,7 +28,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginScene.fxml"));
             Parent root = loader.load();
 
-            //stage.initStyle(StageStyle.TRANSPARENT);
+            stage.initStyle(StageStyle.TRANSPARENT);
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/styles/Styles.css");
 
@@ -40,9 +42,9 @@ public class MainApp extends Application {
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {
-                    Alert alerta = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, APP_TITLE,
+                    Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, APP_TITLE,
                             "Action confirmation.", "Do you really want to close the application?");
-                    if (alerta.showAndWait().get() == ButtonType.CANCEL) {
+                    if (alert.showAndWait().get() == ButtonType.CANCEL) {
                         event.consume();
                     }
                 }
