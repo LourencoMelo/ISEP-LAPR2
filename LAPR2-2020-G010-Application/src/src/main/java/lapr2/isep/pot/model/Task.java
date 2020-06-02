@@ -5,27 +5,27 @@ public class Task {
     /**
      * Task's id
      */
-    private String id;
+    private final String id;
 
     /**
      * Task's brief description
      */
-    private String description;
+    private final String description;
 
     /**
      * Task's time duration (in hours)
      */
-    private Double timeDuration;
+    private final Double timeDuration;
 
     /**
      * Task's cost per hour (in euros)
      */
-    private Double costPerHour;
+    private final Double costPerHour;
 
     /**
      * Task's category
      */
-    private String category;
+    private final String category;
 
     /**
      * Initialize the Task's information with the received data

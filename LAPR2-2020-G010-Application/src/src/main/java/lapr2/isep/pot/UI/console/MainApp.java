@@ -1,10 +1,9 @@
 package lapr2.isep.pot.UI.console;
 
 
+
 import javafx.application.Application;
-
 import javafx.event.EventHandler;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,8 +12,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import lapr2.isep.pot.UI.console.utils.AlertUI;
+
+import java.io.IOException;
 
 public class MainApp extends Application {
 
@@ -22,24 +24,36 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LogInScene.fxml"));
-        Parent root = loader.load();
-        //stage.initStyle(StageStyle.TRANSPARENT);
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/Styles.css");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginScene.fxml"));
+            Parent root = loader.load();
 
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.getIcons().add(new Image("file:images\\t4j.png"));
-        stage.setTitle(APP_TITLE);
-        stage.setScene(scene);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
 
-        stage.setResizable(false);
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.getIcons().add(new Image("file:images\\t4j.png"));
+            stage.setTitle(APP_TITLE);
+            stage.setScene(scene);
 
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override public void handle(WindowEvent event) { Alert alerta = AlertUI.criarAlerta(Alert.AlertType.CONFIRMATION, APP_TITLE,
-                    "Action confirmation.", "Do you really want to close the application?");if (alerta.showAndWait().get() == ButtonType.CANCEL) {
-                event.consume(); } }});
-        stage.show();
+            stage.setResizable(false);
+
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, APP_TITLE,
+                            "Action confirmation.", "Do you really want to close the application?");
+                    if (alert.showAndWait().get() == ButtonType.CANCEL) {
+                        event.consume();
+                    }
+                }
+            });
+            stage.show();
+        } catch (IOException io) {
+            AlertUI.createAlert(Alert.AlertType.ERROR, APP_TITLE, "Error", io.getMessage()).show();
+
+        }
     }
 
 

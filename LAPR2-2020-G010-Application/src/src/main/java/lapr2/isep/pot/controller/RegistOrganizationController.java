@@ -28,7 +28,7 @@ public class RegistOrganizationController {
         //{
         Collaborator collaborator = Organization.newCollaborator(nameCollab, emailCollab);
         Manager manager = Organization.newManager(nameManager, emailManager);
-        this.organization = this.registOrganization.newOrganization(name, NIF);
+        this.organization = this.registOrganization.newOrganization(name, NIF, collaborator, manager);
         return this.registOrganization.validatesOrganization(this.organization);
     }
         /*catch(RuntimeException ex)

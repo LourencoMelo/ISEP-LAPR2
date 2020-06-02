@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class RegistUser {
 
-    private Set<User> listUsers = new HashSet<User>();
+    private final Set<User> listUsers = new HashSet<User>();
 
     public User novoUtilizador(String name, String email, Password password)
     {

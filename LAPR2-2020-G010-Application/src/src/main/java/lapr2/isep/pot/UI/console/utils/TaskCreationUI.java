@@ -4,7 +4,7 @@ import lapr2.isep.pot.controller.TaskCreationController;
 
 public class TaskCreationUI {
 
-    private TaskCreationController taskCreationController;
+    private final TaskCreationController taskCreationController;
 
     public TaskCreationUI() {
         taskCreationController = new TaskCreationController();

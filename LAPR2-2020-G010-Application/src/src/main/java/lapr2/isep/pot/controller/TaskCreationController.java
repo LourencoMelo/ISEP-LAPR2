@@ -14,7 +14,7 @@ public class TaskCreationController {
     /**
      * Platform
      */
-    private Platform platform;
+    private final Platform platform;
 
     /**
      * Task

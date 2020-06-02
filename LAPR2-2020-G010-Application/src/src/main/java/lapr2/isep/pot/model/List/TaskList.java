@@ -10,7 +10,7 @@ public class TaskList {
     /**
      * Task's list
      */
-    private List<Task> taskList;
+    private final List<Task> taskList;
 
     /**
      * Build a task list

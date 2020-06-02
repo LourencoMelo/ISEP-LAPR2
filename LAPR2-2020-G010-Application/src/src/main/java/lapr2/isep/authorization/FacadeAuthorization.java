@@ -8,7 +8,7 @@ import sun.security.util.Password;
 public class FacadeAuthorization {
 
     private final RegistUser users = new RegistUser();
-    private UserSession session = null;
+    private final UserSession session = null;
 
     public boolean registUser(String name, String email, Password password)
     {

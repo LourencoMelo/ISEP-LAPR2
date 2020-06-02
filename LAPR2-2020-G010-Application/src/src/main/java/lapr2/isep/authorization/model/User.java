@@ -5,9 +5,9 @@ import sun.security.util.Password;
 import java.util.Objects;
 
 public class User {
-    private String name;
-    private String email;
-    private Password password;
+    private final String name;
+    private final String email;
+    private final Password password;
 
     public User(String name, String email, Password password) {
         if ((name == null) || (email == null) || (password == null) || (name.isEmpty()) || (email.isEmpty())) {

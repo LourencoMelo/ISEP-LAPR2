@@ -18,7 +18,7 @@ public class RegistOrganization {
     /**
      * Initialization of Organizations' list
      */
-    private List<Organization> listOrganizations;
+    private final List<Organization> listOrganizations;
 
     /**
      * Plataform's initialization
@@ -48,25 +48,48 @@ public class RegistOrganization {
         return isValid;
     }
 
-    private boolean addOrganization(Organization org) {
-        return listOrganizations.add(org);
+    /**
+     * Add an organization
+     * @param organization to add
+     * @return true if was added or false if not
+     */
+    private boolean addOrganization(Organization organization) {
+        return listOrganizations.add(organization);
     }
 
-    public boolean registOrganization(Organization org) {
-        if (this.validatesOrganization(org)) {
+    /**
+     * Regists one organization
+     * @param organization to regist
+     * @return true if regist or false if not
+     */
+    public boolean registOrganization(Organization organization) {
+        if (this.validatesOrganization(organization)) {
             /*
             if (this.validaOrganizacao(oOrganizacao)) {                 NECESSARY?!?!?!
             Colaborador oGestor = oOrganizacao.getGestor();             NECESSARY?!?!?!
              */
-            return addOrganization(org);
+            return addOrganization(organization);
         }
         return false;
     }
 
-    public Organization newOrganization(String name, String NIF) {
-        return new Organization(name, NIF);
+    /**
+     * New instance of organization with the necessary data
+     * @param name of Organization
+     * @param NIF of Organization
+     * @param collaborator of Organization
+     * @param manager of Organization
+     * @return
+     */
+    public Organization newOrganization(String name, String NIF, Collaborator collaborator, Manager manager) {
+        return new Organization(name, NIF, collaborator, manager);
     }
 
+    /**
+     * Regists a manager as a system user
+     * @param manager to regist
+     * @return true if registed or false if not
+     */
     public boolean registManagerAsUser(Manager manager) {
         this.platform = ApplicationPOT.getInstance().getPlatform();
 
@@ -83,6 +106,11 @@ public class RegistOrganization {
         return false;
     }
 
+    /**
+     * Regists a manager as a system user
+     * @param collab to regist
+     * @return true if registed or false if not
+     */
     public boolean registCollaboratorAsUser(Collaborator collab) {
         this.platform = ApplicationPOT.getInstance().getPlatform();
 
@@ -99,6 +127,12 @@ public class RegistOrganization {
         return false;
     }
 
+    /**
+     * Sends the password to the email
+     * @param email used
+     * @param password sent
+     * @return true if sent or false if not
+     */
     private boolean sendPassword(String email, Password password) {
         //                                                              TO IMPLEMENT THE CODE
         return false;

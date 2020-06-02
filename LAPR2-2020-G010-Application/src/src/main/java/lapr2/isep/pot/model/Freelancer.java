@@ -5,42 +5,42 @@ public class Freelancer {
     /**
      * Freelancer's id
      */
-    private String id;
+    private final String id;
 
     /**
      * Freelancer's name
      */
-    private String name;
+    private final String name;
 
     /**
      * Freelancer's level of expertise
      */
-    private String levelOfExpertise;
+    private final String levelOfExpertise;
 
     /**
      * Freelancer's email
      */
-    private String email;
+    private final String email;
 
     /**
      * Freelancer's NIF
      */
-    private String NIF;
+    private final String NIF;
 
     /**
      * Freelancer's Bank account
      */
-    private String bankAccountIBAN;
+    private final String bankAccountIBAN;
 
     /**
      * Freelancer's address
      */
-    private String address;
+    private final String address;
 
     /**
      * Freelancer's country
      */
-    private String country;
+    private final String country;
 
     /**
      * Initialize the Freelancer's information with the received data

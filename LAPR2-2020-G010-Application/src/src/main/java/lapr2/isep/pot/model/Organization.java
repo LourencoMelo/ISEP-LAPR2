@@ -10,31 +10,43 @@ public class Organization {
     /**
      * Organization's name
      */
-    private String name;
+    private final String name;
 
     /**
      * Organization's NIF
      */
-    private String NIF;
+    private final String NIF;
+
+    /**
+     * Organization's Collaborator
+     */
+    private final Collaborator collaborator;
+
+    /**
+     * Organization's Manager
+     */
+    private final Manager manager;
 
     /**
      *  Organization's task list
      */
-    private TaskList taskList;
+    private final TaskList taskList;
 
     /**
      *  Organization's collaborator list
      */
-    private CollaboratorList collaboratorList;
+    private final CollaboratorList collaboratorList;
 
     /**
      * Initialize the Organization's information with the received data
      * @param name Organization's name
      * @param NIF Organizaton's NIF
      */
-    public Organization(String name, String NIF) {
+    public Organization(String name, String NIF, Collaborator collaborator, Manager manager) {
         this.name = name;
         this.NIF = NIF;
+        this.manager = manager;
+        this.collaborator = collaborator;
         this.taskList = new TaskList();
         this.collaboratorList = new CollaboratorList();
     }

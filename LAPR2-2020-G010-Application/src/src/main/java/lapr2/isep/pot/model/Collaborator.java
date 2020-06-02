@@ -7,12 +7,12 @@ public class Collaborator {
     /**
      * Collaborator's name
      */
-    private String name;
+    private final String name;
 
     /**
      * Collaborator's email
      */
-    private String email;
+    private final String email;
 
     /**
      * Initialize the Collaborator's information with the received data

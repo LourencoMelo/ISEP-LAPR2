@@ -10,7 +10,7 @@ public class CollaboratorList {
     /**
      * Collaborator's list
      */
-    private List<Collaborator> collaboratorList;
+    private final List<Collaborator> collaboratorList;
 
     /**
      * Build a collaborator list

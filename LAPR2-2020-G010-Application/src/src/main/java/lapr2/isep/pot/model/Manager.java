@@ -7,12 +7,12 @@ public class Manager {
     /**
      * Manager's name
      */
-    private String name;
+    private final String name;
 
     /**
      * Manager's emailL
      */
-    private String email;
+    private final String email;
 
     /**
      * Initialize the Manager's information with the received data
@@ -21,6 +21,9 @@ public class Manager {
      * @param email Manager's name
      */
     public Manager(String name, String email) {
+        if(name == null || email == null || name.isEmpty() || email.isEmpty()) {
+            throw new IllegalArgumentException("Invalid argumentos - Null or empty");
+        }
         this.name = name;
         this.email = email;
     }
