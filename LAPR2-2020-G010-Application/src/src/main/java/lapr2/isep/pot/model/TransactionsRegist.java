@@ -1,9 +1,19 @@
 package lapr2.isep.pot.model;
 
+import java.util.ArrayList;
+
 /**
  * Class that registers the transactions receving a file of the type(.csv or .txt)
  */
 public class TransactionsRegist {
+    /**
+     * Size of the Parameters of the file.
+     */
+    private final int SIZE_PARAMETERS = 17;
+    /**
+     * Name of the Transaciton´s Regist File.
+     */
+    private static final String FILE_TRANSACTIONS_REGIST = "TransactionsRegist.txt";
     /**
      * Transactions ID.
      */
@@ -68,6 +78,11 @@ public class TransactionsRegist {
      * Freelancer´s country.
      */
     private String freelancerCountry;
+
+    /**
+     * ArrayList of the Transaction Regist.
+     */
+    private ArrayList<TransactionsRegist> listaGrausDeProficiencia = new ArrayList<TransactionsRegist>();
 
     /**
      * Returns the name of the file.
