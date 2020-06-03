@@ -7,13 +7,13 @@
 # Casos de Uso
 | UC  | Descrição                                                               |                   
 |:----|:------------------------------------------------------------------------|
-| UC1 | [Registar Organização](UC1/UC1_RegistarOrganizacao.md)   |
-| UC2 | [Definir Área de Atividade](UC2/UC2_DefinirArea.md)  |
-| UC3 | [Definir Categoria (de Tarefa)](UC3/UC3_DefinirCategoria.md)|
-| UC4 | [Especificar Competência Técnica](UC4/UC4_EspecificarCT.md)|
-| UC5 | [Especificar Colaborador de Organização](UC5/UC5_EspecificarColaborador.md) |
-| UC6 | [Especificar Tarefa](UC6/UC6_EspecificarTarefa.md)|
-| UC7 | [Registar Freelancer](UC7/UC7_RegistarFreelancer.md)|
-| UC8 | [Publicar Tarefa](UC8/UC8_PublicarTarefa.md)|
-| UC9 | [Efetuar Candidatura](UC9/UC9_EfetuarCandidatura.md)|
-| UC10 | [Seriar Anuncio](UC10/UC10_SeriarAnuncio.md)|
+| UC1 | [Register Freelancer](usecases/UC1/UC01_RegisterFreelancer.md)   |
+| UC2 | [Register Organization](usecases/UC2/UC2_RegisterOrganization.md)|
+| UC3 | [Task Creation](usecases/UC3/UC03 - Task Creation.md)|
+| UC4 | [Create payment transaction](usecases/UC4/UC_4_CreatePaymentTransaction.md)|
+| UC5 | [Receive file with transaction history](usecases/UC5/UC5_ReceiveFileWithTransactionHistory.md) |
+| UC6 | []()|
+| UC7 | []()|
+| UC8 | []()|
+| UC9 | []()|
+| UC10 | []()|
