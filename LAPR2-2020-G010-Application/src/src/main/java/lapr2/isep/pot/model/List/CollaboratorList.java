@@ -16,7 +16,7 @@ public class CollaboratorList {
      * Build a collaborator list
      */
     public CollaboratorList(){
-        collaboratorList = new ArrayList<>();
+        this.collaboratorList = new ArrayList<>();
     }
 
     /**

@@ -1,18 +1,30 @@
 package lapr2.isep.pot.model;
 
+import javafx.scene.control.Alert;
+import lapr2.isep.authorization.model.User;
+import lapr2.isep.pot.UI.console.utils.AlertUI;
+import lapr2.isep.pot.controller.ApplicationController;
+
 import java.util.Objects;
 
-public class Collaborator {
+public class Collaborator extends User {
+
+    /**
+     * Get the application controller instance
+     */
+    private ApplicationController applicationController = ApplicationController.getApplicationController();
 
     /**
      * Collaborator's name
      */
-    private final String name;
+    private String name;
 
     /**
      * Collaborator's email
      */
-    private final String email;
+    private String email;
+
+    private String password;
 
     /**
      * Initialize the Collaborator's information with the received data
@@ -21,8 +33,13 @@ public class Collaborator {
      * @param email Collaborator's email
      */
     public Collaborator(String name, String email) {
-        this.name = name;
-        this.email = email;
+        super(name, email);
+        if(name == null || email == null || name.isEmpty() || email.isEmpty()) {
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), "Error", "Incorrect manager's data. Verify again the insert data.");
+        } else {
+            this.name = name;
+            this.email = email;
+        }
     }
 
     /**

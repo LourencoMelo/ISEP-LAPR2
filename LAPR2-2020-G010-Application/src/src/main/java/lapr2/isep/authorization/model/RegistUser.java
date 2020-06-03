@@ -9,9 +9,9 @@ public class RegistUser {
 
     private final Set<User> listUsers = new HashSet<User>();
 
-    public User novoUtilizador(String name, String email, Password password)
+    public User novoUtilizador(String name, String email)
     {
-        return new User(name,email,password);
+        return new User(name,email);
     }
 
     public boolean addUtilizador(User user)

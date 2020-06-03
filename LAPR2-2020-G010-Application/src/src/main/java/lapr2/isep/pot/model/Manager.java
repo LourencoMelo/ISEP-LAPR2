@@ -1,18 +1,30 @@
 package lapr2.isep.pot.model;
 
+import javafx.scene.control.Alert;
+import lapr2.isep.authorization.model.User;
+import lapr2.isep.pot.UI.console.utils.AlertUI;
+import lapr2.isep.pot.controller.ApplicationController;
+
 import java.util.Objects;
 
-public class Manager {
+public class Manager extends User {
+
+    /**
+     * Get the application controller instance
+     */
+    private ApplicationController applicationController = ApplicationController.getApplicationController();
 
     /**
      * Manager's name
      */
-    private final String name;
+    private String name;
 
     /**
      * Manager's emailL
      */
-    private final String email;
+    private String email;
+
+    private String password;
 
     /**
      * Initialize the Manager's information with the received data
@@ -21,11 +33,13 @@ public class Manager {
      * @param email Manager's name
      */
     public Manager(String name, String email) {
+        super(name, email);
         if(name == null || email == null || name.isEmpty() || email.isEmpty()) {
-            throw new IllegalArgumentException("Invalid argumentos - Null or empty");
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), "Error", "Incorrect manager's data. Verify again the insert data.");
+        } else {
+            this.name = name;
+            this.email = email;
         }
-        this.name = name;
-        this.email = email;
     }
 
     /**

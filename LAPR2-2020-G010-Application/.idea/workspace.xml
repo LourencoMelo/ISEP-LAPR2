@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="" />
+    <list default="true" id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/List/ManagerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/fxml/RegistOrganizationScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/fxml/RegistOrganizationScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/FacadeAuthorization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/FacadeAuthorization.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/model/RegistUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/model/RegistUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/LogInUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/LogInUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationPOT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationPOT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/RegistOrganizationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/RegistOrganizationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/TaskCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/TaskCreationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/AdminUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Collaborator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Collaborator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/List/TaskList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/List/TaskList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Organization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Organization.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Platform.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Platform.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/RegistOrganization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/RegistOrganization.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/FacadeAuthorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/FacadeAuthorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/RegistUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/RegistUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/LogInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/LogInUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationPOT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationPOT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/RegistOrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/RegistOrganizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/TaskCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/TaskCreationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/AdminUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Collaborator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Collaborator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/ExternAlgorithmPasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/ExternAlgorithmPasswordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/List/CollaboratorList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/List/CollaboratorList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/List/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/List/TaskList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Organization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/RegistOrganization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/RegistOrganization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/resources/fxml/RegistOrganizationScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/resources/fxml/RegistOrganizationScene.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +49,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,6 +123,8 @@
       <workItem from="1590973929625" duration="2150000" />
       <workItem from="1591054690034" duration="1957000" />
       <workItem from="1591172170710" duration="98000" />
+      <workItem from="1591200359746" duration="14875000" />
+      <workItem from="1591220986674" duration="240000" />
     </task>
     <servers />
   </component>
@@ -103,83 +144,88 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1590882124825" />
-    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1591047343893">
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1591212068296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="582" y="175" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590883367322" />
-    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591047343893" />
-    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591055209940">
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212068296" />
+    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591200786517">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591055209940" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590881083426">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591200786517" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591215522629">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1590881083426" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215522629" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591215494876">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215494876" />
     <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591044286228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591044286228" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591056647665">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591215241145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590882143557" />
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056647665" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1591172267855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215241145" />
+    <state width="1877" height="235" key="GridCell.Tab.0.bottom" timestamp="1591221226910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
+    <state width="1877" height="235" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591221226910" />
     <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1591172267855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="235" key="GridCell.Tab.0.center" timestamp="1591221226910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
+    <state width="1877" height="235" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591221226910" />
     <state width="1877" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1591172267855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="235" key="GridCell.Tab.0.left" timestamp="1591221226910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
+    <state width="1877" height="235" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591221226910" />
     <state width="1877" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1591172267855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="235" key="GridCell.Tab.0.right" timestamp="1591221226910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
+    <state width="1877" height="235" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591221226910" />
     <state width="1877" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1591056648781">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1591217871965">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1591056648781">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591217871965" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1591217871964">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1591056648781">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591217871964" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1591217871964">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1591056648781">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591217871964" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1591217871965">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591056648781" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591217871965" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1591044524353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591044524353" />
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1591034411775">
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1591209747047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591034411775" />
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591209747047" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1590758196238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590758196238" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1590975603800">
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1591209770290">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590975603800" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591209770290" />
   </component>
 </project>

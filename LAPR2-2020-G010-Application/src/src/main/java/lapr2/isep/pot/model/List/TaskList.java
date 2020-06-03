@@ -78,4 +78,11 @@ public class TaskList {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "TaskList{" +
+                "taskList=" + taskList +
+                '}';
+    }
 }
