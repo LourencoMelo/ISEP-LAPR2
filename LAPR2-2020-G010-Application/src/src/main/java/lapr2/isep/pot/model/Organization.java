@@ -10,32 +10,32 @@ public class Organization {
     /**
      * Organization's name
      */
-    private final String name;
+    private String name;
 
     /**
      * Organization's NIF
      */
-    private final String NIF;
+    private String NIF;
 
     /**
      * Organization's Collaborator
      */
-    private final Collaborator collaborator;
+    private Collaborator collaborator;
 
     /**
      * Organization's Manager
      */
-    private final Manager manager;
+    private Manager manager;
 
     /**
      *  Organization's task list
      */
-    private final TaskList taskList;
+    private TaskList taskList;
 
     /**
      *  Organization's collaborator list
      */
-    private final CollaboratorList collaboratorList;
+    private CollaboratorList collaboratorList;
 
     /**
      * Initialize the Organization's information with the received data
@@ -49,6 +49,11 @@ public class Organization {
         this.collaborator = collaborator;
         this.taskList = new TaskList();
         this.collaboratorList = new CollaboratorList();
+    }
+
+    public Organization(String name, String NIF) {
+        this.name = name;
+        this.NIF = NIF;
     }
 
     /**
@@ -110,4 +115,16 @@ public class Organization {
         return (Objects.equals(NIF, obj.NIF));
     }
 
+    @Override
+    public String toString() {
+        return String.format("Organization: " +
+                "\n\t Name: %s" +
+                "\n\t NIF: %s" +
+                "\n\t Manager's name: %s" +
+                "\n\t Manager's email: %s" +
+                "\n\t Collaborator's name: %s" +
+                "\n\t Collaborator's email: %s" +
+                "\n\t Lista de tarefas: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
+
+    }
 }

@@ -14,7 +14,7 @@ public class TaskCreationController {
     /**
      * Platform
      */
-    private final Platform platform;
+    //private final Platform platform;
 
     /**
      * Task
@@ -25,7 +25,7 @@ public class TaskCreationController {
      * Creates a task creation controller
      */
     public TaskCreationController(){
-        this.platform = ApplicationPOT.getInstance().getPlatform();
+        //this.platform = ApplicationPOT.getInstance().getPlatform();
     }
 
     /**

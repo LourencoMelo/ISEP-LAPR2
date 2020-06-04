@@ -10,13 +10,13 @@ public class FacadeAuthorization {
     private final RegistUser users = new RegistUser();
     private final UserSession session = null;
 
-    public boolean registUser(String name, String email, Password password)
+    public boolean registUser(String name, String email)
     {
-        User user = this.users.novoUtilizador(name,email,password);
+        User user = this.users.novoUtilizador(name,email);
         return this.users.addUtilizador(user);
     }
 
-    /**
+    /*
      * Returns current user session
      *
      * @return current session

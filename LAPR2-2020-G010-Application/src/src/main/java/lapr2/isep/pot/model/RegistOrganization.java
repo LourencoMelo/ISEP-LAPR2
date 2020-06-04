@@ -1,6 +1,8 @@
 package lapr2.isep.pot.model;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import lapr2.isep.authorization.FacadeAuthorization;
+import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.controller.ApplicationPOT;
 import lapr2.isep.pot.model.List.CollaboratorList;
 import sun.security.util.Password;
@@ -31,6 +33,15 @@ public class RegistOrganization {
     private ExternAlgorithmPasswordGenerator algorithm;
 
     /**
+     * Collaborator's password
+     */
+    private String collabPassword;
+
+    /**
+     *
+     */
+
+    /**
      * Initialize an Organization Regist creating a list of organizations
      */
     public RegistOrganization() {
@@ -53,7 +64,7 @@ public class RegistOrganization {
      * @param organization to add
      * @return true if was added or false if not
      */
-    private boolean addOrganization(Organization organization) {
+    public boolean addOrganization(Organization organization) {
         return listOrganizations.add(organization);
     }
 
@@ -86,12 +97,21 @@ public class RegistOrganization {
     }
 
     /**
+     * If has the organization
+     * @param organization to compare
+     * @return true if it has or false if not
+     */
+    public boolean hasOrganization(Organization organization) {
+        return listOrganizations.contains(organization);
+    }
+
+    /**
      * Regists a manager as a system user
      * @param manager to regist
      * @return true if registed or false if not
      */
-    public boolean registManagerAsUser(Manager manager) {
-        this.platform = ApplicationPOT.getInstance().getPlatform();
+    /*public boolean registManagerAsUser(Manager manager) {
+        //this.platform = ApplicationPOT.getInstance().getPlatform();
 
         String managerName = manager.getName();
         String managerEmail = manager.getEmail();                                            //IMPROVE THIS METHOD
@@ -106,26 +126,19 @@ public class RegistOrganization {
         return false;
     }
 
+     */
+
     /**
      * Regists a manager as a system user
      * @param collab to regist
      * @return true if registed or false if not
      */
-    public boolean registCollaboratorAsUser(Collaborator collab) {
-        this.platform = ApplicationPOT.getInstance().getPlatform();
+    /*public void registCollaboratorAsUser(Collaborator collab) {
 
-        String collaboratorName = collab.getName();                       //WHY THIS ERRORS?!
-        String collaboratorEmail = collab.getEmail();                                   //IMPROVE THIS METHOD
-
-        this.algorithm = this.platform.getAlgorithmPasswordGenerator();
-
-        String password = String.valueOf(this.algorithm.generatePassword(collaboratorName, collaboratorEmail));
-
-        this.facadeAuthorization = platform.getFacadeAutorization();
-
-        //return (facadeAuthorization.registUserWithRole(managerName, managerEmail, password, new String[] {Constants.ORGANIZATION_MANAGER_ROLE}));
-        return false;
+        User user = new User(collab.getName(), collab.getEmail(), password);
     }
+
+     */
 
     /**
      * Sends the password to the email
@@ -157,4 +170,7 @@ public class RegistOrganization {
         return orgReturn;
     }
 
+    public List<Organization> getListOrganizations() {
+        return listOrganizations;
+    }
 }

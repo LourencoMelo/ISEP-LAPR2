@@ -2,17 +2,14 @@ package lapr2.isep.pot.model;
 
 import lapr2.isep.authorization.FacadeAuthorization;
 
-public class Platform implements ExternAlgorithmPasswordGenerator {
+import java.util.List;
+
+public class Platform {
 
     /**
      * FacadeAuthorization's initialization
      */
     private final FacadeAuthorization facadeAuthorization;
-
-    /**
-     * Platform's designation
-     */
-    private String designation;
 
     /**
      * Regist Freelancer instance
@@ -25,13 +22,12 @@ public class Platform implements ExternAlgorithmPasswordGenerator {
      */
     private Organization organization;
 
-    public Platform(String name) {                                              //INCOMPLETE
-        if ((name == null) ||
-                (name.isEmpty()))
-            throw new IllegalArgumentException("None of the arguments can be null or empty.");
+    private RegistOrganization registOrganization;
 
+    public Platform() {                                              //INCOMPLETE
         this.facadeAuthorization = new FacadeAuthorization();
         this.registFreelancer = new RegistFreelancer();
+        this.registOrganization = new RegistOrganization();
     }
 
     public ExternAlgorithmPasswordGenerator getAlgorithmPasswordGenerator() {
@@ -40,11 +36,6 @@ public class Platform implements ExternAlgorithmPasswordGenerator {
 
     public FacadeAuthorization getFacadeAutorization() {
         return facadeAuthorization;
-    }
-
-    @Override
-    public ExternAlgorithmPasswordGenerator generatePassword(String name, String email) {
-        return null;                                                            //WRITE CODE IF NECESSARY
     }
 
     /**
@@ -62,5 +53,22 @@ public class Platform implements ExternAlgorithmPasswordGenerator {
      */
     public RegistFreelancer getRegistFreelancer(){
         return this.registFreelancer;
+    }
+
+    public boolean addOrganization(Organization organization) {
+        return registOrganization.addOrganization(organization);
+    }
+
+    /**
+     * confirms if the the list has the organization
+     * @param organization to confirm
+     * @return true if has or false if not
+     */
+    public boolean hasOrganization(Organization organization) {
+        return registOrganization.hasOrganization(organization);
+    }
+
+    public List<Organization> getListOrganizations() {
+        return registOrganization.getListOrganizations();
     }
 }

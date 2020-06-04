@@ -19,10 +19,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
-import lapr2.isep.pot.model.AdminUser;
 
 
 public class LogInUI implements Initializable {
+
+    public static final String EMAIL_ADMIN = "admin.t4j@business.com";
+
+    public static final String PASSWORD_ADMIN = "admin123";
 
     static ApplicationController applicationController;
 
@@ -60,18 +63,20 @@ public class LogInUI implements Initializable {
 
     @FXML
     void LogInOnAction(ActionEvent event) {                 /** COMMENTED TO BE EASIER TO CHECK OTHER WINDOWS */
-        //if (emailTxtField.getText().equals(AdminUser.emailAdmin) && passwordField.getText().equals(AdminUser.passwordAdmin)) {
-            //System.out.println("Registe uma organização!");
-            registOrganizationStage.show();
-        //} else {
-          //  Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, MainApp.APP_TITLE, "Something went wrong.", "Email or password incorrect.");
-          // alert.show();
-        //}
+            if (applicationController.userExist(emailTxtField.getText(), passwordField.getText()) || !isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
+                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Email or password incorrect.");
+                alert.show();
+            } else {
+                if (isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
+                    System.out.println("Registe uma organização!");
+                    registOrganizationStage.show();
+                }
+            }
     }
 
     @FXML
     void XOnAction(ActionEvent event) {
-        Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, MainApp.APP_TITLE,
+        Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, applicationController.getAppName(),
                 "Action confirmation.", "Do you really want to close the application?");
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
@@ -109,5 +114,9 @@ public class LogInUI implements Initializable {
 
     public static ApplicationController getApplicationController() {
         return applicationController;
+    }
+
+    public boolean isAdminLoggingIn(String email, String password) {
+        return email.equals(EMAIL_ADMIN) && password.equals(PASSWORD_ADMIN);
     }
 }
