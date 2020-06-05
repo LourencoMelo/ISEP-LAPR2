@@ -19,7 +19,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import lapr2.isep.pot.model.Collaborator;
+=======
 import lapr2.isep.pot.controller.RegistOrganizationController;
+>>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
 
 
 public class LogInUI implements Initializable {
