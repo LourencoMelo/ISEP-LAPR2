@@ -81,8 +81,6 @@ public class TaskList {
 
     @Override
     public String toString() {
-        return "TaskList{" +
-                "taskList=" + taskList +
-                '}';
+        return String.format("\n%s", taskList);
     }
 }

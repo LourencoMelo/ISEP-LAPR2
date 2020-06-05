@@ -118,6 +118,10 @@ public class Task {
      */
     @Override
     public String toString() {
-        return String.format("Task: Id- %s '\n'Brief Description- %s '\n'Time Duration- %f '\n'Cost Per Hour- %f '\n'Category- %s", id, description, timeDuration, costPerHour, category);
+        return String.format("Task: Id - %s " +
+                "\nBrief Description - %s " +
+                "\nTime Duration - %f " +
+                "\nCost Per Hour - %f " +
+                "\nCategory - %s", id, description, timeDuration, costPerHour, category);
     }
 }

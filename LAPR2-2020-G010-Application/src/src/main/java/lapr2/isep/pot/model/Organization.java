@@ -1,8 +1,10 @@
 package lapr2.isep.pot.model;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import lapr2.isep.pot.model.List.CollaboratorList;
 import lapr2.isep.pot.model.List.TaskList;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class Organization {
@@ -33,25 +35,25 @@ public class Organization {
     private TaskList taskList;
 
     /**
-     *  Organization's collaborator list
-     */
-    private CollaboratorList collaboratorList;
-
-    /**
      * Initialize the Organization's information with the received data
      * @param name Organization's name
      * @param NIF Organizaton's NIF
      */
     public Organization(String name, String NIF, Collaborator collaborator, Manager manager) {
+        if (name == null || NIF == null || collaborator == null || manager == null || name.isEmpty() || NIF.isEmpty()) {
+            throw new IllegalArgumentException("Arguments cant be null or empty.");
+        }
         this.name = name;
         this.NIF = NIF;
         this.manager = manager;
         this.collaborator = collaborator;
         this.taskList = new TaskList();
-        this.collaboratorList = new CollaboratorList();
     }
 
     public Organization(String name, String NIF) {
+        if (name == null || NIF == null || name.isEmpty() || NIF.isEmpty()) {
+            throw new IllegalArgumentException("Arguments cant be null or empty.");
+        }
         this.name = name;
         this.NIF = NIF;
     }
@@ -62,7 +64,7 @@ public class Organization {
      * @param email Collaborator's email
      * @return  new Collaborator
      */
-    public static Collaborator newCollaborator(String name, String email) {
+    public static Collaborator newCollaborator(String name, String email) throws IOException {
         return new Collaborator(name, email);
     }
 
@@ -72,7 +74,7 @@ public class Organization {
      * @param email Manager's email
      * @return new Manager
      */
-    public static Manager newManager(String name, String email) {
+    public static Manager newManager(String name, String email) throws IOException {
         return new Manager(name, email);
     }
 
@@ -83,15 +85,6 @@ public class Organization {
      */
     public TaskList getTaskList(){
         return this.taskList;
-    }
-
-    /**
-     * Returns Collaborator's list.
-     *
-     * @return collaborator list
-     */
-    public CollaboratorList getCollaboratorList(){
-        return this.collaboratorList;
     }
 
     /**
@@ -124,7 +117,7 @@ public class Organization {
                 "\n\t Manager's email: %s" +
                 "\n\t Collaborator's name: %s" +
                 "\n\t Collaborator's email: %s" +
-                "\n\t Lista de tarefas: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
+                "\n\t Task's list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
 
     }
 }

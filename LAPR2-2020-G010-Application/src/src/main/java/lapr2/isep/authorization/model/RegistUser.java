@@ -2,6 +2,7 @@ package lapr2.isep.authorization.model;
 
 import sun.security.util.Password;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,8 +10,7 @@ public class RegistUser {
 
     private final Set<User> listUsers = new HashSet<User>();
 
-    public User novoUtilizador(String name, String email)
-    {
+    public User novoUtilizador(String name, String email) throws IOException {
         return new User(name,email);
     }
 

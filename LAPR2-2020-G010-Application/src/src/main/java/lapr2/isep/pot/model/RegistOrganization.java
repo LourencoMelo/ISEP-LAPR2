@@ -151,25 +151,6 @@ public class RegistOrganization {
         return false;
     }
 
-    /**
-     * Searches for the Collaborator's Organization
-     *
-     * @param email Collaborator's email
-     * @return Organization in search
-     */
-    public Organization getOrganizationByUserEmail(String email){
-        Organization orgReturn = null;
-
-        for (int i=0;i<this.listOrganizations.size();i++){
-            Organization org = this.listOrganizations.get(i);
-            CollaboratorList cl = org.getCollaboratorList();
-            boolean found = cl.hasCollaboratorWithEmail(email);
-            if (found)
-                orgReturn = org;
-        }
-        return orgReturn;
-    }
-
     public List<Organization> getListOrganizations() {
         return listOrganizations;
     }

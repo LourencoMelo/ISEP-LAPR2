@@ -2,6 +2,7 @@ package lapr2.isep.pot.controller;
 
 import lapr2.isep.pot.model.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,7 +38,7 @@ public class RegistOrganizationController {
      * @param emailManager manager's email
      * @return
      */
-    public boolean newOrganization(String name, String NIF, String nameCollab, String emailCollab, String nameManager, String emailManager) {                       //Is necessary to have password by param?
+    public boolean newOrganization(String name, String NIF, String nameCollab, String emailCollab, String nameManager, String emailManager) throws IOException {                       //Is necessary to have password by param?
         //try
         //{
         Collaborator collaborator = Organization.newCollaborator(nameCollab, emailCollab);

@@ -1,15 +1,17 @@
 package lapr2.isep.authorization.model;
 
-import javafx.scene.control.Alert;
-import lapr2.isep.pot.UI.console.utils.AlertUI;
 import lapr2.isep.pot.controller.ApplicationController;
+import lapr2.isep.pot.model.EmailFiles;
 import lapr2.isep.pot.model.ExternAlgorithmPasswordGenerator;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class User {
+
+    PrintWriter out = new PrintWriter(new File("files\\Emails.txt"));
 
     /**
      * Get the application controller instance
@@ -20,15 +22,16 @@ public class User {
     private final String password;
     private static List<User> listUsers = new ArrayList<>();
 
-    public User(String name, String email) {
+    public User(String name, String email) throws IOException {
         if(name == null || email == null || name.isEmpty() || email.isEmpty()) {
-            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), "Error", "Incorrect manager's data. Verify again the insert data.");
+            throw new IllegalArgumentException();
         }
         this.name = name;
         this.email = email;
         this.password = generatePassword();
         listUsers.add(this);
-        System.out.println(String.format("User called %s has %s as password", this.name, this.password));
+        EmailFiles.writeToAFile(listUsers);
+        //sendEmail(this.name, this.email, this.password);
     }
 
     public String getName() {
@@ -79,7 +82,17 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%s - %s", this.name, this.email);
+        return String.format("To: %s" +
+                "\nSubject: Registration to T4J" +
+                "\n  Message:" +
+                "\n\t%s had just registered to T4J with the following data: " +
+                "\n\tEmail: %s" +
+                "\n\tPassword: %s" +
+                "\n" +
+                "\n" +
+                "Best regards," +
+                "\n T4J Administrator." +
+                "\n-----------------------------------------------------------------",email, name, email, password);
     }
 
     public String getPassword() {
@@ -88,5 +101,21 @@ public class User {
 
     public static List<User> getListUsers() {
         return listUsers;
+    }
+
+    public void sendEmail(String name, String email, String password) throws IOException {
+        out.printf("To: %s" +
+                "\n  Subject: Registration to T4J" +
+                "\n  Message:" +
+                "\n\t%s had just registered to T4J with the following data: " +
+                "\n\tEmail: %s" +
+                "\n\tPassword: %s" +
+                "\n" +
+                "\n" +
+                "Best regards," +
+                "\n T4J Administrator." +
+                "\n-----------------------------------------------------------------",email, name, email, password);
+        System.out.println("Ficheiro criado.");
+        out.close();
     }
 }

@@ -5,13 +5,14 @@ import lapr2.isep.authorization.model.User;
 import lapr2.isep.authorization.model.UserSession;
 import sun.security.util.Password;
 
+import java.io.IOException;
+
 public class FacadeAuthorization {
 
     private final RegistUser users = new RegistUser();
     private final UserSession session = null;
 
-    public boolean registUser(String name, String email)
-    {
+    public boolean registUser(String name, String email) throws IOException {
         User user = this.users.novoUtilizador(name,email);
         return this.users.addUtilizador(user);
     }

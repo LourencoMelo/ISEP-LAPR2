@@ -29,7 +29,7 @@ public class LogInUI implements Initializable {
 
     static ApplicationController applicationController;
 
-    private Stage registOrganizationStage;
+    private Stage administratorMenuStage;
 
     double x = 0;
     double y = 0;
@@ -63,15 +63,16 @@ public class LogInUI implements Initializable {
 
     @FXML
     void LogInOnAction(ActionEvent event) {                 /** COMMENTED TO BE EASIER TO CHECK OTHER WINDOWS */
-            if (applicationController.userExist(emailTxtField.getText(), passwordField.getText()) || !isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
-                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Email or password incorrect.");
-                alert.show();
-            } else {
-                if (isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
-                    System.out.println("Registe uma organização!");
-                    registOrganizationStage.show();
-                }
-            }
+//            if (applicationController.userExist(emailTxtField.getText(), passwordField.getText()) || !isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
+//                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Email or password incorrect.");
+//                alert.show();
+//            } else {
+//                if (isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
+//                    System.out.println("Registe uma organização!");
+//                    administratorMenuStage.show();
+//                }
+//            }
+        administratorMenuStage.show();
     }
 
     @FXML
@@ -90,25 +91,27 @@ public class LogInUI implements Initializable {
         // TODO
         applicationController = new ApplicationController();
         try {
-            //<editor-fold desc="RegistOrganization scene">
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegistOrganizationScene.fxml"));
+            //<editor-fold desc="AdministratorMenu scene">
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdministratorMenuScene.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
 
-            registOrganizationStage = new Stage();
-            registOrganizationStage.initModality(Modality.APPLICATION_MODAL);
-            registOrganizationStage.getIcons().add(new Image("file:images\\t4j.jpg"));
-            registOrganizationStage.setTitle("Regist Organization");
-            registOrganizationStage.setResizable(false);
-            registOrganizationStage.setScene(scene);
-            registOrganizationStage.initStyle(StageStyle.TRANSPARENT);
+            administratorMenuStage = new Stage();
+            administratorMenuStage.initModality(Modality.APPLICATION_MODAL);
+            administratorMenuStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            administratorMenuStage.setTitle("Regist Organization");
+            administratorMenuStage.setResizable(false);
+            administratorMenuStage.setScene(scene);
+            administratorMenuStage.initStyle(StageStyle.TRANSPARENT);
 
             applicationController = getApplicationController();
-            RegistOrganizationUI registOrganizationUI = loader.getController();
-            registOrganizationUI.associateParentUI(this);
+            AdministratorMenuUI administratorMenuUI = loader.getController();
+            administratorMenuUI.associateParentUI(this);
             //</editor-fold>"
-        }catch (IOException ex) { AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error.", ex.getMessage());
+        }catch (IOException ex) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error.", ex.getMessage());
+            alert.show();
         }
     }
 

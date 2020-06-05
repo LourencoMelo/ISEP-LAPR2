@@ -28,20 +28,4 @@ public class CollaboratorList {
         return collaboratorList;
     }
 
-    /**
-     * Searches the list for the Collaborator
-     *
-     * @param email Collaborator's email
-     * @return true, when finds the same Collaborator's email
-     */
-    public boolean hasCollaboratorWithEmail (String email){
-        boolean found = false;
-        for (int i=0; i<this.collaboratorList.size(); i++){
-            Collaborator colab = this.collaboratorList.get(i);
-            found = colab.hasEmail(email);
-            if (found)
-                break;
-        }
-        return found;
-    }
 }

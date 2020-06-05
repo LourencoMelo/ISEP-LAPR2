@@ -1,0 +1,63 @@
+-----------------------------------------------------------------
+Email sents with user informations:
+-----------------------------------------------------------------
+To: carly.rib.1990@business.com
+Subject: Registration to T4J
+  Message:
+	Carla Ribeiro had just registered to T4J with the following data: 
+	Email: carly.rib.1990@business.com
+	Password: A4cHP5yA
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: jony.santos@business.com
+Subject: Registration to T4J
+  Message:
+	João Santos had just registered to T4J with the following data: 
+	Email: jony.santos@business.com
+	Password: jBUjs0jm
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: maria.tania@4every1.com
+Subject: Registration to T4J
+  Message:
+	Tânia Maria had just registered to T4J with the following data: 
+	Email: maria.tania@4every1.com
+	Password: 2Q6be7UH
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: joana.food4Every1@4every1.com
+Subject: Registration to T4J
+  Message:
+	Joana Soares had just registered to T4J with the following data: 
+	Email: joana.food4Every1@4every1.com
+	Password: 9sBSl7sb
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: cu.de.melanz.joeinanz@tuabelhz.com
+Subject: Registration to T4J
+  Message:
+	Joana Cu De Melanz had just registered to T4J with the following data: 
+	Email: cu.de.melanz.joeinanz@tuabelhz.com
+	Password: 0mkSggyD
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: batata.gabriela@tuabelhz.com
+Subject: Registration to T4J
+  Message:
+	Gabriela Batata had just registered to T4J with the following data: 
+	Email: batata.gabriela@tuabelhz.com
+	Password: bH1WBqcp
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
