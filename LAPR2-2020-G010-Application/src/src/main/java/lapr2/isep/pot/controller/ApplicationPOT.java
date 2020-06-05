@@ -5,11 +5,12 @@ import lapr2.isep.authorization.model.UserSession;
 import lapr2.isep.pot.model.Constants;
 import lapr2.isep.pot.model.Platform;
 
+import java.io.Serializable;
 import java.util.Properties;
 
 import static java.lang.System.getProperties;
 
-public class ApplicationPOT {
+public class ApplicationPOT implements Serializable {
 
     /*//private final Platform platform;
     //private final FacadeAuthorization facadeAuthorization;

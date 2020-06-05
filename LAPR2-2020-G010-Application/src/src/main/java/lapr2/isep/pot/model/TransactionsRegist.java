@@ -1,11 +1,12 @@
 package lapr2.isep.pot.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Class that registers the transactions receving a file of the type(.csv or .txt)
  */
-public class TransactionsRegist {
+public class TransactionsRegist implements Serializable {
     /**
      * Size of the Parameters of the file.
      */

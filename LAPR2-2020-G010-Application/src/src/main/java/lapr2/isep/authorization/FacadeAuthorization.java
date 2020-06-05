@@ -6,8 +6,9 @@ import lapr2.isep.authorization.model.UserSession;
 import sun.security.util.Password;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class FacadeAuthorization {
+public class FacadeAuthorization implements Serializable {
 
     private final RegistUser users = new RegistUser();
     private final UserSession session = null;

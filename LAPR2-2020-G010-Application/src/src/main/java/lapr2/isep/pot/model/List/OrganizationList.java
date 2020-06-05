@@ -3,10 +3,11 @@ package lapr2.isep.pot.model.List;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import lapr2.isep.pot.model.Organization;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrganizationList {
+public class OrganizationList implements Serializable {
 
     /**
      * Inicialização da lista de organizações

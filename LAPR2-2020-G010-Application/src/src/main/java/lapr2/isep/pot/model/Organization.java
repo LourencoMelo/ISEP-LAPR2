@@ -5,9 +5,10 @@ import lapr2.isep.pot.model.List.CollaboratorList;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Organization {
+public class Organization implements Serializable {
 
     /**
      * Organization's name
@@ -118,6 +119,8 @@ public class Organization {
                 "\n\t Collaborator's name: %s" +
                 "\n\t Collaborator's email: %s" +
                 "\n\t Task's list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
-
     }
+
+
+
 }

@@ -1,6 +1,8 @@
 package lapr2.isep.pot.model;
 
-public class Freelancer {
+import java.io.Serializable;
+
+public class Freelancer implements Serializable {
 
     /**
      * Freelancer's id

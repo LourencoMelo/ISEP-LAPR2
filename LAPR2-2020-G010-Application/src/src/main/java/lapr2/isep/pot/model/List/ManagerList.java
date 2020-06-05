@@ -1,4 +1,6 @@
 package lapr2.isep.pot.model.List;
 
-public class ManagerList {
+import java.io.Serializable;
+
+public class ManagerList implements Serializable {
 }
