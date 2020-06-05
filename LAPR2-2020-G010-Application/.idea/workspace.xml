@@ -149,6 +149,7 @@
       <workItem from="1591310273005" duration="9000" />
       <workItem from="1591312479149" duration="3411000" />
       <workItem from="1591315906573" duration="17000" />
+<<<<<<< HEAD
 
       <workItem from="1591391820032" duration="3000" />
       <workItem from="1591391918734" duration="6714000" />
@@ -156,6 +157,8 @@
       <workItem from="1591356033002" duration="5507000" />
       <workItem from="1591391456134" duration="36000" />
 >>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
     </task>
     <servers />
   </component>
@@ -175,6 +178,7 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="488" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1590882124825" />
+<<<<<<< HEAD
 
     <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1591394742798">
 =======
@@ -182,16 +186,21 @@
     <state x="610" y="270" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591360981606" />
     <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1591313162062">
 >>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1591313162062">
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591394742798" />
     <state x="582" y="175" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590883367322" />
     <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591313162062" />
+<<<<<<< HEAD
 
     <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591399148806">
+=======
+    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591200786517">
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="414" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591399148806" />
     <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591200786517" />
 =======
     <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591357566711">
@@ -217,50 +226,62 @@
     </state>
     <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590882143557" />
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591308558509" />
+<<<<<<< HEAD
 
     <state width="1921" height="289" key="GridCell.Tab.0.bottom" timestamp="1591399838029">
 =======
     <state width="1877" height="197" key="GridCell.Tab.0.bottom" timestamp="1591363070881">
 >>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+    <state width="1877" height="197" key="GridCell.Tab.0.bottom" timestamp="1591315893201">
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591399838029" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
     <state width="1877" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630336" />
     <state width="1877" height="197" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591363070881" />
     <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
+<<<<<<< HEAD
 
     <state width="1921" height="289" key="GridCell.Tab.0.center" timestamp="1591399838029">
 =======
     <state width="1877" height="197" key="GridCell.Tab.0.center" timestamp="1591363070881">
 >>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+    <state width="1877" height="197" key="GridCell.Tab.0.center" timestamp="1591315893201">
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591399838029" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
     <state width="1877" height="197" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630336" />
     <state width="1877" height="197" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591363070881" />
     <state width="1877" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <state width="1921" height="289" key="GridCell.Tab.0.left" timestamp="1591399838029">
 =======
     <state width="1877" height="197" key="GridCell.Tab.0.left" timestamp="1591363070881">
 >>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+    <state width="1877" height="197" key="GridCell.Tab.0.left" timestamp="1591315893201">
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591399838029" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
     <state width="1877" height="197" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630335" />
     <state width="1877" height="197" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591363070881" />
     <state width="1877" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <state width="1921" height="289" key="GridCell.Tab.0.right" timestamp="1591399838029">
 =======
     <state width="1877" height="197" key="GridCell.Tab.0.right" timestamp="1591363070881">
 >>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
+=======
+    <state width="1877" height="197" key="GridCell.Tab.0.right" timestamp="1591315893201">
+>>>>>>> parent of 6e76748... [UC01] [Implementation]
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="289" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591399838029" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591172267855" />
     <state width="1877" height="197" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630336" />
     <state width="1877" height="197" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591363070881" />
