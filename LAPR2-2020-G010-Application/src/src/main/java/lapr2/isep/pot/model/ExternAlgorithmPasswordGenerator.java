@@ -1,10 +1,11 @@
 package lapr2.isep.pot.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public final class ExternAlgorithmPasswordGenerator {
+public final class ExternAlgorithmPasswordGenerator implements Serializable {
 
     private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
     private static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

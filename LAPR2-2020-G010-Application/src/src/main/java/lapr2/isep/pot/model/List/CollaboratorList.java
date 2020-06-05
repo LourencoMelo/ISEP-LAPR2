@@ -2,10 +2,11 @@ package lapr2.isep.pot.model.List;
 
 import lapr2.isep.pot.model.Collaborator;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollaboratorList {
+public class CollaboratorList implements Serializable {
 
     /**
      * Collaborator's list

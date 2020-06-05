@@ -4,7 +4,9 @@ import lapr2.isep.pot.model.List.TaskList;
 import lapr2.isep.pot.model.Platform;
 import lapr2.isep.pot.model.Task;
 
-public class TaskCreationController {
+import java.io.Serializable;
+
+public class TaskCreationController implements Serializable {
 
     /**
      * Task's List

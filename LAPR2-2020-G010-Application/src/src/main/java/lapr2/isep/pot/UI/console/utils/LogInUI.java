@@ -19,7 +19,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
+<<<<<<< HEAD
 import lapr2.isep.pot.model.Collaborator;
+=======
+import lapr2.isep.pot.controller.RegistOrganizationController;
+>>>>>>> 72b2bb9ebe42255b8e0cb9bcc76422952f3c1d31
 
 
 public class LogInUI implements Initializable {
@@ -29,7 +33,7 @@ public class LogInUI implements Initializable {
     public static final String PASSWORD_ADMIN = "admin123";
 
     static ApplicationController applicationController;
-
+    private RegistOrganizationController registOrganizationController;
     private Stage administratorMenuStage;
 
     private Stage collaboratorMenuStage;
@@ -86,6 +90,7 @@ public class LogInUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            registOrganizationController.saveInfo();
             System.exit(0);
         }
     }
@@ -94,6 +99,7 @@ public class LogInUI implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         applicationController = new ApplicationController();
+        registOrganizationController = RegistOrganizationController.getRegistOrganizationController();
         try {
             //<editor-fold desc="AdministratorMenu scene">
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdministratorMenuScene.fxml"));

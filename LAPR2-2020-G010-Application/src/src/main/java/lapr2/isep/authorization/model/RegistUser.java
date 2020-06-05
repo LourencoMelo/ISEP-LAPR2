@@ -3,10 +3,11 @@ package lapr2.isep.authorization.model;
 import sun.security.util.Password;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RegistUser {
+public class RegistUser implements Serializable {
 
     private final Set<User> listUsers = new HashSet<User>();
 

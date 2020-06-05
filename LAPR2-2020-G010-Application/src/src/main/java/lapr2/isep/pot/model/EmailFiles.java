@@ -5,10 +5,10 @@ import lapr2.isep.authorization.model.User;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-public class EmailFiles {
+public class EmailFiles implements Serializable {
 
     /**
      * Writes in a file the email sent to the user.
@@ -29,5 +29,4 @@ public class EmailFiles {
             e.printStackTrace();
         }
     }
-
 }

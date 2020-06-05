@@ -1,13 +1,12 @@
 package lapr2.isep.pot.controller;
 
+import lapr2.isep.pot.UI.console.utils.RegistOrganizationUI;
 import lapr2.isep.pot.model.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class RegistOrganizationController {
+public class RegistOrganizationController implements Serializable {
 
     /**
      * Plataform's initialization
@@ -22,12 +21,33 @@ public class RegistOrganizationController {
     /**
      * RegistOrganization's initialization
      */
-    private RegistOrganization registOrganization;
+    private RegistOrganization registOrganization = new RegistOrganization();
 
     public RegistOrganizationController() {
         platform = new Platform();
+        readInfo();
     }
 
+    private void readInfo() {
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File("dados.bin")));
+            registOrganization = (RegistOrganization) in.readObject();
+            in.close();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("ERRO: nao abriu o ficheiro para leitura");
+        }
+    }
+
+    public void saveInfo(){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(new File("dados.bin")));
+            out.writeObject(registOrganization);
+            out.close();
+        } catch (IOException e) {
+            System.out.println("ERRO: nao abriu o ficheiro para escrita");
+        }
+
+    }
     /**
      * creates new organization
      * @param name of organization
@@ -83,5 +103,9 @@ public class RegistOrganizationController {
 
     public List<Organization> getListOrganizations() {
         return platform.getListOrganizations();
+    }
+
+    public static RegistOrganizationController getRegistOrganizationController() {
+        return RegistOrganizationUI.getRegistOrganizationController();
     }
 }

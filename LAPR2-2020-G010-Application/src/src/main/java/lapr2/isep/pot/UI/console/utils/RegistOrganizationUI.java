@@ -2,18 +2,11 @@ package lapr2.isep.pot.UI.console.utils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegistOrganizationController;
 import lapr2.isep.pot.model.Collaborator;
@@ -30,7 +23,7 @@ public class RegistOrganizationUI implements Initializable {
 
     private ApplicationController applicationController = ApplicationController.getApplicationController();
 
-    private final RegistOrganizationController registOrganizationController = new RegistOrganizationController();
+    private static final RegistOrganizationController registOrganizationController = new RegistOrganizationController();
 
     double x = 0;
     double y = 0;
@@ -72,6 +65,7 @@ public class RegistOrganizationUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            registOrganizationController.saveInfo();
             System.exit(0);
         }
     }
@@ -124,7 +118,7 @@ public class RegistOrganizationUI implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // TODO
         //applicationController = new ApplicationController();
-
+        organizationsListVIew.getItems().setAll(registOrganizationController.getListOrganizations());
 
     }
 
@@ -135,5 +129,9 @@ public class RegistOrganizationUI implements Initializable {
         managerEmail.clear();
         collaboratorName.clear();
         collaboratorEmail.clear();
+    }
+
+    public static RegistOrganizationController getRegistOrganizationController() {
+        return registOrganizationController;
     }
 }

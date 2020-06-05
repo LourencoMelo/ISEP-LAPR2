@@ -2,9 +2,10 @@ package lapr2.isep.pot.model;
 
 import lapr2.isep.authorization.FacadeAuthorization;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Platform {
+public class Platform implements Serializable {
 
     /**
      * FacadeAuthorization's initialization

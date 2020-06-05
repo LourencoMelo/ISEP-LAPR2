@@ -7,10 +7,11 @@ import lapr2.isep.pot.controller.ApplicationPOT;
 import lapr2.isep.pot.model.List.CollaboratorList;
 import sun.security.util.Password;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegistOrganization {
+public class RegistOrganization implements Serializable {
 
     /**
      * FacadeAutorization's initialization

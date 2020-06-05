@@ -15,8 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
+import lapr2.isep.pot.controller.RegistOrganizationController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +27,7 @@ public class AdministratorMenuUI implements Initializable {
     private LogInUI logInUI;
 
     private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private RegistOrganizationController registOrganizationController;
 
     private Stage registOrganizationStage;
 
@@ -49,6 +50,7 @@ public class AdministratorMenuUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            registOrganizationController.saveInfo();
             System.exit(0);
         }
     }
@@ -90,6 +92,7 @@ public class AdministratorMenuUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        registOrganizationController = RegistOrganizationController.getRegistOrganizationController();
         //<editor-fold desc="RegistOrganization scene">
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegistOrganizationScene.fxml"));
         Parent root = null;
