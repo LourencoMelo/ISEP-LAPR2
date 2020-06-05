@@ -1,6 +1,8 @@
 package lapr2.isep.pot.model;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
 
     /**
      * Task's id

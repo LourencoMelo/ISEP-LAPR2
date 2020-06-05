@@ -4,9 +4,10 @@ import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.UI.console.utils.LogInUI;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ApplicationController {
+public class ApplicationController implements Serializable {
 
     public static ApplicationController getApplicationController() {
         return LogInUI.getApplicationController();

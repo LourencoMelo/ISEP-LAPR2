@@ -2,10 +2,11 @@ package lapr2.isep.pot.model.List;
 
 import lapr2.isep.pot.model.Task;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskList {
+public class TaskList implements Serializable {
 
     /**
      * Task's list

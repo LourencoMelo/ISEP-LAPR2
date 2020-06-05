@@ -6,9 +6,10 @@ import lapr2.isep.pot.UI.console.utils.AlertUI;
 import lapr2.isep.pot.controller.ApplicationController;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Manager extends User {
+public class Manager extends User implements Serializable {
 
     /**
      * Get the application controller instance

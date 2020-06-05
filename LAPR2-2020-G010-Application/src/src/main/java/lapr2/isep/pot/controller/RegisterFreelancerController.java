@@ -4,10 +4,11 @@ import lapr2.isep.pot.model.Freelancer;
 import lapr2.isep.pot.model.Platform;
 import lapr2.isep.pot.model.RegistFreelancer;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class RegisterFreelancerController {
+public class RegisterFreelancerController implements Serializable {
 
     /**
      * platform instance
