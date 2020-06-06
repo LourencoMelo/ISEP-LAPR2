@@ -1,0 +1,63 @@
+-----------------------------------------------------------------
+Email sents with user informations:
+-----------------------------------------------------------------
+To: dawdwaaw
+Subject: Registration to T4J
+  Message:
+	adawdaw had just registered to T4J with the following data: 
+	Email: dawdwaaw
+	Password: 1P2T5wUG
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: dawdawdw
+Subject: Registration to T4J
+  Message:
+	dawdaw had just registered to T4J with the following data: 
+	Email: dawdawdw
+	Password: x4f5CsDX
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: DAWdwaaw
+Subject: Registration to T4J
+  Message:
+	DAWDAWDAWdaw had just registered to T4J with the following data: 
+	Email: DAWdwaaw
+	Password: 3RAW00Fo
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: DAWDAWDAWDAWawdw
+Subject: Registration to T4J
+  Message:
+	AWDAWDAWDAWaw had just registered to T4J with the following data: 
+	Email: DAWDAWDAWDAWawdw
+	Password: CmJ7m6CB
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: dawdawdwadwadawdwadaw
+Subject: Registration to T4J
+  Message:
+	AWDAWDAWDAWDAWDAWDaw had just registered to T4J with the following data: 
+	Email: dawdawdwadwadawdwadaw
+	Password: w493op4p
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
+To: DAWDAWDAWDAdawdawdWawdw
+Subject: Registration to T4J
+  Message:
+	wadwadwadwadwad had just registered to T4J with the following data: 
+	Email: DAWDAWDAWDAdawdawdWawdw
+	Password: 0Kh6a3jo
+
+Best regards,
+ T4J Administrator.
+-----------------------------------------------------------------
