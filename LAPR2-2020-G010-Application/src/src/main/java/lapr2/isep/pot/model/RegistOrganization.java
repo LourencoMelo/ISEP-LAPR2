@@ -1,10 +1,6 @@
 package lapr2.isep.pot.model;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import lapr2.isep.authorization.FacadeAuthorization;
-import lapr2.isep.authorization.model.User;
-import lapr2.isep.pot.controller.ApplicationPOT;
-import lapr2.isep.pot.model.List.CollaboratorList;
 import sun.security.util.Password;
 
 import java.io.Serializable;
@@ -38,9 +34,6 @@ public class RegistOrganization implements Serializable {
      */
     private String collabPassword;
 
-    /**
-     *
-     */
 
     /**
      * Initialize an Organization Regist creating a list of organizations
@@ -155,4 +148,17 @@ public class RegistOrganization implements Serializable {
     public List<Organization> getListOrganizations() {
         return listOrganizations;
     }
+
+    public Organization getOrganizationByUserEmail(String email){
+        Organization orgReturn = null;
+
+        for (int i=0;i<this.listOrganizations.size();i++){
+            Organization org = this.listOrganizations.get(i);
+            boolean found = org.hasCollaboratorWithEmail(email);
+            if (found)
+                orgReturn = org;
+        }
+        return orgReturn;
+    }
+
 }

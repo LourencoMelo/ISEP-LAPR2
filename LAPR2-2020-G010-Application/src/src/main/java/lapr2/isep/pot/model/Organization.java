@@ -1,7 +1,5 @@
 package lapr2.isep.pot.model;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-import lapr2.isep.pot.model.List.CollaboratorList;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.IOException;
@@ -51,6 +49,11 @@ public class Organization implements Serializable {
         this.taskList = new TaskList();
     }
 
+    /**
+     * Initialize the Organization's information with the received data
+     * @param name Organization's name
+     * @param NIF Organizaton's NIF
+     */
     public Organization(String name, String NIF) {
         if (name == null || NIF == null || name.isEmpty() || NIF.isEmpty()) {
             throw new IllegalArgumentException("Arguments cant be null or empty.");
@@ -80,12 +83,54 @@ public class Organization implements Serializable {
     }
 
     /**
+     * Returns the Organization Collaborator
+     *
+     * @return Collaborator
+     */
+    public Collaborator getCollaborator() {
+        return collaborator;
+    }
+
+    /**
      * Returns Task's list.
      *
      * @return task list
      */
     public TaskList getTaskList(){
         return this.taskList;
+    }
+
+    /**
+     * Verifies if the the organization has that collaborator
+     *
+     * @param email Collaborator's email
+     * @return true if it founds the collaborator
+     */
+    public boolean hasCollaboratorWithEmail (String email){
+        boolean found = false;
+            Collaborator colab = this.collaborator;
+            found = colab.hasEmail(email);
+        return found;
+    }
+
+    /**
+     * Returns if the task exists in the Organization or not
+     *
+     * @param task Task
+     * @retur true if it has the task
+     */
+    public boolean TaskValidation(Task task) {
+        return taskList.taskValidation(task);
+    }
+
+    /**
+     * Add the Task
+     *
+     * @param  task Task
+     * @return true if it adds the task
+     */
+    public boolean addTask(Task task) {
+        return taskList.addTask(task);
     }
 
     /**
@@ -120,7 +165,4 @@ public class Organization implements Serializable {
                 "\n\t Collaborator's email: %s" +
                 "\n\t Task's list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
     }
-
-
-
 }

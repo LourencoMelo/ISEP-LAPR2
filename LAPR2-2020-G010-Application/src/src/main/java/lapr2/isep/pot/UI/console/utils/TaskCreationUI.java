@@ -8,6 +8,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.TaskCreationController;
+import lapr2.isep.pot.model.Collaborator;
+import lapr2.isep.pot.model.List.TaskList;
+import lapr2.isep.pot.model.Manager;
+import lapr2.isep.pot.model.Organization;
+import lapr2.isep.pot.model.Task;
+
+import java.io.IOException;
 
 public class TaskCreationUI {
 
@@ -36,7 +43,7 @@ public class TaskCreationUI {
     private TextField taskTimeDuration;
 
     @FXML
-    private ListView<?> tasksListVIew;
+    private ListView<Task> tasksListVIew;
 
     @FXML
     private Button goBackBtn;

@@ -1,5 +1,6 @@
 package lapr2.isep.pot.model.List;
 
+import lapr2.isep.pot.model.Organization;
 import lapr2.isep.pot.model.Task;
 
 import java.io.Serializable;
@@ -44,14 +45,12 @@ public class TaskList implements Serializable {
     }
 
     /**
-     * Verifies if this task can be created
-     *
-     * @param task verifing to add task
-     * @return false, if the task already exists
+     * Creates one Task
+     * @param task to create
+     * @return true if creates or false if not
      */
-    public boolean taskCreation(Task task){
-        if (this.taskValidation(task))
-        {
+    public boolean TaskCreation(Task task) {
+        if (this.taskValidation(task)) {
             return addTask(task);
         }
         return false;
@@ -68,16 +67,12 @@ public class TaskList implements Serializable {
     }
 
     /**
-     * Checks if an equal task already exists in the task list
-     *
-     * @param task task to compare
-     * @return true, if the task is already in the list
+     * If has the Task
+     * @param task to compare
+     * @return true if it has or false if not
      */
     public boolean taskValidation(Task task) {
-        for (Task auxTask: taskList) {
-            return task.equals(auxTask);
-        }
-        return false;
+        return taskList.contains(task);
     }
 
     @Override

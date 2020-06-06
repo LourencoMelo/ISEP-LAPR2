@@ -87,7 +87,9 @@ public class CollaboratorMenuUI implements Initializable {
     }
 
     @FXML
-    void CreateTaskOnAction(ActionEvent event) { createTaskStage.show(); }
+    void CreateTaskOnAction(ActionEvent event) {
+        createTaskStage.show();
+    }
 
     @FXML
     void GoBackOnAction(ActionEvent event) {

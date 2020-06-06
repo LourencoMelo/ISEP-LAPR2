@@ -1,22 +1,22 @@
 -----------------------------------------------------------------
 Email sents with user informations:
 -----------------------------------------------------------------
-To: sdgsdg
+To: xfgxfgx
 Subject: Registration to T4J
   Message:
-	gsdgsg had just registered to T4J with the following data: 
-	Email: sdgsdg
-	Password: 0616I63h
+	gxfgxfg had just registered to T4J with the following data: 
+	Email: xfgxfgx
+	Password: c477zEn5
 
 Best regards,
  T4J Administrator.
 -----------------------------------------------------------------
-To: sdgdsgds
+To: gxgxg
 Subject: Registration to T4J
   Message:
-	dgdhdfh had just registered to T4J with the following data: 
-	Email: sdgdsgds
-	Password: XfV3My3V
+	dxggxg had just registered to T4J with the following data: 
+	Email: gxgxg
+	Password: 78aixA16
 
 Best regards,
  T4J Administrator.

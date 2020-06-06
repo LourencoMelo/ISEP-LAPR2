@@ -108,4 +108,9 @@ public class RegistOrganizationController implements Serializable {
     public static RegistOrganizationController getRegistOrganizationController() {
         return RegistOrganizationUI.getRegistOrganizationController();
     }
+
+
+    public Platform getPlatform() {
+        return platform;
+    }
 }

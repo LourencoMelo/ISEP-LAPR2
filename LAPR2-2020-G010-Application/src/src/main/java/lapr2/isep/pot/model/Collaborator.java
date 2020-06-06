@@ -12,6 +12,11 @@ import java.util.Objects;
 public class Collaborator extends User implements Serializable {
 
     /**
+     * User
+     */
+    private User user;
+
+    /**
      * Get the application controller instance
      */
     private ApplicationController applicationController = ApplicationController.getApplicationController();
@@ -28,4 +33,15 @@ public class Collaborator extends User implements Serializable {
             throw new IllegalArgumentException("Arguments cant be null or empty.");
         }
     }
+
+    /**
+     * Confirms if the Collaborator exits
+     *
+     * @param email Collaborator's email
+     * @return true if the email exits
+     */
+    public boolean hasEmail(String email){
+        return user.getEmail().equalsIgnoreCase(email);
+    }
+
 }

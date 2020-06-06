@@ -1,6 +1,7 @@
 package lapr2.isep.pot.model;
 
 import lapr2.isep.authorization.FacadeAuthorization;
+import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.Serializable;
 import java.util.List;
@@ -69,6 +70,11 @@ public class Platform implements Serializable {
         return registOrganization.hasOrganization(organization);
     }
 
+    /**
+     * Returns Organization's List
+     *
+     * @return organization list
+     */
     public List<Organization> getListOrganizations() {
         return registOrganization.getListOrganizations();
     }

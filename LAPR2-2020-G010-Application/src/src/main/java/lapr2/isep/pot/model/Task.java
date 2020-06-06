@@ -39,6 +39,9 @@ public class Task implements Serializable {
      * @param category Task's category
      */
     public Task(String id, String description, double timeDuration, double costPerHour, String category){
+        if (id == null || description == null || category == null || id.isEmpty() || description.isEmpty() || category.isEmpty() ) {
+            throw new IllegalArgumentException("Arguments cant be null or empty.");
+        }
         this.id = id;
         this.description = description;
         this.timeDuration = timeDuration;
