@@ -77,7 +77,6 @@ public class LogInUI implements Initializable {
 //            }
         //administratorMenuStage.show();
         collaboratorMenuStage.show();
-
     }
 
     @FXML

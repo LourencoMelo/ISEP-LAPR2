@@ -31,6 +31,7 @@ public class CollaboratorMenuUI implements Initializable {
 
     private Stage registFreelancerStage;
 
+    private Stage createTaskStage;
 
     double x = 0;
     double y = 0;
@@ -86,9 +87,7 @@ public class CollaboratorMenuUI implements Initializable {
     }
 
     @FXML
-    void CreateTaskOnAction(ActionEvent event) {
-
-    }
+    void CreateTaskOnAction(ActionEvent event) { createTaskStage.show(); }
 
     @FXML
     void GoBackOnAction(ActionEvent event) {
@@ -103,26 +102,47 @@ public class CollaboratorMenuUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegisterFreelancerScene.fxml"));
-        Parent root = null;
         try {
-            root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegisterFreelancerScene.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            registFreelancerStage = new Stage();
+            registFreelancerStage.initModality(Modality.APPLICATION_MODAL);
+            registFreelancerStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            registFreelancerStage.setTitle("Regist Freelancer");
+            registFreelancerStage.setResizable(false);
+            registFreelancerStage.setScene(scene);
+            registFreelancerStage.initStyle(StageStyle.TRANSPARENT);
+
+            RegisterFreelancerUI registerFreelancerUI = loader.getController();
+            registerFreelancerUI.associateParentUI(this);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Scene scene = new Scene(root);
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CreateTaskScene.fxml"));
+            Parent root = loader.load();
 
-        registFreelancerStage = new Stage();
-        registFreelancerStage.initModality(Modality.APPLICATION_MODAL);
-        registFreelancerStage.getIcons().add(new Image("file:images\\t4j.jpg"));
-        registFreelancerStage.setTitle("Regist Freelancer");
-        registFreelancerStage.setResizable(false);
-        registFreelancerStage.setScene(scene);
-        registFreelancerStage.initStyle(StageStyle.TRANSPARENT);
+            Scene scene = new Scene(root);
 
-        RegisterFreelancerUI registerFreelancerUI = loader.getController();
-        registerFreelancerUI.associateParentUI(this);
+            createTaskStage = new Stage();
+            createTaskStage.initModality(Modality.APPLICATION_MODAL);
+            createTaskStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            createTaskStage.setTitle("Create Task");
+            createTaskStage.setResizable(false);
+            createTaskStage.setScene(scene);
+            createTaskStage.initStyle(StageStyle.TRANSPARENT);
+
+            TaskCreationUI taskCreationUI = loader.getController();
+            taskCreationUI.associateParentUI(this);
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
