@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.CollaboratorMenuUI">
+    <left>
+        <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ff7802;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="170.0" fitWidth="250.0" layoutX="75.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="file:images\\t4j.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#XOnAction" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="X" fx:id="xBtn">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="registerFreelancerBtn" alignment="CENTER" layoutX="200.0" layoutY="144.0" mnemonicParsing="false" onAction="#RegisterFreelancerOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Register Freelancer">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="createTaskBtn" alignment="CENTER" layoutX="200.0" layoutY="282.0" mnemonicParsing="false" onAction="#CreateTaskOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Create Task">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="goBackBtn" alignment="CENTER" layoutX="439.0" layoutY="536.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="50.0" prefWidth="147.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="statisticsBtn1" alignment="CENTER" layoutX="200.0" layoutY="417.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Statistics">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </right>
+</BorderPane>

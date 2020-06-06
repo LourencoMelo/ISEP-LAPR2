@@ -31,6 +31,8 @@ public class LogInUI implements Initializable {
     static ApplicationController applicationController;
     private RegistOrganizationController registOrganizationController;
     private Stage administratorMenuStage;
+    private Stage collaboratorMenuStage;
+
 
     double x = 0;
     double y = 0;
@@ -73,7 +75,9 @@ public class LogInUI implements Initializable {
 //                    administratorMenuStage.show();
 //                }
 //            }
-        administratorMenuStage.show();
+        //administratorMenuStage.show();
+        collaboratorMenuStage.show();
+
     }
 
     @FXML
@@ -114,6 +118,29 @@ public class LogInUI implements Initializable {
             //</editor-fold>"
         }catch (IOException ex) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error.", ex.getMessage());
+            alert.show();
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CollaboratorMenuScene.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            collaboratorMenuStage = new Stage();
+            collaboratorMenuStage.initModality(Modality.APPLICATION_MODAL);
+            collaboratorMenuStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            collaboratorMenuStage.setTitle("Collaborator Menu");
+            collaboratorMenuStage.setResizable(false);
+            collaboratorMenuStage.setScene(scene);
+            collaboratorMenuStage.initStyle(StageStyle.TRANSPARENT);
+
+            applicationController = getApplicationController();
+            CollaboratorMenuUI collaboratorMenuUI = loader.getController();
+            collaboratorMenuUI.associateParentUI(this);
+
+        } catch (IOException ioException) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error.", ioException.getMessage());
             alert.show();
         }
     }
