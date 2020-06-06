@@ -1,18 +1,8 @@
 package lapr2.isep.pot.model;
 
-import lapr2.isep.pot.model.List.FreelancerList;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RegistFreelancer implements Serializable {
-
-    private List<Freelancer> freelancerList;
-
-    public RegistFreelancer(){
-        freelancerList = new ArrayList<>();
-    }
 
     /**
      * @param id               freelancer's id
@@ -36,9 +26,23 @@ public class RegistFreelancer implements Serializable {
      */
 
     public boolean validationFreelancer(Freelancer freelancer) {
-        return !freelancerList.contains(freelancer);
+        // Implementar código de confirmação da existência ou não do freelancer criado no sistema
+
+        return true;
     }
 
+    /**
+     *
+     * @param freelancer freelancer
+     * @return new freelancer if the validation is true
+     */
+
+    public boolean registFreelancer(Freelancer freelancer) {
+        if (this.validationFreelancer(freelancer)) {
+            return addFreelancer(freelancer);
+        }
+        return false;
+    }
 
     /**
      *
@@ -47,11 +51,7 @@ public class RegistFreelancer implements Serializable {
      */
 
     public boolean addFreelancer(Freelancer freelancer) {
-        System.out.println("oi");
-        return freelancerList.add(freelancer);
-    }
-
-    public List<Freelancer> getFreelancerList() {
-        return freelancerList;
+        //Aqui será feita a adição do freelancer à arrayList criada na classe freelancer
+        return true;
     }
 }

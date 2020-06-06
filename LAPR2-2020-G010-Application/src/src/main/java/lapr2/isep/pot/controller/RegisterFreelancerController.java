@@ -1,12 +1,10 @@
 package lapr2.isep.pot.controller;
 
 import lapr2.isep.pot.model.Freelancer;
-import lapr2.isep.pot.model.List.FreelancerList;
 import lapr2.isep.pot.model.Platform;
 import lapr2.isep.pot.model.RegistFreelancer;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +16,6 @@ public class RegisterFreelancerController implements Serializable {
 
     private static Platform platform;
 
-
     /**
      * freelancer instance
      */
@@ -29,22 +26,7 @@ public class RegisterFreelancerController implements Serializable {
      * registFreelancer instance
      */
 
-    private RegistFreelancer registFreelancer = new RegistFreelancer();
-
-    /**
-     * Initializes the frellancer's instance
-     */
-    public RegisterFreelancerController(){
-        this.freelancer = null;
-    }
-
-    /**
-     * Sets the freelancer's value
-     * @param freelancer freelancer's value
-     */
-    public void setFreelancer(Freelancer freelancer){
-        this.freelancer = freelancer;
-    }
+    private RegistFreelancer registFreelancer;
 
     /**
      *
@@ -59,27 +41,23 @@ public class RegisterFreelancerController implements Serializable {
      * @return true or false depending of the validation
      */
 
-    public Freelancer newFreelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country){
-            this.freelancer = registFreelancer.newFreelancer(id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
-            return this.freelancer;
+    public boolean newFreelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country){
+        try {
+            this.freelancer = this.registFreelancer.newFreelancer(id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
+            return this.registFreelancer.validationFreelancer(freelancer);
+        } catch (RuntimeException exception){
+            //Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, exception);
+            this.freelancer = null;
+            return false;
+        }
     }
 
     /**
      *
+     * @param freelancer    freelancer's instance
      * @return boolean value depending of the validation
      */
-    public boolean registFreelancer(){
-        if (registFreelancer.validationFreelancer(this.freelancer)){
-            return this.registFreelancer.addFreelancer(freelancer);
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return list of freelancers
-     */
-    public List<Freelancer> getListFreelancer(){
-        return this.registFreelancer.getFreelancerList();
+    public boolean registFreelancer(Freelancer freelancer){
+        return registFreelancer.registFreelancer(freelancer);
     }
 }
