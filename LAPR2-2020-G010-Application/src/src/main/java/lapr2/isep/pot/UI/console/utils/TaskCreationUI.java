@@ -79,14 +79,21 @@ public class TaskCreationUI {
 
     @FXML
     void CreateOnAction(ActionEvent event) {
-        Task task = taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
-        if (taskCreationController.getTaskValidation(taskId.getText())) {
-            taskCreationController.taskCreation(task);
-            Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), taskId.getText() , "Task added.");
-            alert.show();
-            tasksListVIew.getItems().setAll(taskCreationController.getTaskList());
-        }else {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The task inserted is already in the system.");
+        try {
+            Task task = taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
+            if (taskCreationController.getTaskValidation(taskId.getText())) {
+                taskCreationController.taskCreation(task);
+                Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), taskId.getText(), "Task added.");
+                alert.show();
+                tasksListVIew.getItems().setAll(taskCreationController.getTaskList());
+            } else {
+                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The task inserted is already in the system.");
+                alert.show();
+            }
+        }catch (IllegalArgumentException exception) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
+                                                                                                                                 "\n * Arguments can't be null or empty;" +
+                                                                                                                                 "\n * Time duration and Cost per hour must be numbers.");
             alert.show();
         }
     }
