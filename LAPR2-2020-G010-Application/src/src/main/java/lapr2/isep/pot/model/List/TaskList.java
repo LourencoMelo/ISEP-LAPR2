@@ -12,14 +12,7 @@ public class TaskList implements Serializable {
     /**
      * Task's list
      */
-    private final List<Task> taskList;
-
-    /**
-     * Build a task list
-     */
-    public TaskList() {
-        taskList = new ArrayList<>();
-    }
+    private final List<Task> taskList = new ArrayList<>();
 
     /**
      * Returns Task's list.
@@ -41,20 +34,20 @@ public class TaskList implements Serializable {
      * @return new task
      */
     public Task newTask(String id, String description, Double timeDuration, Double costPerHour, String category){
-        return newTask(id, description, timeDuration, costPerHour, category);
+        return new Task(id, description, timeDuration, costPerHour, category);
     }
 
-    /**
-     * Creates one Task
-     * @param task to create
-     * @return true if creates or false if not
-     */
-    public boolean TaskCreation(Task task) {
-        if (this.taskValidation(task)) {
-            return addTask(task);
-        }
-        return false;
-    }
+//    /**
+//     * Creates one Task
+//     * @param task to create
+//     * @return true if creates or false if not
+//     */
+//    public boolean TaskCreation(Task task) {
+//        if (this.taskValidation(task)) {
+//            return addTask(task);
+//        }
+//        return false;
+//    }
 
     /**
      * Adds a task to the task list
@@ -68,13 +61,22 @@ public class TaskList implements Serializable {
 
     /**
      * If has the Task
-     * @param task to compare
+     * @param id to compare
      * @return true if it has or false if not
      */
-    public boolean taskValidation(Task task) {
-        return taskList.contains(task);
+    public boolean taskValidation(String id) {
+        for (Task aux : taskList){
+            if (aux.getId().equalsIgnoreCase(id)){
+                return false;
+            }
+        }
+        return true;
     }
 
+    /**
+     * Returns textual description of task
+     * @return textual description
+     */
     @Override
     public String toString() {
         return String.format("\n%s", taskList);

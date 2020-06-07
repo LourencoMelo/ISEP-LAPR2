@@ -113,25 +113,7 @@ public class Organization implements Serializable {
         return found;
     }
 
-    /**
-     * Returns if the task exists in the Organization or not
-     *
-     * @param task Task
-     * @retur true if it has the task
-     */
-    public boolean TaskValidation(Task task) {
-        return taskList.taskValidation(task);
-    }
 
-    /**
-     * Add the Task
-     *
-     * @param  task Task
-     * @return true if it adds the task
-     */
-    public boolean addTask(Task task) {
-        return taskList.addTask(task);
-    }
 
     /**
      * Compares Organizations

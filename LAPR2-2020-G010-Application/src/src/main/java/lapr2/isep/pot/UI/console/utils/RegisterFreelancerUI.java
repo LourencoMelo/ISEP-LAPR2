@@ -2,19 +2,24 @@ package lapr2.isep.pot.UI.console.utils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegisterFreelancerController;
+import lapr2.isep.pot.model.Freelancer;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class RegisterFreelancerUI {
+public class RegisterFreelancerUI implements Initializable {
 
     private CollaboratorMenuUI collaboratorMenuUI;
 
-    private final RegisterFreelancerController registerFreelancerController = new RegisterFreelancerController();
+    private static RegisterFreelancerController registerFreelancerController;
 
     private ApplicationController applicationController = ApplicationController.getApplicationController();
 
@@ -28,7 +33,7 @@ public class RegisterFreelancerUI {
     private TextField freelancerID;
 
     @FXML
-    private ListView<?> freelancersListVIew;
+    private ListView<Freelancer> freelancersListVIew;
 
     @FXML
     private Button xBtn;
@@ -56,6 +61,14 @@ public class RegisterFreelancerUI {
 
     @FXML
     private TextField freelancerCountry;
+
+    public RegisterFreelancerUI() {
+        registerFreelancerController = new RegisterFreelancerController();
+    }
+
+    public RegisterFreelancerController getController() {
+        return registerFreelancerController;
+    }
 
     @FXML
     void dragged(MouseEvent event) {
@@ -85,8 +98,18 @@ public class RegisterFreelancerUI {
 
     @FXML
     void RegistOnAction(ActionEvent event) {
-        registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), freelancerLvlOfExpertise.getText(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
+        Freelancer freelancer = registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), freelancerLvlOfExpertise.getText(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
+        if (registerFreelancerController.getValidationFreelancer(freelancer)) {
+            registerFreelancerController.registFreelancer();
+            Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), freelancerID.getText() , "Freelancer added.");
+            alert.show();
+            freelancersListVIew.getItems().setAll(registerFreelancerController.getListFreelancer());
+        }else {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The freelancer inserted is already in the system.");
+            alert.show();
+        }
     }
+
 
     public void associateParentUI(CollaboratorMenuUI collaboratorMenuUI) {
         this.collaboratorMenuUI = collaboratorMenuUI;
@@ -111,4 +134,8 @@ public class RegisterFreelancerUI {
         freelancerCountry.clear();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

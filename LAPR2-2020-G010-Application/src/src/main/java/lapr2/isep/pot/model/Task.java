@@ -110,11 +110,7 @@ public class Task implements Serializable {
             return false;
         }
         Task otherTask = (Task) otherObject;
-        return id.equalsIgnoreCase(otherTask.id)  &&
-                description.equalsIgnoreCase(otherTask.description)  &&
-                timeDuration.equals(otherTask.timeDuration) &&
-                costPerHour.equals(otherTask.costPerHour) &&
-                category.equalsIgnoreCase(otherTask.category);
+        return id.equalsIgnoreCase(otherTask.id) ;
     }
     /**
      * Returns the Task's text description in the format: id, description, time duration, cost per hour and category

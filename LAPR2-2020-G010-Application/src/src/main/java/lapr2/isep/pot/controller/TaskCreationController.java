@@ -7,6 +7,7 @@ import lapr2.isep.pot.model.RegistOrganization;
 import lapr2.isep.pot.model.Task;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskCreationController implements Serializable {
@@ -14,7 +15,7 @@ public class TaskCreationController implements Serializable {
     /**
      * Task's List
      */
-    private TaskList taskList;
+    private TaskList taskList = new TaskList();
 
     /**
      * Task
@@ -22,22 +23,22 @@ public class TaskCreationController implements Serializable {
     private Task task;
 
     /**
-     *  Organization
+     *  Task's id
      */
-    private Organization organization;
+    private String id;
+
 
     /**
      * Platform
      */
     private Platform platform;
 
-    private RegistOrganizationController registOrganizationController = RegistOrganizationController.getRegistOrganizationController();
+
 
     /**
      * Creates a task creation controller
      */
     public TaskCreationController(){
-        organization = platform.getRegistOrganization();
     }
 
     /**
@@ -50,9 +51,9 @@ public class TaskCreationController implements Serializable {
      * @param category Task's category
      * @return true, if this task doesn´t already exists
      */
-    public boolean newTask(String id, String description, Double timeDuration, Double costPerHour, String category){
-        this.task = this.taskList.newTask(id, description, timeDuration, costPerHour, category);
-        return this.taskList.taskValidation(this.task);
+    public Task newTask(String id, String description, Double timeDuration, Double costPerHour, String category){
+        this.task = taskList.newTask(id, description, timeDuration, costPerHour, category);
+        return this.task;
     }
 
     /**
@@ -61,51 +62,31 @@ public class TaskCreationController implements Serializable {
      * @return true, if it creates a new task
      */
     public boolean taskCreation(Task task){
-        return taskList.TaskCreation(task);
+        if (taskList.taskValidation(id)){
+            return taskList.addTask(task);
+        }
+        return false;
     }
 
-    /**
-     * Add the received task
-     * @param task to add
-     * @return true if added or false if not
-     */
-    public boolean addTask(Task task) {
-        return organization.addTask(task);
-    }
 
-    /**
-     * Confirms if has or not the task
-     * @param task to compare
-     * @return true if has or false if not
-     */
-    public boolean taskValidation(Task task) {
-        return organization.TaskValidation(task);
-    }
 
     /**
      * Returns organizations task's list
      *
      * @return Task's List
      */
-    public TaskList getTaskList(){
-        return organization.getTaskList();
+    public List<Task> getTaskList(){
+        return taskList.getTaskList();
     }
 
     /**
-     * Returns Organization
-     *
-     * @return organization
+     * Returns if the task already exists or not
+     * @param id  task's id
+     * @return   false if the task already exists
      */
-    public Organization getOrganization(){
-        return organization;
-    }
+    public boolean getTaskValidation(String id){
+        return taskList.taskValidation(id);
+   }
 
-    /**
-     * Returns Task
-     *
-     * @return task
-     */
-    public Task getTask() {
-        return task;
-    }
+
 }

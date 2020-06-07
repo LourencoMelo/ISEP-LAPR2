@@ -8,11 +8,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.TaskCreationController;
-import lapr2.isep.pot.model.Collaborator;
+import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.TaskList;
-import lapr2.isep.pot.model.Manager;
-import lapr2.isep.pot.model.Organization;
-import lapr2.isep.pot.model.Task;
 
 import java.io.IOException;
 
@@ -82,7 +79,16 @@ public class TaskCreationUI {
 
     @FXML
     void CreateOnAction(ActionEvent event) {
-
+        Task task = taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
+        if (taskCreationController.getTaskValidation(taskId.getText())) {
+            taskCreationController.taskCreation(task);
+            Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), taskId.getText() , "Task added.");
+            alert.show();
+            tasksListVIew.getItems().setAll(taskCreationController.getTaskList());
+        }else {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The task inserted is already in the system.");
+            alert.show();
+        }
     }
 
     @FXML

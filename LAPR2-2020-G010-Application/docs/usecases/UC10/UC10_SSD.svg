@@ -15,10 +15,10 @@
       ><path d="M-7 -7 L19 -7 L19 85 L-7 85 L-7 -7 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath4"
-      ><path d="M-61 -15 L122 -15 L122 30 L-61 30 L-61 -15 Z"
+      ><path d="M-70 -15 L140 -15 L140 30 L-70 30 L-70 -15 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath5"
-      ><path d="M-70 -15 L140 -15 L140 30 L-70 30 L-70 -15 Z"
+      ><path d="M-61 -15 L122 -15 L122 30 L-61 30 L-61 -15 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath6"
       ><path d="M0 0 L500 0 L500 104 L0 104 L0 0 Z"
@@ -64,13 +64,13 @@
     ><g stroke-linecap="butt" font-size="11px" transform="translate(430,71)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1" stroke-miterlimit="0"
     ><rect fill="none" x="0" width="8" height="74" y="0" clip-path="url(#clipPath3)"
     /></g
-    ><g font-size="11px" transform="translate(0,37)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath4)" stroke="none"
-      >Platform</text
-    ></g
     ><g font-size="11px" transform="translate(399,2)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="21" xml:space="preserve" y="12" clip-path="url(#clipPath5)" stroke="none"
+    ><text x="21" xml:space="preserve" y="12" clip-path="url(#clipPath4)" stroke="none"
       >Email</text
+    ></g
+    ><g font-size="11px" transform="translate(0,37)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath5)" stroke="none"
+      >Platfrom</text
     ></g
     ><g stroke-linecap="butt" font-size="11px" transform="translate(-16,21)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
     ><line y2="50" fill="none" x1="50" clip-path="url(#clipPath7)" x2="446" y1="50"
