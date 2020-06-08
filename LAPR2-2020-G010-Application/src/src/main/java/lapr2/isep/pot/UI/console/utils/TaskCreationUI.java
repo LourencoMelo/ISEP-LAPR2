@@ -17,7 +17,7 @@ public class TaskCreationUI {
 
     private CollaboratorMenuUI collaboratorMenuUI;
 
-    private final TaskCreationController taskCreationController = new TaskCreationController();
+    private static TaskCreationController taskCreationController = new TaskCreationController();
 
     private ApplicationController applicationController = ApplicationController.getApplicationController();
 
@@ -115,6 +115,10 @@ public class TaskCreationUI {
 
     public void associateParentUI(CollaboratorMenuUI collaboratorMenuUI) {
         this.collaboratorMenuUI = collaboratorMenuUI;
+    }
+
+    public static TaskCreationController getTaskCreationController() {
+        return taskCreationController;
     }
 }
 

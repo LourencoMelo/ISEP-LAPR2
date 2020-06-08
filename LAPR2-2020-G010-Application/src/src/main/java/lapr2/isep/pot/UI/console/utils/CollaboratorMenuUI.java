@@ -33,6 +33,8 @@ public class CollaboratorMenuUI implements Initializable {
 
     private Stage createTaskStage;
 
+    private Stage createPaymentTransactionStage;
+
     double x = 0;
     double y = 0;
 
@@ -41,6 +43,9 @@ public class CollaboratorMenuUI implements Initializable {
 
     @FXML
     private Button xBtn;
+
+    @FXML
+    private Button CreatePaymentTransactionBtn1;
 
     @FXML
     private Button goBackBtn;
@@ -102,6 +107,11 @@ public class CollaboratorMenuUI implements Initializable {
 
     }
 
+    @FXML
+    void CreatePaymentTransactionOnAction(ActionEvent event) {
+        createPaymentTransactionStage.show();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -125,7 +135,7 @@ public class CollaboratorMenuUI implements Initializable {
             e.printStackTrace();
         }
 
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CreateTaskScene.fxml"));
             Parent root = loader.load();
 
@@ -142,9 +152,30 @@ public class CollaboratorMenuUI implements Initializable {
             TaskCreationUI taskCreationUI = loader.getController();
             taskCreationUI.associateParentUI(this);
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CreatePaymentTransactionScene.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            createPaymentTransactionStage = new Stage();
+            createPaymentTransactionStage.initModality(Modality.APPLICATION_MODAL);
+            createPaymentTransactionStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            createPaymentTransactionStage.setTitle("Create Payment Transaction");
+            createPaymentTransactionStage.setResizable(false);
+            createPaymentTransactionStage.setScene(scene);
+            createPaymentTransactionStage.initStyle(StageStyle.TRANSPARENT);
+
+            CreatePaymentTransactionUI createPaymentTransactionUI = loader.getController();
+            createPaymentTransactionUI.associateParentUI(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 

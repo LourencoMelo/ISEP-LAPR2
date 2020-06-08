@@ -88,5 +88,8 @@ public class TaskCreationController implements Serializable {
         return taskList.taskValidation(id);
    }
 
+    public TaskList getListTask() {
+        return taskList;
+    }
 
 }

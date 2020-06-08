@@ -138,4 +138,8 @@ public class RegisterFreelancerUI implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    public static RegisterFreelancerController getRegisterFreelancerController() {
+        return registerFreelancerController;
+    }
 }

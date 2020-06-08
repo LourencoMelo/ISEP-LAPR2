@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.CreatePaymentTransactionUI">
+   <top>
+        <AnchorPane prefHeight="600.0" prefWidth="1014.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="21.0" layoutY="38.0" prefHeight="31.0" prefWidth="263.0" text="Create Payment Transaction">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <ListView fx:id="tasksListListVIew" layoutX="21.0" layoutY="102.0" prefHeight="317.0" prefWidth="208.0" />
+                <Button fx:id="chooseTaskBtn" alignment="CENTER" layoutX="50.0" layoutY="441.0" mnemonicParsing="false" onAction="#chooseTaskOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Choose a task">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="chooseFreeBtn" alignment="CENTER" layoutX="255.0" layoutY="441.0" mnemonicParsing="false" onAction="#chooseFreeOnAction" prefHeight="50.0" prefWidth="190.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Choose a freelancer">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" layoutX="933.0" layoutY="14.0" mnemonicParsing="false" onAction="#XOnAction" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="X" fx:id="xBtn">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="endDate" layoutX="774.0" layoutY="238.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
+                <TextField fx:id="delay" layoutX="774.0" layoutY="277.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
+                <TextField fx:id="briefDescription" layoutX="774.0" layoutY="316.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
+                <ListView fx:id="freelancersListListView" layoutX="246.0" layoutY="102.0" prefHeight="317.0" prefWidth="208.0" />
+                <Label layoutX="686.0" layoutY="240.0" text="End date:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="707.0" layoutY="279.0" text="Delay:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="492.0" layoutY="318.0" prefHeight="4.0" prefWidth="266.0" text="Brief dresciption of the quality of work:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Button fx:id="createBtn" alignment="CENTER" layoutX="718.0" layoutY="422.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="38.0" prefWidth="153.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Create">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Label layoutX="517.0" layoutY="158.0" prefHeight="26.0" prefWidth="401.0" text="Introduce the details about the execution of the task:">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Label>
+                <Button fx:id="goBackBtn" alignment="CENTER" layoutX="858.0" layoutY="515.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+            <Label layoutX="650.0" layoutY="358.0" text="Transaction ID:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="transactionID" layoutX="774.0" layoutY="356.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
+            <Button fx:id="showListsBtn" alignment="CENTER" layoutX="295.0" layoutY="29.0" mnemonicParsing="false" onAction="#showListsOnAction" prefHeight="50.0" prefWidth="111.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Show Lists">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+   </top>
+</BorderPane>

@@ -91,4 +91,8 @@ public class RegisterFreelancerController implements Serializable {
     public boolean getValidationFreelancer(Freelancer freelancer){
         return registFreelancer.validationFreelancer(freelancer);
     }
+
+    public RegistFreelancer getRegistFreelancer() {
+        return registFreelancer;
+    }
 }

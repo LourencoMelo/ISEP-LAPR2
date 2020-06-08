@@ -31,7 +31,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="registerFreelancerBtn" alignment="CENTER" layoutX="200.0" layoutY="144.0" mnemonicParsing="false" onAction="#RegisterFreelancerOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Register Freelancer">
+                <Button fx:id="registerFreelancerBtn" alignment="CENTER" layoutX="200.0" layoutY="113.0" mnemonicParsing="false" onAction="#RegisterFreelancerOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Register Freelancer">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -39,7 +39,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="createTaskBtn" alignment="CENTER" layoutX="200.0" layoutY="282.0" mnemonicParsing="false" onAction="#CreateTaskOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Create Task">
+                <Button fx:id="createTaskBtn" alignment="CENTER" layoutX="200.0" layoutY="211.0" mnemonicParsing="false" onAction="#CreateTaskOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Create Task">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -55,7 +55,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="statisticsBtn1" alignment="CENTER" layoutX="200.0" layoutY="417.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Statistics">
+                <Button fx:id="statisticsBtn1" alignment="CENTER" layoutX="200.0" layoutY="397.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Statistics">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -63,6 +63,14 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
+            <Button fx:id="CreatePaymentTransactionBtn1" alignment="CENTER" layoutX="200.0" layoutY="307.0" mnemonicParsing="false" onAction="#CreatePaymentTransactionOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Create Payment Transaction">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </right>
