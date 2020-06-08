@@ -1,6 +1,7 @@
 package lapr2.isep.pot.model;
 
 import lapr2.isep.authorization.FacadeAuthorization;
+import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.Serializable;
@@ -78,5 +79,9 @@ public class Platform implements Serializable {
      */
     public List<Organization> getListOrganizations() {
         return registOrganization.getListOrganizations();
+    }
+
+    public String getRoleUser(User user) {
+        return user.getRole();
     }
 }

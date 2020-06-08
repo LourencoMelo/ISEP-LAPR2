@@ -1,8 +1,10 @@
 package lapr2.isep.authorization.model;
 
 import lapr2.isep.pot.controller.ApplicationController;
+import lapr2.isep.pot.model.Collaborator;
 import lapr2.isep.pot.model.EmailFiles;
 import lapr2.isep.pot.model.ExternAlgorithmPasswordGenerator;
+import lapr2.isep.pot.model.Manager;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,10 +18,11 @@ public class User implements Serializable {
     /**
      * Get the application controller instance
      */
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController = new ApplicationController();
     private final String name;
     private final String email;
     private final String password;
+    private String role;
     private static List<User> listUsers = new ArrayList<>();
 
     public User(String name, String email) throws IOException {
@@ -29,9 +32,25 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.password = generatePassword();
+        if (this.getClass().getSimpleName().equals("Collaborator")) {
+            this.role = "Collaborator";
+        } else {
+            this.role = "Manager";
+        }
         listUsers.add(this);
         EmailFiles.writeToAFile(listUsers);
         //sendEmail(this.name, this.email, this.password);
+    }
+
+    public User(String name, String email, String password) throws FileNotFoundException {
+        if (this instanceof Collaborator) {
+            this.role = "Collaborator";
+        } else {
+            this.role = "Manager";
+        }
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public String getName() {
@@ -40,6 +59,10 @@ public class User implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getRole() {
+        return this.role;
     }
 
     public boolean hasPassword(String password) {

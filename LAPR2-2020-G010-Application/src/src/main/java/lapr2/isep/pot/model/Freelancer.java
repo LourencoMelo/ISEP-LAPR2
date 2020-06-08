@@ -172,6 +172,14 @@ public class Freelancer implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Freelancer: Id- %s '\n'Name- %s '\n'Level of expertise- %s '\n'Email- %s '\n'NIF- %s '\n'IBAN- %s '\n'Address- %s '\n'Country- %s", id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
+        return String.format("Freelancer: " +
+                "\n\tID: %s" +
+                "\n\tName: %s" +
+                "\n\tLevel of Expertise: %s" +
+                "\n\tEmail: %s" +
+                "\n\tNIF: %s" +
+                "\n\tBank account IBAN: %s" +
+                "\n\tAddress: %s" +
+                "\n\tCountry: %s",id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
     }
 }

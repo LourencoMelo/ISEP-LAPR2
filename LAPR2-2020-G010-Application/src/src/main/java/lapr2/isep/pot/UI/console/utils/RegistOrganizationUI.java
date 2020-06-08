@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
+import lapr2.isep.pot.controller.ApplicationPOT;
 import lapr2.isep.pot.controller.RegistOrganizationController;
 import lapr2.isep.pot.model.Collaborator;
 import lapr2.isep.pot.model.Manager;
@@ -21,7 +22,8 @@ public class RegistOrganizationUI implements Initializable {
 
     private AdministratorMenuUI administratorMenuUI;
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    //private ApplicationController applicationController = ApplicationController.getApplicationController();1
+    ApplicationController applicationController = new ApplicationController();
 
     private static final RegistOrganizationController registOrganizationController = new RegistOrganizationController();
 

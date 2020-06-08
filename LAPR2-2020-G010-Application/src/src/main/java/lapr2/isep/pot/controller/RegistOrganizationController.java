@@ -1,9 +1,11 @@
 package lapr2.isep.pot.controller;
 
+import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.UI.console.utils.RegistOrganizationUI;
 import lapr2.isep.pot.model.*;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegistOrganizationController implements Serializable {
@@ -18,13 +20,15 @@ public class RegistOrganizationController implements Serializable {
      */
     private Organization organization;
 
+    private List<Collaborator> collaboratorListRegistered = new ArrayList<>();
+
     /**
      * RegistOrganization's initialization
      */
     private RegistOrganization registOrganization = new RegistOrganization();
 
     public RegistOrganizationController() {
-        platform = new Platform();
+        platform = ApplicationPOT.getInstance().getPlatform();
         readInfo();
     }
 
@@ -109,8 +113,17 @@ public class RegistOrganizationController implements Serializable {
         return RegistOrganizationUI.getRegistOrganizationController();
     }
 
-
     public Platform getPlatform() {
         return platform;
     }
+
+    public String getRoleUser(User user) {
+        return platform.getRoleUser(user);
+    }
+
+    /*public boolean addCollaboratorRegistered(String name, String email, String password) throws IOException {
+        collaboratorListRegistered.add(new Collaborator(name, email, password));
+    }
+
+     */
 }

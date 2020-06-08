@@ -12,13 +12,12 @@ import static java.lang.System.getProperties;
 
 public class ApplicationPOT implements Serializable {
 
-    /*//private final Platform platform;
-    //private final FacadeAuthorization facadeAuthorization;
+    private Platform platform;
+
+    private FacadeAuthorization facadeAuthorization;
 
     private ApplicationPOT() {
-        Properties props = getProperties();
-        //this.platform = new Platform(props.getProperty(Constants.PLATFORM_DESIGNATION_PARAMS));
-        //this.facadeAuthorization = this.platform.getFacadeAutorization();
+        platform = new Platform();
     }
 
     private static ApplicationPOT singleton = null;
@@ -35,18 +34,4 @@ public class ApplicationPOT implements Serializable {
     public Platform getPlatform() {
         return platform;
     }
-
-    /**
-     * Returns Current User session
-     *
-     * @return Current Session
-     */
-    /*public UserSession getCurrentSession() {
-        return this.facadeAuthorization.getCurrentSession();
-    }
-    /*
-
-}
-
-     */
 }

@@ -30,8 +30,6 @@ public class ApplicationController implements Serializable {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 exist = true;
                 break;
-            } else {
-                exist = false;
             }
         }
         return exist;

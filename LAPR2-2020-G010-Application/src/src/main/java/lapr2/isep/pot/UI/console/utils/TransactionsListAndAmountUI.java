@@ -17,7 +17,7 @@ public class TransactionsListAndAmountUI {
 
     private ApplicationController applicationController = ApplicationController.getApplicationController();
 
-    private static final TransactionsListAndAmountController transactionListAndAmountController = new TransactionsListAndAmountController();
+    private final TransactionsListAndAmountController transactionListAndAmountController = TransactionsListAndAmountController.getTransactionsListAndAmountController();
 
     double x = 0;
     double y = 0;
@@ -65,6 +65,7 @@ public class TransactionsListAndAmountUI {
 
     @FXML
     void showOnAction(ActionEvent event) {
+        amountToPayTxtField.setText(String.valueOf(transactionListAndAmountController.getTaskCost(transactionListAndAmountController.getChoosenFreelancer(), transactionListAndAmountController.getChoosenTask())));
         refreshListView();
     }
 

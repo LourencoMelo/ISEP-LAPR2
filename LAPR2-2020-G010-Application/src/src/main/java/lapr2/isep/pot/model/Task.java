@@ -32,14 +32,14 @@ public class Task implements Serializable {
     /**
      * Initialize the Task's information with the received data
      *
-     * @param id Task's id
-     * @param description Task's brief description
+     * @param id           Task's id
+     * @param description  Task's brief description
      * @param timeDuration Task's time duration (in hours)
-     * @param costPerHour Task's cost per hour (in euros)
-     * @param category Task's category
+     * @param costPerHour  Task's cost per hour (in euros)
+     * @param category     Task's category
      */
-    public Task(String id, String description, double timeDuration, double costPerHour, String category){
-        if (id == null || description == null || category == null || id.isEmpty() || description.isEmpty() || category.isEmpty() ) {
+    public Task(String id, String description, double timeDuration, double costPerHour, String category) {
+        if (id == null || description == null || category == null || id.isEmpty() || description.isEmpty() || category.isEmpty()) {
             throw new IllegalArgumentException("Arguments cant be null or empty.");
         }
         this.id = id;
@@ -99,7 +99,7 @@ public class Task implements Serializable {
      *
      * @param otherObject the object in comparison with the Task.
      * @return true if the object received represents an equivalent task to
-     *         Task. Otherwise, returns false.
+     * Task. Otherwise, returns false.
      */
     @Override
     public boolean equals(Object otherObject) {
@@ -110,8 +110,9 @@ public class Task implements Serializable {
             return false;
         }
         Task otherTask = (Task) otherObject;
-        return id.equalsIgnoreCase(otherTask.id) ;
+        return id.equalsIgnoreCase(otherTask.id);
     }
+
     /**
      * Returns the Task's text description in the format: id, description, time duration, cost per hour and category
      *
@@ -119,10 +120,13 @@ public class Task implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Task: Id - %s " +
-                "\nBrief Description - %s " +
-                "\nTime Duration - %f " +
-                "\nCost Per Hour - %f " +
-                "\nCategory - %s", id, description, timeDuration, costPerHour, category);
+        return String.format("Task: " +
+                "\n\tId: %s " +
+                "\n\tBrief Description: %s " +
+                "\n\tTime Duration: %.02f " +
+                "\n\tCost Per Hour: %.02f€ " +
+                "\n\tCategory: %s", id, description, timeDuration, costPerHour, category);
     }
+
+
 }

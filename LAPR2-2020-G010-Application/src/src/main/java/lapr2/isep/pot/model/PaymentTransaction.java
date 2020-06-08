@@ -107,17 +107,24 @@ public class PaymentTransaction {
      */
     @Override
     public String toString() {
-        return "PaymentTransaction{" +
-                "transId='" + transId + '\'' +
-                ", endDate=" + endDate +
-                ", delay=" + delay +
-                ", descQualityOfWork='" + descQualityOfWork + '\'' +
-                ", freelancer=" + freelancer +
-                ", task=" + task +
-                '}';
+        return "PaymentTransaction: " +
+                "\n\tTransaction ID: " + transId +
+                "\n\tEnd date: " + endDate +
+                "\n\tDelay: " + delay +
+                "\n\tDescription quality of work: " + descQualityOfWork + "\n" +
+                "\n"  + freelancer + "\n" +
+                "\n" + task;
     }
 
-
+    public double calculateTaskCost(Freelancer freelancer, Task task) {
+        if (freelancer.getLevelOfExpertise().equalsIgnoreCase("senior")) {
+            return (2 * task.getCostPerHour()) * task.getTimeDuration();
+        } else if (freelancer.getLevelOfExpertise().equalsIgnoreCase("junior")) {
+            return task.getCostPerHour() * task.getTimeDuration();
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
 }
 
 

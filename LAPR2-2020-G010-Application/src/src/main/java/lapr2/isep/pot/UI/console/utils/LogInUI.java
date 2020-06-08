@@ -1,5 +1,6 @@
 package lapr2.isep.pot.UI.console.utils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegistOrganizationController;
@@ -24,12 +26,14 @@ import lapr2.isep.pot.controller.RegistOrganizationController;
 
 public class LogInUI implements Initializable {
 
+    public static final String NAME_ADMIN = "Admin";
+
     public static final String EMAIL_ADMIN = "admin.t4j@business.com";
 
     public static final String PASSWORD_ADMIN = "admin123";
 
-    static ApplicationController applicationController;
-    private RegistOrganizationController registOrganizationController;
+    static ApplicationController applicationController = new ApplicationController();
+    private RegistOrganizationController registOrganizationController = new RegistOrganizationController();
     private Stage administratorMenuStage;
     private Stage collaboratorMenuStage;
 
@@ -42,6 +46,9 @@ public class LogInUI implements Initializable {
 
     @FXML
     private PasswordField passwordField;
+
+    @FXML
+    private TextField nameTextField;
 
     @FXML
     private Button logInBtn;
@@ -65,18 +72,27 @@ public class LogInUI implements Initializable {
     }
 
     @FXML
-    void LogInOnAction(ActionEvent event) {                 /** COMMENTED TO BE EASIER TO CHECK OTHER WINDOWS */
-//            if (applicationController.userExist(emailTxtField.getText(), passwordField.getText()) || !isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
-//                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Email or password incorrect.");
-//                alert.show();
-//            } else {
-//                if (isAdminLoggingIn(emailTxtField.getText(), passwordField.getText())) {
-//                    System.out.println("Registe uma organização!");
-//                    administratorMenuStage.show();
-//                }
-//            }
+    void LogInOnAction(ActionEvent event) throws FileNotFoundException {                 /** COMMENTED TO BE EASIER TO CHECK OTHER WINDOWS */
+        /*if (applicationController.userExist(emailTxtField.getText(), passwordField.getText()) || !isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Name, email or password incorrect.");
+            alert.show();
+        } else {
+            if (isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
+                System.out.println("Registe uma organização!");
+                administratorMenuStage.show();
+            } else if (registOrganizationController.getRoleUser(new User(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())).equals("Collaborator")) {
+                System.out.println("O colaborador entrou");
+            } else if (registOrganizationController.getRoleUser(new User(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())).equals("Manager")) {
+                System.out.println("O manager entrou");
+            } else {
+                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Name, email or password incorrect.");
+                alert.show();
+            }
+
+         */
         //administratorMenuStage.show();
         collaboratorMenuStage.show();
+        //}
     }
 
     @FXML
@@ -95,7 +111,6 @@ public class LogInUI implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         applicationController = new ApplicationController();
-        registOrganizationController = RegistOrganizationController.getRegistOrganizationController();
         try {
             //<editor-fold desc="AdministratorMenu scene">
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdministratorMenuScene.fxml"));
@@ -115,7 +130,7 @@ public class LogInUI implements Initializable {
             AdministratorMenuUI administratorMenuUI = loader.getController();
             administratorMenuUI.associateParentUI(this);
             //</editor-fold>"
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error.", ex.getMessage());
             alert.show();
         }
@@ -148,7 +163,7 @@ public class LogInUI implements Initializable {
         return applicationController;
     }
 
-    public boolean isAdminLoggingIn(String email, String password) {
-        return email.equals(EMAIL_ADMIN) && password.equals(PASSWORD_ADMIN);
+    public boolean isAdminLoggingIn(String name, String email, String password) {
+        return name.equals(NAME_ADMIN) && email.equals(EMAIL_ADMIN) && password.equals(PASSWORD_ADMIN);
     }
 }

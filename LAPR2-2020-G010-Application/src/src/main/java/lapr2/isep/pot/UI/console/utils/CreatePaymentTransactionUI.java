@@ -119,20 +119,19 @@ public class CreatePaymentTransactionUI implements Initializable {
     @FXML
     void createOnAction(ActionEvent event) {
         try {
+            if (tasksListListVIew.getSelectionModel().getSelectedItem() == null || freelancersListListView.getSelectionModel().getSelectedItem() == null) {
+                throw new IllegalArgumentException();
+            }
             PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), endDate.getText(), Integer.parseInt(delay.getText()), briefDescription.getText(), selectedFreelancer, selectedTask);
             if (createPaymentTransactionController.getValidationPaymentTransaction(paymentTransaction)) {
                 createPaymentTransactionController.registPaymentTransaction();
-                Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), transactionID.getText(), "Transaction added.");
-                alert.show();
-                //System.out.println(paymentTransaction);
                 transactionListAndAmountStage.show();
-                //freelancersListVIew.getItems().setAll(registerFreelancerController.getListFreelancer());
             } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The transaction inserted is already in the system.");
                 alert.show();
             }
         } catch (IllegalArgumentException exception) {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "You must select a freelancer and a task. Also arguments must follow the following rules:" +
                     "\n * Arguments can't be null or empty;" +
                     "\n * Delay needs to be in numbers" +
                     "\n * A freelancer and a task needs to be chosen");

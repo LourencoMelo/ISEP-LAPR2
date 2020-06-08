@@ -34,7 +34,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
                      <children>
-                        <TextField fx:id="emailTxtField" prefHeight="116.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="nameTextField" prefHeight="116.0" prefWidth="300.0" promptText="Name" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />
@@ -44,6 +44,11 @@
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
+                     <children>
+                        <TextField fx:id="emailTxtField" prefHeight="116.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
                      <children>
                         <PasswordField fx:id="passwordField" prefHeight="136.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                      </children>
