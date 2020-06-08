@@ -53,6 +53,7 @@ public class Platform implements Serializable {
      * Returns RegistFreelancer
      * @return registFreelancer
      */
+
     public RegistFreelancer getRegistFreelancer(){
         return this.registFreelancer;
     }

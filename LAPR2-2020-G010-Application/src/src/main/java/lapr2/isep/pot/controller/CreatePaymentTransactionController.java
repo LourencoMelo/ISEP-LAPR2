@@ -1,11 +1,13 @@
 package lapr2.isep.pot.controller;
 
 import lapr2.isep.pot.model.Freelancer;
+import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 import lapr2.isep.pot.model.PaymentTransaction;
 import lapr2.isep.pot.model.RegistFreelancer;
 import lapr2.isep.pot.model.Task;
 
+import java.util.Date;
 import java.util.List;
 
 public class CreatePaymentTransactionController {
@@ -15,10 +17,15 @@ public class CreatePaymentTransactionController {
     private RegisterFreelancerController registerFreelancerController = applicationController.getRegistFreelancerController();
 
     private TaskCreationController taskCreationController = applicationController.getTaskCreationController();
-    /**
-     * Task's List
-     */
 
+    private PaymentTransaction paymentTransaction;
+
+    private PaymentTransactionList paymentTransactionList = new PaymentTransactionList();
+
+    public PaymentTransaction newPaymentTransaction(String transId, String endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task){
+        this.paymentTransaction = paymentTransactionList.newPaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
+        return this.paymentTransaction;
+    }
 
     /**
      * Regist Freelancer
@@ -26,6 +33,13 @@ public class CreatePaymentTransactionController {
 
     public CreatePaymentTransactionController() {
 
+    }
+
+    public boolean registPaymentTransaction(){
+        if (paymentTransactionList.validationPaymentTransaction(this.paymentTransaction)){
+            return this.paymentTransactionList.addPaymentTransaction(paymentTransaction);
+        }
+        return false;
     }
 
     /**
@@ -41,10 +55,12 @@ public class CreatePaymentTransactionController {
      *
      */
 
-    public void getFreelancerByID() {
+    public Freelancer getFreelancerByID(String id) {
+        return registerFreelancerController.getRegistFreelancer().getFreelancerByID(id);
     }
 
-    public void getTaskByID() {
+    public Task getTaskByID(String id) {
+        return taskCreationController.getListTask().getTaskByID(id);
     }
 
     /**
@@ -54,5 +70,22 @@ public class CreatePaymentTransactionController {
      */
     public List<Task> getTaskList() {
         return taskCreationController.getTaskList();
+    }
+
+    /**
+     * Returns if the transaction already exists or not
+     * @param paymentTransaction transaction
+     * @return false if the transaction exists
+     */
+    public boolean getValidationPaymentTransaction(PaymentTransaction paymentTransaction){
+        return paymentTransactionList.validationPaymentTransaction(paymentTransaction);
+    }
+
+    public List<PaymentTransaction> getTransactionsList(){
+        return this.paymentTransactionList.getTransactionList();
+    }
+
+    public PaymentTransactionList getPaymentTransactionList(){
+        return paymentTransactionList;
     }
 }

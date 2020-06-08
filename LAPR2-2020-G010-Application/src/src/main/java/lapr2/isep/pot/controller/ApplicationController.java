@@ -2,6 +2,7 @@ package lapr2.isep.pot.controller;
 
 import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.UI.console.MainApp;
+import lapr2.isep.pot.UI.console.utils.CreatePaymentTransactionUI;
 import lapr2.isep.pot.UI.console.utils.LogInUI;
 import lapr2.isep.pot.UI.console.utils.RegisterFreelancerUI;
 import lapr2.isep.pot.UI.console.utils.TaskCreationUI;
@@ -42,5 +43,9 @@ public class ApplicationController implements Serializable {
 
     public TaskCreationController getTaskCreationController() {
         return TaskCreationUI.getTaskCreationController();
+    }
+
+    public CreatePaymentTransactionController getCreatePaymentTransactionController(){
+        return CreatePaymentTransactionUI.getCreatePaymentTransactionController();
     }
 }

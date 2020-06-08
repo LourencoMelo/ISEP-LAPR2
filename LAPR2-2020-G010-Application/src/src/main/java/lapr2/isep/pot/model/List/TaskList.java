@@ -1,6 +1,6 @@
 package lapr2.isep.pot.model.List;
 
-import lapr2.isep.pot.model.Organization;
+
 import lapr2.isep.pot.model.Task;
 
 import java.io.Serializable;
@@ -81,4 +81,16 @@ public class TaskList implements Serializable {
     public String toString() {
         return String.format("\n%s", taskList);
     }
+
+    public Task getTaskByID(String id) {
+        for(Task task: taskList) {
+            if (id.equals(task.getId())) {
+                return task;
+            }
+        }
+        return null;
+    }
+
+
+
 }

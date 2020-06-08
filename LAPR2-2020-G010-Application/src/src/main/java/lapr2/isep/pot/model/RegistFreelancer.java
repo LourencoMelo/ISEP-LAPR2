@@ -64,4 +64,13 @@ public class RegistFreelancer implements Serializable {
     public List<Freelancer> getFreelancerList() {
         return freelancerList;
     }
+
+    public Freelancer getFreelancerByID(String id) {
+        for(Freelancer freelancer: freelancerList) {
+            if (id.equals(freelancer.getId())) {
+                return freelancer;
+            }
+        }
+        return null;
+    }
 }

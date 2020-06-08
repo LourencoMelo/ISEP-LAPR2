@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.TransactionsListAndAmountUI">
+    <left>
+        <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="44.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="file:images\\t4j.png" />
+                    </image>
+                </ImageView>
+            <Label layoutX="47.0" layoutY="133.0" text="Amount to pay:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="amountToPayTxtField" editable="false" layoutX="181.0" layoutY="134.0" />
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="600.0" prefWidth="681.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#XOnAction" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="X" fx:id="xBtn">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="goBackBtn" alignment="CENTER" layoutX="334.0" layoutY="502.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="transactionsListVIew" layoutX="151.0" layoutY="87.0" prefHeight="378.0" prefWidth="311.0" />
+            <Label layoutX="262.0" layoutY="47.0" text="List of Transactions">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="showBtn" alignment="CENTER" layoutX="143.0" layoutY="502.0" mnemonicParsing="false" onAction="#showOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Show">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+    </center>
+</BorderPane>
