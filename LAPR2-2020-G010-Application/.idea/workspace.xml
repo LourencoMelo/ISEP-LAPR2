@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Emails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/Emails.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/fxml/LogInScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/fxml/LogInScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/authorization/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/LogInUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/LogInUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationPOT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/ApplicationPOT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/RegistOrganizationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/controller/RegistOrganizationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Collaborator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Collaborator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Platform.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/Platform.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/authorization/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/CreatePaymentTransactionUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/CreatePaymentTransactionUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/LogInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/LogInUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/RegistOrganizationUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/TransactionsListAndAmountUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/UI/console/utils/TransactionsListAndAmountUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationPOT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/ApplicationPOT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/CreatePaymentTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/CreatePaymentTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/RegistOrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/RegistOrganizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/TransactionsListAndAmountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/controller/TransactionsListAndAmountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Collaborator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Collaborator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Freelancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Freelancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/PaymentTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/PaymentTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/lapr2/isep/pot/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/resources/fxml/LogInScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/resources/fxml/LogInScene.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1cTwjAIYbISztqAT5ow2lhdHYIl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="public" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/programa com erros mas para nao perder/dawdadawdawd" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.20025674" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maiad\Desktop\LAPR2-2020-G010-Application\src\src\main\resources\fxml" />
+      <recent name="C:\Users\soare_wi5nw81\IdeaProjects\Trabalhos\LAPR2\lapr2-2020-g010-application\LAPR2-2020-G010-Application\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lapr2.isep.pot.UI.console.MainApp" />
+      <module name="LAPR2-2020-G010-Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lapr2.isep.pot.UI.console.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="487c5d2f-bf51-452d-9b0e-a09c00f16589" name="Default Changelist" comment="" />
+      <created>1590566023294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590566023294</updated>
+      <workItem from="1590566024625" duration="1063000" />
+      <workItem from="1590577114918" duration="653000" />
+      <workItem from="1590747651488" duration="144000" />
+      <workItem from="1590747954047" duration="34000" />
+      <workItem from="1590748303819" duration="9995000" />
+      <workItem from="1590880575216" duration="3032000" />
+      <workItem from="1590946657817" duration="2427000" />
+      <workItem from="1590949660764" duration="398000" />
+      <workItem from="1590973929625" duration="2150000" />
+      <workItem from="1591054690034" duration="1957000" />
+      <workItem from="1591172170710" duration="98000" />
+      <workItem from="1591200359746" duration="14875000" />
+      <workItem from="1591220986674" duration="240000" />
+      <workItem from="1591294569455" duration="6389000" />
+      <workItem from="1591305840063" duration="4412000" />
+      <workItem from="1591310273005" duration="9000" />
+      <workItem from="1591312479149" duration="3411000" />
+      <workItem from="1591315906573" duration="17000" />
+      <workItem from="1591356033002" duration="5507000" />
+      <workItem from="1591391456134" duration="36000" />
+      <workItem from="1591392731624" duration="285000" />
+      <workItem from="1591401405194" duration="52000" />
+      <workItem from="1591402843826" duration="185000" />
+      <workItem from="1591435174553" duration="2744000" />
+      <workItem from="1591450005032" duration="10039000" />
+      <workItem from="1591465866935" duration="6809000" />
+      <workItem from="1591472720103" duration="40000" />
+      <workItem from="1591484044748" duration="1000" />
+      <workItem from="1591486434731" duration="1786000" />
+      <workItem from="1591488234143" duration="5000" />
+      <workItem from="1591488589524" duration="30000" />
+      <workItem from="1591526259478" duration="4000" />
+      <workItem from="1591526267497" duration="1951000" />
+      <workItem from="1591642085700" duration="4668000" />
+      <workItem from="1591652693748" duration="3874000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="726" y="63" key="#Auto_Import" timestamp="1591034723040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="63" key="#Auto_Import/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591034723040" />
+    <state x="440" y="94" key="#Project_Structure" timestamp="1590747789238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="#Project_Structure/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590747789238" />
+    <state x="610" y="270" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591360981606">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="488" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1590882124825" />
+    <state x="610" y="270" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591359977601" />
+    <state x="610" y="270" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591360981606" />
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1591572089686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591465940350" />
+    <state x="582" y="175" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590883367322" />
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591572089686" />
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591313162062" />
+    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591357566711">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="414" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591357566711" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591215522629">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1590881083426" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215522629" />
+    <state x="552" y="212" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591456566362">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="552" y="212" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1591456566362" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215494876" />
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591044286228">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591044286228" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591645522497">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591469198070" />
+    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590882143557" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591577360985" />
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591645522497" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="289" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591488221411" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591528220102" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591625137666" />
+    <state width="1877" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630336" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="289" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591488221411" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591528220102" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591625137666" />
+    <state width="1877" height="197" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630336" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="289" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591488221411" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591528220102" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591625137665" />
+    <state width="1877" height="197" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630335" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="289" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591488221411" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591528220102" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591625137666" />
+    <state width="1877" height="197" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591359630336" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1590974970045" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="356" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591472677931" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591584557724" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="356" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591472677931" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591584557723" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="356" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591472677931" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591584557723" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1591656571090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1921" height="356" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591472677931" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1591584557723" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591656571090" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1591044524353">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591044524353" />
+    <state x="690" y="284" key="extract.method.dialog" timestamp="1591357345501">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="284" key="extract.method.dialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591357345501" />
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1591654706305">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591466859096" />
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591654706305" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1591645595614">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591645595614" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1591654016359">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591359897855" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591654016359" />
+  </component>
+</project>
