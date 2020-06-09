@@ -6,6 +6,9 @@ import lapr2.isep.pot.model.List.TaskList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -147,16 +150,20 @@ public class TransactionsRegist implements Serializable {
             in.nextLine();
             while (in.hasNext()){
                 String[] line = in.nextLine().trim().split(";");
-                PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), line[6].trim(), Integer.parseInt(line[7].trim()), line[8].trim(), new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim()), new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim()));
+                PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), Formatter(line[6].trim()), Integer.parseInt(line[7].trim()), line[8].trim(), new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim()), new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim()));
                 if(!this.paymentTransactionList.contains(paymentTransaction)){
                     this.paymentTransactionList.addPaymentTransaction(paymentTransaction);
                 }
             }
             return copyPaymentTransactionList;
-        } catch (FileNotFoundException fnfex){
+        } catch (FileNotFoundException | ParseException fnfex){
             throw new FileNotFoundException("The File was not found!");
         }
     }
 
-
+    public static Date Formatter(String date) throws ParseException {
+        SimpleDateFormat formmater1 = new SimpleDateFormat("dd/MM/yyyy");
+        Date date1 = formmater1.parse(date);
+        return date1;
+    }
 }

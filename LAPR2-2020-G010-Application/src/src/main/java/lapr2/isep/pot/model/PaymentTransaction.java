@@ -15,7 +15,7 @@ public class PaymentTransaction {
     /**
      * Task end date
      */
-    private String endDate;
+    private Date endDate;
 
     /**
      * Delay
@@ -53,7 +53,7 @@ public class PaymentTransaction {
      * @param task Task that was made
      */
 
-    public PaymentTransaction(String transId,String endDate,Integer delay,String descQualityOfWork,Freelancer freelancer,Task task){
+    public PaymentTransaction(String transId,Date endDate,Integer delay,String descQualityOfWork,Freelancer freelancer,Task task){
         if(transId == null || endDate == null || delay == null || descQualityOfWork == null || transId.isEmpty() || descQualityOfWork.isEmpty()){
             throw new IllegalArgumentException("Arguments cant be null or empty.");
         }
@@ -79,7 +79,7 @@ public class PaymentTransaction {
      *
      * @return end date
      */
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 

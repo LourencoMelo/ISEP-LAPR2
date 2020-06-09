@@ -1,33 +1,31 @@
 package lapr2.isep.pot.controller;
 
 import lapr2.isep.pot.UI.console.utils.CreatePaymentTransactionUI;
-import lapr2.isep.pot.model.Freelancer;
+import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
-import lapr2.isep.pot.model.PaymentTransaction;
-import lapr2.isep.pot.model.RegistFreelancer;
-import lapr2.isep.pot.model.Task;
 
 import java.util.Date;
 import java.util.List;
 
 public class CreatePaymentTransactionController {
 
-    private Task task;
 
-    private CreatePaymentTransactionUI createPaymentTransactionUI = new CreatePaymentTransactionUI();
+    private final CreatePaymentTransactionUI createPaymentTransactionUI = new CreatePaymentTransactionUI();
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private final ApplicationController applicationController = ApplicationController.getApplicationController();
 
-    private RegisterFreelancerController registerFreelancerController = applicationController.getRegistFreelancerController();
+    private final RegisterFreelancerController registerFreelancerController = applicationController.getRegistFreelancerController();
 
-    private TaskCreationController taskCreationController = applicationController.getTaskCreationController();
+    private final TaskCreationController taskCreationController = applicationController.getTaskCreationController();
 
     private PaymentTransaction paymentTransaction;
 
-    private PaymentTransactionList paymentTransactionList = new PaymentTransactionList();
+    private Platform platform = ApplicationPOT.getInstance().getPlatform();
 
-    public PaymentTransaction newPaymentTransaction(String transId, String endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task){
+    private final PaymentTransactionList paymentTransactionList = new PaymentTransactionList();
+
+    public PaymentTransaction newPaymentTransaction(String transId, Date endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task){
         this.paymentTransaction = paymentTransactionList.newPaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
         return this.paymentTransaction;
     }
@@ -37,7 +35,7 @@ public class CreatePaymentTransactionController {
      */
 
     public CreatePaymentTransactionController() {
-
+        platform = ApplicationPOT.getInstance().getPlatform();
     }
 
     public boolean registPaymentTransaction(){
@@ -107,4 +105,8 @@ public class CreatePaymentTransactionController {
         return paymentTransaction.calculateTaskCost(freelancer, task);
     }
 
+
+    public Platform getPlatform() {
+        return platform;
+    }
 }

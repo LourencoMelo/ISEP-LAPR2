@@ -6,11 +6,15 @@ import lapr2.isep.pot.UI.console.utils.CreatePaymentTransactionUI;
 import lapr2.isep.pot.UI.console.utils.LogInUI;
 import lapr2.isep.pot.UI.console.utils.RegisterFreelancerUI;
 import lapr2.isep.pot.UI.console.utils.TaskCreationUI;
+import lapr2.isep.pot.model.Freelancer;
+import lapr2.isep.pot.model.Task;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class ApplicationController implements Serializable {
+
+    private CreatePaymentTransactionUI createPaymentTransactionUI;
 
     public static ApplicationController getApplicationController() {
         return LogInUI.getApplicationController();
@@ -46,4 +50,5 @@ public class ApplicationController implements Serializable {
     public CreatePaymentTransactionController getCreatePaymentTransactionController(){
         return CreatePaymentTransactionUI.getCreatePaymentTransactionController();
     }
+
 }

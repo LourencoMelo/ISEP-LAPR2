@@ -14,18 +14,22 @@ public class Platform implements Serializable {
      */
     private final FacadeAuthorization facadeAuthorization;
 
+    private Freelancer selectedFreelancer;
+
+    private Task selectedTask;
+
     /**
      * Regist Freelancer instance
      */
 
-    private final RegistFreelancer registFreelancer;
+    private  RegistFreelancer registFreelancer;
 
+    private RegistOrganization registOrganization;
     /**
      * Organization's initialization
      */
     private Organization organization;
 
-    private RegistOrganization registOrganization;
 
     public Platform() {                                              //INCOMPLETE
         this.facadeAuthorization = new FacadeAuthorization();
@@ -46,8 +50,8 @@ public class Platform implements Serializable {
      *
      * @return Organization
      */
-    public Organization getRegistOrganization() {
-        return organization;
+    public RegistOrganization getRegistOrganization() {
+        return registOrganization;
     }
 
     /**
@@ -84,4 +88,23 @@ public class Platform implements Serializable {
     public String getRoleUser(User user) {
         return user.getRole();
     }
+
+    public Freelancer getSelectedFreelancer() {
+        return selectedFreelancer;
+    }
+
+    public void setSelectedFreelancer(Freelancer selectedFreelancer) {
+        this.selectedFreelancer = selectedFreelancer;
+    }
+
+    public Task getSelectedTask() {
+        return selectedTask;
+    }
+
+    public void setSelectedTask(Task selectedTask) {
+        this.selectedTask = selectedTask;
+    }
+
+
+
 }

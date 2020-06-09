@@ -13,7 +13,7 @@ public class RegistOrganizationController implements Serializable {
     /**
      * Plataform's initialization
      */
-    private Platform platform;
+    private Platform platform = ApplicationPOT.getInstance().getPlatform();
 
     /**
      * Organization's initialization
@@ -25,7 +25,7 @@ public class RegistOrganizationController implements Serializable {
     /**
      * RegistOrganization's initialization
      */
-    private RegistOrganization registOrganization = new RegistOrganization();
+    private RegistOrganization registOrganization = platform.getRegistOrganization();
 
     public RegistOrganizationController() {
         platform = ApplicationPOT.getInstance().getPlatform();

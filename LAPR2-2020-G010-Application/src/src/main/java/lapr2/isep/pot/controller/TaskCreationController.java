@@ -31,7 +31,7 @@ public class TaskCreationController implements Serializable {
     /**
      * Platform
      */
-    private Platform platform;
+    private Platform platform = ApplicationPOT.getInstance().getPlatform();
 
 
 

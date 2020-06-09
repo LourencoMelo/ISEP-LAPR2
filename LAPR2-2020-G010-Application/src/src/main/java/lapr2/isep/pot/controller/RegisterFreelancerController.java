@@ -13,7 +13,7 @@ public class RegisterFreelancerController implements Serializable {
      * platform instance
      */
 
-    private static Platform platform;
+    private static Platform platform = ApplicationPOT.getInstance().getPlatform();
 
 
     /**
@@ -26,7 +26,7 @@ public class RegisterFreelancerController implements Serializable {
      * registFreelancer instance
      */
 
-    private RegistFreelancer registFreelancer = new RegistFreelancer();
+    private RegistFreelancer registFreelancer = platform.getRegistFreelancer();
 
     /**
      * Initializes the frellancer's instance

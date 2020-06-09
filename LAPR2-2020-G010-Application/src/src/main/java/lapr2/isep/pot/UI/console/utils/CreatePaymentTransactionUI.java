@@ -17,10 +17,14 @@ import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.CreatePaymentTransactionController;
 import lapr2.isep.pot.model.Freelancer;
 import lapr2.isep.pot.model.PaymentTransaction;
+import lapr2.isep.pot.model.Platform;
 import lapr2.isep.pot.model.Task;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -31,6 +35,8 @@ public class CreatePaymentTransactionUI implements Initializable {
     private Stage transactionListAndAmountStage;
 
     private static final CreatePaymentTransactionController createPaymentTransactionController = new CreatePaymentTransactionController();
+
+//    private Platform platform = createPaymentTransactionController.getPlatform();
 
     double x = 0;
     double y = 0;
@@ -123,7 +129,7 @@ public class CreatePaymentTransactionUI implements Initializable {
     @FXML
     void createOnAction(ActionEvent event) {
         try {
-            PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), endDate.getText(), Integer.parseInt(delay.getText()), briefDescription.getText(), selectedFreelancer, selectedTask);
+            PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), Formatter(endDate.getText()), Integer.parseInt(delay.getText()), briefDescription.getText(), selectedFreelancer, selectedTask);
             if (createPaymentTransactionController.getValidationPaymentTransaction(paymentTransaction)) {
                 createPaymentTransactionController.registPaymentTransaction();
                 transactionListAndAmountStage.show();
@@ -131,7 +137,7 @@ public class CreatePaymentTransactionUI implements Initializable {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The transaction inserted is already in the system.");
                 alert.show();
             }
-        } catch (IllegalArgumentException exception) {
+        } catch (IllegalArgumentException | ParseException exception) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "You must select a freelancer and a task. Also arguments must follow the following rules:" +
                     "\n * Arguments can't be null or empty;" +
                     "\n * Delay needs to be in numbers" +
@@ -210,12 +216,20 @@ public class CreatePaymentTransactionUI implements Initializable {
     public Freelancer getSelectedFreelancer() {
         Freelancer selectedFreelancer = getChosenFreelancer();
         this.selectedFreelancer = selectedFreelancer;
+        //platform.setSelectedFreelancer(selectedFreelancer);
         return selectedFreelancer;
     }
 
     public Task getSelectedTask() {
         Task selectedTask = getChosenTask();
         this.selectedTask = selectedTask;
+        //platform.setSelectedTask(selectedTask);
         return selectedTask;
+    }
+
+    public static Date Formatter(String date) throws ParseException {
+        SimpleDateFormat formmater1 = new SimpleDateFormat("dd/MM/yyyy");
+        Date date1 = formmater1.parse(date);
+        return date1;
     }
 }

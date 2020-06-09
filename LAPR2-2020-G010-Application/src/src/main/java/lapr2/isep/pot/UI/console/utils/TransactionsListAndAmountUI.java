@@ -9,15 +9,19 @@ import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.CreatePaymentTransactionController;
 import lapr2.isep.pot.model.PaymentTransaction;
+import lapr2.isep.pot.model.Platform;
 
 
 public class TransactionsListAndAmountUI {
 
     private CreatePaymentTransactionUI createPaymentTransactionUI;
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController = new ApplicationController();
 
     private CreatePaymentTransactionController createPaymentTransactionController = applicationController.getCreatePaymentTransactionController();
+
+    private Platform platform = createPaymentTransactionController.getPlatform();
+
 
     double x = 0;
     double y = 0;
@@ -66,7 +70,7 @@ public class TransactionsListAndAmountUI {
     @FXML
     void showOnAction(ActionEvent event) {
         refreshListView();
-        amountToPayTxtField.setText(String.valueOf(createPaymentTransactionController.getTaskCost(createPaymentTransactionController.getChoosenFreelancer(), createPaymentTransactionController.getChoosenTask())));
+        amountToPayTxtField.setText(String.valueOf(createPaymentTransactionController.getTaskCost(createPaymentTransactionUI.getSelectedFreelancer(), createPaymentTransactionUI.getSelectedTask())));
     }
 
 
@@ -89,4 +93,7 @@ public class TransactionsListAndAmountUI {
     private void refreshListView() {
         transactionsListVIew.getItems().setAll(createPaymentTransactionController.getTransactionsList());
     }
+
+
+
 }

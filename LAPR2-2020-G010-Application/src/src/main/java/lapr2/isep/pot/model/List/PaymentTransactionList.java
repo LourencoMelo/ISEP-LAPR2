@@ -35,7 +35,7 @@ public class PaymentTransactionList implements Serializable {
      * @param task task
      * @return new transaction
      */
-    public PaymentTransaction newPaymentTransaction(String transId, String endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task) {
+    public PaymentTransaction newPaymentTransaction(String transId, Date endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task) {
         return new PaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
     }
 
