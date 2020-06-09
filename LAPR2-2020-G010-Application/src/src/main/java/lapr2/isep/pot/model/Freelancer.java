@@ -1,7 +1,5 @@
 package lapr2.isep.pot.model;
 
-import lapr2.isep.pot.model.List.FreelancerList;
-
 import java.io.Serializable;
 
 public class Freelancer implements Serializable {
@@ -59,14 +57,17 @@ public class Freelancer implements Serializable {
      * @param country Freelancer's country
      */
     public Freelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country){
-        this.id = id;
-        this.name = name;
-        this.levelOfExpertise = levelOfExpertise;
-        this.email = email;
-        this.NIF = NIF;
-        this.bankAccountIBAN = bankAccountIBAN;
-        this.address = address;
-        this.country = country;
+        if(id == null || name == null || levelOfExpertise == null || email == null || NIF == null || bankAccountIBAN == null || address == null || country == null || id.isEmpty() || name.isEmpty() || levelOfExpertise.isEmpty() || email.isEmpty() || NIF.isEmpty() || bankAccountIBAN.isEmpty() || address.isEmpty() || country.isEmpty() ) {
+            throw new IllegalArgumentException("Arguments cant be null or empty.");
+        }
+            this.id = id;
+            this.name = name;
+            this.levelOfExpertise = levelOfExpertise;
+            this.email = email;
+            this.NIF = NIF;
+            this.bankAccountIBAN = bankAccountIBAN;
+            this.address = address;
+            this.country = country;
     }
 
     /**
@@ -184,5 +185,4 @@ public class Freelancer implements Serializable {
                 "\n\tAddress: %s" +
                 "\n\tCountry: %s",id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
     }
-
 }

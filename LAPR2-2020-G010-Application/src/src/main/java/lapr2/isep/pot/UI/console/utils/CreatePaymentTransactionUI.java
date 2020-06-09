@@ -123,9 +123,6 @@ public class CreatePaymentTransactionUI implements Initializable {
     @FXML
     void createOnAction(ActionEvent event) {
         try {
-            if (tasksListListVIew.getSelectionModel().getSelectedItem() == null || freelancersListListView.getSelectionModel().getSelectedItem() == null) {
-                throw new IllegalArgumentException();
-            }
             PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), endDate.getText(), Integer.parseInt(delay.getText()), briefDescription.getText(), selectedFreelancer, selectedTask);
             if (createPaymentTransactionController.getValidationPaymentTransaction(paymentTransaction)) {
                 createPaymentTransactionController.registPaymentTransaction();

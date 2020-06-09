@@ -98,6 +98,7 @@ public class RegisterFreelancerUI implements Initializable {
 
     @FXML
     void RegistOnAction(ActionEvent event) {
+        try{
         Freelancer freelancer = registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), freelancerLvlOfExpertise.getText(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
         if (registerFreelancerController.getValidationFreelancer(freelancer)) {
             registerFreelancerController.registFreelancer();
@@ -106,6 +107,11 @@ public class RegisterFreelancerUI implements Initializable {
             freelancersListVIew.getItems().setAll(registerFreelancerController.getListFreelancer());
         }else {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The freelancer inserted is already in the system.");
+            alert.show();
+        }
+        }catch (IllegalArgumentException exception) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
+                    "\n * Arguments can't be null or empty;");
             alert.show();
         }
     }

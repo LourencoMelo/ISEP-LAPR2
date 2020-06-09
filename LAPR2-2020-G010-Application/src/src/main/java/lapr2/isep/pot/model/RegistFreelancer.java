@@ -1,7 +1,5 @@
 package lapr2.isep.pot.model;
 
-import lapr2.isep.pot.model.List.FreelancerList;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +43,6 @@ public class RegistFreelancer implements Serializable {
         return !freelancerList.contains(freelancer);
     }
 
-
     /**
      *
      * @param freelancer freelancer
@@ -54,6 +51,13 @@ public class RegistFreelancer implements Serializable {
 
     public boolean addFreelancer(Freelancer freelancer) {
         return freelancerList.add(freelancer);
+    }
+
+    public boolean contains(Freelancer freelancer) {
+        for (Freelancer freelancerAux : freelancerList) {
+            return freelancer.equals(freelancerAux);
+        }
+        return false;
     }
 
     /**

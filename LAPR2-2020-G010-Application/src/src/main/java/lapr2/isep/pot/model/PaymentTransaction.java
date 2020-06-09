@@ -3,6 +3,7 @@ package lapr2.isep.pot.model;
 import javafx.fxml.Initializable;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class PaymentTransaction {
 
@@ -105,6 +106,7 @@ public class PaymentTransaction {
      *
      * @return Transaction's characteristics.
      */
+
     @Override
     public String toString() {
         return "PaymentTransaction: " +
@@ -124,6 +126,25 @@ public class PaymentTransaction {
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PaymentTransaction that = (PaymentTransaction) o;
+        return Double.compare(that.amountPay, amountPay) == 0 &&
+                Objects.equals(transId, that.transId) &&
+                Objects.equals(endDate, that.endDate) &&
+                Objects.equals(delay, that.delay) &&
+                Objects.equals(descQualityOfWork, that.descQualityOfWork) &&
+                Objects.equals(freelancer, that.freelancer) &&
+                Objects.equals(task, that.task);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transId, endDate, delay, descQualityOfWork, amountPay, freelancer, task);
     }
 }
 

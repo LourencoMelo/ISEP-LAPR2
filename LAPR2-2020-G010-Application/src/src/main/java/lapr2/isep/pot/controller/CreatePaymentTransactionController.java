@@ -41,8 +41,8 @@ public class CreatePaymentTransactionController {
     }
 
     public boolean registPaymentTransaction(){
-        if (paymentTransactionList.validationPaymentTransaction(this.paymentTransaction)){
-            return this.paymentTransactionList.addPaymentTransaction(paymentTransaction);
+         if(paymentTransactionList.validationPaymentTransaction(this.paymentTransaction)){
+            return paymentTransactionList.addPaymentTransaction(paymentTransaction);
         }
         return false;
     }

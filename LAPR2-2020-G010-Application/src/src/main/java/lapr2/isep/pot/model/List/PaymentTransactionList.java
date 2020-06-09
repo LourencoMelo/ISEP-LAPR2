@@ -58,5 +58,11 @@ public class PaymentTransactionList implements Serializable {
         return transactionList.add(paymentTransaction);
     }
 
+    public boolean contains(PaymentTransaction paymentTransaction) {
+        for (PaymentTransaction paymentTransactionAux : transactionList) {
+            return paymentTransaction.equals(paymentTransactionAux);
+        }
+        return false;
+    }
 
 }
