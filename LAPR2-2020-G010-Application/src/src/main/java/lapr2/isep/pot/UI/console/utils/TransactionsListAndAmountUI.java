@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
-import lapr2.isep.pot.controller.TransactionsListAndAmountController;
+import lapr2.isep.pot.controller.CreatePaymentTransactionController;
 import lapr2.isep.pot.model.PaymentTransaction;
 
 
@@ -17,7 +17,7 @@ public class TransactionsListAndAmountUI {
 
     private ApplicationController applicationController = ApplicationController.getApplicationController();
 
-    private final TransactionsListAndAmountController transactionListAndAmountController = TransactionsListAndAmountController.getTransactionsListAndAmountController();
+    private CreatePaymentTransactionController createPaymentTransactionController = applicationController.getCreatePaymentTransactionController();
 
     double x = 0;
     double y = 0;
@@ -65,8 +65,8 @@ public class TransactionsListAndAmountUI {
 
     @FXML
     void showOnAction(ActionEvent event) {
-        amountToPayTxtField.setText(String.valueOf(transactionListAndAmountController.getTaskCost(transactionListAndAmountController.getChoosenFreelancer(), transactionListAndAmountController.getChoosenTask())));
         refreshListView();
+        amountToPayTxtField.setText(String.valueOf(createPaymentTransactionController.getTaskCost(createPaymentTransactionController.getChoosenFreelancer(), createPaymentTransactionController.getChoosenTask())));
     }
 
 
@@ -78,8 +78,8 @@ public class TransactionsListAndAmountUI {
     }
 
     public void clearTextFields() {
-        amountToPayTxtField.clear();
         transactionsListVIew.getItems().clear();
+        amountToPayTxtField.clear();
     }
 
     public void associateParentUI(CreatePaymentTransactionUI createPaymentTransactionUI) {
@@ -87,6 +87,6 @@ public class TransactionsListAndAmountUI {
     }
 
     private void refreshListView() {
-        transactionsListVIew.getItems().setAll(transactionListAndAmountController.getTransactionsList());
+        transactionsListVIew.getItems().setAll(createPaymentTransactionController.getTransactionsList());
     }
 }

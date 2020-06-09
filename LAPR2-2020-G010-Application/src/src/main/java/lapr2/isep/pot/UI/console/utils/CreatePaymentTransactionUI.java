@@ -96,12 +96,16 @@ public class CreatePaymentTransactionUI implements Initializable {
     void chooseTaskOnAction(ActionEvent event) {
         Task selectedTask = getChosenTask();
         this.selectedTask = selectedTask;
+        Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), "Success", "Task has been chosen!!");
+        alert.show();
     }
 
     @FXML
     void chooseFreeOnAction(ActionEvent event) {
         Freelancer selectedFreelancer = getChosenFreelancer();
         this.selectedFreelancer = selectedFreelancer;
+        Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), "Success", "Freelancer has been chosen!!");
+        alert.show();
     }
 
 
@@ -204,5 +208,17 @@ public class CreatePaymentTransactionUI implements Initializable {
 
     public static CreatePaymentTransactionController getCreatePaymentTransactionController(){
         return createPaymentTransactionController;
+    }
+
+    public Freelancer getSelectedFreelancer() {
+        Freelancer selectedFreelancer = getChosenFreelancer();
+        this.selectedFreelancer = selectedFreelancer;
+        return selectedFreelancer;
+    }
+
+    public Task getSelectedTask() {
+        Task selectedTask = getChosenTask();
+        this.selectedTask = selectedTask;
+        return selectedTask;
     }
 }

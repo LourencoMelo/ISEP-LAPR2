@@ -13,6 +13,10 @@ import java.util.List;
 
 public class CreatePaymentTransactionController {
 
+    private Task task;
+
+    private CreatePaymentTransactionUI createPaymentTransactionUI = new CreatePaymentTransactionUI();
+
     private ApplicationController applicationController = ApplicationController.getApplicationController();
 
     private RegisterFreelancerController registerFreelancerController = applicationController.getRegistFreelancerController();
@@ -83,45 +87,24 @@ public class CreatePaymentTransactionController {
     }
 
     public List<PaymentTransaction> getTransactionsList(){
-        return this.paymentTransactionList.getTransactionList();
+        return getPaymentTransactionList().getTransactionList();
     }
 
     public PaymentTransactionList getPaymentTransactionList(){
         return paymentTransactionList;
     }
 
-    //--------------------------------------------------------------------------------------------------------------
-
-    private Task task;
-
-    private static TransactionsListAndAmountController transactionsListAndAmountController = new TransactionsListAndAmountController();
-
-    private CreatePaymentTransactionUI createPaymentTransactionUI;
-
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
-
-
-
-    private CreatePaymentTransactionController createPaymentTransactionController = applicationController.getCreatePaymentTransactionController();
-
-    public List<PaymentTransaction> getTransactionsList(){
-        return createPaymentTransactionController.getPaymentTransactionList().getTransactionList();
-    }
-
-    public double getTaskCost(Freelancer freelancer, Task task) {
-        return paymentTransaction.calculateTaskCost(freelancer, task);
-    }
-
     public Freelancer getChoosenFreelancer() {
-        return createPaymentTransactionUI.getChosenFreelancer();
+        return createPaymentTransactionUI.getSelectedFreelancer();
     }
 
     public Task getChoosenTask() {
-        return createPaymentTransactionUI.getChosenTask();
+        return createPaymentTransactionUI.getSelectedTask();
     }
 
-    public static TransactionsListAndAmountController getTransactionsListAndAmountController() {
-        return transactionsListAndAmountController;
+
+    public double getTaskCost(Freelancer freelancer, Task task) {
+        return paymentTransaction.calculateTaskCost(freelancer, task);
     }
 
 }
