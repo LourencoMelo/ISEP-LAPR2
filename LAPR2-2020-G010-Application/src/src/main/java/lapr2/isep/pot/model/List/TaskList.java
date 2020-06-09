@@ -91,6 +91,11 @@ public class TaskList implements Serializable {
         return null;
     }
 
-
+    public boolean contains(Task task){
+        for(Task freelancerAux : taskList){
+            return task.equals(freelancerAux);
+        }
+        return false;
+    }
 
 }

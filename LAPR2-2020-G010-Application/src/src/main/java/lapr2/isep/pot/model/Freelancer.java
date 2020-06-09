@@ -1,5 +1,7 @@
 package lapr2.isep.pot.model;
 
+import lapr2.isep.pot.model.List.FreelancerList;
+
 import java.io.Serializable;
 
 public class Freelancer implements Serializable {
@@ -182,4 +184,5 @@ public class Freelancer implements Serializable {
                 "\n\tAddress: %s" +
                 "\n\tCountry: %s",id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
     }
+
 }

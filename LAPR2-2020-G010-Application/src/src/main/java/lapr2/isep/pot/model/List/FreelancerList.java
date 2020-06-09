@@ -18,4 +18,15 @@ public class FreelancerList implements Serializable {
         return freelancerList;
     }
 
+    public boolean contains(Freelancer freelancer){
+        for(Freelancer freelancerAux : freelancerList){
+            return freelancer.equals(freelancerAux);
+        }
+        return false;
+    }
+
+    public boolean addFreelancer(Freelancer freelancer){
+        return freelancerList.add(freelancer);
+    }
+
 }
