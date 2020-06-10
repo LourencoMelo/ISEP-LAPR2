@@ -19,9 +19,9 @@ public class RegisterFreelancerUI implements Initializable {
 
     private CollaboratorMenuUI collaboratorMenuUI;
 
-    private static RegisterFreelancerController registerFreelancerController;
+    private RegisterFreelancerController registerFreelancerController;
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController;
 
     double x = 0;
     double y = 0;
@@ -63,11 +63,12 @@ public class RegisterFreelancerUI implements Initializable {
     private TextField freelancerCountry;
 
     public RegisterFreelancerUI() {
-        registerFreelancerController = new RegisterFreelancerController();
+        this.registerFreelancerController = new RegisterFreelancerController();
+        this.applicationController = new ApplicationController();
     }
 
     public RegisterFreelancerController getController() {
-        return registerFreelancerController;
+        return this.registerFreelancerController;
     }
 
     @FXML
@@ -99,18 +100,18 @@ public class RegisterFreelancerUI implements Initializable {
     @FXML
     void RegistOnAction(ActionEvent event) {
         try{
-        Freelancer freelancer = registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), freelancerLvlOfExpertise.getText(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
-        if (registerFreelancerController.getValidationFreelancer(freelancer)) {
-            registerFreelancerController.registFreelancer();
-            Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), freelancerID.getText() , "Freelancer added.");
+        Freelancer freelancer = this.registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), freelancerLvlOfExpertise.getText(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
+        if (this.registerFreelancerController.getValidationFreelancer(freelancer)) {
+            this.registerFreelancerController.registFreelancer();
+            Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), freelancerID.getText() , "Freelancer added.");
             alert.show();
-            freelancersListVIew.getItems().setAll(registerFreelancerController.getListFreelancer());
+            freelancersListVIew.getItems().setAll(this.registerFreelancerController.getListFreelancer());
         }else {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The freelancer inserted is already in the system.");
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "The freelancer inserted is already in the system.");
             alert.show();
         }
         }catch (IllegalArgumentException exception) {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, this.applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
                     "\n * Arguments can't be null or empty;");
             alert.show();
         }
@@ -145,7 +146,7 @@ public class RegisterFreelancerUI implements Initializable {
 
     }
 
-    public static RegisterFreelancerController getRegisterFreelancerController() {
-        return registerFreelancerController;
+    public RegisterFreelancerController getRegisterFreelancerController() {
+        return this.registerFreelancerController;
     }
 }

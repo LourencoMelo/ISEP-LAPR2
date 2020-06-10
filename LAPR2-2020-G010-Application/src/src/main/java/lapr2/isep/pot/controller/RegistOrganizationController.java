@@ -13,7 +13,9 @@ public class RegistOrganizationController implements Serializable {
     /**
      * Plataform's initialization
      */
-    private Platform platform = ApplicationPOT.getInstance().getPlatform();
+    private final Platform platform ;
+
+    private final ApplicationPOT applicationPOT;
 
     /**
      * Organization's initialization
@@ -25,17 +27,19 @@ public class RegistOrganizationController implements Serializable {
     /**
      * RegistOrganization's initialization
      */
-    private RegistOrganization registOrganization = platform.getRegistOrganization();
+    private RegistOrganization registOrganization;
 
     public RegistOrganizationController() {
-        platform = ApplicationPOT.getInstance().getPlatform();
+        this.applicationPOT = ApplicationPOT.getInstance();
+        this.platform = applicationPOT.getPlatform();
+        this.registOrganization = platform.getRegistOrganization();
         readInfo();
     }
 
     private void readInfo() {
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File("dados.bin")));
-            registOrganization = (RegistOrganization) in.readObject();
+            this.registOrganization = (RegistOrganization) in.readObject();
             in.close();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("ERRO: nao abriu o ficheiro para leitura");
@@ -45,7 +49,7 @@ public class RegistOrganizationController implements Serializable {
     public void saveInfo(){
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(new File("dados.bin")));
-            out.writeObject(registOrganization);
+            out.writeObject(this.registOrganization);
             out.close();
         } catch (IOException e) {
             System.out.println("ERRO: nao abriu o ficheiro para escrita");
@@ -85,7 +89,7 @@ public class RegistOrganizationController implements Serializable {
      * @return true if added or false if not
      */
     public boolean addOrganization(Organization organization) {
-        return platform.addOrganization(organization);
+        return this.platform.addOrganization(organization);
     }
 
     /**
@@ -94,11 +98,11 @@ public class RegistOrganizationController implements Serializable {
      * @return true if has or false if not
      */
     public boolean hasOrganization(Organization organization) {
-        return platform.hasOrganization(organization);
+        return this.platform.hasOrganization(organization);
     }
 
     public Organization getOrganization() {
-        return organization;
+        return this.organization;
     }
 
     public boolean registOrganization() {
@@ -106,20 +110,18 @@ public class RegistOrganizationController implements Serializable {
     }
 
     public List<Organization> getListOrganizations() {
-        return platform.getListOrganizations();
+        return this.registOrganization.getListOrganizations();
     }
 
-    public static RegistOrganizationController getRegistOrganizationController() {
-        return RegistOrganizationUI.getRegistOrganizationController();
-    }
 
     public Platform getPlatform() {
-        return platform;
+        return this.platform;
     }
 
     public String getRoleUser(User user) {
-        return platform.getRoleUser(user);
+        return this.platform.getRoleUser(user);
     }
+
 
     /*public boolean addCollaboratorRegistered(String name, String email, String password) throws IOException {
         collaboratorListRegistered.add(new Collaborator(name, email, password));

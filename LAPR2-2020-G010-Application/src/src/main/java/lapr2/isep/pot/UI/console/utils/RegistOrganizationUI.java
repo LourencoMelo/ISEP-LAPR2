@@ -22,10 +22,10 @@ public class RegistOrganizationUI implements Initializable {
 
     private AdministratorMenuUI administratorMenuUI;
 
-    //private ApplicationController applicationController = ApplicationController.getApplicationController();1
-    ApplicationController applicationController = new ApplicationController();
 
-    private static final RegistOrganizationController registOrganizationController = new RegistOrganizationController();
+    private ApplicationController applicationController;
+
+    private RegistOrganizationController registOrganizationController;
 
     double x = 0;
     double y = 0;
@@ -60,14 +60,19 @@ public class RegistOrganizationUI implements Initializable {
     @FXML
     private ListView<Organization> organizationsListVIew;
 
+    public RegistOrganizationUI(){
+        this.applicationController = new ApplicationController();
+        this.registOrganizationController = new RegistOrganizationController();
+    }
+
     @FXML
     void XOnAction(ActionEvent event) {
-        Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, applicationController.getAppName(),
+        Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, this.applicationController.getAppName(),
                 "Action confirmation.", "Do you really want to close the application?");
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            registOrganizationController.saveInfo();
+            this.registOrganizationController.saveInfo();
             System.exit(0);
         }
     }
@@ -75,17 +80,17 @@ public class RegistOrganizationUI implements Initializable {
     @FXML
     void RegistOnAction(ActionEvent event) {
         try {
-                if (registOrganizationController.hasOrganization(new Organization(organizationName.getText(), organizationNIF.getText()))) {
-                    Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The organization inserted is already in the system.");
+                if (this.registOrganizationController.hasOrganization(new Organization(organizationName.getText(), organizationNIF.getText()))) {
+                    Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "The organization inserted is already in the system.");
                     alert.show();
                 } else {
-                    registOrganizationController.addOrganization(new Organization(organizationName.getText(), organizationNIF.getText(), new Collaborator(collaboratorName.getText(), collaboratorEmail.getText()), new Manager(managerName.getText(), managerEmail.getText())));
-                    Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), organizationName.getText() , "Organization added.");
+                    this.registOrganizationController.addOrganization(new Organization(organizationName.getText(), organizationNIF.getText(), new Collaborator(collaboratorName.getText(), collaboratorEmail.getText()), new Manager(managerName.getText(), managerEmail.getText())));
+                    Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), organizationName.getText() , "Organization added.");
                     alert.show();
-                    organizationsListVIew.getItems().setAll(registOrganizationController.getListOrganizations());
+                    organizationsListVIew.getItems().setAll(this.registOrganizationController.getListOrganizations());
                 }
         } catch (IllegalArgumentException | IOException exception) {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "The arguments cant be null or empty.");
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, this.applicationController.getAppName(), "Error", "The arguments cant be null or empty.");
             alert.show();
         }
     }
@@ -133,7 +138,7 @@ public class RegistOrganizationUI implements Initializable {
         collaboratorEmail.clear();
     }
 
-    public static RegistOrganizationController getRegistOrganizationController() {
-        return registOrganizationController;
+    public RegistOrganizationController getRegistOrganizationController() {
+        return this.registOrganizationController;
     }
 }

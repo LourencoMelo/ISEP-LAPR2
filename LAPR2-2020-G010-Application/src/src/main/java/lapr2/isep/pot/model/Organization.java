@@ -4,6 +4,8 @@ import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Organization implements Serializable {
@@ -19,6 +21,11 @@ public class Organization implements Serializable {
     private String NIF;
 
     /**
+     * Organization's task list
+     */
+    private TaskList taskList;
+
+    /**
      * Organization's Collaborator
      */
     private Collaborator collaborator;
@@ -27,11 +34,6 @@ public class Organization implements Serializable {
      * Organization's Manager
      */
     private Manager manager;
-
-    /**
-     *  Organization's task list
-     */
-    private TaskList taskList;
 
     /**
      * Initialize the Organization's information with the received data
@@ -96,8 +98,8 @@ public class Organization implements Serializable {
      *
      * @return task list
      */
-    public TaskList getTaskList(){
-        return this.taskList;
+    public List<Task> getTaskList(){
+        return this.taskList.getTaskList();
     }
 
     /**

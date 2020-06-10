@@ -26,10 +26,11 @@ public class AdministratorMenuUI implements Initializable {
 
     private LogInUI logInUI;
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController;
     private RegistOrganizationController registOrganizationController;
 
     private Stage registOrganizationStage;
+
 
     double x = 0;
     double y = 0;
@@ -42,6 +43,12 @@ public class AdministratorMenuUI implements Initializable {
 
     @FXML
     private Button statisticsBtn;
+
+    public AdministratorMenuUI() {
+        this.applicationController = new ApplicationController();
+        this.registOrganizationController = new RegistOrganizationController();
+    }
+
 
     @FXML
     void XOnAction(ActionEvent event) {
@@ -92,28 +99,27 @@ public class AdministratorMenuUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        registOrganizationController = RegistOrganizationController.getRegistOrganizationController();
-        //<editor-fold desc="RegistOrganization scene">
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegistOrganizationScene.fxml"));
-        Parent root = null;
         try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegistOrganizationScene.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            registOrganizationStage = new Stage();
+            registOrganizationStage.initModality(Modality.APPLICATION_MODAL);
+            registOrganizationStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            registOrganizationStage.setTitle("Regist Organization");
+            registOrganizationStage.setResizable(false);
+            registOrganizationStage.setScene(scene);
+            registOrganizationStage.initStyle(StageStyle.TRANSPARENT);
+
+            RegistOrganizationUI registOrganizationUI = loader.getController();
+            registOrganizationUI.associateParentUI(this);
+
+        }catch (IOException ioException){
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", ioException.getMessage());
+
         }
-
-        Scene scene = new Scene(root);
-
-        registOrganizationStage = new Stage();
-        registOrganizationStage.initModality(Modality.APPLICATION_MODAL);
-        registOrganizationStage.getIcons().add(new Image("file:images\\t4j.jpg"));
-        registOrganizationStage.setTitle("Regist Organization");
-        registOrganizationStage.setResizable(false);
-        registOrganizationStage.setScene(scene);
-        registOrganizationStage.initStyle(StageStyle.TRANSPARENT);
-
-        RegistOrganizationUI registOrganizationUI = loader.getController();
-        registOrganizationUI.associateParentUI(this);
-        //</editor-fold>"
     }
 }

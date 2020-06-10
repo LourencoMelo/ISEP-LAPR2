@@ -35,7 +35,9 @@ public class User implements Serializable {
         if (this.getClass().getSimpleName().equals("Collaborator")) {
             this.role = "Collaborator";
         } else {
-            this.role = "Manager";
+            if (this.getClass().getSimpleName().equalsIgnoreCase("Manager")) {
+                this.role = "Manager";
+            }
         }
         listUsers.add(this);
         EmailFiles.writeToAFile(listUsers);
@@ -140,5 +142,9 @@ public class User implements Serializable {
                 "\n-----------------------------------------------------------------",email, name, email, password);
         System.out.println("Ficheiro criado.");
         out.close();
+    }
+
+    public User getCurrentUser(){
+        return this;
     }
 }

@@ -16,11 +16,9 @@ public class TransactionsListAndAmountUI {
 
     private CreatePaymentTransactionUI createPaymentTransactionUI;
 
-    private ApplicationController applicationController = new ApplicationController();
+    private ApplicationController applicationController;
 
-    private CreatePaymentTransactionController createPaymentTransactionController = applicationController.getCreatePaymentTransactionController();
-
-    private Platform platform = createPaymentTransactionController.getPlatform();
+    private CreatePaymentTransactionController createPaymentTransactionController ;
 
 
     double x = 0;
@@ -40,6 +38,12 @@ public class TransactionsListAndAmountUI {
 
     @FXML
     private Button showBtn;
+
+    public TransactionsListAndAmountUI(){
+        this.applicationController = new ApplicationController();
+        this.createPaymentTransactionController = new CreatePaymentTransactionController();
+    }
+
 
     @FXML
     void dragged(MouseEvent event) {
@@ -70,7 +74,7 @@ public class TransactionsListAndAmountUI {
     @FXML
     void showOnAction(ActionEvent event) {
         refreshListView();
-        amountToPayTxtField.setText(String.valueOf(createPaymentTransactionController.getTaskCost(createPaymentTransactionUI.getSelectedFreelancer(), createPaymentTransactionUI.getSelectedTask())));
+        amountToPayTxtField.setText(String.valueOf(this.createPaymentTransactionController.getTaskCost(createPaymentTransactionUI.getSelectedFreelancer(), createPaymentTransactionUI.getSelectedTask())));
     }
 
 
@@ -91,9 +95,10 @@ public class TransactionsListAndAmountUI {
     }
 
     private void refreshListView() {
-        transactionsListVIew.getItems().setAll(createPaymentTransactionController.getTransactionsList());
+        transactionsListVIew.getItems().setAll(this.createPaymentTransactionController.getTransactionsList());
     }
 
-
-
+    public CreatePaymentTransactionController getCreatePaymentTransactionController() {
+        return this.createPaymentTransactionController;
+    }
 }

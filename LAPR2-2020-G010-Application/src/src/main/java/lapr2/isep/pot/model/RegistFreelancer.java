@@ -15,7 +15,7 @@ public class RegistFreelancer implements Serializable {
      * Initializes freelancer's list
      */
     public RegistFreelancer(){
-        freelancerList = new ArrayList<>();
+        this.freelancerList = new ArrayList<>();
     }
 
     /**

@@ -13,7 +13,7 @@ public class RegisterFreelancerController implements Serializable {
      * platform instance
      */
 
-    private static Platform platform = ApplicationPOT.getInstance().getPlatform();
+    private static Platform platform;
 
 
     /**
@@ -26,21 +26,21 @@ public class RegisterFreelancerController implements Serializable {
      * registFreelancer instance
      */
 
-    private RegistFreelancer registFreelancer = platform.getRegistFreelancer();
+    private final RegistFreelancer registFreelancer;
 
+    /**
+     * Application POT's instance
+     */
+
+    private final ApplicationPOT applicationPOT;
     /**
      * Initializes the frellancer's instance
      */
     public RegisterFreelancerController(){
+        this.applicationPOT = ApplicationPOT.getInstance();
+        this.platform = applicationPOT.getPlatform();
+        this.registFreelancer = platform.getRegistFreelancer();
         this.freelancer = null;
-    }
-
-    /**
-     * Sets the freelancer's value
-     * @param freelancer freelancer's value
-     */
-    public void setFreelancer(Freelancer freelancer){
-        this.freelancer = freelancer;
     }
 
     /**
@@ -57,7 +57,7 @@ public class RegisterFreelancerController implements Serializable {
      */
 
     public Freelancer newFreelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country){
-            this.freelancer = registFreelancer.newFreelancer(id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
+            this.freelancer = this.registFreelancer.newFreelancer(id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
             return this.freelancer;
     }
 
@@ -86,10 +86,18 @@ public class RegisterFreelancerController implements Serializable {
      * @return false if the freelancer exists
      */
     public boolean getValidationFreelancer(Freelancer freelancer){
-        return registFreelancer.validationFreelancer(freelancer);
+        return this.registFreelancer.validationFreelancer(freelancer);
     }
 
     public RegistFreelancer getRegistFreelancer() {
-        return registFreelancer;
+        return this.registFreelancer;
+    }
+
+    /**
+     * Sets the freelancer's value
+     * @param freelancer freelancer's value
+     */
+    public void setFreelancer(Freelancer freelancer){
+        this.freelancer = freelancer;
     }
 }

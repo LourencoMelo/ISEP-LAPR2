@@ -25,7 +25,7 @@ public class Collaborator extends User implements Serializable {
     /**
      * Get the application controller instance
      */
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController = new ApplicationController();
 
     /**
      * Initialize the Collaborator's information with the received data

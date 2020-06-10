@@ -1,18 +1,12 @@
 package lapr2.isep.pot.model;
 
-import lapr2.isep.authorization.FacadeAuthorization;
 import lapr2.isep.authorization.model.User;
-import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class Platform implements Serializable {
 
-    /**
-     * FacadeAuthorization's initialization
-     */
-    private final FacadeAuthorization facadeAuthorization;
 
     private Freelancer selectedFreelancer;
 
@@ -24,26 +18,22 @@ public class Platform implements Serializable {
 
     private  RegistFreelancer registFreelancer;
 
-    private RegistOrganization registOrganization;
     /**
-     * Organization's initialization
+     * Regist Organization instance
      */
-    private Organization organization;
+    private RegistOrganization registOrganization;
 
 
-    public Platform() {                                              //INCOMPLETE
-        this.facadeAuthorization = new FacadeAuthorization();
+
+    public Platform() {
         this.registFreelancer = new RegistFreelancer();
         this.registOrganization = new RegistOrganization();
     }
 
     public ExternAlgorithmPasswordGenerator getAlgorithmPasswordGenerator() {
-        return null;                                                            //WRITE CODE IF NECESSARY
+        return null;
     }
 
-    public FacadeAuthorization getFacadeAutorization() {
-        return facadeAuthorization;
-    }
 
     /**
      * Returns Organization
@@ -51,7 +41,7 @@ public class Platform implements Serializable {
      * @return Organization
      */
     public RegistOrganization getRegistOrganization() {
-        return registOrganization;
+        return this.registOrganization;
     }
 
     /**
@@ -75,15 +65,7 @@ public class Platform implements Serializable {
     public boolean hasOrganization(Organization organization) {
         return registOrganization.hasOrganization(organization);
     }
-
-    /**
-     * Returns Organization's List
-     *
-     * @return organization list
-     */
-    public List<Organization> getListOrganizations() {
-        return registOrganization.getListOrganizations();
-    }
+    
 
     public String getRoleUser(User user) {
         return user.getRole();
@@ -104,7 +86,6 @@ public class Platform implements Serializable {
     public void setSelectedTask(Task selectedTask) {
         this.selectedTask = selectedTask;
     }
-
 
 
 }

@@ -15,10 +15,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.CreatePaymentTransactionController;
-import lapr2.isep.pot.model.Freelancer;
-import lapr2.isep.pot.model.PaymentTransaction;
-import lapr2.isep.pot.model.Platform;
-import lapr2.isep.pot.model.Task;
+import lapr2.isep.pot.controller.RegisterFreelancerController;
+import lapr2.isep.pot.controller.TaskCreationController;
+import lapr2.isep.pot.model.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,14 +33,16 @@ public class CreatePaymentTransactionUI implements Initializable {
 
     private Stage transactionListAndAmountStage;
 
-    private static final CreatePaymentTransactionController createPaymentTransactionController = new CreatePaymentTransactionController();
+    private CreatePaymentTransactionController createPaymentTransactionController;
 
-//    private Platform platform = createPaymentTransactionController.getPlatform();
+    private RegisterFreelancerController registerFreelancerController;
+
+    private TaskCreationController taskCreationController;
+
+    private ApplicationController applicationController;
 
     double x = 0;
     double y = 0;
-
-    private ApplicationController applicationController;
 
     @FXML
     private ListView<Task> tasksListListVIew;
@@ -82,6 +83,13 @@ public class CreatePaymentTransactionUI implements Initializable {
     private Freelancer selectedFreelancer;
 
     private Task selectedTask;
+
+    public CreatePaymentTransactionUI(){
+        this.applicationController = new ApplicationController();
+        this.taskCreationController = new TaskCreationController();
+        this.createPaymentTransactionController = new CreatePaymentTransactionController();
+        this.registerFreelancerController = new RegisterFreelancerController();
+    }
 
     @FXML
     void dragged(MouseEvent event) {
@@ -168,7 +176,6 @@ public class CreatePaymentTransactionUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        applicationController = ApplicationController.getApplicationController();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TransactionsListAndAmount.fxml"));
             Parent root = loader.load();
@@ -197,8 +204,8 @@ public class CreatePaymentTransactionUI implements Initializable {
     }
 
     private void refreshListViews() {
-        freelancersListListView.getItems().setAll(createPaymentTransactionController.getListFreelancers());
-        tasksListListVIew.getItems().setAll(createPaymentTransactionController.getTaskList());
+        freelancersListListView.getItems().setAll(registerFreelancerController.getRegistFreelancer().getFreelancerList());
+//        tasksListListVIew.getItems().setAll(taskCreationController.getTaskList());
     }
 
     public Freelancer getChosenFreelancer() {
@@ -209,21 +216,19 @@ public class CreatePaymentTransactionUI implements Initializable {
         return tasksListListVIew.getSelectionModel().getSelectedItem();
     }
 
-    public static CreatePaymentTransactionController getCreatePaymentTransactionController(){
+    public CreatePaymentTransactionController getCreatePaymentTransactionController(){
         return createPaymentTransactionController;
     }
 
     public Freelancer getSelectedFreelancer() {
         Freelancer selectedFreelancer = getChosenFreelancer();
         this.selectedFreelancer = selectedFreelancer;
-        //platform.setSelectedFreelancer(selectedFreelancer);
         return selectedFreelancer;
     }
 
     public Task getSelectedTask() {
         Task selectedTask = getChosenTask();
         this.selectedTask = selectedTask;
-        //platform.setSelectedTask(selectedTask);
         return selectedTask;
     }
 

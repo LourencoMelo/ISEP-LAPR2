@@ -1,37 +1,34 @@
 package lapr2.isep.pot.controller;
 
-import lapr2.isep.authorization.FacadeAuthorization;
-import lapr2.isep.authorization.model.UserSession;
-import lapr2.isep.pot.model.Constants;
 import lapr2.isep.pot.model.Platform;
 
 import java.io.Serializable;
-import java.util.Properties;
-
-import static java.lang.System.getProperties;
 
 public class ApplicationPOT implements Serializable {
 
-    private Platform platform;
+    private final Platform platform;
 
-    private FacadeAuthorization facadeAuthorization;
+    private static final String PLATFORM_NAME = "T4J";
+
+    //private FacadeAuthorization facadeAuthorization; --> Necessary???
 
     private ApplicationPOT() {
-        platform = new Platform();
+        this.platform = new Platform();
+    }
+
+    public Platform getPlatform() {
+        return this.platform;
     }
 
     private static ApplicationPOT singleton = null;
 
     public static ApplicationPOT getInstance() {
+
         if (singleton == null) {
             synchronized (ApplicationPOT.class) {
                 singleton = new ApplicationPOT();
             }
         }
         return singleton;
-    }
-
-    public Platform getPlatform() {
-        return platform;
     }
 }

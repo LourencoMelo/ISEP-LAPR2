@@ -123,8 +123,8 @@ public class Task implements Serializable {
         return String.format("Task: " +
                 "\n\tId: %s " +
                 "\n\tBrief Description: %s " +
-                "\n\tTime Duration: %.02f " +
-                "\n\tCost Per Hour: %.02f€ " +
+                "\n\tTime Duration: %.02f  hours" +
+                "\n\tCost Per Hour: %.02f €" +
                 "\n\tCategory: %s", id, description, timeDuration, costPerHour, category);
     }
 

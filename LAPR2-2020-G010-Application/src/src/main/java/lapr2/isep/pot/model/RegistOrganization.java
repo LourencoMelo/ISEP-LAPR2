@@ -1,6 +1,7 @@
 package lapr2.isep.pot.model;
 
-import lapr2.isep.authorization.FacadeAuthorization;
+import lapr2.isep.authorization.model.User;
+import lapr2.isep.authorization.model.UserSession;
 import sun.security.util.Password;
 
 import java.io.Serializable;
@@ -9,20 +10,12 @@ import java.util.List;
 
 public class RegistOrganization implements Serializable {
 
-    /**
-     * FacadeAutorization's initialization
-     */
-    private FacadeAuthorization facadeAuthorization;
 
     /**
      * Initialization of Organizations' list
      */
     private final List<Organization> listOrganizations;
 
-    /**
-     * Plataform's initialization
-     */
-    private Platform platform;
 
     /**
      * ExternAlgorithmPasswordGenerator's initialization
@@ -44,6 +37,7 @@ public class RegistOrganization implements Serializable {
 
     /**
      * Validates an Organization received by parameter
+     *
      * @param org organization to validate
      * @return boolean dependent of validation
      */
@@ -55,6 +49,7 @@ public class RegistOrganization implements Serializable {
 
     /**
      * Add an organization
+     *
      * @param organization to add
      * @return true if was added or false if not
      */
@@ -64,6 +59,7 @@ public class RegistOrganization implements Serializable {
 
     /**
      * Regists one organization
+     *
      * @param organization to regist
      * @return true if regist or false if not
      */
@@ -80,10 +76,11 @@ public class RegistOrganization implements Serializable {
 
     /**
      * New instance of organization with the necessary data
-     * @param name of Organization
-     * @param NIF of Organization
+     *
+     * @param name         of Organization
+     * @param NIF          of Organization
      * @param collaborator of Organization
-     * @param manager of Organization
+     * @param manager      of Organization
      * @return
      */
     public Organization newOrganization(String name, String NIF, Collaborator collaborator, Manager manager) {
@@ -92,6 +89,7 @@ public class RegistOrganization implements Serializable {
 
     /**
      * If has the organization
+     *
      * @param organization to compare
      * @return true if it has or false if not
      */
@@ -136,7 +134,8 @@ public class RegistOrganization implements Serializable {
 
     /**
      * Sends the password to the email
-     * @param email used
+     *
+     * @param email    used
      * @param password sent
      * @return true if sent or false if not
      */
@@ -149,16 +148,38 @@ public class RegistOrganization implements Serializable {
         return listOrganizations;
     }
 
-    public Organization getOrganizationByUserEmail(String email){
+    public Organization getOrganizationByUserEmail(String email) {
         Organization orgReturn = null;
 
-        for (int i=0;i<this.listOrganizations.size();i++){
+        for (int i = 0; i < this.listOrganizations.size(); i++) {
             Organization org = this.listOrganizations.get(i);
             boolean found = org.hasCollaboratorWithEmail(email);
             if (found)
                 orgReturn = org;
         }
         return orgReturn;
+    }
+
+//    public List<Task> getTaskListByOrganization() {
+//
+//    }
+
+
+    /**
+     * Description of the organizations in the list
+     *
+     * @return organizations in string
+     */
+    public String toString() {
+        List<Organization> aux = new ArrayList<>(listOrganizations);
+
+        StringBuilder s = new StringBuilder();
+        for (Organization organization : aux) {
+            s.append(organization);
+            s.append("\n");
+        }
+
+        return s.toString().trim();
     }
 
 }

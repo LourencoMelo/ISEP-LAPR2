@@ -2,6 +2,7 @@ package lapr2.isep.pot.UI.console.utils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -12,14 +13,16 @@ import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class TaskCreationUI {
+public class TaskCreationUI implements Initializable {
 
     private CollaboratorMenuUI collaboratorMenuUI;
 
-    private static TaskCreationController taskCreationController = new TaskCreationController();
+    private TaskCreationController taskCreationController;
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController;
 
     double x = 0;
     double y = 0;
@@ -51,6 +54,11 @@ public class TaskCreationUI {
     @FXML
     private TextField taskCategory;
 
+    public TaskCreationUI(){
+        this.applicationController = new ApplicationController();
+        this.taskCreationController = new TaskCreationController();
+    }
+
     @FXML
     void dragged(MouseEvent event) {
         Node node = (Node) event.getSource();
@@ -80,18 +88,18 @@ public class TaskCreationUI {
     @FXML
     void CreateOnAction(ActionEvent event) {
         try {
-            Task task = taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
-            if (taskCreationController.getTaskValidation(taskId.getText())) {
-                taskCreationController.taskCreation(task);
-                Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), taskId.getText(), "Task added.");
+            Task task = this.taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
+            if (this.taskCreationController.getTaskValidation(taskId.getText())) {
+                this.taskCreationController.taskCreation(task);
+                Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), taskId.getText(), "Task added.");
                 alert.show();
-                tasksListVIew.getItems().setAll(taskCreationController.getTaskList());
+//                tasksListVIew.getItems().setAll(this.taskCreationController.getTaskList());
             } else {
-                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The task inserted is already in the system.");
+                Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "The task inserted is already in the system.");
                 alert.show();
             }
         }catch (IllegalArgumentException exception) {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, this.applicationController.getAppName(), "Error", "Arguments must follow the following rules:" +
                                                                                                                                  "\n * Arguments can't be null or empty;" +
                                                                                                                                  "\n * Time duration and Cost per hour must be numbers.");
             alert.show();
@@ -117,8 +125,13 @@ public class TaskCreationUI {
         this.collaboratorMenuUI = collaboratorMenuUI;
     }
 
-    public static TaskCreationController getTaskCreationController() {
+    public TaskCreationController getTaskCreationController() {
         return taskCreationController;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
 

@@ -1,5 +1,6 @@
 package lapr2.isep.pot.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import lapr2.isep.pot.model.List.TaskList;
 import lapr2.isep.pot.model.Organization;
 import lapr2.isep.pot.model.Platform;
@@ -15,7 +16,7 @@ public class TaskCreationController implements Serializable {
     /**
      * Task's List
      */
-    private TaskList taskList = new TaskList();
+    private TaskList taskList;
 
     /**
      * Task
@@ -28,17 +29,26 @@ public class TaskCreationController implements Serializable {
     private String id;
 
 
+    private ApplicationPOT applicationPOT;
+
+
     /**
      * Platform
      */
-    private Platform platform = ApplicationPOT.getInstance().getPlatform();
+    private Platform platform;
 
+    /**
+     * Organization's instance
+     */
+    private static Organization organization;
 
 
     /**
      * Creates a task creation controller
      */
     public TaskCreationController(){
+        this.applicationPOT = ApplicationPOT.getInstance();
+        this.platform = applicationPOT.getPlatform();
     }
 
     /**
@@ -52,7 +62,7 @@ public class TaskCreationController implements Serializable {
      * @return true, if this task doesn´t already exists
      */
     public Task newTask(String id, String description, Double timeDuration, Double costPerHour, String category){
-        this.task = taskList.newTask(id, description, timeDuration, costPerHour, category);
+        this.task = this.taskList.newTask(id, description, timeDuration, costPerHour, category);
         return this.task;
     }
 
@@ -62,22 +72,22 @@ public class TaskCreationController implements Serializable {
      * @return true, if it creates a new task
      */
     public boolean taskCreation(Task task){
-        if (taskList.taskValidation(id)){
-            return taskList.addTask(task);
+        if (this.taskList.taskValidation(id)){
+            return this.taskList.addTask(task);
         }
         return false;
     }
 
 
 
-    /**
-     * Returns organizations task's list
-     *
-     * @return Task's List
-     */
-    public List<Task> getTaskList(){
-        return taskList.getTaskList();
-    }
+//    /**
+//     * Returns organizations task's list
+//     *
+//     * @return Task's List
+//     */
+//    public List<Task> getTaskList(){
+//
+//    }
 
     /**
      * Returns if the task already exists or not
@@ -85,11 +95,15 @@ public class TaskCreationController implements Serializable {
      * @return   false if the task already exists
      */
     public boolean getTaskValidation(String id){
-        return taskList.taskValidation(id);
+        return this.taskList.taskValidation(id);
    }
 
     public TaskList getListTask() {
-        return taskList;
+        return this.taskList;
     }
+
+//    public List<Task> getTaskListByOrganization(){
+//        return platform.getRegistOrganization().
+//    }
 
 }

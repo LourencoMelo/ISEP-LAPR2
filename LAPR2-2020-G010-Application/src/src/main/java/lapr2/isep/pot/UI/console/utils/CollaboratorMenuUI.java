@@ -1,5 +1,6 @@
 package lapr2.isep.pot.UI.console.utils;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +12,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.StageStyle;
-import lapr2.isep.pot.UI.console.utils.AlertUI;
-import lapr2.isep.pot.UI.console.utils.LogInUI;
 import lapr2.isep.pot.controller.ApplicationController;
 
 import java.io.IOException;
@@ -27,7 +26,7 @@ public class CollaboratorMenuUI implements Initializable {
 
     private LogInUI logInUI;
 
-    private ApplicationController applicationController = ApplicationController.getApplicationController();
+    private ApplicationController applicationController;
 
     private Stage registFreelancerStage;
 
@@ -35,8 +34,10 @@ public class CollaboratorMenuUI implements Initializable {
 
     private Stage createPaymentTransactionStage;
 
+
     double x = 0;
     double y = 0;
+
 
     @FXML
     private Button statisticsBtn1;
@@ -55,6 +56,10 @@ public class CollaboratorMenuUI implements Initializable {
 
     @FXML
     private Button createTaskBtn;
+
+    public CollaboratorMenuUI(){
+        this.applicationController = new ApplicationController();
+    }
 
     @FXML
     void dragged(MouseEvent event) {
@@ -87,13 +92,18 @@ public class CollaboratorMenuUI implements Initializable {
     }
 
     @FXML
-    void RegisterFreelancerOnAction(ActionEvent event) {
+    private void RegisterFreelancerOnAction(ActionEvent event) {
         registFreelancerStage.show();
     }
 
     @FXML
-    void CreateTaskOnAction(ActionEvent event) {
+    private void CreateTaskOnAction(ActionEvent event) {
         createTaskStage.show();
+    }
+
+    @FXML
+    private void CreatePaymentTransactionOnAction(ActionEvent event) {
+        createPaymentTransactionStage.show();
     }
 
     @FXML
@@ -105,11 +115,6 @@ public class CollaboratorMenuUI implements Initializable {
     @FXML
     void StatisticsOnAction(ActionEvent event) {
 
-    }
-
-    @FXML
-    void CreatePaymentTransactionOnAction(ActionEvent event) {
-        createPaymentTransactionStage.show();
     }
 
     @Override
@@ -131,49 +136,42 @@ public class CollaboratorMenuUI implements Initializable {
             RegisterFreelancerUI registerFreelancerUI = loader.getController();
             registerFreelancerUI.associateParentUI(this);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    //---------------------------------------------------------------------------------------------------------------------
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/fxml/CreateTaskScene.fxml"));
+            Parent root1 = loader1.load();
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CreateTaskScene.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
+            Scene scene1 = new Scene(root1);
 
             createTaskStage = new Stage();
             createTaskStage.initModality(Modality.APPLICATION_MODAL);
             createTaskStage.getIcons().add(new Image("file:images\\t4j.jpg"));
             createTaskStage.setTitle("Create Task");
             createTaskStage.setResizable(false);
-            createTaskStage.setScene(scene);
+            createTaskStage.setScene(scene1);
             createTaskStage.initStyle(StageStyle.TRANSPARENT);
 
-            TaskCreationUI taskCreationUI = loader.getController();
+            TaskCreationUI taskCreationUI = loader1.getController();
             taskCreationUI.associateParentUI(this);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CreatePaymentTransactionScene.fxml"));
-            Parent root = loader.load();
+    //----------------------------------------------------------------------------------------------------------------------
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/CreatePaymentTransactionScene.fxml"));
+            Parent root2 = loader2.load();
 
-            Scene scene = new Scene(root);
+            Scene scene2 = new Scene(root2);
 
             createPaymentTransactionStage = new Stage();
             createPaymentTransactionStage.initModality(Modality.APPLICATION_MODAL);
             createPaymentTransactionStage.getIcons().add(new Image("file:images\\t4j.jpg"));
             createPaymentTransactionStage.setTitle("Create Payment Transaction");
             createPaymentTransactionStage.setResizable(false);
-            createPaymentTransactionStage.setScene(scene);
+            createPaymentTransactionStage.setScene(scene2);
             createPaymentTransactionStage.initStyle(StageStyle.TRANSPARENT);
 
-            CreatePaymentTransactionUI createPaymentTransactionUI = loader.getController();
+            CreatePaymentTransactionUI createPaymentTransactionUI = loader2.getController();
             createPaymentTransactionUI.associateParentUI(this);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", e.getMessage());
         }
 
     }
