@@ -1,6 +1,7 @@
 package lapr2.isep.pot.model;
 
 import lapr2.isep.authorization.model.User;
+import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.*;
@@ -12,6 +13,8 @@ public class Platform implements Serializable {
     private Freelancer selectedFreelancer;
 
     private Task selectedTask;
+
+    private TransactionsRegist transactionsRegist;
 
     /**
      * Regist Freelancer instance
@@ -26,10 +29,11 @@ public class Platform implements Serializable {
 
     private TaskList taskList;
 
-    public Platform() {
+    public Platform() throws FileNotFoundException {
         this.registFreelancer = new RegistFreelancer();
         this.registOrganization = new RegistOrganization();
         this.taskList = new TaskList();
+        //this.transactionsRegist = new TransactionsRegist();
     }
 
     /*private void readInfo() {
@@ -187,4 +191,5 @@ public class Platform implements Serializable {
     public TaskList getTasksList() {
         return taskList;
     }
+
 }

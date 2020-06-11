@@ -1,5 +1,6 @@
 package lapr2.isep.pot.model;
 
+import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.IOException;
@@ -34,6 +35,8 @@ public class Organization implements Serializable {
      * Organization's Manager
      */
     private Manager manager;
+
+    private PaymentTransactionList paymentTransactionList = new PaymentTransactionList();
 
     /**
      * Initialize the Organization's information with the received data
@@ -158,5 +161,9 @@ public class Organization implements Serializable {
                 "\n\t Collaborator's name: %s" +
                 "\n\t Collaborator's email: %s" +
                 "\n\t Task's list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
+    }
+
+    public List<PaymentTransaction> getPaymentTransactionList() {
+        return paymentTransactionList.getTransactionList();
     }
 }

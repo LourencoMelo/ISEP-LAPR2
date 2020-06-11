@@ -40,7 +40,7 @@ public class LogInUI implements Initializable {
     private Stage administratorMenuStage;
     private Stage collaboratorMenuStage;
 
-    public LogInUI() {
+    public LogInUI() throws FileNotFoundException {
         this.registOrganizationController = new RegistOrganizationController();
         this.applicationController = new ApplicationController();
         //this.taskCreationController = new TaskCreationController();

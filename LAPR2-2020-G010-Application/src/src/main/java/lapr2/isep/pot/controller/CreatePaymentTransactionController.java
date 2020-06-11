@@ -5,6 +5,7 @@ import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 
+import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class CreatePaymentTransactionController {
 
     private CreatePaymentTransactionUI createPaymentTransactionUI;
 
-    public CreatePaymentTransactionController() {
+    public CreatePaymentTransactionController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
         platform = applicationPOT.getPlatform();
     }

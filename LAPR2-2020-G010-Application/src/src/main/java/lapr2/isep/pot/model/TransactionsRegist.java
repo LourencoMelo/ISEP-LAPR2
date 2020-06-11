@@ -1,142 +1,76 @@
 package lapr2.isep.pot.model;
 
+import lapr2.isep.pot.controller.ApplicationPOT;
 import lapr2.isep.pot.model.List.PaymentTransactionList;
-import lapr2.isep.pot.model.List.TaskList;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.Serializable;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 /**
  * Class that registers the transactions receving a file of the type(.csv or .txt)
  */
 public class TransactionsRegist implements Serializable {
-    /**
-     * Size of the Parameters of the file.
-     */
-    private final int SIZE_PARAMETERS = 17;
-    /**
-     * Name of the Transaciton´s Regist File.
-     */
-    private static final String FILE_TRANSACTIONS_REGIST = "src/Files/transactionsOrgSoftwareHome.csv";
 
-    private RegistFreelancer registFreelancer;
+    private Platform platform;
 
-    // LISTS
-
-    /**
-     * Initialization of TaskList.
-     */
-    private TaskList taskList;
-
-    /**
-     *Initialization of PaymentTransactionList.
-     */
-    private PaymentTransactionList paymentTransactionList;
-
-    // Constructor
+    public static final String FILE_NAME_CSV = "transactionsOrgSoftwareHome.csv";
 
     public TransactionsRegist() throws FileNotFoundException {
-        taskList = readTaskList();
-        registFreelancer = readFreelancerList();
-        paymentTransactionList = readTransactionList();
+        this.platform = ApplicationPOT.getInstance().getPlatform();
     }
 
-
-    //   GETS
-    /**
-     * Returns the tasklist.
-     *
-     * @return tasklist.
-     */
-    public List<Task> getTaskList(){
-        return taskList.getTaskList();
-
+    public PaymentTransactionList readCsv() {
+        return readCsv(FILE_NAME_CSV);
     }
 
-    /**
-     * Returns the paymentTransactionList
-     *
-     * @return paymentTransactionList
-     */
-    public List<PaymentTransaction> getTransactionList(){
-        return  paymentTransactionList.getTransactionList();
+    public PaymentTransactionList readCsv(String fileName) {
+        return readCsv(new File(fileName));
     }
 
-    /**
-     * Returns the freelancersList
-     *
-     * @return freelancerList
-     */
-    public List<Freelancer> getFreelancerList(){
-        return registFreelancer.getFreelancerList();
-    }
-
-    //<editor-fold desc="Read task list">
-    public TaskList readTaskList() throws FileNotFoundException{
-        return readTaskList(FILE_TRANSACTIONS_REGIST);
-    }
-
-    private  TaskList readTaskList(String fileTaskList) throws  FileNotFoundException{
-        return readTaskList(new File(fileTaskList));
-    }
-
-    private TaskList readTaskList(File fileTaskList) throws FileNotFoundException {
-        try{
-            Scanner in = new Scanner(fileTaskList);
-            TaskList copyTaskList = (TaskList) taskList.getTaskList();
-            in.nextLine();
-            while (in.hasNext()){
-                String[] line = in.nextLine().trim().split(";");
-                Task task = new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim()); //problema por algumas cenas estarem em double na classe Task (discutir problema)
-                if(!copyTaskList.contains(task)){
-                    copyTaskList.addTask(task);
-                }
-            }
-            return copyTaskList;
-        } catch (FileNotFoundException fnfex){
-            throw new FileNotFoundException("The File was not found!");
-        }
-    }
-    //</editor-fold>
-
-    //Payment Transaction
-
-    //<editor-fold desc="Read freelancer list">
-    public RegistFreelancer readFreelancerList() throws FileNotFoundException{
-        return readFreelancerList(FILE_TRANSACTIONS_REGIST);
-    }
-
-    private RegistFreelancer readFreelancerList(String fileFreelancerList) throws FileNotFoundException{
-        return readFreelancerList(new File(fileFreelancerList));
-    }
-
-    private RegistFreelancer readFreelancerList(File fileFreelancerList) throws FileNotFoundException{
+    public PaymentTransactionList readCsv(File file) {
+        PaymentTransactionList paymentTransactionList;
         try {
-            Scanner in = new Scanner(fileFreelancerList);
-            RegistFreelancer freelancerList = (RegistFreelancer) registFreelancer.getFreelancerList();
-            in.nextLine();
-            while (in.hasNext()){
-                String[] line = in.nextLine().trim().split(";");
-                Freelancer freelancer = new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim());
-                if(!freelancerList.contains(freelancer)){
-                    freelancerList.addFreelancer(freelancer);
-                }
+            ObjectInputStream in = new ObjectInputStream(
+                    new FileInputStream(file));
+            try {
+                paymentTransactionList = (PaymentTransactionList) in.readObject();
+            } finally {
+                in.close();
             }
-            return freelancerList;
-        } catch (FileNotFoundException fnfex){
-            throw new FileNotFoundException("The File was not found!");
+            return paymentTransactionList;
+        } catch (IOException | ClassNotFoundException ex) {
+            return new PaymentTransactionList();
         }
     }
-    //</editor-fold>
+
+    public boolean saveCsv(PaymentTransactionList paymentTransactionList) {
+        return saveCsv(FILE_NAME_CSV, paymentTransactionList);
+    }
+
+    public boolean saveCsv(String fileName, PaymentTransactionList paymentTransactionList) {
+        return saveCsv(new File(fileName), paymentTransactionList);
+    }
+
+    public boolean saveCsv(File file, PaymentTransactionList paymentTransactionList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream(file));
+            try {
+                out.writeObject(paymentTransactionList);
+            } finally {
+                out.close();
+            }
+            return true;
+        } catch (IOException ex) {
+            return false;
+        }
+    }
 
     public PaymentTransactionList readTransactionList() throws FileNotFoundException{
-        return readTransactionList(FILE_TRANSACTIONS_REGIST);
+        return readTransactionList(FILE_NAME_CSV);
     }
 
     private PaymentTransactionList readTransactionList(String fileTransactionList) throws FileNotFoundException {
@@ -146,11 +80,13 @@ public class TransactionsRegist implements Serializable {
     private PaymentTransactionList readTransactionList(File fileTransactionList) throws FileNotFoundException {
         try {
             Scanner in = new Scanner(fileTransactionList);
-            PaymentTransactionList copyPaymentTransactionList = (PaymentTransactionList) paymentTransactionList.getTransactionList();
+            PaymentTransactionList copyPaymentTransactionList = platform.getRegistOrganization().;
             in.nextLine();
             while (in.hasNext()){
-                String[] line = in.nextLine().trim().split(";");
-                PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), Formatter(line[6].trim()), Integer.parseInt(line[7].trim()), line[8].trim(), new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim()), new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim()));
+                String[] line = in.nextLine().trim().split("\t");
+                Task task = new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim());
+                Freelancer freelancer = new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim());
+                PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), Formatter(line[6].trim()), Integer.parseInt(line[7].trim()), line[8].trim(), freelancer, task);
                 if(!this.paymentTransactionList.contains(paymentTransaction)){
                     this.paymentTransactionList.addPaymentTransaction(paymentTransaction);
                 }

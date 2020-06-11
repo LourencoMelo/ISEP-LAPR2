@@ -11,6 +11,7 @@ import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.TaskCreationController;
 import lapr2.isep.pot.model.*;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,7 +53,7 @@ public class TaskCreationUI implements Initializable {
     @FXML
     private TextField taskCategory;
 
-    public TaskCreationUI(){
+    public TaskCreationUI() throws FileNotFoundException {
         this.taskCreationController = new TaskCreationController();
         this.applicationController = new ApplicationController();
     }

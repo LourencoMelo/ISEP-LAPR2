@@ -74,4 +74,25 @@
             </children>
         </AnchorPane>
     </right>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Transactions">
+               <items>
+                  <Menu mnemonicParsing="false" text="List">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#mnuTransactionsImportOnAction" text="Import" />
+                        <MenuItem fx:id="mnuExport" mnemonicParsing="false" onAction="#mnuTransactionsExportOnAction" text="Export" />
+                    </items>
+                  </Menu>
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Options">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#mnuOptionsAboutAction" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
 </BorderPane>

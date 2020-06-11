@@ -3,6 +3,7 @@ package lapr2.isep.pot.controller;
 import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.TaskList;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class TaskCreationController implements Serializable {
     /**
      * Creates a task creation controller
      */
-    public TaskCreationController(){
+    public TaskCreationController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
         this.taskList = platform.getTasksList();

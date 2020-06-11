@@ -2,6 +2,7 @@ package lapr2.isep.pot.controller;
 
 import lapr2.isep.pot.model.Platform;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 
 public class ApplicationPOT implements Serializable {
@@ -12,7 +13,7 @@ public class ApplicationPOT implements Serializable {
 
     //private FacadeAuthorization facadeAuthorization; --> Necessary???
 
-    private ApplicationPOT() {
+    private ApplicationPOT() throws FileNotFoundException {
         this.platform = new Platform();
     }
 
@@ -22,7 +23,7 @@ public class ApplicationPOT implements Serializable {
 
     private static ApplicationPOT singleton = null;
 
-    public static ApplicationPOT getInstance() {
+    public static ApplicationPOT getInstance() throws FileNotFoundException {
 
         if (singleton == null) {
             synchronized (ApplicationPOT.class) {

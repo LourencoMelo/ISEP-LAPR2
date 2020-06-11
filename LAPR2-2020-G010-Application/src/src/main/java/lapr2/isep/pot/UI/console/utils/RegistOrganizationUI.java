@@ -14,6 +14,7 @@ import lapr2.isep.pot.model.Collaborator;
 import lapr2.isep.pot.model.Manager;
 import lapr2.isep.pot.model.Organization;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,7 +61,7 @@ public class RegistOrganizationUI implements Initializable {
     @FXML
     private ListView<Organization> organizationsListVIew;
 
-    public RegistOrganizationUI(){
+    public RegistOrganizationUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
         this.registOrganizationController = new RegistOrganizationController();
     }

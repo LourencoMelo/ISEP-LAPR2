@@ -29,7 +29,7 @@ public class RegistOrganizationController implements Serializable {
      */
     private RegistOrganization registOrganization;
 
-    public RegistOrganizationController() {
+    public RegistOrganizationController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
         this.registOrganization = platform.getRegistOrganization();

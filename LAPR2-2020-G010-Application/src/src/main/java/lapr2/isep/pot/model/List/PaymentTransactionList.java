@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.List;
 
 public class PaymentTransactionList implements Serializable {
+
+    private PaymentTransactionList paymentTransactionList;
+
     /**
      * Transaction list
      */
@@ -57,6 +60,17 @@ public class PaymentTransactionList implements Serializable {
     public boolean addPaymentTransaction(PaymentTransaction paymentTransaction) {
         return transactionList.add(paymentTransaction);
     }
+
+    public int addListTransactions(PaymentTransactionList paymentTransactionList) {
+        int totalTransactionsAdded = 0;
+        for(PaymentTransaction paymentTransaction : paymentTransactionList.transactionList) {
+            boolean wasAdded = addPaymentTransaction(paymentTransaction);
+            if (wasAdded) {
+                totalTransactionsAdded++;
+            }
+        }
+        return totalTransactionsAdded;
+     }
 
     public boolean contains(PaymentTransaction paymentTransaction) {
         for (PaymentTransaction paymentTransactionAux : transactionList) {

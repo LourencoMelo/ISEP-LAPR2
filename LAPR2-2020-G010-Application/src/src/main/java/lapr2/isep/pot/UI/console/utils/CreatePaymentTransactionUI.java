@@ -13,6 +13,7 @@ import lapr2.isep.pot.controller.RegisterFreelancerController;
 import lapr2.isep.pot.controller.TaskCreationController;
 import lapr2.isep.pot.model.*;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -83,7 +84,7 @@ public class CreatePaymentTransactionUI implements Initializable {
     @FXML
     private ListView<PaymentTransaction> transactionsListListView;
 
-    public CreatePaymentTransactionUI(){
+    public CreatePaymentTransactionUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
         this.taskCreationController = new TaskCreationController();
         this.createPaymentTransactionController = new CreatePaymentTransactionController();

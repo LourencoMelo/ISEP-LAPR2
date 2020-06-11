@@ -4,6 +4,7 @@ import lapr2.isep.pot.model.Freelancer;
 import lapr2.isep.pot.model.Platform;
 import lapr2.isep.pot.model.RegistFreelancer;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class RegisterFreelancerController implements Serializable {
     /**
      * Initializes the frellancer's instance
      */
-    public RegisterFreelancerController(){
+    public RegisterFreelancerController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
         this.registFreelancer = platform.getRegistFreelancer();

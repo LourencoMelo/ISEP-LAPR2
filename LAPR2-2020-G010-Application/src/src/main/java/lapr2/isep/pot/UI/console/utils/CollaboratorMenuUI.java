@@ -11,19 +11,26 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.TaskCreationController;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CollaboratorMenuUI implements Initializable {
+
+    private static final String IMPORT_HEADER = "Import List.";
+    private static final String EXPORT_HEADER = "Export List.";
 
     private LogInUI logInUI;
 
@@ -40,6 +47,8 @@ public class CollaboratorMenuUI implements Initializable {
     double x = 0;
     double y = 0;
 
+    @FXML
+    private MenuItem mnuExport;
 
     @FXML
     private Button statisticsBtn1;
@@ -59,7 +68,7 @@ public class CollaboratorMenuUI implements Initializable {
     @FXML
     private Button createTaskBtn;
 
-    public CollaboratorMenuUI(){
+    public CollaboratorMenuUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
         //this.taskCreationController = new TaskCreationController();
     }
@@ -177,6 +186,51 @@ public class CollaboratorMenuUI implements Initializable {
             AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", e.getMessage());
         }
 
+    }
+
+
+    @FXML
+    void mnuTransactionsImportOnAction(ActionEvent event) {
+        FileChooser flChooser = FileChooserTransactionUI.criarFileChooserListaTelefonica();
+        File fileImport = flChooser.showOpenDialog(createTaskBtn.getScene().getWindow());
+
+        if (fileImport != null) {
+            int numberTransactionImported = applicationController.readCsv(fileImport);
+            if (numberTransactionImported > 0) {
+                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER,
+                        String.format("%d transaction(s) imported(s).", numberTransactionImported)).show();
+            } else {
+                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER,
+                        "File without transactions to import!").show();
+            }
+        } else {
+            AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
+                    "It was not selected any file!").show();
+        }
+    }
+
+    @FXML
+    void mnuTransactionsExportOnAction(ActionEvent event) {
+        FileChooser flChooser = FileChooserTransactionUI.criarFileChooserListaTelefonica();
+        File ficheiroExportar = flChooser.showSaveDialog(createTaskBtn.getScene().getWindow());
+
+        if (ficheiroExportar != null) {
+            if (applicationController.saveCsv(ficheiroExportar)) {
+                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), EXPORT_HEADER,
+                        "Transaction exporting succeed.").show();
+            } else {
+                AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), EXPORT_HEADER,
+                        "Problem exporting transactions list!").show();
+            }
+        } else {
+            AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), EXPORT_HEADER,
+                    "It was not selected any file!").show();
+        }
+    }
+
+    @FXML
+    void mnuOptionsAboutAction(ActionEvent event) {
+        AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "About", "@Copyright\nLAPR2 2019/2020").show();
     }
 }
 

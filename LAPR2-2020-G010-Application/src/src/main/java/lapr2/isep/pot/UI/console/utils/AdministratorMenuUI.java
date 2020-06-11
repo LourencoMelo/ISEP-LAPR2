@@ -18,6 +18,7 @@ import javafx.stage.StageStyle;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegistOrganizationController;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,7 +45,7 @@ public class AdministratorMenuUI implements Initializable {
     @FXML
     private Button statisticsBtn;
 
-    public AdministratorMenuUI() {
+    public AdministratorMenuUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
         this.registOrganizationController = new RegistOrganizationController();
     }

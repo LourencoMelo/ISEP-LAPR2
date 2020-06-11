@@ -13,6 +13,7 @@ import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegisterFreelancerController;
 import lapr2.isep.pot.model.Freelancer;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -66,7 +67,7 @@ public class RegisterFreelancerUI implements Initializable {
 
     private ObservableList<String> listLevels = FXCollections.observableArrayList("junior", "senior");
 
-    public RegisterFreelancerUI() {
+    public RegisterFreelancerUI() throws FileNotFoundException {
         this.registerFreelancerController = new RegisterFreelancerController();
         this.applicationController = new ApplicationController();
     }
