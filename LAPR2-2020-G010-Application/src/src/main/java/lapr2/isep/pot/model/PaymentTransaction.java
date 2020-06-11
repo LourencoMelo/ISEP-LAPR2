@@ -101,11 +101,17 @@ public class PaymentTransaction {
         return descQualityOfWork;
     }
 
+    public Task getTask() {
+        return task;
+    }
+
     /**
      *  Returns the transaction's text description in the format: id, end date, delay, description of the quality of work, freelancer , task
      *
      * @return Transaction's characteristics.
      */
+
+
 
     @Override
     public String toString() {

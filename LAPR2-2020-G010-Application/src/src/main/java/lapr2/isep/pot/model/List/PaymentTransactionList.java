@@ -48,7 +48,14 @@ public class PaymentTransactionList implements Serializable {
      */
 
     public boolean validationPaymentTransaction(PaymentTransaction paymentTransaction) {
-        return !transactionList.contains(paymentTransaction);
+        Task task = paymentTransaction.getTask();
+        for (PaymentTransaction paymentTransaction1 : transactionList){
+            if (task.equals(paymentTransaction1.getTask())){
+                return false;
+            }
+        }
+        return true;
+        //        return !transactionList.contains(paymentTransaction);
     }
 
     /**

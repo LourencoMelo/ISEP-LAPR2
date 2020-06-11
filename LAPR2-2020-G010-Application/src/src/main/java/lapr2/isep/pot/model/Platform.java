@@ -16,6 +16,8 @@ public class Platform implements Serializable {
 
     private TransactionsRegist transactionsRegist;
 
+    private String currentUserEmail;
+
     /**
      * Regist Freelancer instance
      */
@@ -122,6 +124,7 @@ public class Platform implements Serializable {
             if (collaborator.getEmail().equalsIgnoreCase(user.getEmail()) && collaborator.getName().equalsIgnoreCase(user.getName())) {
                 for (User userAux : getListUsers()) {
                     if (userAux.getPassword().equalsIgnoreCase(user.getPassword())) {
+                        this.currentUserEmail = collaborator.getEmail();
                         return true;
                     }
                 }
@@ -135,6 +138,7 @@ public class Platform implements Serializable {
             if (manager.getEmail().equalsIgnoreCase(user.getEmail()) && manager.getName().equalsIgnoreCase(user.getName())) {
                 for (User userAux : getListUsers()) {
                     if (userAux.getPassword().equalsIgnoreCase(user.getPassword())) {
+                        this.currentUserEmail = manager.getEmail();
                         return true;
                     }
                 }
@@ -192,4 +196,7 @@ public class Platform implements Serializable {
         return taskList;
     }
 
+    public String getCurrentUserEmail() {
+        return currentUserEmail;
+    }
 }

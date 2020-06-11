@@ -40,8 +40,9 @@ public class Organization implements Serializable {
 
     /**
      * Initialize the Organization's information with the received data
+     *
      * @param name Organization's name
-     * @param NIF Organizaton's NIF
+     * @param NIF  Organizaton's NIF
      */
     public Organization(String name, String NIF, Collaborator collaborator, Manager manager) {
         if (name == null || NIF == null || collaborator == null || manager == null || name.isEmpty() || NIF.isEmpty()) {
@@ -55,8 +56,9 @@ public class Organization implements Serializable {
 
     /**
      * Initialize the Organization's information with the received data
+     *
      * @param name Organization's name
-     * @param NIF Organizaton's NIF
+     * @param NIF  Organizaton's NIF
      */
     public Organization(String name, String NIF) {
         if (name == null || NIF == null || name.isEmpty() || NIF.isEmpty()) {
@@ -68,9 +70,10 @@ public class Organization implements Serializable {
 
     /**
      * New collaborator
-     * @param name Collaborator's name
+     *
+     * @param name  Collaborator's name
      * @param email Collaborator's email
-     * @return  new Collaborator
+     * @return new Collaborator
      */
     public static Collaborator newCollaborator(String name, String email) throws IOException {
         return new Collaborator(name, email);
@@ -78,7 +81,8 @@ public class Organization implements Serializable {
 
     /**
      * New Manager
-     * @param name Manager's name
+     *
+     * @param name  Manager's name
      * @param email Manager's email
      * @return new Manager
      */
@@ -109,7 +113,7 @@ public class Organization implements Serializable {
      *
      * @return task list
      */
-    public List<Task> getTaskList(){
+    public List<Task> getTaskList() {
         return taskList.getTaskList();
     }
 
@@ -123,15 +127,18 @@ public class Organization implements Serializable {
      * @param email Collaborator's email
      * @return true if it founds the collaborator
      */
-    public boolean hasCollaboratorWithEmail (String email){
+    public boolean hasCollaboratorWithEmail(String email) {
         boolean found = false;
-            Collaborator colab = this.collaborator;
-            found = colab.hasEmail(email);
+        Collaborator colab = this.collaborator;
+        if (colab.hasEmail(email)) {
+            found = true;
+        }
         return found;
     }
 
     /**
      * Compares Organizations
+     *
      * @param o other organization
      * @return boolean dependent organtions comparation
      */
@@ -160,10 +167,10 @@ public class Organization implements Serializable {
                 "\n\t Manager's email: %s" +
                 "\n\t Collaborator's name: %s" +
                 "\n\t Collaborator's email: %s" +
-                "\n\t Task's list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList);
+                "\n\t Tasks list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList.getTaskList());
     }
 
-    public List<PaymentTransaction> getPaymentTransactionList() {
-        return paymentTransactionList.getTransactionList();
+    public PaymentTransactionList getPaymentTransactionList() {
+        return paymentTransactionList;
     }
 }

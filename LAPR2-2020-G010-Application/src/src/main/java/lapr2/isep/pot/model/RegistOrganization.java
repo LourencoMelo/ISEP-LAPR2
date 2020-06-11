@@ -1,5 +1,6 @@
 package lapr2.isep.pot.model;
 
+import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 import sun.security.util.Password;
 
@@ -154,11 +155,11 @@ public class RegistOrganization implements Serializable {
     public Organization getOrganizationByUserEmail(String email) {
         Organization orgReturn = null;
 
-        for (int i = 0; i < this.listOrganizations.size(); i++) {
-            Organization org = this.listOrganizations.get(i);
+        for (Organization org : this.listOrganizations) {
             boolean found = org.hasCollaboratorWithEmail(email);
-            if (found)
+            if (found) {
                 orgReturn = org;
+            }
         }
         return orgReturn;
     }
@@ -218,5 +219,9 @@ public class RegistOrganization implements Serializable {
 
     public TaskList getTasksList() {
         return organization.getListTask();
+    }
+
+    public PaymentTransactionList getPaymentTransactionList(Organization organization){
+        return organization.getPaymentTransactionList();
     }
 }

@@ -8,15 +8,15 @@ public class FileChooserTransactionUI {
 
     private FileChooserTransactionUI() {
         fileChooser = new FileChooser();
-        associarFiltro("Transaction File", "*.csv");
+        associateFilter("Transaction File", "*.csv");
     }
 
-    public static FileChooser criarFileChooserListaTelefonica() {
+    public static FileChooser createFileChooserPaymentList() {
         FileChooserTransactionUI fcListTransactions = new FileChooserTransactionUI();
         return fcListTransactions.fileChooser;
     }
 
-    private void associarFiltro(String description, String extension) {
+    private void associateFilter(String description, String extension) {
         ExtensionFilter filter = new ExtensionFilter(description, extension);
         fileChooser.getExtensionFilters().add(filter);
     }

@@ -26,11 +26,7 @@ public class ApplicationController implements Serializable {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
         this.transactionsRegist = new TransactionsRegist();
-        readCsv();
     }
-
-    private CreatePaymentTransactionUI createPaymentTransactionUI;
-
 
     public String getAppName() {
         return MainApp.APP_TITLE;
@@ -40,21 +36,11 @@ public class ApplicationController implements Serializable {
         return User.getListUsers();
     }
 
-    public void readCsv() {
-        paymentTransactionList = transactionsRegist.readCsv();
+    public void readCsvFile(File file){
+        transactionsRegist.readCsvFile(file);
     }
 
-    public int readCsv(File fileImport) {
-        PaymentTransactionList listTransactionsImported = transactionsRegist.readCsv(fileImport);
-        return paymentTransactionList.addListTransactions(listTransactionsImported);
+    public void readTxtFile(File file){
+        transactionsRegist.readTxtFile(file);
     }
-
-    public boolean saveCsv() {
-        return transactionsRegist.saveCsv(paymentTransactionList);
-    }
-
-    public boolean saveCsv(File fileExport) {
-        return transactionsRegist.saveCsv(fileExport, paymentTransactionList);
-    }
-
 }

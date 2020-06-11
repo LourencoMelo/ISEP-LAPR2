@@ -36,7 +36,7 @@ public class TaskCreationController implements Serializable {
     /**
      * Organization's instance
      */
-    private static Organization organization;
+    private Organization organization;
 
 
     /**
@@ -60,7 +60,10 @@ public class TaskCreationController implements Serializable {
      * @return true, if this task doesn´t already exists
      */
     public Task newTask(String id, String description, Double timeDuration, Double costPerHour, String category){
+        this.organization = platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail());
+        List<Task> list = this.organization.getTaskList();
         this.task = this.taskList.newTask(id, description, timeDuration, costPerHour, category);
+        list.add(this.task);
         return this.task;
     }
 
@@ -96,11 +99,9 @@ public class TaskCreationController implements Serializable {
         return this.taskList.taskValidation(id);
    }
 
-    public TaskList getTaskList() {
-        return taskList;
-    }
+
     public List<Task> getTaskLists() {
-        return taskList.getTaskList();
+        return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getTaskList();
     }
 
     public List<Task> getTaskListByOrganization(Organization organization){

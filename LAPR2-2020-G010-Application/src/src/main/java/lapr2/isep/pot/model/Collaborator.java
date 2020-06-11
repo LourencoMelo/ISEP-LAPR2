@@ -59,7 +59,7 @@ public class Collaborator extends User implements Serializable {
      * @return true if the email exits
      */
     public boolean hasEmail(String email){
-        return user.getEmail().equalsIgnoreCase(email);
+        return this.getEmail().equalsIgnoreCase(email);
     }
 
 }

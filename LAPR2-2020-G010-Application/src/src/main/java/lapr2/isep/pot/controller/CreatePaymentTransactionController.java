@@ -49,7 +49,7 @@ public class CreatePaymentTransactionController {
     }
 
     public List<PaymentTransaction> getTransactionsList(){
-        return getPaymentTransactionList().getTransactionList();
+        return platform.getRegistOrganization().getPaymentTransactionList(platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail())).getTransactionList();
     }
 
     public PaymentTransactionList getPaymentTransactionList(){
@@ -70,4 +70,8 @@ public class CreatePaymentTransactionController {
     public Task getSelectedTask() {
         return createPaymentTransactionUI.getChosenTask();
     }
+
+//    public List<Task> getListOfTask(){
+//        return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getTaskList();
+//    }
 }

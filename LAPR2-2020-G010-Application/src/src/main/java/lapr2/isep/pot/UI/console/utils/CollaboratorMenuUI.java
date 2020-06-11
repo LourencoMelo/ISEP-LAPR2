@@ -148,7 +148,7 @@ public class CollaboratorMenuUI implements Initializable {
             RegisterFreelancerUI registerFreelancerUI = loader.getController();
             registerFreelancerUI.associateParentUI(this);
 
-    //---------------------------------------------------------------------------------------------------------------------
+            //---------------------------------------------------------------------------------------------------------------------
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/fxml/CreateTaskScene.fxml"));
             Parent root1 = loader1.load();
 
@@ -165,7 +165,7 @@ public class CollaboratorMenuUI implements Initializable {
             TaskCreationUI taskCreationUI = loader1.getController();
             taskCreationUI.associateParentUI(this);
 
-    //----------------------------------------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------------------------------------
             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/CreatePaymentTransactionScene.fxml"));
             Parent root2 = loader2.load();
 
@@ -183,7 +183,7 @@ public class CollaboratorMenuUI implements Initializable {
             createPaymentTransactionUI.associateParentUI(this);
 
         } catch (IOException e) {
-            AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", e.getMessage());
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), "IO Exception found ", e.getMessage());
         }
 
     }
@@ -191,46 +191,21 @@ public class CollaboratorMenuUI implements Initializable {
 
     @FXML
     void mnuTransactionsImportOnAction(ActionEvent event) {
-        FileChooser flChooser = FileChooserTransactionUI.criarFileChooserListaTelefonica();
-        File fileImport = flChooser.showOpenDialog(createTaskBtn.getScene().getWindow());
-
-        if (fileImport != null) {
-            int numberTransactionImported = applicationController.readCsv(fileImport);
-            if (numberTransactionImported > 0) {
-                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER,
-                        String.format("%d transaction(s) imported(s).", numberTransactionImported)).show();
-            } else {
-                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER,
-                        "File without transactions to import!").show();
-            }
-        } else {
-            AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
-                    "It was not selected any file!").show();
+        FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentList();
+        File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
+        if (fileToImport != null) {
+            applicationController.readCsvFile(fileToImport);
         }
     }
 
     @FXML
     void mnuTransactionsExportOnAction(ActionEvent event) {
-        FileChooser flChooser = FileChooserTransactionUI.criarFileChooserListaTelefonica();
-        File ficheiroExportar = flChooser.showSaveDialog(createTaskBtn.getScene().getWindow());
 
-        if (ficheiroExportar != null) {
-            if (applicationController.saveCsv(ficheiroExportar)) {
-                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), EXPORT_HEADER,
-                        "Transaction exporting succeed.").show();
-            } else {
-                AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), EXPORT_HEADER,
-                        "Problem exporting transactions list!").show();
-            }
-        } else {
-            AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), EXPORT_HEADER,
-                    "It was not selected any file!").show();
-        }
     }
 
     @FXML
     void mnuOptionsAboutAction(ActionEvent event) {
-        AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "About", "@Copyright\nLAPR2 2019/2020").show();
+        AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), "About", "@Copyright\nLAPR2 2019/2020").show();
     }
 }
 
