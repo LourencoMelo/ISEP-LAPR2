@@ -16,6 +16,8 @@ public class CreatePaymentTransactionController {
 
     private Platform platform;
 
+    private CreatePaymentTransactionUI createPaymentTransactionUI;
+
     public CreatePaymentTransactionController() {
         this.applicationPOT = ApplicationPOT.getInstance();
         platform = applicationPOT.getPlatform();
@@ -60,5 +62,11 @@ public class CreatePaymentTransactionController {
         return paymentTransaction.calculateTaskCost(freelancer, task);
     }
 
+    public Freelancer getSelectedFreelancer() {
+        return createPaymentTransactionUI.getChosenFreelancer();
+    }
 
+    public Task getSelectedTask() {
+        return createPaymentTransactionUI.getChosenTask();
+    }
 }

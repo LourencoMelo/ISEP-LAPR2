@@ -1,14 +1,9 @@
 package lapr2.isep.pot.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
+import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.TaskList;
-import lapr2.isep.pot.model.Organization;
-import lapr2.isep.pot.model.Platform;
-import lapr2.isep.pot.model.RegistOrganization;
-import lapr2.isep.pot.model.Task;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TaskCreationController implements Serializable {
@@ -49,7 +44,7 @@ public class TaskCreationController implements Serializable {
     public TaskCreationController(){
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
-        this.taskList = organization.getTaskList();
+        this.taskList = platform.getTasksList();
         this.task = null;
     }
 
@@ -100,12 +95,23 @@ public class TaskCreationController implements Serializable {
         return this.taskList.taskValidation(id);
    }
 
-    public TaskList getListTask() {
-        return this.taskList;
+    public TaskList getTaskList() {
+        return taskList;
+    }
+    public List<Task> getTaskLists() {
+        return taskList.getTaskList();
     }
 
-//    public List<Task> getTaskListByOrganization(){
-//        return platform.getRegistOrganization().
-//    }
+    public List<Task> getTaskListByOrganization(Organization organization){
+        return platform.getListOfTasksFromOrganization(organization);
+   }
+
+    public Organization getOrganizationByCollaborator(Collaborator collaborator) {
+        return platform.getOrganizationByCollaborator(collaborator);
+    }
+
+    public Collaborator getCollaborator() {
+        return platform.getCollaborator();
+    }
 
 }

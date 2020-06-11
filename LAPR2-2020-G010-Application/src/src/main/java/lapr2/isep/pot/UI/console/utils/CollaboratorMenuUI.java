@@ -17,6 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lapr2.isep.pot.controller.ApplicationController;
+import lapr2.isep.pot.controller.TaskCreationController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +29,7 @@ public class CollaboratorMenuUI implements Initializable {
 
     private ApplicationController applicationController;
 
+    private TaskCreationController taskCreationController;
     private Stage registFreelancerStage;
 
     private Stage createTaskStage;
@@ -59,6 +61,7 @@ public class CollaboratorMenuUI implements Initializable {
 
     public CollaboratorMenuUI(){
         this.applicationController = new ApplicationController();
+        //this.taskCreationController = new TaskCreationController();
     }
 
     @FXML

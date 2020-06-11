@@ -93,12 +93,25 @@ public class Organization implements Serializable {
     }
 
     /**
+     * Returns the Organization Manager
+     *
+     * @return Manager
+     */
+    public Manager getManager() {
+        return manager;
+    }
+
+    /**
      * Returns Task's list.
      *
      * @return task list
      */
-    public TaskList getTaskList(){
-        return this.taskList;
+    public List<Task> getTaskList(){
+        return taskList.getTaskList();
+    }
+
+    public TaskList getListTask() {
+        return taskList;
     }
 
     /**
@@ -113,8 +126,6 @@ public class Organization implements Serializable {
             found = colab.hasEmail(email);
         return found;
     }
-
-
 
     /**
      * Compares Organizations

@@ -2,24 +2,17 @@ package lapr2.isep.pot.UI.console.utils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.CreatePaymentTransactionController;
 import lapr2.isep.pot.controller.RegisterFreelancerController;
 import lapr2.isep.pot.controller.TaskCreationController;
 import lapr2.isep.pot.model.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -84,6 +77,12 @@ public class CreatePaymentTransactionUI implements Initializable {
 
     private Task selectedTask;
 
+    @FXML
+    private TextField amountToPayTxtField;
+
+    @FXML
+    private ListView<PaymentTransaction> transactionsListListView;
+
     public CreatePaymentTransactionUI(){
         this.applicationController = new ApplicationController();
         this.taskCreationController = new TaskCreationController();
@@ -137,10 +136,11 @@ public class CreatePaymentTransactionUI implements Initializable {
     @FXML
     void createOnAction(ActionEvent event) {
         try {
-            PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), Formatter(endDate.getText()), Integer.parseInt(delay.getText()), briefDescription.getText(), selectedFreelancer, selectedTask);
+            PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), Formatter(endDate.getText()), Integer.parseInt(delay.getText()), briefDescription.getText(), getChosenFreelancer(), getChosenTask());
             if (createPaymentTransactionController.getValidationPaymentTransaction(paymentTransaction)) {
                 createPaymentTransactionController.registPaymentTransaction();
-                transactionListAndAmountStage.show();
+                amountToPayTxtField.setText(String.valueOf(this.createPaymentTransactionController.getTaskCost(getChosenFreelancer(), getChosenTask())));
+                refreshListViewTransactions();
             } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The transaction inserted is already in the system.");
                 alert.show();
@@ -168,6 +168,8 @@ public class CreatePaymentTransactionUI implements Initializable {
         transactionID.clear();
         freelancersListListView.getItems().clear();
         tasksListListVIew.getItems().clear();
+        transactionsListListView.getItems().clear();
+        amountToPayTxtField.clear();
     }
 
     public void associateParentUI(CollaboratorMenuUI collaboratorMenuUI) {
@@ -176,26 +178,7 @@ public class CreatePaymentTransactionUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TransactionsListAndAmount.fxml"));
-            Parent root = loader.load();
 
-            Scene scene = new Scene(root);
-
-            transactionListAndAmountStage = new Stage();
-            transactionListAndAmountStage.initModality(Modality.APPLICATION_MODAL);
-            transactionListAndAmountStage.getIcons().add(new Image("file:images\\t4j.jpg"));
-            transactionListAndAmountStage.setTitle("Create Payment Transaction");
-            transactionListAndAmountStage.setResizable(false);
-            transactionListAndAmountStage.setScene(scene);
-            transactionListAndAmountStage.initStyle(StageStyle.TRANSPARENT);
-
-            TransactionsListAndAmountUI transactionsListAndAmountUI = loader.getController();
-            transactionsListAndAmountUI.associateParentUI(this);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
@@ -205,7 +188,7 @@ public class CreatePaymentTransactionUI implements Initializable {
 
     private void refreshListViews() {
         freelancersListListView.getItems().setAll(registerFreelancerController.getRegistFreelancer().getFreelancerList());
-//        tasksListListVIew.getItems().setAll(taskCreationController.getTaskList());
+        tasksListListVIew.getItems().setAll(taskCreationController.getTaskLists());
     }
 
     public Freelancer getChosenFreelancer() {
@@ -220,16 +203,8 @@ public class CreatePaymentTransactionUI implements Initializable {
         return createPaymentTransactionController;
     }
 
-    public Freelancer getSelectedFreelancer() {
-        Freelancer selectedFreelancer = getChosenFreelancer();
-        this.selectedFreelancer = selectedFreelancer;
-        return selectedFreelancer;
-    }
-
-    public Task getSelectedTask() {
-        Task selectedTask = getChosenTask();
-        this.selectedTask = selectedTask;
-        return selectedTask;
+    private void refreshListViewTransactions() {
+        transactionsListListView.getItems().setAll(this.createPaymentTransactionController.getTransactionsList());
     }
 
     public static Date Formatter(String date) throws ParseException {

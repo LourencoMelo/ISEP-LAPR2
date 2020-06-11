@@ -10,9 +10,7 @@ import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.TaskCreationController;
 import lapr2.isep.pot.model.*;
-import lapr2.isep.pot.model.List.TaskList;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -55,8 +53,8 @@ public class TaskCreationUI implements Initializable {
     private TextField taskCategory;
 
     public TaskCreationUI(){
-        this.applicationController = new ApplicationController();
         this.taskCreationController = new TaskCreationController();
+        this.applicationController = new ApplicationController();
     }
 
     @FXML
@@ -93,7 +91,7 @@ public class TaskCreationUI implements Initializable {
                 this.taskCreationController.taskCreation();
                 Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), taskId.getText(), "Task added.");
                 alert.show();
-                tasksListVIew.getItems().setAll(taskCreationController.getListTask().getTaskList());
+                tasksListVIew.getItems().setAll(taskCreationController.getTaskLists());
             } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "The task inserted is already in the system.");
                 alert.show();

@@ -1,7 +1,6 @@
 package lapr2.isep.pot.model;
 
-import lapr2.isep.authorization.model.User;
-import lapr2.isep.authorization.model.UserSession;
+import lapr2.isep.pot.model.List.TaskList;
 import sun.security.util.Password;
 
 import java.io.Serializable;
@@ -22,12 +21,16 @@ public class RegistOrganization implements Serializable {
      */
     private ExternAlgorithmPasswordGenerator algorithm;
 
+    private Organization organization;
+
     /**
      * Collaborator's password
      */
     private String collabPassword;
 
+    List<Collaborator> collaboratorList = new ArrayList<>();
 
+    List<Manager> managerList = new ArrayList<>();
     /**
      * Initialize an Organization Regist creating a list of organizations
      */
@@ -182,4 +185,38 @@ public class RegistOrganization implements Serializable {
         return s.toString().trim();
     }
 
+    public Organization getOrganizationByCollaborator(Collaborator collaborator) {
+        for (Organization organization : listOrganizations) {
+            if (collaborator.equals(organization.getCollaborator())) {
+                return organization;
+            }
+        }
+        return null;
+    }
+
+    public List<Collaborator> getListCollaboratorsAllOrganizations() {
+        for (Organization organization : listOrganizations) {
+            collaboratorList.add(organization.getCollaborator());
+        }
+        return collaboratorList;
+    }
+
+    public List<Manager> getListManagersAllOrganizations() {
+        for (Organization organization : listOrganizations) {
+            managerList.add(organization.getManager());
+        }
+        return managerList;
+    }
+
+    public List<Task> getListOfTasks() {
+        return organization.getTaskList();
+    }
+
+    public Collaborator getCollaborator() {
+        return organization.getCollaborator();
+    }
+
+    public TaskList getTasksList() {
+        return organization.getListTask();
+    }
 }

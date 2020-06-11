@@ -18,10 +18,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lapr2.isep.authorization.model.User;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegistOrganizationController;
+import lapr2.isep.pot.controller.TaskCreationController;
 
 
 public class LogInUI implements Initializable {
@@ -35,12 +35,15 @@ public class LogInUI implements Initializable {
     private ApplicationController applicationController;
 
     private RegistOrganizationController registOrganizationController;
+
+    private TaskCreationController taskCreationController;
     private Stage administratorMenuStage;
     private Stage collaboratorMenuStage;
 
     public LogInUI() {
         this.registOrganizationController = new RegistOrganizationController();
         this.applicationController = new ApplicationController();
+        //this.taskCreationController = new TaskCreationController();
     }
 
 
@@ -80,13 +83,12 @@ public class LogInUI implements Initializable {
     @FXML
     void LogInOnAction(ActionEvent event) throws FileNotFoundException {
 
-        if (!this.applicationController.userExist(emailTxtField.getText(), passwordField.getText()) && !isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
+        if (!this.registOrganizationController.userExist(emailTxtField.getText(), passwordField.getText()) && !isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Something went wrong.", "Name, email or password incorrect.");
             alert.show();
         } else {
             if (isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
-                //administratorMenuStage.show();
-                collaboratorMenuStage.show();
+                administratorMenuStage.show();
             } else if (this.registOrganizationController.isCollaboratorLoggingIn(this.registOrganizationController.createUser(nameTextField.getText(), emailTxtField.getText(), passwordField.getText()))) {
                 System.out.println("O colaborador entrou");
                 collaboratorMenuStage.show();
@@ -108,7 +110,7 @@ public class LogInUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            registOrganizationController.saveInfo();
+            //registOrganizationController.getPlatform().saveInfo(registOrganizationController.getPlatform());
             System.exit(0);
         }
     }

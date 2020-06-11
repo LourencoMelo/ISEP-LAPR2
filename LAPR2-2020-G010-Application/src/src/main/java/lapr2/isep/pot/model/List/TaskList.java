@@ -95,7 +95,7 @@ public class TaskList implements Serializable {
      * @return task list
      */
     public List<Task> getTaskList(){
-        return this.taskList;
+        return taskList;
     }
 
 

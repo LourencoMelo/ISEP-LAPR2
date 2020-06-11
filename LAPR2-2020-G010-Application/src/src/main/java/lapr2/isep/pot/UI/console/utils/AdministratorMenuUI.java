@@ -57,7 +57,7 @@ public class AdministratorMenuUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            registOrganizationController.saveInfo();
+            //registOrganizationController.getPlatform().saveInfo(registerOrganizationBtn.ge);
             System.exit(0);
         }
     }

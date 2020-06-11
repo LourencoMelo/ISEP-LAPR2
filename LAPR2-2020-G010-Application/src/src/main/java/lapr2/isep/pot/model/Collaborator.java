@@ -8,14 +8,16 @@ import lapr2.isep.pot.controller.ApplicationController;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Collaborator extends User implements Serializable {
 
-
     private String name;
     private String email;
     private String password;
+    List<Collaborator> listCollab = new ArrayList<>();
 
     /**
      * User
@@ -38,6 +40,9 @@ public class Collaborator extends User implements Serializable {
         if (name.isEmpty() || email.isEmpty()) {
             throw new IllegalArgumentException("Arguments cant be null or empty.");
         }
+        this.name = name;
+        this.email = email;
+        listCollab.add(this);
     }
 
     public Collaborator(String name, String email, String password) throws FileNotFoundException {

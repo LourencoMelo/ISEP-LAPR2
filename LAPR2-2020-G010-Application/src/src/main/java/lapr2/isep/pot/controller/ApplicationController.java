@@ -35,15 +35,4 @@ public class ApplicationController implements Serializable {
         return User.getListUsers();
     }
 
-    public boolean userExist(String email, String password) {
-        boolean exist = false;
-        for(User user: getListUsers()) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
-                exist = true;
-                break;
-            }
-        }
-        return exist;
-    }
-
 }

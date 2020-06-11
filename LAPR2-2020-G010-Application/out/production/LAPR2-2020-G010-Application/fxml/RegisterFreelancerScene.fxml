@@ -47,12 +47,11 @@
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="155.0" prefHeight="74.0" prefWidth="184.0" text="Freelancer's level of expertise:" textAlignment="CENTER">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="155.0" prefHeight="74.0" prefWidth="199.0" text="Freelancer's level of expertise:" textAlignment="CENTER">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="freelancerLvlOfExpertise" layoutX="396.0" layoutY="180.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
                 <TextField fx:id="freelancerEmail" layoutX="358.0" layoutY="225.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
                 <Label alignment="CENTER" layoutX="205.0" layoutY="217.0" prefHeight="40.0" prefWidth="153.0" text="Freelancer's email:">
                     <font>
@@ -100,6 +99,7 @@
                     </font>
                 </Label>
                 <TextField fx:id="freelancerCountry" layoutX="358.0" layoutY="386.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
+            <ComboBox fx:id="levelOfExpertiseCmb" layoutX="399.0" layoutY="180.0" prefHeight="25.0" prefWidth="133.0" promptText="Choose here..." style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" />
             </children></AnchorPane>
     </center>
 </BorderPane>

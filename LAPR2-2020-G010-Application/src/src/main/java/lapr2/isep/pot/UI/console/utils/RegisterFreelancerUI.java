@@ -1,5 +1,7 @@
 package lapr2.isep.pot.UI.console.utils;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +29,7 @@ public class RegisterFreelancerUI implements Initializable {
     double y = 0;
 
     @FXML
-    private TextField freelancerLvlOfExpertise;
+    private ComboBox<String> levelOfExpertiseCmb;
 
     @FXML
     private TextField freelancerID;
@@ -61,6 +63,8 @@ public class RegisterFreelancerUI implements Initializable {
 
     @FXML
     private TextField freelancerCountry;
+
+    private ObservableList<String> listLevels = FXCollections.observableArrayList("junior", "senior");
 
     public RegisterFreelancerUI() {
         this.registerFreelancerController = new RegisterFreelancerController();
@@ -100,7 +104,7 @@ public class RegisterFreelancerUI implements Initializable {
     @FXML
     void RegistOnAction(ActionEvent event) {
         try{
-        Freelancer freelancer = this.registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), freelancerLvlOfExpertise.getText(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
+        Freelancer freelancer = this.registerFreelancerController.newFreelancer(freelancerID.getText(), freelancerName.getText(), levelOfExpertiseCmb.getValue(), freelancerEmail.getText(), freelancerNIF.getText(), freelancerIBAN.getText(), freelancerAddress.getText(), freelancerCountry.getText());
         if (this.registerFreelancerController.getValidationFreelancer(freelancer)) {
             this.registerFreelancerController.registFreelancer();
             Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), freelancerID.getText() , "Freelancer added.");
@@ -133,7 +137,6 @@ public class RegisterFreelancerUI implements Initializable {
     public void clearTextFields() {
         freelancerID.clear();
         freelancerName.clear();
-        freelancerLvlOfExpertise.clear();
         freelancerEmail.clear();
         freelancerNIF.clear();
         freelancerIBAN.clear();
@@ -143,7 +146,7 @@ public class RegisterFreelancerUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        levelOfExpertiseCmb.setItems(listLevels);
     }
 
     public RegisterFreelancerController getRegisterFreelancerController() {

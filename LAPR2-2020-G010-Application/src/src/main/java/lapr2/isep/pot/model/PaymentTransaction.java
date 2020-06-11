@@ -112,7 +112,7 @@ public class PaymentTransaction {
         return "PaymentTransaction: " +
                 "\n\tTransaction ID: " + transId +
                 "\n\tEnd date: " + endDate +
-                "\n\tDelay: " + delay +
+                "\n\tDelay: " + delay + " days" +
                 "\n\tDescription quality of work: " + descQualityOfWork + "\n" +
                 "\n"  + freelancer + "\n" +
                 "\n" + task;

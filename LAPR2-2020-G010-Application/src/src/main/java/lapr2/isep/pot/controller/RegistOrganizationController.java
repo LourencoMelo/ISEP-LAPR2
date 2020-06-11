@@ -36,26 +36,6 @@ public class RegistOrganizationController implements Serializable {
         //readInfo();
     }
 
-    private void readInfo() {
-        try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File("dados.bin")));
-            this.registOrganization = (RegistOrganization) in.readObject();
-            in.close();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("ERRO: nao abriu o ficheiro para leitura");
-        }
-    }
-
-    public void saveInfo(){
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(new File("dados.bin")));
-            out.writeObject(this.registOrganization);
-            out.close();
-        } catch (IOException e) {
-            System.out.println("ERRO: nao abriu o ficheiro para escrita");
-        }
-
-    }
     /**
      * creates new organization
      * @param name of organization
@@ -130,6 +110,26 @@ public class RegistOrganizationController implements Serializable {
 
     public User createUser(String name, String email, String password) throws FileNotFoundException {
         return new User(name,email,password);
+    }
+
+    public boolean userExist(User user) {
+        return platform.userExist(user);
+    }
+
+    public boolean userExist(String email, String password) {
+        return platform.userExist(email, password);
+    }
+
+    public Organization getOrganizationByCollaborator(Collaborator collaborator) {
+        return platform.getOrganizationByCollaborator(collaborator);
+    }
+
+    public List<Collaborator> getListCollaboratorsAllOrganizations() {
+        return platform.getListCollaboratorsAllOrganizations();
+    }
+
+    public List<Manager> getListManagersAllOrganizations() {
+        return platform.getListManagersAllOrganizations();
     }
 
     /*public boolean addCollaboratorRegistered(String name, String email, String password) throws IOException {
