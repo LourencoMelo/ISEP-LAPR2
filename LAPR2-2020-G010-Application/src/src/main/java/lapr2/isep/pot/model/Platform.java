@@ -67,9 +67,9 @@ public class Platform implements Serializable {
     }
     
 
-    public String getRoleUser(User user) {
-        return user.getRole();
-    }
+//    public String getRoleUser(User user) {
+//        return user.getRole();
+//    }
 
     public Freelancer getSelectedFreelancer() {
         return selectedFreelancer;
@@ -87,5 +87,12 @@ public class Platform implements Serializable {
         this.selectedTask = selectedTask;
     }
 
+    public boolean userIsCollaborator(User user){
+        return user instanceof Collaborator;
+    }
+
+    public boolean userIsManager(User user){
+        return user instanceof Manager;
+    }
 
 }

@@ -22,34 +22,22 @@ public class User implements Serializable {
     private final String name;
     private final String email;
     private final String password;
-    private String role;
+    //private String role;
     private static List<User> listUsers = new ArrayList<>();
 
     public User(String name, String email) throws IOException {
-        if(name == null || email == null || name.isEmpty() || email.isEmpty()) {
+        if (name == null || email == null || name.isEmpty() || email.isEmpty()) {
             throw new IllegalArgumentException();
         }
         this.name = name;
         this.email = email;
         this.password = generatePassword();
-        if (this.getClass().getSimpleName().equals("Collaborator")) {
-            this.role = "Collaborator";
-        } else {
-            if (this.getClass().getSimpleName().equalsIgnoreCase("Manager")) {
-                this.role = "Manager";
-            }
-        }
         listUsers.add(this);
         EmailFiles.writeToAFile(listUsers);
         //sendEmail(this.name, this.email, this.password);
     }
 
     public User(String name, String email, String password) throws FileNotFoundException {
-        if (this instanceof Collaborator) {
-            this.role = "Collaborator";
-        } else {
-            this.role = "Manager";
-        }
         this.name = name;
         this.email = email;
         this.password = password;
@@ -63,9 +51,9 @@ public class User implements Serializable {
         return email;
     }
 
-    public String getRole() {
-        return this.role;
-    }
+//    public String getRole() {
+//        return this.role;
+//    }
 
     public boolean hasPassword(String password) {
         return this.password.equals(password);
@@ -117,7 +105,7 @@ public class User implements Serializable {
                 "\n" +
                 "Best regards," +
                 "\n T4J Administrator." +
-                "\n-----------------------------------------------------------------",email, name, email, password);
+                "\n-----------------------------------------------------------------", email, name, email, password);
     }
 
     public String getPassword() {
@@ -139,12 +127,9 @@ public class User implements Serializable {
                 "\n" +
                 "Best regards," +
                 "\n T4J Administrator." +
-                "\n-----------------------------------------------------------------",email, name, email, password);
+                "\n-----------------------------------------------------------------", email, name, email, password);
         System.out.println("Ficheiro criado.");
         out.close();
     }
 
-    public User getCurrentUser(){
-        return this;
-    }
 }

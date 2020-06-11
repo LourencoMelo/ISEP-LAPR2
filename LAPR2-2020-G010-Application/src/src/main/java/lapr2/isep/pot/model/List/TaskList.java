@@ -15,15 +15,6 @@ public class TaskList implements Serializable {
     private final List<Task> taskList = new ArrayList<>();
 
     /**
-     * Returns Task's list.
-     *
-     * @return task list
-     */
-    public List<Task> getTaskList(){
-        return taskList;
-    }
-
-    /**
      * Creates a new task
      *
      * @param id Task's id
@@ -37,6 +28,7 @@ public class TaskList implements Serializable {
         return new Task(id, description, timeDuration, costPerHour, category);
     }
 
+
 //    /**
 //     * Creates one Task
 //     * @param task to create
@@ -48,7 +40,6 @@ public class TaskList implements Serializable {
 //        }
 //        return false;
 //    }
-
     /**
      * Adds a task to the task list
      *
@@ -96,6 +87,15 @@ public class TaskList implements Serializable {
             return task.equals(freelancerAux);
         }
         return false;
+    }
+
+    /**
+     * Returns Task's list.
+     *
+     * @return task list
+     */
+    public List<Task> getTaskList(){
+        return this.taskList;
     }
 
 

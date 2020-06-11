@@ -33,7 +33,7 @@ public class RegistOrganizationController implements Serializable {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
         this.registOrganization = platform.getRegistOrganization();
-        readInfo();
+        //readInfo();
     }
 
     private void readInfo() {
@@ -67,8 +67,6 @@ public class RegistOrganizationController implements Serializable {
      * @return
      */
     public boolean newOrganization(String name, String NIF, String nameCollab, String emailCollab, String nameManager, String emailManager) throws IOException {                       //Is necessary to have password by param?
-        //try
-        //{
         Collaborator collaborator = Organization.newCollaborator(nameCollab, emailCollab);
         Manager manager = Organization.newManager(nameManager, emailManager);
         this.organization = this.registOrganization.newOrganization(name, NIF, collaborator, manager);
@@ -118,10 +116,21 @@ public class RegistOrganizationController implements Serializable {
         return this.platform;
     }
 
-    public String getRoleUser(User user) {
-        return this.platform.getRoleUser(user);
+//    public String getRoleUser(User user) {
+//        return this.platform.getRoleUser(user);
+//    }
+
+    public boolean isCollaboratorLoggingIn(User user){
+        return platform.userIsCollaborator(user);
     }
 
+    public boolean isManagerLoggingIn(User user){
+        return platform.userIsManager(user);
+    }
+
+    public User createUser(String name, String email, String password) throws FileNotFoundException {
+        return new User(name,email,password);
+    }
 
     /*public boolean addCollaboratorRegistered(String name, String email, String password) throws IOException {
         collaboratorListRegistered.add(new Collaborator(name, email, password));

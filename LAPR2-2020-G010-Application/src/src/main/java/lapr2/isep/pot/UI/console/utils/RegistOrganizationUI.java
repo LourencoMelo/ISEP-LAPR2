@@ -77,6 +77,11 @@ public class RegistOrganizationUI implements Initializable {
         }
     }
 
+    /**
+     * 1 -> Collaborator role
+     * 2 -> Manager role
+     * @param event
+     */
     @FXML
     void RegistOnAction(ActionEvent event) {
         try {

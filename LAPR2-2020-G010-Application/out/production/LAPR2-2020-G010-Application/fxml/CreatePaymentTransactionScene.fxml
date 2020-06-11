@@ -41,7 +41,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <TextField fx:id="endDate" layoutX="774.0" layoutY="238.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
+                <TextField fx:id="endDate" layoutX="774.0" layoutY="238.0" prefHeight="23.0" prefWidth="175.0" promptText="dd/mm/yyyy" />
                 <TextField fx:id="delay" layoutX="774.0" layoutY="277.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
                 <TextField fx:id="briefDescription" layoutX="774.0" layoutY="316.0" prefHeight="23.0" prefWidth="175.0" promptText="Write here..." />
                 <ListView fx:id="freelancersListListView" layoutX="246.0" layoutY="102.0" prefHeight="317.0" prefWidth="208.0" />

@@ -88,12 +88,12 @@ public class TaskCreationUI implements Initializable {
     @FXML
     void CreateOnAction(ActionEvent event) {
         try {
-            Task task = this.taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
+            this.taskCreationController.newTask(taskId.getText(), taskDescription.getText(), Double.parseDouble(taskTimeDuration.getText()), Double.parseDouble(taskCostPerHour.getText()), taskCategory.getText());
             if (this.taskCreationController.getTaskValidation(taskId.getText())) {
-                this.taskCreationController.taskCreation(task);
+                this.taskCreationController.taskCreation();
                 Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), taskId.getText(), "Task added.");
                 alert.show();
-//                tasksListVIew.getItems().setAll(this.taskCreationController.getTaskList());
+                tasksListVIew.getItems().setAll(taskCreationController.getListTask().getTaskList());
             } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "The task inserted is already in the system.");
                 alert.show();

@@ -38,7 +38,7 @@ public class LogInUI implements Initializable {
     private Stage administratorMenuStage;
     private Stage collaboratorMenuStage;
 
-    public LogInUI(){
+    public LogInUI() {
         this.registOrganizationController = new RegistOrganizationController();
         this.applicationController = new ApplicationController();
     }
@@ -85,21 +85,20 @@ public class LogInUI implements Initializable {
             alert.show();
         } else {
             if (isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
-                administratorMenuStage.show();
-            } else if (this.registOrganizationController.getRoleUser(new User(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())).equals("Collaborator")) {
+                //administratorMenuStage.show();
+                collaboratorMenuStage.show();
+            } else if (this.registOrganizationController.isCollaboratorLoggingIn(this.registOrganizationController.createUser(nameTextField.getText(), emailTxtField.getText(), passwordField.getText()))) {
                 System.out.println("O colaborador entrou");
                 collaboratorMenuStage.show();
-            } else if (this.registOrganizationController.getRoleUser(new User(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())).equals("Manager")) {
+            } else if (this.registOrganizationController.isManagerLoggingIn(this.registOrganizationController.createUser(nameTextField.getText(), emailTxtField.getText(), passwordField.getText()))) {
                 System.out.println("O manager entrou");
-            } else {
+            } else{
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Name, email or password incorrect.");
                 alert.show();
             }
 
-
-            //administratorMenuStage.show();
-            //collaboratorMenuStage.show();
         }
+
     }
 
     @FXML

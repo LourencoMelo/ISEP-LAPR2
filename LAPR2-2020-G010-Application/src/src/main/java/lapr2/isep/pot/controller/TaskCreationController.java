@@ -49,6 +49,8 @@ public class TaskCreationController implements Serializable {
     public TaskCreationController(){
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
+        this.taskList = organization.getTaskList();
+        this.task = null;
     }
 
     /**
@@ -71,9 +73,9 @@ public class TaskCreationController implements Serializable {
      *
      * @return true, if it creates a new task
      */
-    public boolean taskCreation(Task task){
-        if (this.taskList.taskValidation(id)){
-            return this.taskList.addTask(task);
+    public boolean taskCreation(){
+        if (taskList.taskValidation(this.id)){
+            return this.taskList.addTask(this.task);
         }
         return false;
     }

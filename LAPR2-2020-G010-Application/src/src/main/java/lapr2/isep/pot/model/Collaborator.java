@@ -40,7 +40,7 @@ public class Collaborator extends User implements Serializable {
         }
     }
 
-    private Collaborator(String name, String email, String password) throws FileNotFoundException {
+    public Collaborator(String name, String email, String password) throws FileNotFoundException {
         super(name, email, password);
         this.name = name;
         this.email = email;

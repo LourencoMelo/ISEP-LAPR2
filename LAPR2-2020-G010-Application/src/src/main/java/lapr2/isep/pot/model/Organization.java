@@ -23,7 +23,7 @@ public class Organization implements Serializable {
     /**
      * Organization's task list
      */
-    private TaskList taskList;
+    private TaskList taskList = new TaskList();
 
     /**
      * Organization's Collaborator
@@ -48,7 +48,6 @@ public class Organization implements Serializable {
         this.NIF = NIF;
         this.manager = manager;
         this.collaborator = collaborator;
-        this.taskList = new TaskList();
     }
 
     /**
@@ -98,8 +97,8 @@ public class Organization implements Serializable {
      *
      * @return task list
      */
-    public List<Task> getTaskList(){
-        return this.taskList.getTaskList();
+    public TaskList getTaskList(){
+        return this.taskList;
     }
 
     /**
