@@ -190,22 +190,40 @@ public class CollaboratorMenuUI implements Initializable {
 
 
     @FXML
-    void mnuTransactionsImportOnAction(ActionEvent event) {
-        FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentList();
+    void mnuTransactionsImportCsvOnAction(ActionEvent event) {
+        FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListCsv();
         File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
         if (fileToImport != null) {
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
             applicationController.readCsvFile(fileToImport);
+        } else {
+            AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
+                    "It was not selected any file!").show();
+        }
+    }
+
+
+    @FXML
+    void mnuTransactionsImportTxtOnAction(ActionEvent event) {
+        FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListTxt();
+        File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
+        if (fileToImport != null) {
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
+            applicationController.readTxtFile(fileToImport);
+        } else {
+            AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
+                    "It was not selected any file!").show();
         }
     }
 
     @FXML
-    void mnuTransactionsExportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void mnuOptionsAboutAction(ActionEvent event) {
-        AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), "About", "@Copyright\nLAPR2 2019/2020").show();
+        AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), "About", "@Copyright\nLAPR2 2019/2020" +
+                "\nJosé Soares" +
+                "\nJoão Beires" +
+                "\nJosé Maia" +
+                "\nGonçalo Ferreira" +
+                "\nLourenço Melo").show();
     }
 }
 

@@ -21,6 +21,14 @@
                         <Font size="21.0" />
                     </font>
                 </Label>
+            <Button fx:id="refreshListBtn" alignment="CENTER" layoutX="59.0" layoutY="144.0" mnemonicParsing="false" onAction="#RefreshOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Refresh list">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </left>

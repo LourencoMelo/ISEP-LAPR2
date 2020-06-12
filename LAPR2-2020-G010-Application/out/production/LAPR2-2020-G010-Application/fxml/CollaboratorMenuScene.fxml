@@ -21,7 +21,7 @@
         </AnchorPane>
     </left>
     <right>
-        <AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="593.0" prefWidth="600.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
             <children>
                 <Button alignment="CENTER" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#XOnAction" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="X" fx:id="xBtn">
                     <cursor>
@@ -47,7 +47,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="goBackBtn" alignment="CENTER" layoutX="439.0" layoutY="536.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="50.0" prefWidth="147.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
+                <Button fx:id="goBackBtn" alignment="CENTER" layoutX="442.0" layoutY="511.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="50.0" prefWidth="147.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -81,8 +81,8 @@
                <items>
                   <Menu mnemonicParsing="false" text="List">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#mnuTransactionsImportOnAction" text="Import" />
-                        <MenuItem fx:id="mnuExport" mnemonicParsing="false" onAction="#mnuTransactionsExportOnAction" text="Export" />
+                      <MenuItem mnemonicParsing="false" onAction="#mnuTransactionsImportCsvOnAction" text="Import Csv" />
+                        <MenuItem mnemonicParsing="false" onAction="#mnuTransactionsImportTxtOnAction" text="Import Txt" />
                     </items>
                   </Menu>
                </items>

@@ -4,20 +4,41 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 public class FileChooserTransactionUI {
-    private FileChooser fileChooser;
+    private FileChooser fileChooserCsv;
+    private FileChooser fileChooserTxt;
 
     private FileChooserTransactionUI() {
-        fileChooser = new FileChooser();
-        associateFilter("Transaction File", "*.csv");
+        FileChooserTransactionUICsv();
+        FileChooserTransactionUITxt();
     }
 
-    public static FileChooser createFileChooserPaymentList() {
+    private void FileChooserTransactionUICsv() {
+        fileChooserCsv = new FileChooser();
+        associateFilterCsv("Transaction File", "*.csv");
+    }
+
+    private void FileChooserTransactionUITxt() {
+        fileChooserTxt = new FileChooser();
+        associateFilterTxt("Transaction File", "*.txt");
+    }
+
+    public static FileChooser createFileChooserPaymentListCsv() {
         FileChooserTransactionUI fcListTransactions = new FileChooserTransactionUI();
-        return fcListTransactions.fileChooser;
+        return fcListTransactions.fileChooserCsv;
     }
 
-    private void associateFilter(String description, String extension) {
+    public static FileChooser createFileChooserPaymentListTxt() {
+        FileChooserTransactionUI fcListTransactions = new FileChooserTransactionUI();
+        return fcListTransactions.fileChooserTxt;
+    }
+
+    private void associateFilterCsv(String description, String extension) {
         ExtensionFilter filter = new ExtensionFilter(description, extension);
-        fileChooser.getExtensionFilters().add(filter);
+        fileChooserCsv.getExtensionFilters().add(filter);
+    }
+
+    private void associateFilterTxt(String description, String extension) {
+        ExtensionFilter filter = new ExtensionFilter(description, extension);
+        fileChooserTxt.getExtensionFilters().add(filter);
     }
 }

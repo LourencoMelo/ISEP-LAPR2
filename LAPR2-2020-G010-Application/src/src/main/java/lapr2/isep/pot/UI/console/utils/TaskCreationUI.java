@@ -53,6 +53,9 @@ public class TaskCreationUI implements Initializable {
     @FXML
     private TextField taskCategory;
 
+    @FXML
+    private Button refreshListBtn;
+
     public TaskCreationUI() throws FileNotFoundException {
         this.taskCreationController = new TaskCreationController();
         this.applicationController = new ApplicationController();
@@ -118,6 +121,7 @@ public class TaskCreationUI implements Initializable {
         taskTimeDuration.clear();
         taskCostPerHour.clear();
         taskCategory.clear();
+        tasksListVIew.getItems().clear();
     }
 
     public void associateParentUI(CollaboratorMenuUI collaboratorMenuUI) {
@@ -131,6 +135,11 @@ public class TaskCreationUI implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    @FXML
+    void RefreshOnAction(ActionEvent event) {
+        tasksListVIew.getItems().setAll(taskCreationController.getTaskLists());
     }
 }
 

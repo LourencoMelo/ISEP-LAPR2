@@ -125,9 +125,9 @@ public class PaymentTransaction {
     }
 
     public double calculateTaskCost(Freelancer freelancer, Task task) {
-        if (freelancer.getLevelOfExpertise().equalsIgnoreCase("senior")) {
+        if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Senior")) {
             return (2 * task.getCostPerHour()) * task.getTimeDuration();
-        } else if (freelancer.getLevelOfExpertise().equalsIgnoreCase("junior")) {
+        } else if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Junior")) {
             return task.getCostPerHour() * task.getTimeDuration();
         } else {
             throw new IllegalArgumentException();

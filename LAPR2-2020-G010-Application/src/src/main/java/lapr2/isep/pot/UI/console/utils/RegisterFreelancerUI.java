@@ -65,7 +65,10 @@ public class RegisterFreelancerUI implements Initializable {
     @FXML
     private TextField freelancerCountry;
 
-    private ObservableList<String> listLevels = FXCollections.observableArrayList("junior", "senior");
+    @FXML
+    private Button refreshListBtn;
+
+    private ObservableList<String> listLevels = FXCollections.observableArrayList("Junior", "Senior");
 
     public RegisterFreelancerUI() throws FileNotFoundException {
         this.registerFreelancerController = new RegisterFreelancerController();
@@ -143,6 +146,7 @@ public class RegisterFreelancerUI implements Initializable {
         freelancerIBAN.clear();
         freelancerAddress.clear();
         freelancerCountry.clear();
+        freelancersListVIew.getItems().clear();
     }
 
     @Override
@@ -152,5 +156,10 @@ public class RegisterFreelancerUI implements Initializable {
 
     public RegisterFreelancerController getRegisterFreelancerController() {
         return this.registerFreelancerController;
+    }
+
+    @FXML
+    void RefreshOnAction(ActionEvent event) {
+        freelancersListVIew.getItems().setAll(this.registerFreelancerController.getListFreelancer());
     }
 }

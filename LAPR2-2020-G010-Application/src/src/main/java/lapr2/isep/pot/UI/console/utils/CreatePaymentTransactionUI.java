@@ -82,6 +82,9 @@ public class CreatePaymentTransactionUI implements Initializable {
     private TextField amountToPayTxtField;
 
     @FXML
+    private Button refreshBtn;
+
+    @FXML
     private ListView<PaymentTransaction> transactionsListListView;
 
     public CreatePaymentTransactionUI() throws FileNotFoundException {
@@ -140,13 +143,14 @@ public class CreatePaymentTransactionUI implements Initializable {
             PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), Formatter(endDate.getText()), Integer.parseInt(delay.getText()), briefDescription.getText(), getChosenFreelancer(), getChosenTask());
             if (createPaymentTransactionController.getValidationPaymentTransaction(paymentTransaction)) {
                 createPaymentTransactionController.registPaymentTransaction();
-                amountToPayTxtField.setText(String.valueOf(this.createPaymentTransactionController.getTaskCost(getChosenFreelancer(), getChosenTask())));
+                amountToPayTxtField.setText(String.format("%.02f€",this.createPaymentTransactionController.getTaskCost(getChosenFreelancer(), getChosenTask())));
+                freelancersListListView.getSelectionModel().getSelectedItem().addDelayToFreelancer(Integer.parseInt(delay.getText()));
                 refreshListViewTransactions();
             } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The transaction inserted is already in the system.");
                 alert.show();
             }
-        } catch (IllegalArgumentException | ParseException exception) {
+        } catch (IllegalArgumentException | ParseException | NullPointerException exception) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), "Error", "You must select a freelancer and a task. Also arguments must follow the following rules:" +
                     "\n * Arguments can't be null or empty;" +
                     "\n * Delay needs to be in numbers" +
@@ -200,7 +204,7 @@ public class CreatePaymentTransactionUI implements Initializable {
         return tasksListListVIew.getSelectionModel().getSelectedItem();
     }
 
-    public CreatePaymentTransactionController getCreatePaymentTransactionController(){
+    public CreatePaymentTransactionController getCreatePaymentTransactionController() {
         return createPaymentTransactionController;
     }
 
@@ -212,5 +216,10 @@ public class CreatePaymentTransactionUI implements Initializable {
         SimpleDateFormat formmater1 = new SimpleDateFormat("dd/MM/yyyy");
         Date date1 = formmater1.parse(date);
         return date1;
+    }
+
+    @FXML
+    void RefreshOnAction(ActionEvent event) {
+        refreshListViewTransactions();
     }
 }

@@ -25,7 +25,6 @@ public class TransactionsRegist implements Serializable {
 
     public void readCsvFile(File filePaymentsTransactionsList) {
         Organization organization = platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail());
-        System.out.println(organization);
         try {
             Scanner in = new Scanner(filePaymentsTransactionsList);
             in.nextLine();
@@ -38,7 +37,6 @@ public class TransactionsRegist implements Serializable {
                     platform.getRegistOrganization().getPaymentTransactionList(organization).getTransactionList().add(paymentTransaction);
                     platform.getRegistFreelancer().getFreelancerList().add(freelancer);
                     organization.getTaskList().add(task);
-                    System.out.println("lista freelancers:" + platform.getRegistFreelancer().getFreelancerList());
                 }
             }
         } catch (FileNotFoundException | ParseException e) {
@@ -60,7 +58,6 @@ public class TransactionsRegist implements Serializable {
                     platform.getRegistOrganization().getPaymentTransactionList(organization).getTransactionList().add(paymentTransaction);
                     platform.getRegistFreelancer().getFreelancerList().add(freelancer);
                     organization.getTaskList().add(task);
-                    System.out.println("lista freelancers:" + platform.getRegistFreelancer().getFreelancerList());
                 }
             }
         } catch (FileNotFoundException | ParseException e) {
