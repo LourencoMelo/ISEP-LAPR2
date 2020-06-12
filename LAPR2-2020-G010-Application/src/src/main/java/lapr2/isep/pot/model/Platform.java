@@ -158,6 +158,10 @@ public class Platform implements Serializable {
         return exist;
     }
 
+    public User createUser(String name, String email, String password) throws FileNotFoundException {
+        return new User(name,email,password);
+    }
+
     public boolean userExist(User user) {
         return User.getListUsers().contains(user);
     }

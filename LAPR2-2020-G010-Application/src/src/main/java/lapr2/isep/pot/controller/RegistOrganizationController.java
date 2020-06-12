@@ -109,7 +109,7 @@ public class RegistOrganizationController implements Serializable {
     }
 
     public User createUser(String name, String email, String password) throws FileNotFoundException {
-        return new User(name,email,password);
+        return platform.createUser(name, email, password);
     }
 
     public boolean userExist(User user) {

@@ -41,6 +41,7 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
+        EmailFiles.writeToAFile(listUsers);
     }
 
     public String getName() {
