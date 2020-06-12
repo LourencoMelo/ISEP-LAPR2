@@ -13,8 +13,8 @@ public class FileChooserTransactionUI {
     }
 
     private void FileChooserTransactionUICsv() {
-        fileChooserCsv = new FileChooser();
-        associateFilterCsv("Transaction File", "*.csv");
+            fileChooserCsv = new FileChooser();
+            associateFilterCsv("Transaction File", "*.csv");
     }
 
     private void FileChooserTransactionUITxt() {

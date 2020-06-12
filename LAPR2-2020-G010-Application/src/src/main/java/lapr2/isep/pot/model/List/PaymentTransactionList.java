@@ -16,15 +16,21 @@ public class PaymentTransactionList implements Serializable {
     /**
      * Transaction list
      */
-    private final List<PaymentTransaction> transactionList = new ArrayList<>();
+    private final List<PaymentTransaction> notPaidTransactionList = new ArrayList<>();
+
+    private final List<PaymentTransaction> paidTransactionList = new ArrayList<>();
 
     /**
      * Returns transaction list.
      *
      * @return transaction list
      */
-    public List<PaymentTransaction> getTransactionList() {
-        return transactionList;
+    public List<PaymentTransaction> getNotPaidTransactionList() {
+        return notPaidTransactionList;
+    }
+
+    public List<PaymentTransaction> getPaidTransactionList() {
+        return paidTransactionList;
     }
 
     /**
@@ -47,9 +53,9 @@ public class PaymentTransactionList implements Serializable {
      * @return  the boolean result of the validation
      */
 
-    public boolean validationPaymentTransaction(PaymentTransaction paymentTransaction) {
+    public boolean validationNotPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
         Task task = paymentTransaction.getTask();
-        for (PaymentTransaction paymentTransaction1 : transactionList){
+        for (PaymentTransaction paymentTransaction1 : this.notPaidTransactionList){
             if (task.equals(paymentTransaction1.getTask())){
                 return false;
             }
@@ -64,14 +70,18 @@ public class PaymentTransactionList implements Serializable {
      * @return new transaction
      */
 
-    public boolean addPaymentTransaction(PaymentTransaction paymentTransaction) {
-        return transactionList.add(paymentTransaction);
+    public boolean addNotPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
+        return notPaidTransactionList.add(paymentTransaction);
+    }
+
+    public boolean addPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
+        return paidTransactionList.add(paymentTransaction);
     }
 
     public int addListTransactions(PaymentTransactionList paymentTransactionList) {
         int totalTransactionsAdded = 0;
-        for(PaymentTransaction paymentTransaction : paymentTransactionList.transactionList) {
-            boolean wasAdded = addPaymentTransaction(paymentTransaction);
+        for(PaymentTransaction paymentTransaction : paymentTransactionList.notPaidTransactionList) {
+            boolean wasAdded = addNotPaidPaymentTransaction(paymentTransaction);
             if (wasAdded) {
                 totalTransactionsAdded++;
             }
@@ -80,7 +90,7 @@ public class PaymentTransactionList implements Serializable {
      }
 
     public boolean contains(PaymentTransaction paymentTransaction) {
-        for (PaymentTransaction paymentTransactionAux : transactionList) {
+        for (PaymentTransaction paymentTransactionAux : notPaidTransactionList) {
             return paymentTransaction.equals(paymentTransactionAux);
         }
         return false;

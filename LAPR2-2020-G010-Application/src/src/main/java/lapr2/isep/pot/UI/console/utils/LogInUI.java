@@ -39,6 +39,7 @@ public class LogInUI implements Initializable {
     private TaskCreationController taskCreationController;
     private Stage administratorMenuStage;
     private Stage collaboratorMenuStage;
+    private Stage manangerMenuStage;
 
     public LogInUI() throws FileNotFoundException {
         this.registOrganizationController = new RegistOrganizationController();
@@ -92,7 +93,8 @@ public class LogInUI implements Initializable {
             } else if (this.registOrganizationController.isCollaboratorLoggingIn(this.registOrganizationController.createUser(nameTextField.getText(), emailTxtField.getText(), passwordField.getText()))) {
                 collaboratorMenuStage.show();
             } else if (this.registOrganizationController.isManagerLoggingIn(this.registOrganizationController.createUser(nameTextField.getText(), emailTxtField.getText(), passwordField.getText()))) {
-            } else{
+                manangerMenuStage.show();
+            } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Something went wrong.", "Name, email or password incorrect.");
                 alert.show();
             }
@@ -154,10 +156,31 @@ public class LogInUI implements Initializable {
             CollaboratorMenuUI collaboratorMenuUI = loader1.getController();
             collaboratorMenuUI.associateParentUI(this);
 
+            //----------------------------------------------------------------------------------------------------------------------------------------------
+
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/ManagerMenuScene.fxml"));
+            Parent root2 = loader2.load();
+
+            Scene scene2 = new Scene(root2);
+
+            manangerMenuStage = new Stage();
+            manangerMenuStage.initModality(Modality.APPLICATION_MODAL);
+            manangerMenuStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            manangerMenuStage.setTitle("Manager Menu");
+            manangerMenuStage.setResizable(false);
+            manangerMenuStage.setScene(scene2);
+            manangerMenuStage.initStyle(StageStyle.TRANSPARENT);
+
+
+            ManagerMenuUI managerMenuUI = loader2.getController();
+            managerMenuUI.associateParentUI(this);
+
         } catch (IOException ioException) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error", ioException.getMessage());
+            System.out.println(ioException.getLocalizedMessage());
             alert.show();
         }
+
     }
 
 

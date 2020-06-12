@@ -30,7 +30,6 @@ import java.util.ResourceBundle;
 public class CollaboratorMenuUI implements Initializable {
 
     private static final String IMPORT_HEADER = "Import List.";
-    private static final String EXPORT_HEADER = "Export List.";
 
     private LogInUI logInUI;
 
@@ -208,8 +207,8 @@ public class CollaboratorMenuUI implements Initializable {
         FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListTxt();
         File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
         if (fileToImport != null) {
-            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
             applicationController.readTxtFile(fileToImport);
+            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
         } else {
             AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
                     "It was not selected any file!").show();

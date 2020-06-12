@@ -209,7 +209,7 @@ public class CreatePaymentTransactionUI implements Initializable {
     }
 
     private void refreshListViewTransactions() {
-        transactionsListListView.getItems().setAll(this.createPaymentTransactionController.getTransactionsList());
+        transactionsListListView.getItems().setAll(this.createPaymentTransactionController.getNotPaidTransactionsList());
     }
 
     public static Date Formatter(String date) throws ParseException {

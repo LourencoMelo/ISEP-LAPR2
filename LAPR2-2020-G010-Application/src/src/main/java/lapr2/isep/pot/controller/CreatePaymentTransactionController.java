@@ -3,7 +3,6 @@ package lapr2.isep.pot.controller;
 import lapr2.isep.pot.UI.console.utils.CreatePaymentTransactionUI;
 import lapr2.isep.pot.model.*;
 import lapr2.isep.pot.model.List.PaymentTransactionList;
-import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -24,16 +23,14 @@ public class CreatePaymentTransactionController {
         platform = applicationPOT.getPlatform();
     }
 
-    private final PaymentTransactionList paymentTransactionList = new PaymentTransactionList();
-
     public PaymentTransaction newPaymentTransaction(String transId, Date endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task){
-        this.paymentTransaction = paymentTransactionList.newPaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
+        this.paymentTransaction = platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList().newPaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
         return this.paymentTransaction;
     }
 
     public boolean registPaymentTransaction(){
-         if(paymentTransactionList.validationPaymentTransaction(this.paymentTransaction)){
-            return paymentTransactionList.addPaymentTransaction(paymentTransaction);
+         if(platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList().validationNotPaidPaymentTransaction(this.paymentTransaction)){
+            return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList().addNotPaidPaymentTransaction(paymentTransaction);
         }
         return false;
     }
@@ -45,15 +42,19 @@ public class CreatePaymentTransactionController {
      * @return false if the transaction exists
      */
     public boolean getValidationPaymentTransaction(PaymentTransaction paymentTransaction){
-        return paymentTransactionList.validationPaymentTransaction(paymentTransaction);
+        return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList().validationNotPaidPaymentTransaction(paymentTransaction);
     }
 
-    public List<PaymentTransaction> getTransactionsList(){
-        return platform.getRegistOrganization().getPaymentTransactionList(platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail())).getTransactionList();
+    public List<PaymentTransaction> getNotPaidTransactionsList(){
+        return platform.getRegistOrganization().getPaymentTransactionList(platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail())).getNotPaidTransactionList();
+    }
+
+    public List<PaymentTransaction> getPaidTransactionsList() {
+        return platform.getRegistOrganization().getPaymentTransactionList(platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail())).getPaidTransactionList();
     }
 
     public PaymentTransactionList getPaymentTransactionList(){
-        return paymentTransactionList;
+        return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList();
     }
 
 
