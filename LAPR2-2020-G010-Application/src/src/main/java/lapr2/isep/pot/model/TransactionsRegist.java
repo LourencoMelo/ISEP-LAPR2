@@ -2,7 +2,9 @@ package lapr2.isep.pot.model;
 
 import lapr2.isep.pot.controller.ApplicationPOT;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,8 +35,12 @@ public class TransactionsRegist implements Serializable {
                 PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), Formatter(line[6].trim()), Integer.parseInt(line[7].trim()), line[8].trim(), freelancer, task);
                 if (!platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList().contains(paymentTransaction)) {
                     platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList().add(paymentTransaction);
-                    platform.getRegistFreelancer().getFreelancerList().add(freelancer);
-                    organization.getTaskList().add(task);
+                    if (!platform.getRegistFreelancer().getFreelancerList().contains(freelancer)) {
+                        platform.getRegistFreelancer().getFreelancerList().add(freelancer);
+                    }
+                    if (!organization.getTaskList().contains(task)) {
+                        organization.getTaskList().add(task);
+                    }
                 }
             }
             System.out.println(platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList());
@@ -55,8 +61,12 @@ public class TransactionsRegist implements Serializable {
                 PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), Formatter(line[6].trim()), Integer.parseInt(line[7].trim()), line[8].trim(), freelancer, task);
                 if (!platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList().contains(paymentTransaction)) {
                     platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList().add(paymentTransaction);
-                    platform.getRegistFreelancer().getFreelancerList().add(freelancer);
-                    organization.getTaskList().add(task);
+                    if (!platform.getRegistFreelancer().getFreelancerList().contains(freelancer)) {
+                        platform.getRegistFreelancer().getFreelancerList().add(freelancer);
+                    }
+                    if (!organization.getTaskList().contains(task)) {
+                        organization.getTaskList().add(task);
+                    }
                 }
             }
             System.out.println(platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList());
