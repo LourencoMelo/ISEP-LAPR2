@@ -33,6 +33,8 @@ public class PaymentTransactionList implements Serializable {
         return paidTransactionList;
     }
 
+
+
     /**
      * Creates a new Payment Transaction
      *
@@ -44,7 +46,7 @@ public class PaymentTransactionList implements Serializable {
      * @param task task
      * @return new transaction
      */
-    public PaymentTransaction newPaymentTransaction(String transId, Date endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task) {
+    public PaymentTransaction newPaymentTransaction(String transId, Date endDate, double delay, String descQualityOfWork, Freelancer freelancer, Task task) {
         return new PaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
     }
 
@@ -54,13 +56,7 @@ public class PaymentTransactionList implements Serializable {
      */
 
     public boolean validationNotPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
-        Task task = paymentTransaction.getTask();
-        for (PaymentTransaction paymentTransaction1 : this.notPaidTransactionList){
-            if (task.equals(paymentTransaction1.getTask())){
-                return false;
-            }
-        }
-        return true;
+        return !paidTransactionList.contains(paymentTransaction);
         //        return !transactionList.contains(paymentTransaction);
     }
 
@@ -89,11 +85,24 @@ public class PaymentTransactionList implements Serializable {
         return totalTransactionsAdded;
      }
 
-    public boolean contains(PaymentTransaction paymentTransaction) {
-        for (PaymentTransaction paymentTransactionAux : notPaidTransactionList) {
-            return paymentTransaction.equals(paymentTransactionAux);
+    public List<PaymentTransaction> getListTotalPaymentsTransactions() {
+        List<PaymentTransaction> copyList = new ArrayList<>();
+        for (PaymentTransaction paymentTransaction : paidTransactionList) {
+            copyList.add(paymentTransaction);
         }
-        return false;
+        for(PaymentTransaction paymentTransaction : notPaidTransactionList) {
+            copyList.add(paymentTransaction);
+        }
+        return copyList;
     }
 
+    public int getNumberOfTasks(Freelancer freelancer) {
+        int numberOfTasks = 0;
+        for(PaymentTransaction paymentTransaction : getListTotalPaymentsTransactions()) {
+            if(paymentTransaction.getFreelancer().equals(freelancer)) {
+                numberOfTasks++;
+            }
+        }
+        return numberOfTasks;
+    }
 }

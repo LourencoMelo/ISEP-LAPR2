@@ -23,7 +23,7 @@ public class CreatePaymentTransactionController {
         platform = applicationPOT.getPlatform();
     }
 
-    public PaymentTransaction newPaymentTransaction(String transId, Date endDate, Integer delay, String descQualityOfWork, Freelancer freelancer, Task task){
+    public PaymentTransaction newPaymentTransaction(String transId, Date endDate, double delay, String descQualityOfWork, Freelancer freelancer, Task task){
         this.paymentTransaction = platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList().newPaymentTransaction(transId, endDate, delay, descQualityOfWork, freelancer, task);
         return this.paymentTransaction;
     }
@@ -57,6 +57,10 @@ public class CreatePaymentTransactionController {
         return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getPaymentTransactionList();
     }
 
+    public List<PaymentTransaction> getTotalPaymentTransactionList() {
+        return platform.getRegistOrganization().getPaymentTransactionList(platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail())).getListTotalPaymentsTransactions();
+    }
+
 
 
 
@@ -71,7 +75,6 @@ public class CreatePaymentTransactionController {
     public Task getSelectedTask() {
         return createPaymentTransactionUI.getChosenTask();
     }
-
 //    public List<Task> getListOfTask(){
 //        return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getTaskList();
 //    }

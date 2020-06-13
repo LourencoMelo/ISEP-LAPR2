@@ -140,11 +140,11 @@ public class CreatePaymentTransactionUI implements Initializable {
     @FXML
     void createOnAction(ActionEvent event) {
         try {
-            PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), Formatter(endDate.getText()), Integer.parseInt(delay.getText()), briefDescription.getText(), getChosenFreelancer(), getChosenTask());
+            PaymentTransaction paymentTransaction = createPaymentTransactionController.newPaymentTransaction(transactionID.getText(), Formatter(endDate.getText()), Double.parseDouble(delay.getText()), briefDescription.getText(), getChosenFreelancer(), getChosenTask());
             if (createPaymentTransactionController.getValidationPaymentTransaction(paymentTransaction)) {
                 createPaymentTransactionController.registPaymentTransaction();
                 amountToPayTxtField.setText(String.format("%.02f€",this.createPaymentTransactionController.getTaskCost(getChosenFreelancer(), getChosenTask())));
-                freelancersListListView.getSelectionModel().getSelectedItem().addDelayToFreelancer(Integer.parseInt(delay.getText()));
+                //freelancersListListView.getSelectionModel().getSelectedItem().addDelayToFreelancer(Integer.parseInt(delay.getText()));
                 refreshListViewTransactions();
             } else {
                 Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(), "Error", "The transaction inserted is already in the system.");
@@ -209,7 +209,7 @@ public class CreatePaymentTransactionUI implements Initializable {
     }
 
     private void refreshListViewTransactions() {
-        transactionsListListView.getItems().setAll(this.createPaymentTransactionController.getNotPaidTransactionsList());
+        transactionsListListView.getItems().setAll(this.createPaymentTransactionController.getTotalPaymentTransactionList());
     }
 
     public static Date Formatter(String date) throws ParseException {

@@ -44,7 +44,11 @@ public class Freelancer implements Serializable {
      */
     private final String country;
 
-    private int delay = 0;
+    private double delay;
+
+    private int numberOfTasks = 0;
+
+    private double mean;
 
     /**
      * Initialize the Freelancer's information with the received data
@@ -72,11 +76,7 @@ public class Freelancer implements Serializable {
         this.country = country;
     }
 
-    public void addDelayToFreelancer(int delay) {
-        this.delay += delay;
-    }
-
-    public int getDelay() {
+    public double getDelay() {
         return delay;
     }
 
@@ -96,6 +96,22 @@ public class Freelancer implements Serializable {
      */
     public String getName() {
         return name;
+    }
+
+    public int getNumberOfTasks() {
+        return numberOfTasks;
+    }
+
+    public int addNumberOfTasksToFreelancer() {
+        return numberOfTasks++;
+    }
+
+    public void setMean(double mean) {
+        this.mean = mean;
+    }
+
+    public double getMean() {
+        return mean;
     }
 
     /**

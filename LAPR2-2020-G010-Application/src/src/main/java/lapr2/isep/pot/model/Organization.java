@@ -173,4 +173,14 @@ public class Organization implements Serializable {
     public PaymentTransactionList getPaymentTransactionList() {
         return paymentTransactionList;
     }
+
+    public double addSumOfDelays(Freelancer freelancer) {
+        double summation = 0;
+        for(PaymentTransaction paymentTransaction : paymentTransactionList.getListTotalPaymentsTransactions()) {
+            if(paymentTransaction.getFreelancer().equals(freelancer)) {
+                summation += paymentTransaction.getDelay();
+            }
+        }
+        return summation;
+    }
 }

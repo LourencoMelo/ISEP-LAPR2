@@ -32,6 +32,7 @@ public class AdministratorMenuUI implements Initializable {
 
     private Stage registOrganizationStage;
 
+    private Stage graphSceneStage;
 
     double x = 0;
     double y = 0;
@@ -70,7 +71,7 @@ public class AdministratorMenuUI implements Initializable {
 
     @FXML
     void StatisticsOnAction(ActionEvent event) {
-
+        graphSceneStage.show();
     }
 
     @FXML
@@ -117,6 +118,24 @@ public class AdministratorMenuUI implements Initializable {
 
             RegistOrganizationUI registOrganizationUI = loader.getController();
             registOrganizationUI.associateParentUI(this);
+
+            //======================================================================
+
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/GraphScene.fxml"));
+            Parent root2 = loader2.load();
+
+            Scene scene2 = new Scene(root2);
+
+            graphSceneStage = new Stage();
+            graphSceneStage.initModality(Modality.APPLICATION_MODAL);
+            graphSceneStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            graphSceneStage.setTitle("Statistics");
+            graphSceneStage.setResizable(false);
+            graphSceneStage.setScene(scene2);
+            graphSceneStage.initStyle(StageStyle.TRANSPARENT);
+
+            GraphSceneUI graphSceneUI = loader2.getController();
+            graphSceneUI.associateParentUI(this);
 
         }catch (IOException ioException){
             AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", ioException.getMessage());

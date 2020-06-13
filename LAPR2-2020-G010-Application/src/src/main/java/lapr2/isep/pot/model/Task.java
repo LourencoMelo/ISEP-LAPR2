@@ -1,6 +1,7 @@
 package lapr2.isep.pot.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Task implements Serializable {
 
@@ -110,7 +111,7 @@ public class Task implements Serializable {
             return false;
         }
         Task otherTask = (Task) otherObject;
-        return id.equalsIgnoreCase(otherTask.id);
+        return Objects.equals(this.id, otherTask.id);
     }
 
     /**

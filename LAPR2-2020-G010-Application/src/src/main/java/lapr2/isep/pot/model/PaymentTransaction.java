@@ -1,7 +1,5 @@
 package lapr2.isep.pot.model;
 
-import javafx.fxml.Initializable;
-
 import java.util.Date;
 import java.util.Objects;
 
@@ -20,7 +18,7 @@ public class PaymentTransaction {
     /**
      * Delay
      */
-    private Integer delay;
+    private double delay;
 
     /**
      * Description of the quality of work
@@ -42,6 +40,7 @@ public class PaymentTransaction {
      */
     private Task task;
 
+
     /**
      * Initialize the transaction's information with the received data
      *
@@ -53,8 +52,8 @@ public class PaymentTransaction {
      * @param task Task that was made
      */
 
-    public PaymentTransaction(String transId,Date endDate,Integer delay,String descQualityOfWork,Freelancer freelancer,Task task){
-        if(transId == null || endDate == null || delay == null || descQualityOfWork == null || transId.isEmpty() || descQualityOfWork.isEmpty()){
+    public PaymentTransaction(String transId,Date endDate,double delay,String descQualityOfWork,Freelancer freelancer,Task task){
+        if(transId == null || endDate == null || descQualityOfWork == null || transId.isEmpty() || descQualityOfWork.isEmpty()){
             throw new IllegalArgumentException("Arguments cant be null or empty.");
         }
         this.transId = transId;
@@ -63,6 +62,8 @@ public class PaymentTransaction {
         this.descQualityOfWork = descQualityOfWork;
         this.freelancer = freelancer;
         this.task = task;
+        //this.freelancer.addNumberOfTasksToFreelancer();
+        //this.freelancer.addDelayToFreelancer(delay);
     }
 
     /**
@@ -88,8 +89,12 @@ public class PaymentTransaction {
      *
      * @return delay
      */
-    public Integer getDelay() {
+    public double getDelay() {
         return delay;
+    }
+
+    public Freelancer getFreelancer() {
+        return freelancer;
     }
 
     /**
@@ -139,12 +144,7 @@ public class PaymentTransaction {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PaymentTransaction that = (PaymentTransaction) o;
-        return Double.compare(that.amountPay, amountPay) == 0 &&
-                Objects.equals(transId, that.transId) &&
-                Objects.equals(endDate, that.endDate) &&
-                Objects.equals(delay, that.delay) &&
-                Objects.equals(descQualityOfWork, that.descQualityOfWork) &&
-                Objects.equals(freelancer, that.freelancer) &&
+        return Objects.equals(transId, that.transId) ||
                 Objects.equals(task, that.task);
     }
 
@@ -152,6 +152,7 @@ public class PaymentTransaction {
     public int hashCode() {
         return Objects.hash(transId, endDate, delay, descQualityOfWork, amountPay, freelancer, task);
     }
+
 }
 
 

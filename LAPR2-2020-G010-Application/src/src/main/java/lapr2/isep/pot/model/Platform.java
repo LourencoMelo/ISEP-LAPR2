@@ -5,6 +5,7 @@ import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Platform implements Serializable {
@@ -22,7 +23,7 @@ public class Platform implements Serializable {
      * Regist Freelancer instance
      */
 
-    private  RegistFreelancer registFreelancer;
+    private RegistFreelancer registFreelancer;
 
     /**
      * Regist Organization instance
@@ -78,10 +79,11 @@ public class Platform implements Serializable {
 
     /**
      * Returns RegistFreelancer
+     *
      * @return registFreelancer
      */
 
-    public RegistFreelancer getRegistFreelancer(){
+    public RegistFreelancer getRegistFreelancer() {
         return this.registFreelancer;
     }
 
@@ -91,13 +93,14 @@ public class Platform implements Serializable {
 
     /**
      * confirms if the the list has the organization
+     *
      * @param organization to confirm
      * @return true if has or false if not
      */
     public boolean hasOrganization(Organization organization) {
         return registOrganization.hasOrganization(organization);
     }
-    
+
 
 //    public String getRoleUser(User user) {
 //        return user.getRole();
@@ -119,7 +122,7 @@ public class Platform implements Serializable {
         this.selectedTask = selectedTask;
     }
 
-    public boolean userIsCollaborator(User user){
+    public boolean userIsCollaborator(User user) {
         for (Collaborator collaborator : getListCollaboratorsAllOrganizations()) {
             if (collaborator.getEmail().equalsIgnoreCase(user.getEmail()) && collaborator.getName().equalsIgnoreCase(user.getName())) {
                 for (User userAux : getListUsers()) {
@@ -133,7 +136,7 @@ public class Platform implements Serializable {
         return false;
     }
 
-    public boolean userIsManager(User user){
+    public boolean userIsManager(User user) {
         for (Manager manager : getListManagersAllOrganizations()) {
             if (manager.getEmail().equalsIgnoreCase(user.getEmail()) && manager.getName().equalsIgnoreCase(user.getName())) {
                 for (User userAux : getListUsers()) {
@@ -149,7 +152,7 @@ public class Platform implements Serializable {
 
     public boolean userExist(String email, String password) {
         boolean exist = false;
-        for(User user: User.getListUsers()) {
+        for (User user : User.getListUsers()) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 exist = true;
                 break;
@@ -159,7 +162,7 @@ public class Platform implements Serializable {
     }
 
     public User createUser(String name, String email, String password) throws FileNotFoundException {
-        return new User(name,email,password);
+        return new User(name, email, password);
     }
 
     public boolean userExist(User user) {
@@ -203,4 +206,103 @@ public class Platform implements Serializable {
     public String getCurrentUserEmail() {
         return currentUserEmail;
     }
+
+    public Organization getOrganizationCurrentUser() {
+        return registOrganization.getOrganizationByUserEmail(getCurrentUserEmail());
+    }
+
+    public PaymentTransactionList getPaymentListByOrganization() {
+        return getOrganizationCurrentUser().getPaymentTransactionList();
+    }
+
+    public List<Freelancer> getFreelancersByOrganization() {
+        List<Freelancer> listFreelancer = new ArrayList<>();
+        for (PaymentTransaction paymentTransaction : getPaymentListByOrganization().getListTotalPaymentsTransactions()) {
+            listFreelancer.add(paymentTransaction.getFreelancer());
+        }
+        return listFreelancer;
+    }
+
+    /**
+     * Return the mean of delays of 1 organization
+     *
+     * @return mean of delays
+     */
+    public double meanByOrganization() {
+        double summation = 0;
+        int numberOfTasksExecutedByFreelancer = 0;
+        for (Freelancer freelancer : getFreelancersByOrganization()) {
+            summation += freelancer.getDelay();
+            numberOfTasksExecutedByFreelancer += freelancer.getNumberOfTasks();
+        }
+        double mean = summation / numberOfTasksExecutedByFreelancer;
+        return mean;
+    }
+
+    public double meanByFreelancer(Freelancer freelancer) {
+        double summation = getOrganizationCurrentUser().addSumOfDelays(freelancer);
+        int numberOfTasksExecutedByFreelancer = getOrganizationCurrentUser().getPaymentTransactionList().getNumberOfTasks(freelancer);
+        double mean = summation / numberOfTasksExecutedByFreelancer;
+        freelancer.setMean(mean);
+        return mean;
+
+    }
+
+    /*public double standardDeviationByOrganization() {
+
+    }
+
+     */
+
+    public double standardDeviationByFreelancer(Freelancer freelancer) {
+        List<Double> listTimesFromDelays = new ArrayList<>();
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                listTimesFromDelays.add(paymentTransaction.getDelay());
+            }
+        }
+        double summation = 0;
+        for (double doubleAux : listTimesFromDelays) {
+            summation += Math.pow(freelancer.getMean() - doubleAux, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listTimesFromDelays.size());
+        return standardDeviation;
+    }
+
+    public int numberDelaysFirstIntervalByFreelancer(Freelancer freelancer) {
+        int delays = 0;
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                if (paymentTransaction.getDelay() <= (freelancer.getMean() - standardDeviationByFreelancer(freelancer))) {
+                    delays++;
+                }
+            }
+        }
+        return delays;
+    }
+
+    public int numberDelaysSecondIntervalByFreelancer(Freelancer freelancer) {
+        int delays = 0;
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                if (paymentTransaction.getDelay() > (freelancer.getMean() - standardDeviationByFreelancer(freelancer)) && (paymentTransaction.getDelay() < (freelancer.getMean()) + standardDeviationByFreelancer(freelancer))) {
+                    delays++;
+                }
+            }
+        }
+        return delays;
+    }
+
+    public int numberDelaysThirdIntervalByFreelancer(Freelancer freelancer) {
+        int delays = 0;
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                if (paymentTransaction.getDelay() >= (freelancer.getMean() + standardDeviationByFreelancer(freelancer))) {
+                    delays++;
+                }
+            }
+        }
+        return delays;
+    }
+
 }
