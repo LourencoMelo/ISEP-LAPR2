@@ -12,7 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
-import lapr2.isep.pot.controller.StatisticsController;
+import lapr2.isep.pot.controller.CollaboratorStatisticsController;
 import lapr2.isep.pot.model.Freelancer;
 
 import java.io.FileNotFoundException;
@@ -21,13 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-@SuppressWarnings("ALL")
-public class GraphSceneUI implements Initializable {
+public class CollaboratorStatisticsUI implements Initializable {
 
-    private ApplicationController applicationController;
+    private CollaboratorMenuUI collaboratorMenuUI;
 
-    private StatisticsController statisticsController;
-    private AdministratorMenuUI administratorMenuUI;
 
     @FXML
     private Button SeeStatisticsForAllFreelancersBtn;
@@ -39,7 +36,7 @@ public class GraphSceneUI implements Initializable {
     private Button xBtn;
 
     @FXML
-    private Button showFreelancersBtn;
+    private Button clearStatsBtn;
 
     @FXML
     private TextField standardDeviationTxtField;
@@ -51,6 +48,9 @@ public class GraphSceneUI implements Initializable {
     private CategoryAxis x;
 
     @FXML
+    private Button showFreelancersBtn;
+
+    @FXML
     private NumberAxis y;
 
     @FXML
@@ -59,17 +59,21 @@ public class GraphSceneUI implements Initializable {
     @FXML
     private Button goBackBtn;
 
+    private List<String> freelancerChoosedBefore = new ArrayList<>();
+
     @FXML
     private BarChart<?, ?> delayChart;
+
+    private ApplicationController applicationController;
+
+    private CollaboratorStatisticsController collaboratorStatisticsController;
 
     double xwindow = 0;
     double ywindow = 0;
 
-    private List<String> freelancerChoosedBefore = new ArrayList<>();
-
-    public GraphSceneUI() throws FileNotFoundException {
+    public CollaboratorStatisticsUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
-        this.statisticsController = new StatisticsController();
+        this.collaboratorStatisticsController = new CollaboratorStatisticsController();
     }
 
     @FXML
@@ -88,13 +92,22 @@ public class GraphSceneUI implements Initializable {
     }
 
     @FXML
+    void ShowFreelancersOnAction(ActionEvent event) {
+        if (collaboratorStatisticsController.getListFreelancersToListView().size() == 0) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "There are no freelancers in the system.");
+            alert.show();
+        } else {
+            freelancersListView.getItems().setAll(collaboratorStatisticsController.getListFreelancersToListView());
+        }
+    }
+
+    @FXML
     void XOnAction(ActionEvent event) {
         Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, applicationController.getAppName(),
                 "Action confirmation.", "Do you really want to close the application?");
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            //registOrganizationController.getPlatform().saveInfo(registOrganizationController.getPlatform());
             System.exit(0);
         }
     }
@@ -118,40 +131,46 @@ public class GraphSceneUI implements Initializable {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "You have already selected that freelancer.");
             alert.show();
         } else {
-            double y1 = statisticsController.numberDelaysFirstIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem());
             XYChart.Series set1 = new XYChart.Series<>();
-                set1.getData().add(new XYChart.Data("]-∞, µ-σ]", statisticsController.numberDelaysFirstIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
-                set1.getData().add(new XYChart.Data("]µ-σ, µ+σ[", statisticsController.numberDelaysSecondIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
-                set1.getData().add(new XYChart.Data("[µ+σ, +∞[", statisticsController.numberDelaysThirdIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
+            set1.getData().add(new XYChart.Data("]-∞, µ-σ]", collaboratorStatisticsController.numberDelaysFirstIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
+            set1.getData().add(new XYChart.Data("]µ-σ, µ+σ[", collaboratorStatisticsController.numberDelaysSecondIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
+            set1.getData().add(new XYChart.Data("[µ+σ, +∞[", collaboratorStatisticsController.numberDelaysThirdIntervalByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
 
             delayChart.getData().addAll(set1);
-            meanTxtField.setText(String.valueOf(String.format("%.04f", statisticsController.meanByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
-            standardDeviationTxtField.setText(String.valueOf(String.format("%.04f", statisticsController.standardDeviationByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
+            meanTxtField.setText(String.valueOf(String.format("%.04f", collaboratorStatisticsController.meanByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
+            standardDeviationTxtField.setText(String.valueOf(String.format("%.04f", collaboratorStatisticsController.standardDeviationByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
             freelancerChoosedBefore.add(freelancersListView.getSelectionModel().getSelectedItem().getEmail());
         }
     }
 
     @FXML
     void SeeStatisticsForAllFreelancersOnAction(ActionEvent event) {
+            XYChart.Series set1 = new XYChart.Series<>();
+            set1.getData().add(new XYChart.Data("]-∞, µ-σ]", collaboratorStatisticsController.numberDelaysFirstIntervalByOrganization()));
+            set1.getData().add(new XYChart.Data("]µ-σ, µ+σ[", collaboratorStatisticsController.numberDelaysSecondIntervalByOrganization()));
+            set1.getData().add(new XYChart.Data("[µ+σ, +∞[", collaboratorStatisticsController.numberDelaysThirdIntervalByOrganization()));
 
+            delayChart.getData().addAll(set1);
+            meanTxtField.setText(String.valueOf(String.format("%.04f", collaboratorStatisticsController.meanByOrganization())));
+            standardDeviationTxtField.setText(String.valueOf(String.format("%.04f", collaboratorStatisticsController.standardDeviationByOrganization())));
     }
 
-    public void associateParentUI(AdministratorMenuUI administratorMenuUI) {
-        this.administratorMenuUI = administratorMenuUI;
+    @FXML
+    void clearStatsOnAction(ActionEvent event) {
+        delayChart.getData().clear();
+        standardDeviationTxtField.clear();
+        meanTxtField.clear();
+        freelancerChoosedBefore.clear();
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    @FXML
-    void ShowFreelancersOnAction(ActionEvent event) {
-        if (statisticsController.getListFreelancersToListView().size() == 0) {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "There are no freelancers in the system.");
-            alert.show();
-        } else {
-            freelancersListView.getItems().setAll(statisticsController.getListFreelancersToListView());
-        }
+    public void associateParentUI(CollaboratorMenuUI collaboratorMenuUI) {
+        this.collaboratorMenuUI = collaboratorMenuUI;
     }
+
 }

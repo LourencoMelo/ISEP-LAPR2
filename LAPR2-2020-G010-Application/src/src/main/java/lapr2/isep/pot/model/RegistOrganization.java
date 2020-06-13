@@ -157,6 +157,9 @@ public class RegistOrganization implements Serializable {
 
         for (Organization org : this.listOrganizations) {
             boolean found = org.hasCollaboratorWithEmail(email);
+            if (!org.hasCollaboratorWithEmail(email)){
+                found = org.hasManagerWithEmail(email);
+            }
             if (found) {
                 orgReturn = org;
             }

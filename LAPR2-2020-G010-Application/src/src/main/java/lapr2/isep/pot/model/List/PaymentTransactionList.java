@@ -105,4 +105,12 @@ public class PaymentTransactionList implements Serializable {
         }
         return numberOfTasks;
     }
+
+    public double getTotalDelays(){
+        double delays = 0;
+        for (PaymentTransaction paymentTransaction : getListTotalPaymentsTransactions()){
+            delays += paymentTransaction.getDelay();
+        }
+        return delays;
+    }
 }

@@ -231,11 +231,10 @@ public class Platform implements Serializable {
     public double meanByOrganization() {
         double summation = 0;
         int numberOfTasksExecutedByFreelancer = 0;
-        for (Freelancer freelancer : getFreelancersByOrganization()) {
-            summation += freelancer.getDelay();
-            numberOfTasksExecutedByFreelancer += freelancer.getNumberOfTasks();
-        }
+        summation += getOrganizationCurrentUser().getPaymentTransactionList().getTotalDelays();
+        numberOfTasksExecutedByFreelancer = getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions().size();
         double mean = summation / numberOfTasksExecutedByFreelancer;
+        getOrganizationCurrentUser().setMean(mean);
         return mean;
     }
 
@@ -248,11 +247,53 @@ public class Platform implements Serializable {
 
     }
 
-    /*public double standardDeviationByOrganization() {
-
+    public double meanByFreelancerAllOrganizations(Freelancer freelancer) {
+        return 0;
     }
 
-     */
+    public double meanAllPlataformFreelancers() {
+        double summation = 0;
+        int numberOfTransactions = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                summation += paymentTransaction.getDelay();
+                numberOfTransactions++;
+            }
+        }
+        double mean = summation / numberOfTransactions;
+        return mean;
+    }
+
+    public double standardDeviationByAllOrganization(){
+        List<Double> listDelays = new ArrayList<>();
+        double summation = 0;
+        for (Organization organization : registOrganization.getListOrganizations()){
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()){
+                listDelays.add(paymentTransaction.getDelay());
+            }
+        }
+
+        for (double delay : listDelays){
+            summation += Math.pow(meanAllPlataformFreelancers() - delay, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listDelays.size());
+        return standardDeviation;
+    }
+
+    public double standardDeviationByOrganization() {
+        List<Double> listTimesFromDelays = new ArrayList<>();
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            listTimesFromDelays.add(paymentTransaction.getDelay());
+        }
+        double summation = 0;
+        for (double doubleAux : listTimesFromDelays) {
+            summation += Math.pow(meanByOrganization() - doubleAux, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listTimesFromDelays.size());
+        getOrganizationCurrentUser().setStandardDeviation(standardDeviation);
+        return standardDeviation;
+    }
+
 
     public double standardDeviationByFreelancer(Freelancer freelancer) {
         List<Double> listTimesFromDelays = new ArrayList<>();
@@ -305,4 +346,52 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    public int numberDelaysFirstIntervalByOrganization() {
+        int delays = 0;
+
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getDelay() <= (getOrganizationCurrentUser().getMean() - getOrganizationCurrentUser().getStandardDeviation())) {
+                delays++;
+            }
+
+        }
+        return delays;
+    }
+
+    public int numberDelaysSecondIntervalByOrganization() {
+        int delays = 0;
+
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getDelay() > (getOrganizationCurrentUser().getMean() - getOrganizationCurrentUser().getStandardDeviation()) && (paymentTransaction.getDelay() < getOrganizationCurrentUser().getMean() + getOrganizationCurrentUser().getStandardDeviation())) {
+                delays++;
+            }
+
+        }
+        return delays;
+    }
+
+    public int numberDelaysThirdIntervalByOrganization() {
+        int delays = 0;
+
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getDelay() >= getOrganizationCurrentUser().getMean() + getOrganizationCurrentUser().getStandardDeviation()) {
+                delays++;
+            }
+
+        }
+        return delays;
+    }
+
+    public double meanPaymentsByFreelancer(Freelancer freelancer){
+        double summation = 0;
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()){
+            summation += paymentTransaction.getAmountPay();
+        }
+        double mean = summation / getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions().size();
+        return mean;
+    }
+
+    public double standardPaymentByFreelancer(Freelancer freelancer){
+        return 0;
+    }
 }

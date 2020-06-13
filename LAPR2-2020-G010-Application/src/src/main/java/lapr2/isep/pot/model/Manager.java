@@ -19,6 +19,7 @@ public class Manager extends User implements Serializable {
      * Get the application controller instance
      */
     private ApplicationController applicationController = new ApplicationController();
+
     /**
      * Initialize the Manager's information with the received data
      *
@@ -38,4 +39,15 @@ public class Manager extends User implements Serializable {
         this.email = email;
         this.password = password;
     }
+
+    /**
+     * Confirms if the Manager exits
+     *
+     * @param email Manager's email
+     * @return true if the email exits
+     */
+    public boolean hasEmail(String email) {
+        return this.getEmail().equalsIgnoreCase(email);
+    }
+
 }

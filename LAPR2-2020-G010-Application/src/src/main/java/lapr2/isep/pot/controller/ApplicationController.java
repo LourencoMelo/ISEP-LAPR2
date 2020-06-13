@@ -43,4 +43,6 @@ public class ApplicationController implements Serializable {
     public void readTxtFile(File file){
         transactionsRegist.readTxtFile(file);
     }
+
+
 }

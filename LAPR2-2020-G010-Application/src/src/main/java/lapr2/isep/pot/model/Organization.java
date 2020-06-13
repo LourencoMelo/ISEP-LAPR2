@@ -5,7 +5,6 @@ import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,6 +34,10 @@ public class Organization implements Serializable {
      * Organization's Manager
      */
     private Manager manager;
+
+    private double mean;
+
+    private double standardDeviation;
 
     private PaymentTransactionList paymentTransactionList = new PaymentTransactionList();
 
@@ -121,6 +124,22 @@ public class Organization implements Serializable {
         return taskList;
     }
 
+    public double getMean() {
+        return mean;
+    }
+
+    public void setMean(double mean) {
+        this.mean = mean;
+    }
+
+    public double getStandardDeviation() {
+        return standardDeviation;
+    }
+
+    public void setStandardDeviation(double standardDeviation) {
+        this.standardDeviation = standardDeviation;
+    }
+
     /**
      * Verifies if the the organization has that collaborator
      *
@@ -136,12 +155,22 @@ public class Organization implements Serializable {
         return found;
     }
 
-    /**
-     * Compares Organizations
-     *
-     * @param o other organization
-     * @return boolean dependent organtions comparation
-     */
+    public boolean hasManagerWithEmail(String email) {
+        boolean found = false;
+        Manager manager = this.manager;
+        if (manager.hasEmail(email)) {
+            found = true;
+        }
+        return found;
+    }
+
+
+        /**
+         * Compares Organizations
+         *
+         * @param o other organization
+         * @return boolean dependent organtions comparation
+         */
     @Override
     public boolean equals(Object o) {
         // self check

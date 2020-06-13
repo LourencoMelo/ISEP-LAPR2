@@ -18,11 +18,10 @@ public class User implements Serializable {
     /**
      * Get the application controller instance
      */
-    private ApplicationController applicationController = new ApplicationController();
+
     private final String name;
     private final String email;
     private final String password;
-    //private String role;
     private static List<User> listUsers = new ArrayList<>();
 
     public User(String name, String email) throws IOException {
@@ -34,7 +33,6 @@ public class User implements Serializable {
         this.password = generatePassword();
         listUsers.add(this);
         EmailFiles.writeToAFile(listUsers);
-        //sendEmail(this.name, this.email, this.password);
     }
 
     public User(String name, String email, String password) throws FileNotFoundException {
@@ -51,10 +49,6 @@ public class User implements Serializable {
     public String getEmail() {
         return email;
     }
-
-//    public String getRole() {
-//        return this.role;
-//    }
 
     public boolean hasPassword(String password) {
         return this.password.equals(password);
@@ -100,13 +94,14 @@ public class User implements Serializable {
                 "\nSubject: Registration to T4J" +
                 "\n  Message:" +
                 "\n\t%s had just registered to T4J with the following data: " +
+                "\n\tName: %s" +
                 "\n\tEmail: %s" +
                 "\n\tPassword: %s" +
                 "\n" +
                 "\n" +
                 "Best regards," +
                 "\n T4J Administrator." +
-                "\n-----------------------------------------------------------------", email, name, email, password);
+                "\n-----------------------------------------------------------------", email, name, name, email, password);
     }
 
     public String getPassword() {
@@ -117,20 +112,6 @@ public class User implements Serializable {
         return listUsers;
     }
 
-    public void sendEmail(String name, String email, String password) throws IOException {
-        out.printf("To: %s" +
-                "\n  Subject: Registration to T4J" +
-                "\n  Message:" +
-                "\n\t%s had just registered to T4J with the following data: " +
-                "\n\tEmail: %s" +
-                "\n\tPassword: %s" +
-                "\n" +
-                "\n" +
-                "Best regards," +
-                "\n T4J Administrator." +
-                "\n-----------------------------------------------------------------", email, name, email, password);
-        System.out.println("Ficheiro criado.");
-        out.close();
-    }
+
 
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.ManagerStatisticsUI">
+    <left>
+        <AnchorPane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="170.0" fitWidth="250.0" layoutX="14.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="file:images\\t4j.png" />
+                    </image>
+                </ImageView>
+                <ListView fx:id="freelancersListView" layoutX="50.0" layoutY="84.0" prefHeight="317.0" prefWidth="200.0" />
+                <Button fx:id="showFreelancersBtn" alignment="CENTER" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#ShowFreelancersOnAction" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Show freelancers">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="593.0" prefWidth="700.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" layoutX="633.0" layoutY="14.0" mnemonicParsing="false" onAction="#XOnAction" prefHeight="46.0" prefWidth="53.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="X" fx:id="xBtn">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="goBackBtn" alignment="CENTER" layoutX="539.0" layoutY="536.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="50.0" prefWidth="147.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="SeeStatisticsForFreelancerBtn" alignment="CENTER" layoutX="71.0" layoutY="35.0" mnemonicParsing="false" onAction="#SeeStatisticsForFreelancerOnAction" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="See statistics for freelancer">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <BarChart fx:id="delayChart" layoutX="71.0" layoutY="123.0" prefHeight="358.0" prefWidth="500.0" title="Delay">
+                    <xAxis>
+                        <CategoryAxis label="Intervals" side="BOTTOM" fx:id="x" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="y" label="Number of delays" side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <Button fx:id="SeeStatisticsForAllFreelancersBtn" alignment="CENTER" layoutX="339.0" layoutY="35.0" mnemonicParsing="false" onAction="#SeeStatisticsForAllFreelancersOnAction" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Show statistics for all freelancers">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="meanTxtField" editable="false" layoutX="111.0" layoutY="524.0" />
+                <TextField fx:id="standardDeviationTxtField" editable="false" layoutX="299.0" layoutY="524.0" prefHeight="25.0" prefWidth="202.0" />
+                <Label layoutX="159.0" layoutY="493.0" text="Mean">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="311.0" layoutY="493.0" text="Standard Deviation">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+            <Button fx:id="clearStatsBttn" alignment="CENTER" layoutX="-36.0" layoutY="256.0" mnemonicParsing="false" onAction="#clearStatsOnAction" prefHeight="46.0" prefWidth="114.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Clear Stats">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </right>
+</BorderPane>

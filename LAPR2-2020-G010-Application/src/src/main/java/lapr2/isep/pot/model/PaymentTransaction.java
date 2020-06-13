@@ -41,6 +41,7 @@ public class PaymentTransaction {
     private Task task;
 
 
+
     /**
      * Initialize the transaction's information with the received data
      *
@@ -110,6 +111,10 @@ public class PaymentTransaction {
         return task;
     }
 
+    public double getAmountPay() {
+        return amountPay;
+    }
+
     /**
      *  Returns the transaction's text description in the format: id, end date, delay, description of the quality of work, freelancer , task
      *
@@ -131,9 +136,11 @@ public class PaymentTransaction {
 
     public double calculateTaskCost(Freelancer freelancer, Task task) {
         if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Senior")) {
-            return (2 * task.getCostPerHour()) * task.getTimeDuration();
+            this.amountPay = (2 * task.getCostPerHour()) * task.getTimeDuration();
+            return amountPay;
         } else if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Junior")) {
-            return task.getCostPerHour() * task.getTimeDuration();
+            this.amountPay = task.getCostPerHour() * task.getTimeDuration();
+            return amountPay;
         } else {
             throw new IllegalArgumentException();
         }

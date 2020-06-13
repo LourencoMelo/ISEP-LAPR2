@@ -6,13 +6,13 @@ import lapr2.isep.pot.model.Platform;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-public class StatisticsController {
+public class CollaboratorStatisticsController {
 
-    private final Platform platform ;
+    private final Platform platform;
 
     private final ApplicationPOT applicationPOT;
 
-    public StatisticsController() throws FileNotFoundException {
+    public CollaboratorStatisticsController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
     }
@@ -41,4 +41,27 @@ public class StatisticsController {
         return platform.getRegistFreelancer().getFreelancerList();
     }
 
+    public double meanByOrganization() {
+        return platform.meanByOrganization();
+    }
+
+    public double standardDeviationByOrganization(){
+        return platform.standardDeviationByOrganization();
+    }
+
+    public int numberDelaysFirstIntervalByOrganization() {
+        return platform.numberDelaysFirstIntervalByOrganization();
+    }
+
+    public int numberDelaysSecondIntervalByOrganization() {
+        return platform.numberDelaysSecondIntervalByOrganization();
+    }
+
+    public int numberDelaysThirdIntervalByOrganization() {
+        return platform.numberDelaysThirdIntervalByOrganization();
+    }
+
+    public double meanPaymentsByFreelancer(Freelancer freelancer){
+        return platform.meanPaymentsByFreelancer(freelancer);
+    }
 }

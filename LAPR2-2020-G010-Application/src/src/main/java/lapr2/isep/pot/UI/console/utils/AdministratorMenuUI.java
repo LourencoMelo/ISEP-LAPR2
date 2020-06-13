@@ -121,7 +121,7 @@ public class AdministratorMenuUI implements Initializable {
 
             //======================================================================
 
-            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/GraphScene.fxml"));
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/AdministratorStatisticsScene.fxml"));
             Parent root2 = loader2.load();
 
             Scene scene2 = new Scene(root2);
@@ -134,8 +134,8 @@ public class AdministratorMenuUI implements Initializable {
             graphSceneStage.setScene(scene2);
             graphSceneStage.initStyle(StageStyle.TRANSPARENT);
 
-            GraphSceneUI graphSceneUI = loader2.getController();
-            graphSceneUI.associateParentUI(this);
+            AdministratorStatisticsUI administratorStatisticsUI = loader2.getController();
+            administratorStatisticsUI.associateParentUI(this);
 
         }catch (IOException ioException){
             AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", ioException.getMessage());

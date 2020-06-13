@@ -42,6 +42,9 @@ public class CollaboratorMenuUI implements Initializable {
 
     private Stage createPaymentTransactionStage;
 
+    private Stage collaboratorStatisticsStage;
+
+    private Stage collaboratorPaymentStatisticsStage;
 
     double x = 0;
     double y = 0;
@@ -51,6 +54,9 @@ public class CollaboratorMenuUI implements Initializable {
 
     @FXML
     private Button statisticsBtn1;
+
+    @FXML
+    private Button paymentStatisticsBtn11;
 
     @FXML
     private Button xBtn;
@@ -118,14 +124,19 @@ public class CollaboratorMenuUI implements Initializable {
     }
 
     @FXML
-    void GoBackOnAction(ActionEvent event) {
-        Stage stage = (Stage) registerFreelancerBtn.getScene().getWindow();
-        stage.close();
+    void paymentStatisticsOnAction(ActionEvent event) {
+        collaboratorPaymentStatisticsStage.show();
     }
 
     @FXML
     void StatisticsOnAction(ActionEvent event) {
+        collaboratorStatisticsStage.show();
+    }
 
+    @FXML
+    void GoBackOnAction(ActionEvent event) {
+        Stage stage = (Stage) registerFreelancerBtn.getScene().getWindow();
+        stage.close();
     }
 
     @Override
@@ -180,6 +191,39 @@ public class CollaboratorMenuUI implements Initializable {
 
             CreatePaymentTransactionUI createPaymentTransactionUI = loader2.getController();
             createPaymentTransactionUI.associateParentUI(this);
+            //----------------------------------------------------------------------------------------------------------------------
+            FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/fxml/CollaboratorStatisticsScene.fxml"));
+            Parent root3 = loader3.load();
+
+            Scene scene3 = new Scene(root3);
+
+            collaboratorStatisticsStage = new Stage();
+            collaboratorStatisticsStage.initModality(Modality.APPLICATION_MODAL);
+            collaboratorStatisticsStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            collaboratorStatisticsStage.setTitle("Task's Execution Times Statistics");
+            collaboratorStatisticsStage.setResizable(false);
+            collaboratorStatisticsStage.setScene(scene3);
+            collaboratorStatisticsStage.initStyle(StageStyle.TRANSPARENT);
+
+            CollaboratorStatisticsUI collaboratorStatisticsUI = loader3.getController();
+            collaboratorStatisticsUI.associateParentUI(this);
+
+            //---------------------------------------------------------------------------------------------------------------------
+            FXMLLoader loader4 = new FXMLLoader(getClass().getResource("/fxml/CollaboratorPaymentStatisticsScene.fxml"));
+            Parent root4 = loader4.load();
+
+            Scene scene4 = new Scene(root4);
+
+            collaboratorPaymentStatisticsStage = new Stage();
+            collaboratorPaymentStatisticsStage.initModality(Modality.APPLICATION_MODAL);
+            collaboratorPaymentStatisticsStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            collaboratorPaymentStatisticsStage.setTitle("Payment Statistics");
+            collaboratorPaymentStatisticsStage.setResizable(false);
+            collaboratorPaymentStatisticsStage.setScene(scene4);
+            collaboratorPaymentStatisticsStage.initStyle(StageStyle.TRANSPARENT);
+
+            CollaboratorPaymentStatisticsUI collaboratorPaymentStatisticsUI = loader4.getController();
+            collaboratorPaymentStatisticsUI.associateParentUI2(this);
 
         } catch (IOException e) {
             AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName(), "IO Exception found ", e.getMessage());

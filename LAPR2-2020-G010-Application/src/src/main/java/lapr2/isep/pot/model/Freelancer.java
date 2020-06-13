@@ -44,7 +44,6 @@ public class Freelancer implements Serializable {
      */
     private final String country;
 
-    private double delay;
 
     private int numberOfTasks = 0;
 
@@ -76,9 +75,6 @@ public class Freelancer implements Serializable {
         this.country = country;
     }
 
-    public double getDelay() {
-        return delay;
-    }
 
     /**
      * Returns freelancer's id.

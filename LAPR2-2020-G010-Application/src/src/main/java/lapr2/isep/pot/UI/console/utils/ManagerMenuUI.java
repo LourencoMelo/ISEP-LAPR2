@@ -31,6 +31,8 @@ public class ManagerMenuUI implements Initializable {
 
     private Stage setPaymentDateStage;
 
+    private Stage managerStage;
+
     double x = 0;
     double y = 0;
 
@@ -90,7 +92,7 @@ public class ManagerMenuUI implements Initializable {
 
     @FXML
     void StatisticsOnAction(ActionEvent event) {
-
+        managerStage.show();
     }
 
     @Override
@@ -113,6 +115,23 @@ public class ManagerMenuUI implements Initializable {
         SetPaymentDateUI setPaymentDateUI = loader2.getController();
         setPaymentDateUI.associateParentUI(this);
 
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+           FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/fxml/ManagerStatisticsScene.fxml"));
+           Parent root3 = loader3.load();
+
+           Scene scene3 = new Scene(root3);
+
+           managerStage = new Stage();
+           managerStage.initModality(Modality.APPLICATION_MODAL);
+           managerStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+           managerStage.setTitle("Statistics");
+           managerStage.setResizable(false);
+           managerStage.setScene(scene3);
+           managerStage.initStyle(StageStyle.TRANSPARENT);
+
+           ManagerStatisticsUI managerStatisticsUI = loader3.getController();
+           managerStatisticsUI.associateParentUI(this);
     } catch (
     IOException ioException) {
         Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error", ioException.getMessage());
