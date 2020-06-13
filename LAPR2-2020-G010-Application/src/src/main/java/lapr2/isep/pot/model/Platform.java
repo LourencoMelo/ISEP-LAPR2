@@ -185,11 +185,6 @@ public class Platform implements Serializable {
         return User.getListUsers();
     }
 
-    /*public List<Task> getListOfTasks() {
-        return registOrganization.getListOfTasks();
-    }
-
-     */
 
     public List<Task> getListOfTasksFromOrganization(Organization organization) {
         return organization.getTaskList();
@@ -238,6 +233,9 @@ public class Platform implements Serializable {
         return mean;
     }
 
+
+//*************************************Media para um freelancer que tenha feito a task da organizacao atual para as scenes de execution statistics do manager e do colaborador***********
+
     public double meanByFreelancer(Freelancer freelancer) {
         double summation = getOrganizationCurrentUser().addSumOfDelays(freelancer);
         int numberOfTasksExecutedByFreelancer = getOrganizationCurrentUser().getPaymentTransactionList().getNumberOfTasks(freelancer);
@@ -247,10 +245,11 @@ public class Platform implements Serializable {
 
     }
 
-    public double meanByFreelancerAllOrganizations(Freelancer freelancer) {
-        return 0;
-    }
+//    public double meanByFreelancerAllOrganizations(Freelancer freelancer) {
+//        return 0;
+//    }
 
+    //*************************************************Media de todos os freelancers da plataforma para a scene do admin execution statistics***********************************************
     public double meanAllPlataformFreelancers() {
         double summation = 0;
         int numberOfTransactions = 0;
@@ -264,21 +263,61 @@ public class Platform implements Serializable {
         return mean;
     }
 
-    public double standardDeviationByAllOrganization(){
+//******************************************Desvio padrao de todos os freelancers da plataforma para a scene do administrator execution statistics********************************
+
+    public double standardDeviationByAllPlataformFreelancers() {
         List<Double> listDelays = new ArrayList<>();
         double summation = 0;
-        for (Organization organization : registOrganization.getListOrganizations()){
-            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()){
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
                 listDelays.add(paymentTransaction.getDelay());
             }
         }
 
-        for (double delay : listDelays){
+        for (double delay : listDelays) {
             summation += Math.pow(meanAllPlataformFreelancers() - delay, 2);
         }
         double standardDeviation = Math.sqrt(summation / listDelays.size());
         return standardDeviation;
     }
+
+    //************************************************Media de delays por freelancer na scene do admin execution statistics******************************************************
+    public double meanDelayAllTasksByFreelancer(Freelancer freelancer) {
+        double summationFreelancersDelay = 0;
+        int numberOfTransactions = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    summationFreelancersDelay += paymentTransaction.getDelay();
+                    numberOfTransactions++;
+                }
+            }
+        }
+        double mean = summationFreelancersDelay / numberOfTransactions;
+        return mean;
+    }
+
+//***********************************************Desvio padrao por freelancer na scene do admin execution statistics************************************************************
+
+    public double standardDeviationDelayAllTasksFreelancer(Freelancer freelancer) {
+        List<Double> listDelaysFromFreelancer = new ArrayList<>();
+        double summation = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    listDelaysFromFreelancer.add(paymentTransaction.getDelay());
+                }
+            }
+        }
+
+        for (double delay : listDelaysFromFreelancer) {
+            summation += Math.pow(meanDelayAllTasksByFreelancer(freelancer) - delay, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listDelaysFromFreelancer.size());
+        return standardDeviation;
+    }
+
+//**************************************************Desvio padrao de toda a organizacao atual para a scene do colaborador e do manager*****************************************************
 
     public double standardDeviationByOrganization() {
         List<Double> listTimesFromDelays = new ArrayList<>();
@@ -310,6 +349,7 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
+    //**************************************************Intervalos para a scene do colaborador e do manager por freelancer e acerca dos delays***********************************************
     public int numberDelaysFirstIntervalByFreelancer(Freelancer freelancer) {
         int delays = 0;
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -345,6 +385,8 @@ public class Platform implements Serializable {
         }
         return delays;
     }
+
+//***********************************************Intervalos para a scene do colaborador e do manager onde apresenta os delays todos da organizaçao respetiva***********************************************
 
     public int numberDelaysFirstIntervalByOrganization() {
         int delays = 0;
@@ -382,16 +424,292 @@ public class Platform implements Serializable {
         return delays;
     }
 
-    public double meanPaymentsByFreelancer(Freelancer freelancer){
+//************************************************************Media dos pagamentos por freelancer para a scene do colaborador e do manager***************************************************************
+
+    public double meanPaymentsByFreelancer(Freelancer freelancer) {
         double summation = 0;
-        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()){
-            summation += paymentTransaction.getAmountPay();
+        int numberOfTransactions = 0;
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                summation += paymentTransaction.getAmountPay();
+                numberOfTransactions++;
+            }
         }
-        double mean = summation / getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions().size();
+        double mean = summation / numberOfTransactions;
         return mean;
     }
 
-    public double standardPaymentByFreelancer(Freelancer freelancer){
-        return 0;
+//************************************************************Desvio padrao dos pagamentos por freelancer para a scene do colaborador e do manager*************************************
+
+    public double standardDeviationPaymentsByFreelancer(Freelancer freelancer) {
+        List<Double> listPayment = new ArrayList<>();
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+            if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                listPayment.add(paymentTransaction.getAmountPay());
+            }
+        }
+
+        double summation = 0;
+        for (double amountToPay : listPayment) {
+            summation += Math.pow(meanPaymentsByFreelancer(freelancer) - amountToPay, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listPayment.size());
+
+        return standardDeviation;
+
+    }
+
+//************************************************************* Intervalos da scene de execution statistics do administrator ********************************************************
+
+    public int numberDelaysFirstIntervalFromPlatformByFreelancer(Freelancer freelancer) {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    if (paymentTransaction.getDelay() <= (meanDelayAllTasksByFreelancer(freelancer) - standardDeviationDelayAllTasksFreelancer(freelancer))) {
+                        delays++;
+                    }
+                }
+            }
+        }
+        return delays;
+    }
+
+    public int numberDelaysSecondIntervalFromPlatformByFreelancer(Freelancer freelancer) {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    if (paymentTransaction.getDelay() > (meanDelayAllTasksByFreelancer(freelancer) - standardDeviationDelayAllTasksFreelancer(freelancer)) && paymentTransaction.getDelay() < meanDelayAllTasksByFreelancer(freelancer) + standardDeviationDelayAllTasksFreelancer(freelancer)) {
+                        delays++;
+                    }
+                }
+            }
+        }
+        return delays;
+    }
+
+    public int numberDelaysThirdIntervalFromPlatformByFreelancer(Freelancer freelancer) {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    if (paymentTransaction.getDelay() >= meanDelayAllTasksByFreelancer(freelancer) + standardDeviationDelayAllTasksFreelancer(freelancer)) {
+                        delays++;
+                    }
+                }
+            }
+        }
+        return delays;
+    }
+
+//****************************************Intervalos para os delays de todos os freelancers da plataforma para a scene execution statistics do admin***************************************************************************************************
+
+
+    public int numberDelaysFirstIntervalFromAllPlatform() {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getDelay() <= (meanAllPlataformFreelancers() - standardDeviationByAllPlataformFreelancers())) {
+                    delays++;
+                }
+            }
+        }
+
+        return delays;
+    }
+
+    public int numberDelaysSecondIntervalFromAllPlatform() {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+
+                if (paymentTransaction.getDelay() > (meanAllPlataformFreelancers() - standardDeviationByAllPlataformFreelancers()) && paymentTransaction.getDelay() < meanAllPlataformFreelancers() + standardDeviationByAllPlataformFreelancers()) {
+                    delays++;
+                }
+
+            }
+        }
+        return delays;
+    }
+
+    public int numberDelaysThirdIntervalFromAllPlatform() {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getDelay() >= meanAllPlataformFreelancers() + standardDeviationByAllPlataformFreelancers()) {
+                    delays++;
+                }
+            }
+        }
+        return delays;
+    }
+
+//**********************************************Media e desvio padrao dos pagamentos para todos os freelancers da plataforma para a scene do admin***************************************************************
+
+    public double meanPaymentsToAllPlataformFreelancers() {
+        double summation = 0;
+        double numberOfpayments = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                summation += paymentTransaction.getAmountPay();
+                numberOfpayments++;
+            }
+        }
+        double mean = summation / numberOfpayments;
+
+        return mean;
+    }
+
+
+    public double standardDeviationPaymentsToAllPlatformFreelancers() {
+        double summation = 0;
+        List<Double> listPayments = new ArrayList<>();
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                listPayments.add(paymentTransaction.getAmountPay());
+            }
+        }
+
+        for (double amountToPay : listPayments) {
+            summation += Math.pow(meanPaymentsToAllPlataformFreelancers() - amountToPay, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listPayments.size());
+        return standardDeviation;
+    }
+
+//**************************************************Media e desvio padrao dos pagamentos a cada um dos freelancers da plataforma para a scene do admin***********************************************
+
+    public double meanPaymentsToAFreelancer(Freelancer freelancer) {
+        double summationFromFreelancer = 0;
+        double numberOfPaymentsFromFreelancer = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    summationFromFreelancer += paymentTransaction.getAmountPay();
+                    numberOfPaymentsFromFreelancer++;
+                }
+            }
+        }
+        double mean = summationFromFreelancer / numberOfPaymentsFromFreelancer;
+
+        return mean;
+    }
+
+    public double standardDeviationPaymentsToAFreelancer(Freelancer freelancer) {
+        double summation = 0;
+        List<Double> listPaymentsToFreelancer = new ArrayList<>();
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (freelancer.equals(paymentTransaction.getFreelancer())) {
+                    listPaymentsToFreelancer.add(paymentTransaction.getAmountPay());
+                }
+            }
+        }
+
+        for (double amountToPayToFreelancer : listPaymentsToFreelancer) {
+            summation += Math.pow(meanPaymentsToAFreelancer(freelancer) - amountToPayToFreelancer, 2);
+        }
+        double standardDeviation = Math.sqrt(summation / listPaymentsToFreelancer.size());
+
+        return standardDeviation;
+    }
+
+//***********************************************Intervalos para os dados dos pagamentos a todos os freelancers da plataforma para a scene do admin*************************************************************
+
+    public int numberPaymentsFirstIntervalToAllPlatformFreelancers() {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getAmountPay() <= (meanPaymentsToAllPlataformFreelancers() - standardDeviationPaymentsToAllPlatformFreelancers())) {
+                    delays++;
+                }
+            }
+        }
+
+        return delays;
+    }
+
+    public int numberPaymentsSecondIntervalToAllPlatformFreelancers() {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getAmountPay() > (meanPaymentsToAllPlataformFreelancers() - standardDeviationPaymentsToAllPlatformFreelancers()) && paymentTransaction.getAmountPay() < meanPaymentsToAllPlataformFreelancers() + standardDeviationPaymentsToAllPlatformFreelancers()) {
+                    delays++;
+                }
+
+            }
+        }
+        return delays;
+    }
+
+    public int numberPaymentsThirdIntervalToAllPlatformFreelancers() {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getAmountPay() >= meanPaymentsToAllPlataformFreelancers() + standardDeviationPaymentsToAllPlatformFreelancers()) {
+                    delays++;
+                }
+            }
+        }
+        return delays;
+    }
+
+
+//************************************************Intervalos para os dados dos pagamentos a cada um dos freelancers da plataforma para a scene do admin*************************************************************
+
+    public int numberPaymentsFirstIntervalFromFreelancerAllPlatform(Freelancer freelancer) {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (freelancer.equals(paymentTransaction.getFreelancer())) {
+                    if ((paymentTransaction.getAmountPay()) <= (meanPaymentsToAFreelancer(freelancer) - standardDeviationPaymentsToAFreelancer(freelancer))) {
+                        delays++;
+                    }
+                }
+            }
+        }
+
+        return delays;
+    }
+
+    public int numberPaymentsSecondIntervalFromFreelancerAllPlatform(Freelancer freelancer) {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (freelancer.equals(paymentTransaction.getFreelancer())) {
+                    if ((paymentTransaction.getDelay()) > (meanPaymentsToAFreelancer(freelancer) - standardDeviationPaymentsToAFreelancer(freelancer)) && (paymentTransaction.getDelay()) < (meanPaymentsToAFreelancer(freelancer) + standardDeviationPaymentsToAFreelancer(freelancer))) {
+                        delays++;
+                    }
+                }
+            }
+        }
+        return delays;
+    }
+
+    public int numberPaymentsThirdIntervalFromFreelancerAllPlatform(Freelancer freelancer) {
+        int delays = 0;
+
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (freelancer.equals(paymentTransaction.getFreelancer())) {
+                    if (paymentTransaction.getDelay() >= meanPaymentsToAFreelancer(freelancer) + standardDeviationPaymentsToAFreelancer(freelancer)) {
+                        delays++;
+                    }
+                }
+            }
+        }
+        return delays;
     }
 }

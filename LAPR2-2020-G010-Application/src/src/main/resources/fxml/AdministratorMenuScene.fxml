@@ -39,7 +39,7 @@
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="statisticsBtn" alignment="CENTER" layoutX="200.0" layoutY="384.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Statistics">
+            <Button fx:id="statisticsBtn" alignment="CENTER" layoutX="200.0" layoutY="300.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Execution Statistics">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -48,6 +48,14 @@
                </font>
             </Button>
             <Button fx:id="goBackBtn" alignment="CENTER" layoutX="439.0" layoutY="536.0" mnemonicParsing="false" onAction="#GoBackOnAction" prefHeight="50.0" prefWidth="147.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Go back">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="paymentStatisticsBtn1" alignment="CENTER" layoutX="200.0" layoutY="443.0" mnemonicParsing="false" onAction="#paymentStatisticsOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Payment Statistics">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

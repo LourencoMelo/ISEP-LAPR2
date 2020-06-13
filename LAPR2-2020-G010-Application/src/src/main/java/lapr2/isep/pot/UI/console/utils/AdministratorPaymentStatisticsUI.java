@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-@SuppressWarnings("ALL")
-public class AdministratorStatisticsUI implements Initializable {
+public class AdministratorPaymentStatisticsUI implements Initializable {
+
+    private AdministratorMenuUI administratorMenuUI;
 
     private ApplicationController applicationController;
 
     private AdministratorStatisticsController administratorStatisticsController;
 
-    private AdministratorMenuUI administratorMenuUI;
 
     @FXML
     private Button SeeStatisticsForAllFreelancersBtn;
@@ -40,9 +40,6 @@ public class AdministratorStatisticsUI implements Initializable {
     private Button xBtn;
 
     @FXML
-    private Button showFreelancersBtn;
-
-    @FXML
     private TextField standardDeviationTxtField;
 
     @FXML
@@ -50,6 +47,9 @@ public class AdministratorStatisticsUI implements Initializable {
 
     @FXML
     private CategoryAxis x;
+
+    @FXML
+    private Button showFreelancersBtn;
 
     @FXML
     private NumberAxis y;
@@ -68,7 +68,7 @@ public class AdministratorStatisticsUI implements Initializable {
 
     private List<String> freelancerChoosedBefore = new ArrayList<>();
 
-    public AdministratorStatisticsUI() throws FileNotFoundException {
+    public AdministratorPaymentStatisticsUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
         this.administratorStatisticsController = new AdministratorStatisticsController();
     }
@@ -89,13 +89,22 @@ public class AdministratorStatisticsUI implements Initializable {
     }
 
     @FXML
+    void ShowFreelancersOnAction(ActionEvent event) {
+        if (administratorStatisticsController.getListPlataformFreelancers().size() == 0) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "There are no freelancers in the system.");
+            alert.show();
+        } else {
+            freelancersListView.getItems().setAll(administratorStatisticsController.getListPlataformFreelancers());
+        }
+    }
+
+    @FXML
     void XOnAction(ActionEvent event) {
         Alert alert = AlertUI.createAlert(Alert.AlertType.CONFIRMATION, applicationController.getAppName(),
                 "Action confirmation.", "Do you really want to close the application?");
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            //registOrganizationController.getPlatform().saveInfo(registOrganizationController.getPlatform());
             System.exit(0);
         }
     }
@@ -119,51 +128,35 @@ public class AdministratorStatisticsUI implements Initializable {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "You have already selected that freelancer.");
             alert.show();
         } else {
-
             XYChart.Series set1 = new XYChart.Series<>();
-            set1.getData().add(new XYChart.Data("]-∞, µ-σ]", administratorStatisticsController.numberDelaysFirstIntervalFromPlatformByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
-            set1.getData().add(new XYChart.Data("]µ-σ, µ+σ[", administratorStatisticsController.numberDelaysSecondIntervalFromPlatformByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
-            set1.getData().add(new XYChart.Data("[µ+σ, +∞[", administratorStatisticsController.numberDelaysThirdIntervalFromPlatformByFreelancer(freelancersListView.getSelectionModel().getSelectedItem())));
+            set1.getData().add(new XYChart.Data("]-∞, µ-σ]", administratorStatisticsController.numberPaymentsFirstIntervalFromFreelancerAllPlatform(freelancersListView.getSelectionModel().getSelectedItem())));
+            set1.getData().add(new XYChart.Data("]µ-σ, µ+σ[", administratorStatisticsController.numberPaymentsSecondIntervalFromFreelancerAllPlatform(freelancersListView.getSelectionModel().getSelectedItem())));
+            set1.getData().add(new XYChart.Data("[µ+σ, +∞[", administratorStatisticsController.numberPaymentsThirdIntervalFromFreelancerAllPlatform(freelancersListView.getSelectionModel().getSelectedItem())));
 
             delayChart.getData().addAll(set1);
-            meanTxtField.setText(String.valueOf(String.format("%.04f", administratorStatisticsController.meanDelayAllTasksByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
-            standardDeviationTxtField.setText(String.valueOf(String.format("%.04f", administratorStatisticsController.standardDeviationDelayAllTasksFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
+            meanTxtField.setText(String.valueOf(String.format("%.04f", administratorStatisticsController.meanPaymentsToAFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
+            standardDeviationTxtField.setText(String.valueOf(String.format("%.04f", administratorStatisticsController.standardDeviationPaymentsToAFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
             freelancerChoosedBefore.add(freelancersListView.getSelectionModel().getSelectedItem().getEmail());
         }
     }
 
     @FXML
     void SeeStatisticsForAllFreelancersOnAction(ActionEvent event) {
-
         XYChart.Series set1 = new XYChart.Series<>();
-        set1.getData().add(new XYChart.Data("]-∞ , µ-σ]", administratorStatisticsController.numberDelaysFirstIntervalFromAllPlatform()));
-        set1.getData().add(new XYChart.Data("]µ-σ , µ+σ[", administratorStatisticsController.numberDelaysSecondIntervalFromAllPlatform()));
-        set1.getData().add(new XYChart.Data("[µ+σ , +∞[", administratorStatisticsController.numberDelaysThirdIntervalFromAllPlatform()));
+        set1.getData().add(new XYChart.Data("]-∞, µ-σ]", administratorStatisticsController.numberPaymentsFirstIntervalToAllPlatformFreelancers()));
+        set1.getData().add(new XYChart.Data("]µ-σ, µ+σ[", administratorStatisticsController.numberPaymentsSecondIntervalToAllPlatformFreelancers()));
+        set1.getData().add(new XYChart.Data("[µ+σ, +∞[", administratorStatisticsController.numberPaymentsThirdIntervalToAllPlatformFreelancers()));
 
         delayChart.getData().addAll(set1);
-
-        meanTxtField.setText(String.valueOf(String.format("%.04f", administratorStatisticsController.meanByAllPlatformFreelancers())));
-        standardDeviationTxtField.setText(String.valueOf(String.format("%.04f", administratorStatisticsController.standardDeviationAllPlatformFreelancers())));
-
+        meanTxtField.setText(String.valueOf(String.format("%.03f", administratorStatisticsController.meanPaymentsToAllPlataformFreelancers())));
+        standardDeviationTxtField.setText(String.valueOf(String.format("%.03f", administratorStatisticsController.standardDeviationPaymentsToAllPlatformFreelancers())));
     }
 
-    public void associateParentUI(AdministratorMenuUI administratorMenuUI) {
-        this.administratorMenuUI = administratorMenuUI;
-    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    @FXML
-    void ShowFreelancersOnAction(ActionEvent event) {
-        if (administratorStatisticsController.getListPlataformFreelancers().size() == 0) {
-            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "There are no freelancers in the system.");
-            alert.show();
-        } else {
-            freelancersListView.getItems().setAll(administratorStatisticsController.getListPlataformFreelancers());
-        }
     }
 
     @FXML
@@ -172,5 +165,10 @@ public class AdministratorStatisticsUI implements Initializable {
         standardDeviationTxtField.clear();
         meanTxtField.clear();
         freelancerChoosedBefore.clear();
+    }
+
+
+    public void associateParentUI(AdministratorMenuUI administratorMenuUI) {
+        this.administratorMenuUI = administratorMenuUI;
     }
 }

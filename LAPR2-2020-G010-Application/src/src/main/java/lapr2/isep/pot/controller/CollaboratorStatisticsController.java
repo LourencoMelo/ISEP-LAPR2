@@ -64,4 +64,8 @@ public class CollaboratorStatisticsController {
     public double meanPaymentsByFreelancer(Freelancer freelancer){
         return platform.meanPaymentsByFreelancer(freelancer);
     }
+
+    public double standardDeviationPaymentsByFreelancer(Freelancer freelancer){
+       return platform.standardDeviationPaymentsByFreelancer(freelancer);
+    }
 }

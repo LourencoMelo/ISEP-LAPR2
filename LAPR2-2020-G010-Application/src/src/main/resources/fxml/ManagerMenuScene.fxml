@@ -47,7 +47,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" layoutX="200.0" layoutY="362.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Statistics">
+                <Button alignment="CENTER" layoutX="200.0" layoutY="292.0" mnemonicParsing="false" onAction="#StatisticsOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Execution Statistics">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -55,6 +55,14 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
+            <Button alignment="CENTER" layoutX="200.0" layoutY="427.0" mnemonicParsing="false" onAction="#paymentStatisticsOnAction" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Payment Statistics">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </right>

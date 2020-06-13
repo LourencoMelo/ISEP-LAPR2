@@ -7,18 +7,18 @@ Subject: Registration to T4J
 	a had just registered to T4J with the following data: 
 	Name: a
 	Email: a
-	Password: Z47nFKom
+	Password: 02zztR22
 
 Best regards,
  T4J Administrator.
 -----------------------------------------------------------------
-To: fsda
+To: fsd
 Subject: Registration to T4J
   Message:
-	fasd had just registered to T4J with the following data: 
-	Name: fasd
-	Email: fsda
-	Password: fai475P1
+	fsd had just registered to T4J with the following data: 
+	Name: fsd
+	Email: fsd
+	Password: hwVO95k7
 
 Best regards,
  T4J Administrator.

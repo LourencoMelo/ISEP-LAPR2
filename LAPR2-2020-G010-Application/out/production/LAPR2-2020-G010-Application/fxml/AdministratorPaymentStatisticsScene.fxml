@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.CollaboratorPaymentStatisticsUI">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr2.isep.pot.UI.console.utils.AdministratorPaymentStatisticsUI">
     <left>
         <AnchorPane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #ffe3ab;" BorderPane.alignment="CENTER">
             <children>
@@ -49,7 +49,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="SeeStatisticsForFreelancerBtn" alignment="CENTER" layoutX="206.0" layoutY="111.0" mnemonicParsing="false" onAction="#SeeStatisticsForFreelancerOnAction" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="See statistics for freelancer">
+                <Button fx:id="SeeStatisticsForFreelancerBtn" alignment="CENTER" layoutX="71.0" layoutY="35.0" mnemonicParsing="false" onAction="#SeeStatisticsForFreelancerOnAction" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="See statistics for freelancer">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -57,19 +57,15 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <TextField fx:id="meanTxtField" alignment="CENTER" editable="false" layoutX="111.0" layoutY="288.0" promptText="Payment mean" />
-                <TextField fx:id="standardDeviationTxtField" alignment="CENTER" editable="false" layoutX="375.0" layoutY="288.0" prefHeight="25.0" prefWidth="202.0" promptText="Standard Deviation" />
-                <Label layoutX="145.0" layoutY="247.0" text="Mean">
-                    <font>
-                        <Font size="21.0" />
-                    </font>
-                </Label>
-                <Label layoutX="387.0" layoutY="247.0" text="Standard Deviation">
-                    <font>
-                        <Font size="21.0" />
-                    </font>
-                </Label>
-                <Button fx:id="clearStatsBtn" alignment="CENTER" layoutX="264.0" layoutY="379.0" mnemonicParsing="false" onAction="#clearStatsOnAction" prefHeight="46.0" prefWidth="111.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Clear Stats">
+                <BarChart fx:id="delayChart" layoutX="71.0" layoutY="123.0" prefHeight="358.0" prefWidth="500.0" title="Payment">
+                    <xAxis>
+                        <CategoryAxis label="Intervals" side="BOTTOM" fx:id="x" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="y" label="Number of payments" side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <Button fx:id="SeeStatisticsForAllFreelancersBtn" alignment="CENTER" layoutX="339.0" layoutY="35.0" mnemonicParsing="false" onAction="#SeeStatisticsForAllFreelancersOnAction" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Show statistics for all freelancers">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -77,6 +73,26 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
+                <TextField fx:id="meanTxtField" editable="false" layoutX="111.0" layoutY="524.0" />
+                <TextField fx:id="standardDeviationTxtField" editable="false" layoutX="299.0" layoutY="524.0" prefHeight="25.0" prefWidth="202.0" />
+                <Label layoutX="159.0" layoutY="493.0" text="Mean">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="311.0" layoutY="493.0" text="Standard Deviation">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+            <Button fx:id="clearBtn1" alignment="CENTER" layoutX="-38.0" layoutY="275.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Clear">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </right>

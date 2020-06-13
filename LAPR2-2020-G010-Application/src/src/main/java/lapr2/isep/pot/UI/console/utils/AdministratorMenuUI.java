@@ -34,6 +34,8 @@ public class AdministratorMenuUI implements Initializable {
 
     private Stage graphSceneStage;
 
+    private Stage administratorPaymentStatisticsStage;
+
     double x = 0;
     double y = 0;
 
@@ -72,6 +74,11 @@ public class AdministratorMenuUI implements Initializable {
     @FXML
     void StatisticsOnAction(ActionEvent event) {
         graphSceneStage.show();
+    }
+
+    @FXML
+    void paymentStatisticsOnAction(ActionEvent event) {
+        administratorPaymentStatisticsStage.show();
     }
 
     @FXML
@@ -136,6 +143,24 @@ public class AdministratorMenuUI implements Initializable {
 
             AdministratorStatisticsUI administratorStatisticsUI = loader2.getController();
             administratorStatisticsUI.associateParentUI(this);
+
+            //-----------------------------------------------------------------------------------------------------------------
+
+            FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/fxml/AdministratorPaymentStatisticsScene.fxml"));
+            Parent root3 = loader3.load();
+
+            Scene scene3 = new Scene(root3);
+
+            administratorPaymentStatisticsStage = new Stage();
+            administratorPaymentStatisticsStage.initModality(Modality.APPLICATION_MODAL);
+            administratorPaymentStatisticsStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            administratorPaymentStatisticsStage.setTitle("Payment Statistics");
+            administratorPaymentStatisticsStage.setResizable(false);
+            administratorPaymentStatisticsStage.setScene(scene3);
+            administratorPaymentStatisticsStage.initStyle(StageStyle.TRANSPARENT);
+
+            AdministratorPaymentStatisticsUI administratorPaymentStatisticsUI = loader3.getController();
+            administratorPaymentStatisticsUI.associateParentUI(this);
 
         }catch (IOException ioException){
             AlertUI.createAlert(Alert.AlertType.INFORMATION, this.applicationController.getAppName() , "IO Exception found ", ioException.getMessage());

@@ -16,14 +16,31 @@ public class User implements Serializable {
     PrintWriter out = new PrintWriter(new File("files\\Emails.txt"));
 
     /**
-     * Get the application controller instance
+     * User's name
      */
-
     private final String name;
+
+    /**
+     * User's email
+     */
     private final String email;
+
+    /**
+     * User's password
+     */
     private final String password;
+
+    /**
+     * List of users initialization
+     */
     private static List<User> listUsers = new ArrayList<>();
 
+    /**
+     * Constructor that initializes the name and the email of the user. Also generates user's password.
+     * @param name              User's name
+     * @param email             User's email
+     * @throws IOException      Input/output exception when writing the email file
+     */
     public User(String name, String email) throws IOException {
         if (name == null || email == null || name.isEmpty() || email.isEmpty()) {
             throw new IllegalArgumentException();
@@ -35,6 +52,13 @@ public class User implements Serializable {
         EmailFiles.writeToAFile(listUsers);
     }
 
+    /**
+     * Constructor that initializes the name, the email and the password of the user.
+     * @param name                      User's name
+     * @param email                     User's email
+     * @param password                  User's password
+     * @throws FileNotFoundException    Input/output exception when writing the email file
+     */
     public User(String name, String email, String password) throws FileNotFoundException {
         this.name = name;
         this.email = email;
@@ -42,18 +66,35 @@ public class User implements Serializable {
         EmailFiles.writeToAFile(listUsers);
     }
 
+    /**
+     * Returns User's name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns User's email
+     * @return  email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Verifies if the password already exists
+     * @param password  password
+     * @return  true if the password exists.
+     */
     public boolean hasPassword(String password) {
         return this.password.equals(password);
     }
 
+    /**
+     * Generates User's password using the Extern Algorithm Generator
+     * @return User's password
+     */
     public String generatePassword() {
         ExternAlgorithmPasswordGenerator externAlgorithmPasswordGenerator = new ExternAlgorithmPasswordGenerator.PasswordGeneratorBuilder()
                 .useDigits(true)
@@ -70,10 +111,13 @@ public class User implements Serializable {
         return hash;
     }
 
+    /**
+     * Compares Objects
+     * @param o
+     * @return true if other object equals
+     */
     @Override
     public boolean equals(Object o) {
-        // Inspirado em https://www.sitepoint.com/implement-javas-equals-method-correctly/
-
         // self check
         if (this == o)
             return true;
@@ -88,6 +132,10 @@ public class User implements Serializable {
         return Objects.equals(email, obj.email);
     }
 
+    /**
+     * Returns textual description of user
+     * @return  textual description
+     */
     @Override
     public String toString() {
         return String.format("To: %s" +
@@ -104,10 +152,18 @@ public class User implements Serializable {
                 "\n-----------------------------------------------------------------", email, name, name, email, password);
     }
 
+    /**
+     * Returns User's password
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Returns List of Users
+     * @return
+     */
     public static List<User> getListUsers() {
         return listUsers;
     }

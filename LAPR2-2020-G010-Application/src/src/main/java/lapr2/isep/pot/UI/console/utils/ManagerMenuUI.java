@@ -33,6 +33,8 @@ public class ManagerMenuUI implements Initializable {
 
     private Stage managerStage;
 
+    private Stage managerPaymentStatisticsStage;
+
     double x = 0;
     double y = 0;
 
@@ -95,48 +97,71 @@ public class ManagerMenuUI implements Initializable {
         managerStage.show();
     }
 
+    @FXML
+    void paymentStatisticsOnAction(ActionEvent event) {
+        managerPaymentStatisticsStage.show();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       try {
-        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/SetPaymentDateScene.fxml"));
-        Parent root2 = loader2.load();
+        try {
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/fxml/SetPaymentDateScene.fxml"));
+            Parent root2 = loader2.load();
 
-        Scene scene2 = new Scene(root2);
+            Scene scene2 = new Scene(root2);
 
-        setPaymentDateStage = new Stage();
-        setPaymentDateStage.initModality(Modality.APPLICATION_MODAL);
-        setPaymentDateStage.getIcons().add(new Image("file:images\\t4j.jpg"));
-        setPaymentDateStage.setTitle("Set payment date");
-        setPaymentDateStage.setResizable(false);
-        setPaymentDateStage.setScene(scene2);
-        setPaymentDateStage.initStyle(StageStyle.TRANSPARENT);
+            setPaymentDateStage = new Stage();
+            setPaymentDateStage.initModality(Modality.APPLICATION_MODAL);
+            setPaymentDateStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            setPaymentDateStage.setTitle("Set payment date");
+            setPaymentDateStage.setResizable(false);
+            setPaymentDateStage.setScene(scene2);
+            setPaymentDateStage.initStyle(StageStyle.TRANSPARENT);
 
 
-        SetPaymentDateUI setPaymentDateUI = loader2.getController();
-        setPaymentDateUI.associateParentUI(this);
+            SetPaymentDateUI setPaymentDateUI = loader2.getController();
+            setPaymentDateUI.associateParentUI(this);
 
-        //------------------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------------------------------------------------
 
-           FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/fxml/ManagerStatisticsScene.fxml"));
-           Parent root3 = loader3.load();
+            FXMLLoader loader3 = new FXMLLoader(getClass().getResource("/fxml/ManagerStatisticsScene.fxml"));
+            Parent root3 = loader3.load();
 
-           Scene scene3 = new Scene(root3);
+            Scene scene3 = new Scene(root3);
 
-           managerStage = new Stage();
-           managerStage.initModality(Modality.APPLICATION_MODAL);
-           managerStage.getIcons().add(new Image("file:images\\t4j.jpg"));
-           managerStage.setTitle("Statistics");
-           managerStage.setResizable(false);
-           managerStage.setScene(scene3);
-           managerStage.initStyle(StageStyle.TRANSPARENT);
+            managerStage = new Stage();
+            managerStage.initModality(Modality.APPLICATION_MODAL);
+            managerStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            managerStage.setTitle("Statistics");
+            managerStage.setResizable(false);
+            managerStage.setScene(scene3);
+            managerStage.initStyle(StageStyle.TRANSPARENT);
 
-           ManagerStatisticsUI managerStatisticsUI = loader3.getController();
-           managerStatisticsUI.associateParentUI(this);
-    } catch (
-    IOException ioException) {
-        Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error", ioException.getMessage());
-        System.out.println(ioException.getLocalizedMessage());
-        alert.show();
-    }
+            ManagerStatisticsUI managerStatisticsUI = loader3.getController();
+            managerStatisticsUI.associateParentUI(this);
+
+            //------------------------------------------------------------------------------------------------------------------------------------
+
+            FXMLLoader loader4 = new FXMLLoader(getClass().getResource("/fxml/ManagerPaymentStatisticsScene.fxml"));
+            Parent root4 = loader4.load();
+
+            Scene scene4 = new Scene(root4);
+
+            managerPaymentStatisticsStage = new Stage();
+            managerPaymentStatisticsStage.initModality(Modality.APPLICATION_MODAL);
+            managerPaymentStatisticsStage.getIcons().add(new Image("file:images\\t4j.jpg"));
+            managerPaymentStatisticsStage.setTitle("Payment Statistics");
+            managerPaymentStatisticsStage.setResizable(false);
+            managerPaymentStatisticsStage.setScene(scene4);
+            managerPaymentStatisticsStage.initStyle(StageStyle.TRANSPARENT);
+
+            ManagerPaymentStatisticsUI managerPaymentStatisticsUI = loader4.getController();
+            managerPaymentStatisticsUI.associateParentUI2(this);
+
+        } catch (IOException ioException) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.ERROR, MainApp.APP_TITLE, "Error", ioException.getMessage());
+            System.out.println(ioException.getLocalizedMessage());
+            alert.show();
+        }
     }
 }

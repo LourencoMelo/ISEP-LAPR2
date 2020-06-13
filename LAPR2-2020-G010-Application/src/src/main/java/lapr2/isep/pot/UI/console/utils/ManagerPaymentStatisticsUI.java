@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
-import lapr2.isep.pot.controller.CollaboratorStatisticsController;
+import lapr2.isep.pot.controller.ManagerStatisticsController;
 import lapr2.isep.pot.model.Freelancer;
 
 import java.io.FileNotFoundException;
@@ -17,10 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CollaboratorPaymentStatisticsUI implements Initializable {
+public class ManagerPaymentStatisticsUI implements Initializable {
 
-    private CollaboratorMenuUI collaboratorMenuUI;
+    private ManagerMenuUI managerMenuUI;
 
+    private ApplicationController applicationController;
+
+    private ManagerStatisticsController managerStatisticsController;
 
     @FXML
     private ListView<Freelancer> freelancersListView;
@@ -46,18 +49,14 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
     @FXML
     private Button clearStatsBtn;
 
-    private ApplicationController applicationController;
-
     private List<String> freelancerChoosedBefore = new ArrayList<>();
-
-    private CollaboratorStatisticsController collaboratorStatisticsController;
 
     double xwindow = 0;
     double ywindow = 0;
 
-    public CollaboratorPaymentStatisticsUI() throws FileNotFoundException {
+    public ManagerPaymentStatisticsUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
-        this.collaboratorStatisticsController = new CollaboratorStatisticsController();
+        this.managerStatisticsController = new ManagerStatisticsController();
     }
 
     @FXML
@@ -77,11 +76,11 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
 
     @FXML
     void ShowFreelancersOnAction(ActionEvent event) {
-        if (collaboratorStatisticsController.getListFreelancersToListView().size() == 0) {
+        if (managerStatisticsController.getListFreelancersToListView().size() == 0) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "There are no freelancers in the system.");
             alert.show();
         } else {
-            freelancersListView.getItems().setAll(collaboratorStatisticsController.getListFreelancersToListView());
+            freelancersListView.getItems().setAll(managerStatisticsController.getListFreelancersToListView());
         }
     }
 
@@ -113,13 +112,13 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
         } else if (freelancerChoosedBefore.contains(freelancersListView.getSelectionModel().getSelectedItem().getEmail())) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "You have already selected that freelancer.");
             alert.show();
-        }else {
-            meanTxtField.setText(String.valueOf(String.format("%.03f", collaboratorStatisticsController.meanPaymentsByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
-            standardDeviationTxtField.setText(String.valueOf(String.format("%.03f", collaboratorStatisticsController.standardDeviationPaymentsByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
+        } else {
+            meanTxtField.setText(String.valueOf(String.format("%.03f", managerStatisticsController.meanPaymentsByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
+            standardDeviationTxtField.setText(String.valueOf(String.format("%.03f", managerStatisticsController.standardDeviationPaymentsByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
             freelancerChoosedBefore.add(freelancersListView.getSelectionModel().getSelectedItem().getEmail());
         }
-    }
 
+    }
 
     @FXML
     void clearStatsOnAction(ActionEvent event) {
@@ -128,8 +127,8 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
         freelancerChoosedBefore.clear();
     }
 
-    public void associateParentUI2(CollaboratorMenuUI collaboratorMenuUI) {
-        this.collaboratorMenuUI = collaboratorMenuUI;
+    public void associateParentUI2(ManagerMenuUI managerMenuUI) {
+        this.managerMenuUI = managerMenuUI;
     }
 
 

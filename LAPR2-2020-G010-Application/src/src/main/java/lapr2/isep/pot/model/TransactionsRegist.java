@@ -55,7 +55,7 @@ public class TransactionsRegist implements Serializable {
             Scanner in = new Scanner(filePaymentsTransactionsList);
             in.nextLine();
             while (in.hasNext()) {
-                String[] line = in.nextLine().trim().split(";");
+                String[] line = in.nextLine().trim().split("\t");
                 Task task = new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim());
                 Freelancer freelancer = new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim());
                 PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), Formatter(line[6].trim()), Double.parseDouble(line[7].trim()), line[8].trim(), freelancer, task);

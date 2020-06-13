@@ -49,15 +49,7 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="SeeStatisticsForFreelancerBtn" alignment="CENTER" layoutX="57.0" layoutY="103.0" mnemonicParsing="false" onAction="#SeeStatisticsForFreelancerOnAction" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="See statistics for freelancer">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <font>
-                        <Font size="17.0" />
-                    </font>
-                </Button>
-                <Button fx:id="SeeStatisticsForAllFreelancersBtn" alignment="CENTER" layoutX="339.0" layoutY="103.0" mnemonicParsing="false" onAction="#SeeStatisticsForAllFreelancersOnAction" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Show statistics for all freelancers">
+                <Button fx:id="SeeStatisticsForFreelancerBtn" alignment="CENTER" layoutX="206.0" layoutY="111.0" mnemonicParsing="false" onAction="#SeeStatisticsForFreelancerOnAction" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="See statistics for freelancer">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

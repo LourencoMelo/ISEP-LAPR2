@@ -63,6 +63,7 @@ public class PaymentTransaction {
         this.descQualityOfWork = descQualityOfWork;
         this.freelancer = freelancer;
         this.task = task;
+        amountPay();
         //this.freelancer.addNumberOfTasksToFreelancer();
         //this.freelancer.addDelayToFreelancer(delay);
     }
@@ -112,7 +113,7 @@ public class PaymentTransaction {
     }
 
     public double getAmountPay() {
-        return amountPay;
+        return this.amountPay;
     }
 
     /**
@@ -136,14 +137,16 @@ public class PaymentTransaction {
 
     public double calculateTaskCost(Freelancer freelancer, Task task) {
         if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Senior")) {
-            this.amountPay = (2 * task.getCostPerHour()) * task.getTimeDuration();
-            return amountPay;
+            return  (2 * task.getCostPerHour()) * task.getTimeDuration();
         } else if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Junior")) {
-            this.amountPay = task.getCostPerHour() * task.getTimeDuration();
-            return amountPay;
+            return  task.getCostPerHour() * task.getTimeDuration();
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void amountPay(){
+        this.amountPay = calculateTaskCost(this.freelancer, this.task);
     }
 
     @Override
