@@ -13,7 +13,7 @@ public class Files implements Serializable {
      */
     public static void writeToAFileAboutPasswords(List<User> list) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("files\\Emails.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("files\\LoginCredentials.txt"));
             writer.write("-----------------------------------------------------------------\n");
             writer.write("Email sent with user information:");
             writer.write("\n-----------------------------------------------------------------\n");

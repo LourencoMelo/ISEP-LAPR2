@@ -103,6 +103,14 @@ public class Freelancer implements Serializable, Comparable {
     }
 
     /**
+     * Sets a number to number of tasks
+     * @param numberOfTasks number of tasks
+     */
+    public void setNumberOfTasks(int numberOfTasks) {
+        this.numberOfTasks = numberOfTasks;
+    }
+
+    /**
      * adds 1 to the number o tasks
      * @return tasks
      */

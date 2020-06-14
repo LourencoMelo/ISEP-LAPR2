@@ -31,7 +31,7 @@ public class DelayHigherThanThreeAutomaticWarning extends TimerTask implements S
     /**
      * Creates a new File
      */
-    private final File file = new File("files\\DelaysHigherThanThree.txt");
+    private final File file = new File("files\\e-mail.txt");
 
     /**
      * Constructor that initializes dae, freelancer and applicationPot and platforms instances

@@ -922,10 +922,6 @@ public class Platform implements Serializable {
     public void setDateToPay(Date dateToPay) throws IOException {
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList()) {
             paymentTransaction.setDateToPay(dateToPay);
-//            getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList().remove(paymentTransaction);
-//            getOrganizationCurrentUser().getPaymentTransactionList().getPaidTransactionList().add(paymentTransaction);
-//            System.out.println(getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList().size());
-//            System.out.println(getOrganizationCurrentUser().getPaymentTransactionList().getPaidTransactionList().size());
         }
     }
 
