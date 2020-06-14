@@ -3,7 +3,7 @@ Guide to run the T4J application and execute all functionalities.
 IMPORTANT NOTE: The "X" in all the windows let you close and stop the app instantly. Don't press that button if you want to go back. If you want to go back press the button "Go back" in all windows.
 
 1º - Run the application.
-2º - Log in with the admin credentials. (Name: Admin - Email: admin@t4j.com - Password: admin123)
+2º - Log in with the admin credentials. (Name: admin - Email: admin@t4j.com - Password: admin123)
 3º - In admin window is possible to do two different things:
 	a) Button "Register Organization" where you can regist a new organization creating a manager and a collaborator.
 	b) Button "Execution statistics" where you can see all the stats about a freelancer or all the stats about all freelancers in platform (for this must be freelancers in the platform).
@@ -17,18 +17,19 @@ IMPORTANT NOTE: The "X" in all the windows let you close and stop the app instan
 
 		If you choose b): 
 				In this window you have 5 buttons (except the "X" the allows you to close and stop the app instantly).
-					1 - "Show freelancers". If you press this button all the freelancers in the platform will apear in the left box. You can choose 1.
+					1 - "Show freelancers". If you press this button all the freelancers in the platform will apear in the left box. You can choose 1.	
 					2 - "See statistics for freelancer". Before you press this button you must select a freelancer in the left box. After that, if you press this button, the delay statistics about the freelancer chosen will appear in the window middle graphic. The delay mean will  appear in the box below "Mean" and the standard deviation will appear in the box below "Standard Deviation".
 					3 - "Show statistics for all freelancers". If you press this button, all freelancers statistics will appear in the window middle graphic.
 					4 - "Clear stats". If you press this button the stats in the graph will be cleared.
 					5 - "Go back". If you press this button, the stats window will close and you will get back to the administrator menu.
 		
 		If you choose c):
-
-
-
-
-
+				In this window you have 5 buttons (except the "X" the allows you to close and stop the app instantly).
+					1 - "Show freelancers". If you press this button all the freelancers in the platform will apear in the left box. You can choose 1.	
+					2 - "See statistics for freelancer". Before you press this button you must select a freelancer in the left box. After that, if you press this button, the payment statistics about the freelancer chosen will appear in the window middle graphic. The payment mean will appear in the box below "Mean" and the standard deviation will appear in the box below "Standard Deviation".
+					3 - "Show statistics for all freelancers". If you press this button, all freelancers statistics will appear in the window middle graphic.
+					4 - "Clear stats". If you press this button the stats in the graph will be cleared.
+					5 - "Go back". If you press this button, the stats window will close and you will get back to the administrator menu.
 
 Note: For admin that's it. Admin can only regist organizations and see freelancers statistics about delays and payment.
 
@@ -91,5 +92,10 @@ Note: For admin that's it. Admin can only regist organizations and see freelance
 																								- "Go back". If you press this button, the stats window will close and you will get back to the manager menu.
 																								
 								4 - "Go back". If you press this button, the stats window will close and you will get back to the administrator menu.
+																								- "Show freelancers". If you press this button all the freelancers in the platform will apear in the left box. You can choose 1.
+																								- "See statistics for freelancer". Before you press this button you must select a freelancer in the left box. After that, if you press this button, the payment mean will appear in the box below "Mean" and the standard deviation will appear in the box below "Standard Deviation".
+																								- "Show statistics for all freelancers". If you press this button, the mean of all freelancers will apear in the box below "Mean" and the standard deviation of all freelancers will appear in the box below "Standard Deviation".
+																								- "Clear stats". If you press this button the mean and standard deviation will be cleared.
+																								- "Go back". If you press this button, the stats window will close and you will get back to the manager menu.
 
 7º - Close the app in "X" button form any window.

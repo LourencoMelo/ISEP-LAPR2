@@ -80,7 +80,7 @@ public class TaskPaymentAutomatically extends TimerTask implements CoinCurrencie
             writer.write("\n\t" + date.toString() + "\n");
             writer.write("\tBest regards," +
                     "\n\t T4J Team.\n");
-            writer.write("\n\t------------------------------------------\n");
+            writer.write("\n\t-------------------------------------------------\n");
             writer.write("\n");
             writer.close();
 

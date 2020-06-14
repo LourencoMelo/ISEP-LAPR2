@@ -27,11 +27,11 @@ import lapr2.isep.pot.controller.TaskCreationController;
 
 public class LogInUI implements Initializable {
 
-    public static final String NAME_ADMIN = "a";
+    public static final String NAME_ADMIN = "admin";
 
-    public static final String EMAIL_ADMIN = "a";
+    public static final String EMAIL_ADMIN = "admin@t4j.com";
 
-    public static final String PASSWORD_ADMIN = "a";
+    public static final String PASSWORD_ADMIN = "admin123";
 
     private ApplicationController applicationController;
 
