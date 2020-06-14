@@ -1,19 +1,19 @@
 package lapr2.isep.authorization.model;
 
-import lapr2.isep.pot.controller.ApplicationController;
-import lapr2.isep.pot.model.Collaborator;
 import lapr2.isep.pot.model.EmailFiles;
 import lapr2.isep.pot.model.ExternAlgorithmPasswordGenerator;
-import lapr2.isep.pot.model.Manager;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User implements Serializable {
+/**
+ * Class referent to the users of the system.
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 
-    PrintWriter out = new PrintWriter(new File("files\\Emails.txt"));
+public class User implements Serializable {
 
     /**
      * User's name
@@ -49,7 +49,7 @@ public class User implements Serializable {
         this.email = email;
         this.password = generatePassword();
         listUsers.add(this);
-        EmailFiles.writeToAFile(listUsers);
+        EmailFiles.writeToAFileAboutPasswords(listUsers);
     }
 
     /**
@@ -63,7 +63,7 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
-        EmailFiles.writeToAFile(listUsers);
+        EmailFiles.writeToAFileAboutPasswords(listUsers);
     }
 
     /**
@@ -104,6 +104,10 @@ public class User implements Serializable {
         return externAlgorithmPasswordGenerator.generate(8);
     }
 
+    /**
+     * Manages the user's email
+     * @return managed user's email
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -148,7 +152,7 @@ public class User implements Serializable {
                 "\n" +
                 "\n" +
                 "Best regards," +
-                "\n T4J Administrator." +
+                "\n T4J Team." +
                 "\n-----------------------------------------------------------------", email, name, name, email, password);
     }
 

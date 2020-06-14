@@ -95,7 +95,7 @@ public class AdministratorStatisticsUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            //registOrganizationController.getPlatform().saveInfo(registOrganizationController.getPlatform());
+            applicationController.saveInfo();
             System.exit(0);
         }
     }

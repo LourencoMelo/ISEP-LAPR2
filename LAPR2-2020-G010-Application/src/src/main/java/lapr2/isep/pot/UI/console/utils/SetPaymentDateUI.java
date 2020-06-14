@@ -10,17 +10,23 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lapr2.isep.pot.controller.ApplicationController;
+import lapr2.isep.pot.controller.SetDateToPayController;
 
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SetPaymentDateUI {
 
     private ApplicationController applicationController;
 
+    private SetDateToPayController setDateToPayController;
+
     private ManagerMenuUI managerMenuUI;
 
     @FXML
-    private TextField dateToPayBtn;
+    private TextField dateToPayTxtField;
 
     @FXML
     private Button xBtn;
@@ -36,6 +42,7 @@ public class SetPaymentDateUI {
 
     public SetPaymentDateUI() throws FileNotFoundException {
         this.applicationController = new ApplicationController();
+        this.setDateToPayController = new SetDateToPayController();
     }
 
     public void associateParentUI(ManagerMenuUI managerMenuUI) {
@@ -64,13 +71,23 @@ public class SetPaymentDateUI {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            applicationController.saveInfo();
             System.exit(0);
         }
     }
 
     @FXML
-    void SetDateOnAction(ActionEvent event) {
-
+    void SetDateOnAction(ActionEvent event) throws ParseException {
+        try {
+            setDateToPayController.setDateToPay(Formatter(dateToPayTxtField.getText()));
+            Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(),
+                    "Date defined.", "The date was added to the transactions.");
+            alert.show();
+        } catch (Exception exception) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(),
+                    "Error.", "The date must follow the following structure: dd/mm/yyyy hh:mm:ss");
+            alert.show();
+        }
     }
 
     @FXML
@@ -81,6 +98,12 @@ public class SetPaymentDateUI {
     }
 
     public void clearTextFields() {
-        dateToPayBtn.clear();
+        dateToPayTxtField.clear();
+    }
+
+    public static Date Formatter(String date) throws ParseException {
+        SimpleDateFormat formmater1 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date1 = formmater1.parse(date);
+        return date1;
     }
 }

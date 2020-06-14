@@ -1,5 +1,7 @@
 package lapr2.isep.pot.UI.console.utils;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import lapr2.isep.pot.model.Freelancer;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -42,6 +45,11 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
 
     @FXML
     private Button goBackBtn;
+
+    @FXML
+    private ComboBox<String> sortTypesCmb;
+
+    private ObservableList<String> typesToSort = FXCollections.observableArrayList("Name", "Payment Value");
 
     @FXML
     private Button clearStatsBtn;
@@ -92,6 +100,7 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            applicationController.saveInfo();
             System.exit(0);
         }
     }
@@ -113,10 +122,25 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
         } else if (freelancerChoosedBefore.contains(freelancersListView.getSelectionModel().getSelectedItem().getEmail())) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "You have already selected that freelancer.");
             alert.show();
-        }else {
+        } else {
             meanTxtField.setText(String.valueOf(String.format("%.03f", collaboratorStatisticsController.meanPaymentsByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
             standardDeviationTxtField.setText(String.valueOf(String.format("%.03f", collaboratorStatisticsController.standardDeviationPaymentsByFreelancer(freelancersListView.getSelectionModel().getSelectedItem()))));
             freelancerChoosedBefore.add(freelancersListView.getSelectionModel().getSelectedItem().getEmail());
+        }
+    }
+
+    @FXML
+    void SortByOnAction(ActionEvent event) {
+        if (sortTypesCmb.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, this.applicationController.getAppName(), "Error", "You must select a sort type.");
+            alert.show();
+        } else {
+            if (sortTypesCmb.getSelectionModel().getSelectedItem().equalsIgnoreCase("Name")) {
+                //Collections.sort(collaboratorStatisticsController.getListFreelancersToListView());
+            }
+            if (sortTypesCmb.getSelectionModel().getSelectedItem().equalsIgnoreCase("Payment Value")) {
+
+            }
         }
     }
 
@@ -126,6 +150,7 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
         standardDeviationTxtField.clear();
         meanTxtField.clear();
         freelancerChoosedBefore.clear();
+        sortTypesCmb.getSelectionModel().clearSelection();
     }
 
     public void associateParentUI2(CollaboratorMenuUI collaboratorMenuUI) {
@@ -135,6 +160,6 @@ public class CollaboratorPaymentStatisticsUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        sortTypesCmb.getItems().setAll(typesToSort);
     }
 }

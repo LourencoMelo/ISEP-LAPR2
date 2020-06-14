@@ -1,20 +1,21 @@
 package lapr2.isep.authorization.model;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Class that access the current date and time.
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
  */
 public class Date {
 
-    public static void actualDate(){
+    public static String actualDate(){
         /**
          * Get current date time
          */
-        Date currentDate = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        System.out.println(sdf.format(currentDate));
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return dateTimeFormatter.format(localDateTime);
     }
-
 
 }

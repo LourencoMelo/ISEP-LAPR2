@@ -73,7 +73,7 @@ public class RegistOrganizationUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            //this.registOrganizationController.getPlatform().saveInfo(registOrganizationController.getPlatform());
+            applicationController.saveInfo();
             System.exit(0);
         }
     }

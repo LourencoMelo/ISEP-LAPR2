@@ -40,7 +40,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <TextField fx:id="dateToPayBtn" layoutX="145.0" layoutY="151.0" prefHeight="37.0" prefWidth="199.0" promptText="dd/mm/yyyy" />
+                <TextField fx:id="dateToPayTxtField" layoutX="145.0" layoutY="151.0" prefHeight="37.0" prefWidth="199.0" promptText="dd/mm/yyyy hh:mm:ss" />
                 <Button fx:id="setDateBtn" alignment="CENTER" layoutX="170.0" layoutY="250.0" mnemonicParsing="false" onAction="#SetDateOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Set date">
                     <cursor>
                         <Cursor fx:constant="HAND" />

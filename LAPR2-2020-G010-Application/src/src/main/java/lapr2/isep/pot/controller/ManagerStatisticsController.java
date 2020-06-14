@@ -4,9 +4,10 @@ import lapr2.isep.pot.model.Freelancer;
 import lapr2.isep.pot.model.Platform;
 
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.List;
 
-public class ManagerStatisticsController {
+public class ManagerStatisticsController implements Serializable {
 
     private final Platform platform;
 

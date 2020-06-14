@@ -77,4 +77,5 @@ public class RegistFreelancer implements Serializable {
         }
         return null;
     }
+
 }

@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lapr2.isep.authorization.model.Date;
 import lapr2.isep.pot.UI.console.MainApp;
 import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.RegistOrganizationController;
@@ -89,6 +90,9 @@ public class LogInUI implements Initializable {
             alert.show();
         } else {
             if (isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
+                if(Date.actualDate().equalsIgnoreCase("14/06/2020")) {
+                    applicationController.sendEmailWithDelayHigherThanThree();
+                }
                 administratorMenuStage.show();
             } else if (this.registOrganizationController.isCollaboratorLoggingIn(this.registOrganizationController.createUser(nameTextField.getText(), emailTxtField.getText(), passwordField.getText()))) {
                 collaboratorMenuStage.show();
@@ -110,7 +114,7 @@ public class LogInUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
-            //registOrganizationController.getPlatform().saveInfo(registOrganizationController.getPlatform());
+            applicationController.saveInfo();
             System.exit(0);
         }
     }

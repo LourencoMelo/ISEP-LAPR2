@@ -77,6 +77,7 @@ public class ManagerMenuUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            applicationController.saveInfo();
             System.exit(0);
         }
     }

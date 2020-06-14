@@ -1,9 +1,12 @@
 package lapr2.isep.pot.model;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Timer;
 
-public class PaymentTransaction {
+public class PaymentTransaction implements Serializable {
 
     /**
      * Transaction ID
@@ -40,7 +43,7 @@ public class PaymentTransaction {
      */
     private Task task;
 
-
+    private Date dateToPay;
 
     /**
      * Initialize the transaction's information with the received data
@@ -114,6 +117,17 @@ public class PaymentTransaction {
 
     public double getAmountPay() {
         return this.amountPay;
+    }
+
+    public void setDateToPay(Date dateToPay) throws IOException {
+        TaskPaymentAutomatically taskPaymentAutomatically = new TaskPaymentAutomatically(dateToPay, freelancer, getAmountPay());
+        Timer timer = new Timer();
+        timer.schedule(taskPaymentAutomatically, dateToPay);
+        this.dateToPay = dateToPay;
+    }
+
+    public Date getDateToPay() {
+        return dateToPay;
     }
 
     /**

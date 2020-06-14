@@ -62,6 +62,7 @@ public class AdministratorMenuUI implements Initializable {
             event.consume();
         } else {
             //registOrganizationController.getPlatform().saveInfo(registerOrganizationBtn.ge);
+            applicationController.saveInfo();
             System.exit(0);
         }
     }

@@ -14,7 +14,7 @@ public class EmailFiles implements Serializable {
      * Writes in a file the email sent to the user.
      * @param list of users
      */
-    public static void writeToAFile(List<User> list) {
+    public static void writeToAFileAboutPasswords(List<User> list) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("files\\Emails.txt"));
             writer.write("-----------------------------------------------------------------\n");

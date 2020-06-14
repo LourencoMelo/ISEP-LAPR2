@@ -7,22 +7,38 @@ import java.io.Serializable;
 
 public class ApplicationPOT implements Serializable {
 
-    private final Platform platform;
+    /**
+     * Platform's instance
+     */
+    private Platform platform;
 
-    private static final String PLATFORM_NAME = "T4J";
-
-    //private FacadeAuthorization facadeAuthorization; --> Necessary???
-
+    /**
+     * Constructor that initializes platform
+     * @throws FileNotFoundException file not found exception
+     */
     private ApplicationPOT() throws FileNotFoundException {
         this.platform = new Platform();
+        //readSerialization();
     }
 
+    /**
+     * Returns platform's instance
+     * @return platform
+     */
     public Platform getPlatform() {
         return this.platform;
     }
 
+    /**
+     * Initializes singleton that secures the existence of only one instance of the applicationPOT class
+     */
     private static ApplicationPOT singleton = null;
 
+    /**
+     * Returns the singleton
+     * @return singleton
+     * @throws FileNotFoundException file not found exception
+     */
     public static ApplicationPOT getInstance() throws FileNotFoundException {
 
         if (singleton == null) {
@@ -32,4 +48,6 @@ public class ApplicationPOT implements Serializable {
         }
         return singleton;
     }
+
+
 }

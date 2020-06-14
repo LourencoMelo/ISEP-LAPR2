@@ -77,6 +77,20 @@
                         <Font size="17.0" />
                     </font>
                 </Button>
+            <ComboBox fx:id="sortTypesCmb" layoutX="-38.0" layoutY="137.0" prefHeight="25.0" prefWidth="125.0" promptText="Choose here..." style="-fx-background-color: #ff7802; -fx-background-radius: 100; fx-text-fill: white;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-9.0" layoutY="111.0" prefHeight="26.0" prefWidth="67.0" text="Sort by:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" layoutX="-36.0" layoutY="201.0" mnemonicParsing="false" onAction="#SortByOnAction" prefHeight="46.0" prefWidth="111.0" style="-fx-background-color: #ff7802; -fx-background-radius: 100; -fx-text-fill: white;" text="Refresh list">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </right>

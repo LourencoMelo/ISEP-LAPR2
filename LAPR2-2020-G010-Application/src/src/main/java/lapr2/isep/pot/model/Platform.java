@@ -1,11 +1,14 @@
 package lapr2.isep.pot.model;
 
+import javafx.scene.control.Alert;
 import lapr2.isep.authorization.model.User;
+import lapr2.isep.pot.UI.console.utils.AlertUI;
 import lapr2.isep.pot.model.List.PaymentTransactionList;
 import lapr2.isep.pot.model.List.TaskList;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Platform implements Serializable {
@@ -36,37 +39,38 @@ public class Platform implements Serializable {
         this.registFreelancer = new RegistFreelancer();
         this.registOrganization = new RegistOrganization();
         this.taskList = new TaskList();
+        readSerialization();
         //this.transactionsRegist = new TransactionsRegist();
     }
 
-    /*private void readInfo() {
+    private void readSerialization() {
         try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File("dados.bin")));
-            this.registOrganization = (RegistOrganization) in.readObject();
-            System.out.println("Abriu para ler");
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("SerializableData"));
+            this.registFreelancer = (RegistFreelancer) in.readObject();
+//            this.registOrganization = (RegistOrganization) in.readObject();
+            this.taskList = (TaskList) in.readObject();
             in.close();
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("ERRO: nao abriu o ficheiro para leitura");
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, "Improve T4J", "Error", "The binary file wasn't read.");
+            alert.show();
         }
     }
 
-    public void saveInfo(){
+
+    public void serialization(){
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(new File("dados.bin")));
-            out.writeObject(this.registOrganization);
-            out.close();
+            FileOutputStream fileOutputStream = new FileOutputStream(new File("SerializableData"));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(registFreelancer);
+//            objectOutputStream.writeObject(registOrganization);
+            objectOutputStream.writeObject(taskList);
+            objectOutputStream.close();
+            fileOutputStream.close();
         } catch (IOException e) {
-            System.out.println("ERRO: nao abriu o ficheiro para escrita");
+            Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, "Improve T4J", "Error", "The binary file didn't save the information.");
+            alert.show();
         }
-
     }
-
-     */
-
-    public ExternAlgorithmPasswordGenerator getAlgorithmPasswordGenerator() {
-        return null;
-    }
-
 
     /**
      * Returns Organization
@@ -712,4 +716,50 @@ public class Platform implements Serializable {
         }
         return delays;
     }
+
+    public void setDateToPay(Date dateToPay) throws IOException {
+        for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList()) {
+            paymentTransaction.setDateToPay(dateToPay);
+        }
+    }
+
+    public double percentageDelayByFreelancer(Freelancer freelancer) {
+        double numberOfTasksWithDelay = 0;
+        double numberOfTaskFreelancerDid = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                if (paymentTransaction.getFreelancer().equals(freelancer)) {
+                    numberOfTaskFreelancerDid++;
+                    if (paymentTransaction.getDelay() > 0) {
+                        numberOfTasksWithDelay++;
+                    }
+                }
+            }
+        }
+        return numberOfTasksWithDelay / numberOfTaskFreelancerDid;
+    }
+
+    public double percentageDelayTotal() {
+        double numberOfTasksWithDelay = 0;
+        double numberOfTasks = 0;
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            for (PaymentTransaction paymentTransaction : organization.getPaymentTransactionList().getListTotalPaymentsTransactions()) {
+                numberOfTasks++;
+                if (paymentTransaction.getDelay() > 0) {
+                    numberOfTasksWithDelay++;
+                }
+            }
+        }
+        return numberOfTasksWithDelay / numberOfTasks;
+    }
+
+    public void sendEmailWithDelayHigherThanThree() throws FileNotFoundException {
+        for (Freelancer freelancer : getRegistFreelancer().getFreelancerList()) {
+            if (meanDelayAllTasksByFreelancer(freelancer) > 3 && (percentageDelayByFreelancer(freelancer) > percentageDelayTotal())) {
+                DelayHigherThanThreeAutomaticWarning delayHigherThanThreeAutomaticWarning = new DelayHigherThanThreeAutomaticWarning(freelancer);
+                delayHigherThanThreeAutomaticWarning.run();
+            }
+        }
+    }
+
 }

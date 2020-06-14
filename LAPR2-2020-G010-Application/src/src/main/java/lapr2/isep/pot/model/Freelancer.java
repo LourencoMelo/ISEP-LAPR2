@@ -1,8 +1,9 @@
 package lapr2.isep.pot.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
-public class Freelancer implements Serializable {
+public class Freelancer implements Serializable, Comparable {
 
     /**
      * Freelancer's id
@@ -74,7 +75,6 @@ public class Freelancer implements Serializable {
         this.address = address;
         this.country = country;
     }
-
 
     /**
      * Returns freelancer's id.
@@ -207,4 +207,20 @@ public class Freelancer implements Serializable {
                 "\n\tAddress: %s" +
                 "\n\tCountry: %s", id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
     }
+
+    @Override
+    public int compareTo(Object freelancer) {
+        String name = this.name;
+        Freelancer freelancerAux = (Freelancer) freelancer;
+        String otherName = freelancerAux.name;
+
+        if (name.compareToIgnoreCase(otherName) > 0)
+            return -1;
+        else if (name.compareToIgnoreCase(otherName) < 0)
+            return 1;
+        else
+            return 0;
+    }
+
+
 }

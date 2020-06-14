@@ -101,6 +101,7 @@ public class RegisterFreelancerUI implements Initializable {
         if (alert.showAndWait().get() == ButtonType.CANCEL) {
             event.consume();
         } else {
+            applicationController.saveInfo();
             System.exit(0);
         }
     }
@@ -162,4 +163,6 @@ public class RegisterFreelancerUI implements Initializable {
     void RefreshOnAction(ActionEvent event) {
         freelancersListVIew.getItems().setAll(this.registerFreelancerController.getListFreelancer());
     }
+
+
 }
