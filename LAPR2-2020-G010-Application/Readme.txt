@@ -34,7 +34,7 @@ IMPORTANT NOTE: The "X" in all the windows let you close and stop the app instan
 Note: For admin that's it. Admin can only regist organizations and see freelancers statistics about delays and payment.
 
 4º - After an organization is successfully registered, there will be collaborator and manager that can log in in the app. Go back in all "go back" buttons to log in as collaborator or manager.
-5º - Go to .txt file named "Emails.txt" and there are all the emails sent to ther users. In that file you have the name, email and password that you need to log in as collaborator or as manager. Search the name of the collaborator or manager. (Note: The collaborator user info is always above the manager user info. The collaborator email is always above the manager email.)
+5º - Go to .txt file named "LoginCredentials.txt" and there are all the emails sent to the users. In that file you have the name, email and password that you need to log in as collaborator or as manager. Search the name of the collaborator or manager. (Note: The collaborator user info is always above the manager user info. The collaborator email is always above the manager email.)
 6º - Choose the collaborator or manager you want and use the name, email and password to log in.
 				If you log in with collaborator: 
 							If you want to load a file with the payment transactions informations, you can click in "Transactions" in the left top corner and click and list that will apear. After click in "List" will apear "Import Csv" or "Import Txt". If you want to import txt file click "Import Txt". If you want to import tsv file click "Import Csv"
@@ -68,11 +68,10 @@ Note: For admin that's it. Admin can only regist organizations and see freelance
 																								- "Show statistics for all freelancers". If you press this button, the mean of all freelancers will apear in the box below "Mean" and the standard deviation of all freelancers will appear in the box below "Standard Deviation".
 																								- "Clear stats". If you press this button the mean and standard deviation will be cleared.
 																								- "Go back". If you press this button, the stats window will close and you will get back to the collaborator menu.
-
 								6 - "Go back". If you press this button, the stats window will close and you will get back to the administrator menu.
 
 				If you log in with manager: 
-						In this window you have 3 buttons (except the "X" the allows you to close and stop the app instantly).
+						In this window you have 4 buttons (except the "X" the allows you to close and stop the app instantly).
 								1 - "Define hour". In this window you have 2 buttons (except the "X" the allows you to close and stop the app instantly).
 																								- "Set date". If you press this button after write the date to pay automatically all not paid transactions. You must write, before pressing this button, in the white box the date (dd/mm/yyyy).
 																								- "Go back". If you press this button, the stats window will close and you will get back to the manager menu.
@@ -98,4 +97,4 @@ Note: For admin that's it. Admin can only regist organizations and see freelance
 																								- "Clear stats". If you press this button the mean and standard deviation will be cleared.
 																								- "Go back". If you press this button, the stats window will close and you will get back to the manager menu.
 
-7º - Close the app in "X" button form any window.
+7º - Close the app in "X" button from any window.
