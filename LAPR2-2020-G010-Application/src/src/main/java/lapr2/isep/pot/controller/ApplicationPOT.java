@@ -5,6 +5,12 @@ import lapr2.isep.pot.model.Platform;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
 
+/**
+ * Main controller of the controllers.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
+
 public class ApplicationPOT implements Serializable {
 
     /**
@@ -14,6 +20,7 @@ public class ApplicationPOT implements Serializable {
 
     /**
      * Constructor that initializes platform
+     *
      * @throws FileNotFoundException file not found exception
      */
     private ApplicationPOT() throws FileNotFoundException {
@@ -23,6 +30,7 @@ public class ApplicationPOT implements Serializable {
 
     /**
      * Returns platform's instance
+     *
      * @return platform
      */
     public Platform getPlatform() {
@@ -36,6 +44,7 @@ public class ApplicationPOT implements Serializable {
 
     /**
      * Returns the singleton
+     *
      * @return singleton
      * @throws FileNotFoundException file not found exception
      */

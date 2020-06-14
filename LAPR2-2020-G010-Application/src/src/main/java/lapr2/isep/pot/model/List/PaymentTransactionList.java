@@ -9,31 +9,39 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class the contains the imformation of the paid and not paid transactions lists.
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 public class PaymentTransactionList implements Serializable {
 
-    private PaymentTransactionList paymentTransactionList;
-
     /**
-     * Transaction list
+     * Not paid Transaction list
      */
     private final List<PaymentTransaction> notPaidTransactionList = new ArrayList<>();
 
+    /**
+     * Paid transaction list
+     */
     private final List<PaymentTransaction> paidTransactionList = new ArrayList<>();
 
     /**
-     * Returns transaction list.
+     * Returns not paid transaction list.
      *
-     * @return transaction list
+     * @return not paid transaction list
      */
     public List<PaymentTransaction> getNotPaidTransactionList() {
         return notPaidTransactionList;
     }
 
+    /**
+     * Returns paid transaction list.
+     *
+     * @return paid transaction list
+     */
     public List<PaymentTransaction> getPaidTransactionList() {
         return paidTransactionList;
     }
-
-
 
     /**
      * Creates a new Payment Transaction
@@ -51,29 +59,40 @@ public class PaymentTransactionList implements Serializable {
     }
 
     /**
+     * Validates the not paid transaction
      * @param paymentTransaction Payment Transaction
      * @return  the boolean result of the validation
      */
 
     public boolean validationNotPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
         return !paidTransactionList.contains(paymentTransaction);
-        //        return !transactionList.contains(paymentTransaction);
     }
 
     /**
-     *
+     * Add the not paid transaction to the not paid list
      * @param paymentTransaction Payment Transaction
-     * @return new transaction
+     * @return new transaction not paid
      */
 
     public boolean addNotPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
         return notPaidTransactionList.add(paymentTransaction);
     }
 
+    /**
+     * Add the paid transaction to the paid list
+     * Returns not paid transaction list.
+     *
+     * @return not paid transaction list
+     */
     public boolean addPaidPaymentTransaction(PaymentTransaction paymentTransaction) {
         return paidTransactionList.add(paymentTransaction);
     }
 
+    /**
+     * returns the number of transactions added
+     * @param paymentTransactionList list of payment transactions
+     * @return number of added payment transactions
+     */
     public int addListTransactions(PaymentTransactionList paymentTransactionList) {
         int totalTransactionsAdded = 0;
         for(PaymentTransaction paymentTransaction : paymentTransactionList.notPaidTransactionList) {
@@ -85,6 +104,10 @@ public class PaymentTransactionList implements Serializable {
         return totalTransactionsAdded;
      }
 
+    /**
+     * Returns the total list of payment transactions (paid and not paid transactions)
+     * @return a copy of a list that contains all the transactions (paid and not paid)
+     */
     public List<PaymentTransaction> getListTotalPaymentsTransactions() {
         List<PaymentTransaction> copyList = new ArrayList<>();
         for (PaymentTransaction paymentTransaction : paidTransactionList) {
@@ -96,6 +119,11 @@ public class PaymentTransactionList implements Serializable {
         return copyList;
     }
 
+    /**
+     * Returns the number of tasks that a specific freelancer does
+     * @param freelancer that we want to know the number of tasks
+     * @return the number of tasks of a freelancer
+     */
     public int getNumberOfTasks(Freelancer freelancer) {
         int numberOfTasks = 0;
         for(PaymentTransaction paymentTransaction : getListTotalPaymentsTransactions()) {
@@ -106,6 +134,10 @@ public class PaymentTransactionList implements Serializable {
         return numberOfTasks;
     }
 
+    /**
+     * Returns the total of delays of all the payment transactions
+     * @return all delays
+     */
     public double getTotalDelays(){
         double delays = 0;
         for (PaymentTransaction paymentTransaction : getListTotalPaymentsTransactions()){

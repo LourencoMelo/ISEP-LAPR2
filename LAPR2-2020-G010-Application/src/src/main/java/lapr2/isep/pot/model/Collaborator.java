@@ -12,11 +12,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class the contains the imformation collaborator.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 public class Collaborator extends User implements Serializable {
 
+    /**
+     * Collaborator's name
+     */
     private String name;
+    /**
+     * Collaborator's email
+     */
     private String email;
+    /**
+     * Collaborator's password
+     */
     private String password;
+    /**
+     * list of Collaborators
+     */
     List<Collaborator> listCollab = new ArrayList<>();
 
     /**
@@ -30,7 +47,7 @@ public class Collaborator extends User implements Serializable {
     private ApplicationController applicationController = new ApplicationController();
 
     /**
-     * Initialize the Collaborator's information with the received data
+     * Initialize the Collaborator's information with the received data creating an user
      *
      * @param name  Collaborator's name
      * @param email Collaborator's email
@@ -45,11 +62,19 @@ public class Collaborator extends User implements Serializable {
         listCollab.add(this);
     }
 
+    /**
+     * Initialize the Collaborator's information with the received data without creating an user
+     *
+     * @param name     Collaborator's name
+     * @param email    Collaborator's email
+     * @param password COllaborator's password
+     */
     public Collaborator(String name, String email, String password) throws FileNotFoundException {
         super(name, email, password);
         this.name = name;
         this.email = email;
         this.password = password;
+
     }
 
     /**
@@ -58,7 +83,7 @@ public class Collaborator extends User implements Serializable {
      * @param email Collaborator's email
      * @return true if the email exits
      */
-    public boolean hasEmail(String email){
+    public boolean hasEmail(String email) {
         return this.getEmail().equalsIgnoreCase(email);
     }
 

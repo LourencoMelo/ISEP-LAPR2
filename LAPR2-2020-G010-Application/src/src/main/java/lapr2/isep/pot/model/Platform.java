@@ -755,7 +755,7 @@ public class Platform implements Serializable {
 
     public void sendEmailWithDelayHigherThanThree() throws FileNotFoundException {
         for (Freelancer freelancer : getRegistFreelancer().getFreelancerList()) {
-            if (meanDelayAllTasksByFreelancer(freelancer) > 3 && (percentageDelayByFreelancer(freelancer) > percentageDelayTotal())) {
+            if (meanDelayAllTasksByFreelancer(freelancer) > 3  && (percentageDelayByFreelancer(freelancer) > percentageDelayTotal())) {
                 DelayHigherThanThreeAutomaticWarning delayHigherThanThreeAutomaticWarning = new DelayHigherThanThreeAutomaticWarning(freelancer);
                 delayHigherThanThreeAutomaticWarning.run();
             }

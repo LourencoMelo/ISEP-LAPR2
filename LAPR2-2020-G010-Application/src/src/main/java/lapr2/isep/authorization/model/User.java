@@ -10,6 +10,7 @@ import java.util.Objects;
 
 /**
  * Class referent to the users of the system.
+ *
  * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
  */
 
@@ -37,9 +38,10 @@ public class User implements Serializable {
 
     /**
      * Constructor that initializes the name and the email of the user. Also generates user's password.
-     * @param name              User's name
-     * @param email             User's email
-     * @throws IOException      Input/output exception when writing the email file
+     *
+     * @param name  User's name
+     * @param email User's email
+     * @throws IOException Input/output exception when writing the email file
      */
     public User(String name, String email) throws IOException {
         if (name == null || email == null || name.isEmpty() || email.isEmpty()) {
@@ -54,10 +56,11 @@ public class User implements Serializable {
 
     /**
      * Constructor that initializes the name, the email and the password of the user.
-     * @param name                      User's name
-     * @param email                     User's email
-     * @param password                  User's password
-     * @throws FileNotFoundException    Input/output exception when writing the email file
+     *
+     * @param name     User's name
+     * @param email    User's email
+     * @param password User's password
+     * @throws FileNotFoundException Input/output exception when writing the email file
      */
     public User(String name, String email, String password) throws FileNotFoundException {
         this.name = name;
@@ -68,6 +71,7 @@ public class User implements Serializable {
 
     /**
      * Returns User's name
+     *
      * @return name
      */
     public String getName() {
@@ -76,7 +80,8 @@ public class User implements Serializable {
 
     /**
      * Returns User's email
-     * @return  email
+     *
+     * @return email
      */
     public String getEmail() {
         return email;
@@ -84,8 +89,9 @@ public class User implements Serializable {
 
     /**
      * Verifies if the password already exists
-     * @param password  password
-     * @return  true if the password exists.
+     *
+     * @param password password
+     * @return true if the password exists.
      */
     public boolean hasPassword(String password) {
         return this.password.equals(password);
@@ -93,6 +99,7 @@ public class User implements Serializable {
 
     /**
      * Generates User's password using the Extern Algorithm Generator
+     *
      * @return User's password
      */
     public String generatePassword() {
@@ -106,6 +113,7 @@ public class User implements Serializable {
 
     /**
      * Manages the user's email
+     *
      * @return managed user's email
      */
     @Override
@@ -117,6 +125,7 @@ public class User implements Serializable {
 
     /**
      * Compares Objects
+     *
      * @param o
      * @return true if other object equals
      */
@@ -138,7 +147,8 @@ public class User implements Serializable {
 
     /**
      * Returns textual description of user
-     * @return  textual description
+     *
+     * @return textual description
      */
     @Override
     public String toString() {
@@ -158,6 +168,7 @@ public class User implements Serializable {
 
     /**
      * Returns User's password
+     *
      * @return
      */
     public String getPassword() {
@@ -166,12 +177,12 @@ public class User implements Serializable {
 
     /**
      * Returns List of Users
+     *
      * @return
      */
     public static List<User> getListUsers() {
         return listUsers;
     }
-
 
 
 }

@@ -7,6 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Controller of the collaborator window statistics.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
+
 public class CollaboratorStatisticsController implements Serializable {
 
     /**
@@ -21,6 +27,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Constructor that initializes the applicationPOT and the platform instances.
+     *
      * @throws FileNotFoundException file not found exception
      */
     public CollaboratorStatisticsController() throws FileNotFoundException {
@@ -30,6 +37,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of the values of delays of tasks from the current collaborator's organization and by a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return mean of delays
      */
@@ -39,6 +47,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the standard deviation of the values of delays of tasks from the current collaborator's organization and by a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return standard deviation of delays
      */
@@ -48,6 +57,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the number of delays, from a specific freelancer, that belong to the specified interval
+     *
      * @param freelancer selected freelancer
      * @return int number of delays
      */
@@ -57,6 +67,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the number of delays, from a specific freelancer, that belong to the specified interval
+     *
      * @param freelancer selected freelancer
      * @return int number of delays
      */
@@ -66,6 +77,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the number of delays, from a specific freelancer, that belong to the specified interval
+     *
      * @param freelancer selected freelancer
      * @return int number of delays
      */
@@ -75,6 +87,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the freelancer's list from the platform
+     *
      * @return freelancer's list
      */
     public List<Freelancer> getListFreelancersToListView() {
@@ -83,6 +96,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of all the delays from the current collaborator's organization
+     *
      * @return mean of delays
      */
     public double meanByOrganization() {
@@ -91,14 +105,16 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the standard deviation of all the delays from the current collaborator's organization
+     *
      * @return standard deviation of delays
      */
-    public double standardDeviationByOrganization(){
+    public double standardDeviationByOrganization() {
         return platform.standardDeviationByOrganization();
     }
 
     /**
      * Returns the number of delays from all the tasks that belong to the current collaborator's organization and to the specified interval
+     *
      * @return int number of delays
      */
     public int numberDelaysFirstIntervalByOrganization() {
@@ -107,6 +123,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the number of delays from all the tasks that belong to the current collaborator's organization and to the specified interval
+     *
      * @return int number of delays
      */
     public int numberDelaysSecondIntervalByOrganization() {
@@ -115,6 +132,7 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the number of delays from all the tasks that belong to the current collaborator's organization and to the specified interval
+     *
      * @return int number of delays
      */
     public int numberDelaysThirdIntervalByOrganization() {
@@ -123,19 +141,21 @@ public class CollaboratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of the payments values by a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return mean of payments
      */
-    public double meanPaymentsByFreelancer(Freelancer freelancer){
+    public double meanPaymentsByFreelancer(Freelancer freelancer) {
         return platform.meanPaymentsByFreelancer(freelancer);
     }
 
     /**
      * Returns the standard deviation of the payments values by a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return standard deviation of payments
      */
-    public double standardDeviationPaymentsByFreelancer(Freelancer freelancer){
+    public double standardDeviationPaymentsByFreelancer(Freelancer freelancer) {
         return platform.standardDeviationPaymentsByFreelancer(freelancer);
     }
 }

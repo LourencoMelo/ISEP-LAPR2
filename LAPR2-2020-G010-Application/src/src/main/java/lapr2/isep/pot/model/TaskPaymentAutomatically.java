@@ -120,6 +120,7 @@ public class TaskPaymentAutomatically extends TimerTask implements CoinCurrencie
             return "円";
         } else if (country.equalsIgnoreCase("CHINA")) {
             return "元";
+            //ADD THE FUTURE COUNTRY'S COIN SYMBOL
         } else {
             return "€";
         }

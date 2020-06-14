@@ -8,13 +8,21 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller of the organization regist.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 public class RegistOrganizationController implements Serializable {
 
     /**
      * Plataform's initialization
      */
-    private final Platform platform ;
+    private final Platform platform;
 
+    /**
+     * ApplicationPOT's initialization
+     */
     private final ApplicationPOT applicationPOT;
 
     /**
@@ -22,6 +30,9 @@ public class RegistOrganizationController implements Serializable {
      */
     private Organization organization;
 
+    /**
+     * List of collaborators's initialization
+     */
     private List<Collaborator> collaboratorListRegistered = new ArrayList<>();
 
     /**
@@ -29,20 +40,25 @@ public class RegistOrganizationController implements Serializable {
      */
     private RegistOrganization registOrganization;
 
+    /**
+     * Constructor that initialize the applicationPOT and platform and registorganization instances
+     *
+     * @throws FileNotFoundException if the file is not found
+     */
     public RegistOrganizationController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
         this.platform = applicationPOT.getPlatform();
         this.registOrganization = platform.getRegistOrganization();
-        //readInfo();
     }
 
     /**
      * creates new organization
-     * @param name of organization
-     * @param NIF of organization
-     * @param nameCollab collaborator's name
-     * @param emailCollab collaborator's email
-     * @param nameManager managaer's name
+     *
+     * @param name         of organization
+     * @param NIF          of organization
+     * @param nameCollab   collaborator's name
+     * @param emailCollab  collaborator's email
+     * @param nameManager  managaer's name
      * @param emailManager manager's email
      * @return
      */
@@ -52,17 +68,10 @@ public class RegistOrganizationController implements Serializable {
         this.organization = this.registOrganization.newOrganization(name, NIF, collaborator, manager);
         return this.registOrganization.validatesOrganization(this.organization);
     }
-        /*catch(RuntimeException ex)
-        {
-            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-            this.m_oOrganizacao = null;
-            return false;
-        }
-
-         */
 
     /**
      * Add the received organization
+     *
      * @param organization to add
      * @return true if added or false if not
      */
@@ -72,6 +81,7 @@ public class RegistOrganizationController implements Serializable {
 
     /**
      * Confirms if has or not the organization
+     *
      * @param organization to compare
      * @return true if has or false if not
      */
@@ -79,62 +89,93 @@ public class RegistOrganizationController implements Serializable {
         return this.platform.hasOrganization(organization);
     }
 
+    /**
+     * Returns the organizatio
+     *
+     * @return organization
+     */
     public Organization getOrganization() {
         return this.organization;
     }
 
+    /**
+     * Registst the organization
+     *
+     * @return true if registered or false if not
+     */
     public boolean registOrganization() {
         return this.registOrganization.registOrganization(this.organization);
     }
 
+    /**
+     * Returns the list of organizations
+     *
+     * @return organization's list
+     */
     public List<Organization> getListOrganizations() {
         return this.registOrganization.getListOrganizations();
     }
 
-
+    /**
+     * Returns the platform
+     *
+     * @return platform
+     */
     public Platform getPlatform() {
         return this.platform;
     }
 
-//    public String getRoleUser(User user) {
-//        return this.platform.getRoleUser(user);
-//    }
-
-    public boolean isCollaboratorLoggingIn(User user){
+    /**
+     * Confirms if the collaborator is logged in
+     *
+     * @param user to confirm if is a collaborator
+     * @return true if is collaborator or false if not
+     */
+    public boolean isCollaboratorLoggingIn(User user) {
         return platform.userIsCollaborator(user);
     }
 
-    public boolean isManagerLoggingIn(User user){
+    /**
+     * Confirms if the manager is logged in
+     *
+     * @param user to confirm if is a manager
+     * @return true if is manager or false if not
+     */
+    public boolean isManagerLoggingIn(User user) {
         return platform.userIsManager(user);
     }
 
+    /**
+     * Creates an user
+     *
+     * @param name     of the user
+     * @param email    of the user
+     * @param password of the user
+     * @return the user
+     * @throws FileNotFoundException if file is not found
+     */
     public User createUser(String name, String email, String password) throws FileNotFoundException {
         return platform.createUser(name, email, password);
     }
 
+    /**
+     * Confirms if the user received exist
+     *
+     * @param user to confirm
+     * @return true if exist or false if not
+     */
     public boolean userExist(User user) {
         return platform.userExist(user);
     }
 
+    /**
+     * Confirms if the email and password exist in the system as user
+     *
+     * @param email    to confirm
+     * @param password to confirm
+     * @return true if exist or false if not
+     */
     public boolean userExist(String email, String password) {
         return platform.userExist(email, password);
     }
-
-    public Organization getOrganizationByCollaborator(Collaborator collaborator) {
-        return platform.getOrganizationByCollaborator(collaborator);
-    }
-
-    public List<Collaborator> getListCollaboratorsAllOrganizations() {
-        return platform.getListCollaboratorsAllOrganizations();
-    }
-
-    public List<Manager> getListManagersAllOrganizations() {
-        return platform.getListManagersAllOrganizations();
-    }
-
-    /*public boolean addCollaboratorRegistered(String name, String email, String password) throws IOException {
-        collaboratorListRegistered.add(new Collaborator(name, email, password));
-    }
-
-     */
 }

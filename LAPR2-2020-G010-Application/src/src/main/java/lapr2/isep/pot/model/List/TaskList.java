@@ -1,13 +1,16 @@
 package lapr2.isep.pot.model.List;
 
 
-import lapr2.isep.pot.model.Organization;
 import lapr2.isep.pot.model.Task;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class the contains the imformation of the tasks.
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 public class TaskList implements Serializable {
 
     /**
@@ -29,18 +32,6 @@ public class TaskList implements Serializable {
         return new Task(id, description, timeDuration, costPerHour, category);
     }
 
-
-//    /**
-//     * Creates one Task
-//     * @param task to create
-//     * @return true if creates or false if not
-//     */
-//    public boolean TaskCreation(Task task) {
-//        if (this.taskValidation(task)) {
-//            return addTask(task);
-//        }
-//        return false;
-//    }
     /**
      * Adds a task to the task list
      *
@@ -74,6 +65,11 @@ public class TaskList implements Serializable {
         return String.format("\n %s", taskList);
     }
 
+    /**
+     * Returns a task from its id
+     * @param id of the task we want to return
+     * @return the task with the id received
+     */
     public Task getTaskByID(String id) {
         for(Task task: taskList) {
             if (id.equals(task.getId())) {
@@ -83,6 +79,11 @@ public class TaskList implements Serializable {
         return null;
     }
 
+    /**
+     * True or false dependent if the received task is already in the tasks list
+     * @param task to confirm
+     * @return true if contains or false if not
+     */
     public boolean contains(Task task){
         for(Task freelancerAux : taskList){
             return task.equals(freelancerAux);

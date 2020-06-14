@@ -7,6 +7,11 @@ import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Controller of the creation of the task.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 public class TaskCreationController implements Serializable {
 
     /**
@@ -20,13 +25,14 @@ public class TaskCreationController implements Serializable {
     private Task task;
 
     /**
-     *  Task's id
+     * Task's id
      */
     private String id;
 
-
+    /**
+     * ApplicationPOT's instace
+     */
     private ApplicationPOT applicationPOT;
-
 
     /**
      * Platform
@@ -40,7 +46,9 @@ public class TaskCreationController implements Serializable {
 
 
     /**
-     * Creates a task creation controller
+     * Constructor that initialize the applicationPOT and platform and tasklist instances
+     *
+     * @throws FileNotFoundException if the file is not found
      */
     public TaskCreationController() throws FileNotFoundException {
         this.applicationPOT = ApplicationPOT.getInstance();
@@ -52,14 +60,14 @@ public class TaskCreationController implements Serializable {
     /**
      * Creates a new task and verifies if it already exists
      *
-     * @param id Task's id
-     * @param description Task's brief description
+     * @param id           Task's id
+     * @param description  Task's brief description
      * @param timeDuration Task's time duration (in hours)
-     * @param costPerHour Task's cost per hour (in euros)
-     * @param category Task's category
+     * @param costPerHour  Task's cost per hour (in euros)
+     * @param category     Task's category
      * @return true, if this task doesn´t already exists
      */
-    public Task newTask(String id, String description, Double timeDuration, Double costPerHour, String category){
+    public Task newTask(String id, String description, Double timeDuration, Double costPerHour, String category) {
         this.organization = platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail());
         List<Task> list = this.organization.getTaskList();
         this.task = this.taskList.newTask(id, description, timeDuration, costPerHour, category);
@@ -72,46 +80,37 @@ public class TaskCreationController implements Serializable {
      *
      * @return true, if it creates a new task
      */
-    public boolean taskCreation(){
-        if (taskList.taskValidation(this.id)){
+    public boolean taskCreation() {
+        if (taskList.taskValidation(this.id)) {
             return this.taskList.addTask(this.task);
         }
         return false;
     }
 
-
-
-//    /**
-//     * Returns organizations task's list
-//     *
-//     * @return Task's List
-//     */
-//    public List<Task> getTaskList(){
-//
-//    }
-
     /**
      * Returns if the task already exists or not
-     * @param id  task's id
-     * @return   false if the task already exists
+     *
+     * @param id task's id
+     * @return false if the task already exists
      */
-    public boolean getTaskValidation(String id){
+    public boolean getTaskValidation(String id) {
         return this.taskList.taskValidation(id);
-   }
+    }
 
-
+    /**
+     * Gets the task list
+     *
+     * @return list of tasks
+     */
     public List<Task> getTaskLists() {
         return platform.getRegistOrganization().getOrganizationByUserEmail(platform.getCurrentUserEmail()).getTaskList();
     }
 
-    public List<Task> getTaskListByOrganization(Organization organization){
-        return platform.getListOfTasksFromOrganization(organization);
-   }
-
-    public Organization getOrganizationByCollaborator(Collaborator collaborator) {
-        return platform.getOrganizationByCollaborator(collaborator);
-    }
-
+    /**
+     * Returns the collaborator
+     *
+     * @return collaborator
+     */
     public Collaborator getCollaborator() {
         return platform.getCollaborator();
     }

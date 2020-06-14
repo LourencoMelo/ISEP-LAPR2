@@ -8,6 +8,12 @@ import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Controller of the admin window statistics.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
+
 public class AdministratorStatisticsController implements Serializable {
 
     /**
@@ -22,6 +28,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Constructor that get's the applicationPot instance and the platform initialized before on ApplicationPot class.
+     *
      * @throws FileNotFoundException
      */
     public AdministratorStatisticsController() throws FileNotFoundException {
@@ -33,6 +40,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of all platform's freelancers delays
+     *
      * @return freelancers delays mean
      */
     public double meanByAllPlatformFreelancers() {
@@ -41,6 +49,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the standard deviation of all platform's freelancers delays
+     *
      * @return freelancers delays standard deviation
      */
     public double standardDeviationAllPlatformFreelancers() {
@@ -51,19 +60,21 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of one specific freelancer from the platform
+     *
      * @param freelancer selected freelancer
      * @return mean
      */
-    public double meanDelayAllTasksByFreelancer(Freelancer freelancer){
+    public double meanDelayAllTasksByFreelancer(Freelancer freelancer) {
         return platform.meanDelayAllTasksByFreelancer(freelancer);
     }
 
     /**
      * Returns the standard Deviation of one specific freelancer from the platform
+     *
      * @param freelancer selected freelancer
      * @return standard deviation
      */
-    public double standardDeviationDelayAllTasksFreelancer(Freelancer freelancer){
+    public double standardDeviationDelayAllTasksFreelancer(Freelancer freelancer) {
         return platform.standardDeviationDelayAllTasksFreelancer(freelancer);
     }
 
@@ -71,6 +82,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the list of all platform's freelancers
+     *
      * @return platform's freelancers
      */
     public List<Freelancer> getListPlataformFreelancers() {
@@ -82,6 +94,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 1st interval of values of delays from a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return int value of number of delays on the interval specified
      */
@@ -91,6 +104,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 2nd interval of values of delays from a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return int value of number of delays on the interval specified
      */
@@ -100,6 +114,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 3rd interval of values of delays from a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return int value of number of delays on the interval specified
      */
@@ -111,6 +126,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 1st interval of values of delays from all platform's freelancers
+     *
      * @return int value of number of delays on the interval specified
      */
     public int numberDelaysFirstIntervalFromAllPlatform() {
@@ -119,6 +135,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 2nd interval of values of delays from all platform's freelancers
+     *
      * @return int value of number of delays on the interval specified
      */
     public int numberDelaysSecondIntervalFromAllPlatform() {
@@ -127,6 +144,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 3rd interval of values of delays from all platform's freelancers
+     *
      * @return int value of number of delays on the interval specified
      */
     public int numberDelaysThirdIntervalFromAllPlatform() {
@@ -137,6 +155,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of all the platform's payment values made to a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return mean
      */
@@ -146,6 +165,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the standard deviation of all the platform's payment values made to a specific freelancer
+     *
      * @param freelancer selected freelancer
      * @return standard deviation
      */
@@ -157,6 +177,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the mean of all platform's payments values
+     *
      * @return mean
      */
     public double meanPaymentsToAllPlataformFreelancers() {
@@ -165,9 +186,10 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the standard deviation of all platform's payments values
+     *
      * @return standard deviation
      */
-    public double standardDeviationPaymentsToAllPlatformFreelancers(){
+    public double standardDeviationPaymentsToAllPlatformFreelancers() {
         return platform.standardDeviationPaymentsToAllPlatformFreelancers();
     }
 
@@ -175,6 +197,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 1st interval of payment values from all platform's freelancers
+     *
      * @return int value of number of payment values on the interval specified
      */
     public int numberPaymentsFirstIntervalToAllPlatformFreelancers() {
@@ -183,6 +206,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 2nd interval of payment values from all platform's freelancers
+     *
      * @return int value of number of payment values on the interval specified
      */
     public int numberPaymentsSecondIntervalToAllPlatformFreelancers() {
@@ -191,6 +215,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 3rd interval of payment values from all platform's freelancers
+     *
      * @return int value of number of payment values on the interval specified
      */
     public int numberPaymentsThirdIntervalToAllPlatformFreelancers() {
@@ -201,6 +226,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 1st interval of payment values from a specific platform's freelancer
+     *
      * @param freelancer selected freelancer
      * @return int value of number of payment values on the interval specified
      */
@@ -210,6 +236,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 2nd interval of payment values from a specific platform's freelancer
+     *
      * @param freelancer selected freelancer
      * @return int value of number of payment values on the interval specified
      */
@@ -219,6 +246,7 @@ public class AdministratorStatisticsController implements Serializable {
 
     /**
      * Returns the 3rd interval of payment values from a specific platform's freelancer
+     *
      * @param freelancer selected freelancer
      * @return int value of number of payment values on the interval specified
      */

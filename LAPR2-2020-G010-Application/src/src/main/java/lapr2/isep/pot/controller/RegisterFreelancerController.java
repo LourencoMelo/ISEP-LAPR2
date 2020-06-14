@@ -8,6 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Controller of the freelancer regist.
+ *
+ * @author José Soares, João Beires, José Maia, Lourenço Melo, Gonçalo Ferreira.
+ */
 public class RegisterFreelancerController implements Serializable {
 
     /**
@@ -34,6 +39,7 @@ public class RegisterFreelancerController implements Serializable {
      */
 
     private final ApplicationPOT applicationPOT;
+
     /**
      * Initializes the frellancer's instance
      */
@@ -45,48 +51,46 @@ public class RegisterFreelancerController implements Serializable {
     }
 
     /**
-     *
-     * @param id                    freelancer's id
-     * @param name                  freelancer's name
-     * @param levelOfExpertise      freelancer's level of expertise
-     * @param email                 freelancer's email
-     * @param NIF                   freelancer's nif
-     * @param bankAccountIBAN       freelancer's iban
-     * @param address               freelancer's address
-     * @param country               freelancer's country
+     * @param id               freelancer's id
+     * @param name             freelancer's name
+     * @param levelOfExpertise freelancer's level of expertise
+     * @param email            freelancer's email
+     * @param NIF              freelancer's nif
+     * @param bankAccountIBAN  freelancer's iban
+     * @param address          freelancer's address
+     * @param country          freelancer's country
      * @return true or false depending of the validation
      */
 
-    public Freelancer newFreelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country){
-            this.freelancer = this.registFreelancer.newFreelancer(id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
-            return this.freelancer;
+    public Freelancer newFreelancer(String id, String name, String levelOfExpertise, String email, String NIF, String bankAccountIBAN, String address, String country) {
+        this.freelancer = this.registFreelancer.newFreelancer(id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
+        return this.freelancer;
     }
 
     /**
-     *
      * @return boolean value depending of the validation
      */
-    public boolean registFreelancer(){
-        if (registFreelancer.validationFreelancer(this.freelancer)){
+    public boolean registFreelancer() {
+        if (registFreelancer.validationFreelancer(this.freelancer)) {
             return this.registFreelancer.addFreelancer(freelancer);
         }
         return false;
     }
 
     /**
-     *
      * @return list of freelancers
      */
-    public List<Freelancer> getListFreelancer(){
+    public List<Freelancer> getListFreelancer() {
         return this.registFreelancer.getFreelancerList();
     }
 
     /**
      * Returns if the freelancers already exists or not
+     *
      * @param freelancer freelancer
      * @return false if the freelancer exists
      */
-    public boolean getValidationFreelancer(Freelancer freelancer){
+    public boolean getValidationFreelancer(Freelancer freelancer) {
         return this.registFreelancer.validationFreelancer(freelancer);
     }
 
@@ -96,9 +100,10 @@ public class RegisterFreelancerController implements Serializable {
 
     /**
      * Sets the freelancer's value
+     *
      * @param freelancer freelancer's value
      */
-    public void setFreelancer(Freelancer freelancer){
+    public void setFreelancer(Freelancer freelancer) {
         this.freelancer = freelancer;
     }
 }

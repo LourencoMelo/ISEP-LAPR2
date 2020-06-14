@@ -235,28 +235,39 @@ public class CollaboratorMenuUI implements Initializable {
 
     @FXML
     void mnuTransactionsImportCsvOnAction(ActionEvent event) {
-        FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListCsv();
-        File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
-        if (fileToImport != null) {
-            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
-            applicationController.readCsvFile(fileToImport);
-        } else {
+        try {
+            FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListCsv();
+            File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
+            if (fileToImport != null) {
+                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
+                applicationController.readCsvFile(fileToImport);
+            } else {
+                AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
+                        "It was not selected any file!").show();
+            }
+        } catch (Exception e) {
             AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
-                    "It was not selected any file!").show();
+                    "Error importing the file content").show();
         }
+
     }
 
 
     @FXML
     void mnuTransactionsImportTxtOnAction(ActionEvent event) {
-        FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListTxt();
-        File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
-        if (fileToImport != null) {
-            applicationController.readTxtFile(fileToImport);
-            AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
-        } else {
+        try {
+            FileChooser fileChooser = FileChooserTransactionUI.createFileChooserPaymentListTxt();
+            File fileToImport = fileChooser.showOpenDialog(registerFreelancerBtn.getScene().getWindow());
+            if (fileToImport != null) {
+                applicationController.readTxtFile(fileToImport);
+                AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(), IMPORT_HEADER, "Transactions imported successfully.").show();
+            } else {
+                AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
+                        "It was not selected any file!").show();
+            }
+        } catch (Exception e) {
             AlertUI.createAlert(Alert.AlertType.ERROR, applicationController.getAppName(), IMPORT_HEADER,
-                    "It was not selected any file!").show();
+                    "Error importing the file content").show();
         }
     }
 
