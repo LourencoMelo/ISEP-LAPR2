@@ -13,6 +13,7 @@ import lapr2.isep.pot.controller.ApplicationController;
 import lapr2.isep.pot.controller.SetDateToPayController;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,17 +73,19 @@ public class SetPaymentDateUI {
             event.consume();
         } else {
             applicationController.saveInfo();
+            applicationController.createFileWithPaidTransactions();
             System.exit(0);
         }
     }
 
     @FXML
-    void SetDateOnAction(ActionEvent event) throws ParseException {
+    void SetDateOnAction(ActionEvent event) throws ParseException, IOException {
         try {
             setDateToPayController.setDateToPay(Formatter(dateToPayTxtField.getText()));
             Alert alert = AlertUI.createAlert(Alert.AlertType.INFORMATION, applicationController.getAppName(),
                     "Date defined.", "The date was added to the transactions.");
             alert.show();
+            applicationController.createFileWithPaidTransactions();
         } catch (Exception exception) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, applicationController.getAppName(),
                     "Error.", "The date must follow the following structure: dd/mm/yyyy hh:mm:ss");

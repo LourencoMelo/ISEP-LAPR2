@@ -51,23 +51,6 @@ public class RegistOrganizationController implements Serializable {
         this.registOrganization = platform.getRegistOrganization();
     }
 
-    /**
-     * creates new organization
-     *
-     * @param name         of organization
-     * @param NIF          of organization
-     * @param nameCollab   collaborator's name
-     * @param emailCollab  collaborator's email
-     * @param nameManager  managaer's name
-     * @param emailManager manager's email
-     * @return
-     */
-    public boolean newOrganization(String name, String NIF, String nameCollab, String emailCollab, String nameManager, String emailManager) throws IOException {                       //Is necessary to have password by param?
-        Collaborator collaborator = Organization.newCollaborator(nameCollab, emailCollab);
-        Manager manager = Organization.newManager(nameManager, emailManager);
-        this.organization = this.registOrganization.newOrganization(name, NIF, collaborator, manager);
-        return this.registOrganization.validatesOrganization(this.organization);
-    }
 
     /**
      * Add the received organization
@@ -96,15 +79,6 @@ public class RegistOrganizationController implements Serializable {
      */
     public Organization getOrganization() {
         return this.organization;
-    }
-
-    /**
-     * Registst the organization
-     *
-     * @return true if registered or false if not
-     */
-    public boolean registOrganization() {
-        return this.registOrganization.registOrganization(this.organization);
     }
 
     /**

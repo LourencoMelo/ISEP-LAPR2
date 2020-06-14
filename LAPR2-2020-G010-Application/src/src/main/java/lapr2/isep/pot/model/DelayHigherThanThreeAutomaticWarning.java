@@ -8,8 +8,14 @@ import java.util.TimerTask;
 
 public class DelayHigherThanThreeAutomaticWarning extends TimerTask implements Serializable {
 
+    /**
+     * Date's instance
+     */
     private Date date;
 
+    /**
+     * Freelancer's instance
+     */
     private Freelancer freelancer;
 
     /**
@@ -22,8 +28,16 @@ public class DelayHigherThanThreeAutomaticWarning extends TimerTask implements S
      */
     private final ApplicationPOT applicationPOT;
 
+    /**
+     * Creates a new File
+     */
     private final File file = new File("files\\DelaysHigherThanThree.txt");
 
+    /**
+     * Constructor that initializes dae, freelancer and applicationPot and platforms instances
+     * @param freelancer                freelancer selected
+     * @throws FileNotFoundException    if file not found
+     */
     public DelayHigherThanThreeAutomaticWarning(Freelancer freelancer) throws FileNotFoundException {
         this.date = date;
         this.freelancer = freelancer;
@@ -32,7 +46,7 @@ public class DelayHigherThanThreeAutomaticWarning extends TimerTask implements S
     }
 
     /**
-     * Method that allows us to run the timertask
+     * Method that allows us to run the timer task
      */
     @Override
     public void run() {

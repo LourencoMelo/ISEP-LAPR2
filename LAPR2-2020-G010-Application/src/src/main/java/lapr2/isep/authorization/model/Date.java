@@ -15,7 +15,7 @@ public class Date {
          * Get current date time
          */
         LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM");
         return dateTimeFormatter.format(localDateTime);
     }
 

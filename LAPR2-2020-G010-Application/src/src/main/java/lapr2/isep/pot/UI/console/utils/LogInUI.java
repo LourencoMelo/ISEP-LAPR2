@@ -90,7 +90,7 @@ public class LogInUI implements Initializable {
             alert.show();
         } else {
             if (isAdminLoggingIn(nameTextField.getText(), emailTxtField.getText(), passwordField.getText())) {
-                if(Date.actualDate().equalsIgnoreCase("14/06/2020")) {
+                if(Date.actualDate().equalsIgnoreCase("31/12")) {
                     applicationController.sendEmailWithDelayHigherThanThree();
                 }
                 administratorMenuStage.show();

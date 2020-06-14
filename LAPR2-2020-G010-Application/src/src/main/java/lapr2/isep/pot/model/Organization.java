@@ -120,22 +120,42 @@ public class Organization implements Serializable {
         return taskList.getTaskList();
     }
 
+    /**
+     * Returns the organization's list of tasks
+     * @return list of tasks
+     */
     public TaskList getListTask() {
         return taskList;
     }
 
+    /**
+     * Returns organization's mean
+     * @return mean
+     */
     public double getMean() {
         return mean;
     }
 
+    /**
+     * Sets organization's mean
+     * @param mean  mean
+     */
     public void setMean(double mean) {
         this.mean = mean;
     }
 
+    /**
+     * Returns organization's standard deviation
+     * @return standard deviation
+     */
     public double getStandardDeviation() {
         return standardDeviation;
     }
 
+    /**
+     * Sets organization's standard deviation
+     * @param standardDeviation standard deviation
+     */
     public void setStandardDeviation(double standardDeviation) {
         this.standardDeviation = standardDeviation;
     }
@@ -155,6 +175,12 @@ public class Organization implements Serializable {
         return found;
     }
 
+    /**
+     * Verifies if the the organization has that collaborator
+     *
+     * @param email Manager's email
+     * @return true if it founds the manager
+     */
     public boolean hasManagerWithEmail(String email) {
         boolean found = false;
         Manager manager = this.manager;
@@ -187,6 +213,10 @@ public class Organization implements Serializable {
         return (Objects.equals(NIF, obj.NIF));
     }
 
+    /**
+     * Returns textual description of organization
+     * @return description
+     */
     @Override
     public String toString() {
         return String.format("Organization: " +
@@ -199,10 +229,19 @@ public class Organization implements Serializable {
                 "\n\t Tasks list: %s", name, NIF, manager.getName(), manager.getEmail(), collaborator.getName(), collaborator.getEmail(), taskList.getTaskList());
     }
 
+    /**
+     * Returns organization's payments transactions list
+     * @return
+     */
     public PaymentTransactionList getPaymentTransactionList() {
         return paymentTransactionList;
     }
 
+    /**
+     * Returns the summation of delays for a specific freelancer
+     * @param freelancer selected freelancer
+     * @return summation of delays
+     */
     public double addSumOfDelays(Freelancer freelancer) {
         double summation = 0;
         for(PaymentTransaction paymentTransaction : paymentTransactionList.getListTotalPaymentsTransactions()) {

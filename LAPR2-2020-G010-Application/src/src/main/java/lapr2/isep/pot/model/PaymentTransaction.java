@@ -67,8 +67,6 @@ public class PaymentTransaction implements Serializable {
         this.freelancer = freelancer;
         this.task = task;
         amountPay();
-        //this.freelancer.addNumberOfTasksToFreelancer();
-        //this.freelancer.addDelayToFreelancer(delay);
     }
 
     /**
@@ -98,6 +96,10 @@ public class PaymentTransaction implements Serializable {
         return delay;
     }
 
+    /**
+     * Returns payment transaction's freelancer
+     * @return freelancer
+     */
     public Freelancer getFreelancer() {
         return freelancer;
     }
@@ -111,14 +113,27 @@ public class PaymentTransaction implements Serializable {
         return descQualityOfWork;
     }
 
+    /**
+     * Returns payment transaction's task
+     * @return task
+     */
     public Task getTask() {
         return task;
     }
 
+    /**
+     * Returns payment transaction's amount to pay
+     * @return amount to pay
+     */
     public double getAmountPay() {
         return this.amountPay;
     }
 
+    /**
+     * Sets the date to the automatic payment
+     * @param dateToPay     selected date
+     * @throws IOException  if input or output not correct
+     */
     public void setDateToPay(Date dateToPay) throws IOException {
         TaskPaymentAutomatically taskPaymentAutomatically = new TaskPaymentAutomatically(dateToPay, freelancer, getAmountPay());
         Timer timer = new Timer();
@@ -126,6 +141,10 @@ public class PaymentTransaction implements Serializable {
         this.dateToPay = dateToPay;
     }
 
+    /**
+     * Returns the date to pay
+     * @return
+     */
     public Date getDateToPay() {
         return dateToPay;
     }
@@ -135,9 +154,6 @@ public class PaymentTransaction implements Serializable {
      *
      * @return Transaction's characteristics.
      */
-
-
-
     @Override
     public String toString() {
         return "PaymentTransaction: " +
@@ -149,6 +165,12 @@ public class PaymentTransaction implements Serializable {
                 "\n" + task;
     }
 
+    /**
+     * Returns task's cost considering the formula
+     * @param freelancer    task's freelancer
+     * @param task          task
+     * @return task's cost
+     */
     public double calculateTaskCost(Freelancer freelancer, Task task) {
         if (freelancer.getLevelOfExpertise().equalsIgnoreCase("Senior")) {
             return  (2 * task.getCostPerHour()) * task.getTimeDuration();
@@ -159,10 +181,18 @@ public class PaymentTransaction implements Serializable {
         }
     }
 
+    /**
+     * Sets amount to pay instance to the value returned on calculate task cost method
+     */
     public void amountPay(){
         this.amountPay = calculateTaskCost(this.freelancer, this.task);
     }
 
+    /**
+     * Checks if 2 transactions have the same id or are equal
+     * @param o other transaction to compare
+     * @return  true if two tasks are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -172,6 +202,10 @@ public class PaymentTransaction implements Serializable {
                 Objects.equals(task, that.task);
     }
 
+    /**
+     * Manages payment transaction's attributes
+     * @return managed attribute
+     */
     @Override
     public int hashCode() {
         return Objects.hash(transId, endDate, delay, descQualityOfWork, amountPay, freelancer, task);

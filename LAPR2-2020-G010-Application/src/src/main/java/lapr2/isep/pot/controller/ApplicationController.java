@@ -101,4 +101,11 @@ public class ApplicationController implements Serializable {
     public void sendEmailWithDelayHigherThanThree() throws FileNotFoundException {
         platform.sendEmailWithDelayHigherThanThree();
     }
+
+    /**
+     * Returns the list of paid payment transaction that exist on the platform
+     */
+    public void createFileWithPaidTransactions() {
+        platform.createFileWithPaidTransactions();
+    }
 }

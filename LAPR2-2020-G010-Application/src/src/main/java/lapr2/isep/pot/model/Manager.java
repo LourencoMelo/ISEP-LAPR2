@@ -33,6 +33,13 @@ public class Manager extends User implements Serializable {
         }
     }
 
+    /**
+     * Constructor that initializes manager with name, email and password
+     * @param name                      manager's name
+     * @param email                     manager's email
+     * @param password                  manager's password
+     * @throws FileNotFoundException    if file not found
+     */
     public Manager(String name, String email, String password) throws FileNotFoundException {
         super(name, email, password);
         this.name = name;

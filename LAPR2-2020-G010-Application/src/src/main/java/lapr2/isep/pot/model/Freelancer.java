@@ -94,18 +94,34 @@ public class Freelancer implements Serializable, Comparable {
         return name;
     }
 
+    /**
+     * Returns the number of tasks
+     * @return tasks
+     */
     public int getNumberOfTasks() {
         return numberOfTasks;
     }
 
+    /**
+     * adds 1 to the number o tasks
+     * @return tasks
+     */
     public int addNumberOfTasksToFreelancer() {
         return numberOfTasks++;
     }
 
+    /**
+     * Sets the freelancer's mean to the mean received
+     * @param mean freelancer's mean
+     */
     public void setMean(double mean) {
         this.mean = mean;
     }
 
+    /**
+     * Returns the freelancer's mean
+     * @return mean
+     */
     public double getMean() {
         return mean;
     }
@@ -208,6 +224,11 @@ public class Freelancer implements Serializable, Comparable {
                 "\n\tCountry: %s", id, name, levelOfExpertise, email, NIF, bankAccountIBAN, address, country);
     }
 
+    /**
+     * Compares alphabetically 2 freelancers
+     * @param freelancer other freelancer to compare
+     * @return int value according to the if clauses result
+     */
     @Override
     public int compareTo(Object freelancer) {
         String name = this.name;

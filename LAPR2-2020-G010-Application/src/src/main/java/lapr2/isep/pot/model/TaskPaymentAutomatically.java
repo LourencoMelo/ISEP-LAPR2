@@ -16,10 +16,19 @@ public class TaskPaymentAutomatically extends TimerTask implements CoinCurrencie
      */
     private final Date date;
 
+    /**
+     * Freelancer's instance
+     */
     private final Freelancer freelancer;
 
+    /**
+     * Value to print on the receipt
+     */
     private final double valueToTheReceipt;
 
+    /**
+     * Initializes new File to save the receipts
+     */
     private final File file = new File("files\\PaymentReceipt.txt");
 
     /**
@@ -46,7 +55,7 @@ public class TaskPaymentAutomatically extends TimerTask implements CoinCurrencie
     }
 
     /**
-     * Method that allows us to run the timertask
+     * Method that allows us to run the timer task
      */
     @Override
     public void run() {

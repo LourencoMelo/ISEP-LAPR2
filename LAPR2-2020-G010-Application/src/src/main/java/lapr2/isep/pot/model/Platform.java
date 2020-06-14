@@ -14,12 +14,24 @@ import java.util.List;
 public class Platform implements Serializable {
 
 
+    /**
+     * Freelancer's selected freelancer
+     */
     private Freelancer selectedFreelancer;
 
+    /**
+     * Task's selected task
+     */
     private Task selectedTask;
 
+    /**
+     * TransactionRegist's instance
+     */
     private TransactionsRegist transactionsRegist;
 
+    /**
+     * currentUserEmail's instance
+     */
     private String currentUserEmail;
 
     /**
@@ -33,22 +45,30 @@ public class Platform implements Serializable {
      */
     private RegistOrganization registOrganization;
 
+    /**
+     * TaskList's instance
+     */
     private TaskList taskList;
 
+    /**
+     * Constructor that initializes registFreelancer, registOrganization and taskList
+     * @throws FileNotFoundException if file not found
+     */
     public Platform() throws FileNotFoundException {
         this.registFreelancer = new RegistFreelancer();
         this.registOrganization = new RegistOrganization();
         this.taskList = new TaskList();
-        readSerialization();
+        //readSerialization();
         //this.transactionsRegist = new TransactionsRegist();
     }
 
+    /**
+     * Reads the serialized list of freelancer's but with some errors
+     */
     private void readSerialization() {
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("SerializableData"));
             this.registFreelancer = (RegistFreelancer) in.readObject();
-//            this.registOrganization = (RegistOrganization) in.readObject();
-            this.taskList = (TaskList) in.readObject();
             in.close();
         } catch (IOException | ClassNotFoundException e) {
             Alert alert = AlertUI.createAlert(Alert.AlertType.WARNING, "Improve T4J", "Error", "The binary file wasn't read.");
@@ -56,14 +76,14 @@ public class Platform implements Serializable {
         }
     }
 
-
+    /**
+     * Serializes the registFreelancer
+     */
     public void serialization(){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(new File("SerializableData"));
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(registFreelancer);
-//            objectOutputStream.writeObject(registOrganization);
-            objectOutputStream.writeObject(taskList);
             objectOutputStream.close();
             fileOutputStream.close();
         } catch (IOException e) {
@@ -86,11 +106,15 @@ public class Platform implements Serializable {
      *
      * @return registFreelancer
      */
-
     public RegistFreelancer getRegistFreelancer() {
         return this.registFreelancer;
     }
 
+    /**
+     * Returns boolean value if the organization is added or not
+     * @param organization organization received
+     * @return true if the organization is added
+     */
     public boolean addOrganization(Organization organization) {
         return registOrganization.addOrganization(organization);
     }
@@ -105,10 +129,6 @@ public class Platform implements Serializable {
         return registOrganization.hasOrganization(organization);
     }
 
-
-//    public String getRoleUser(User user) {
-//        return user.getRole();
-//    }
 
     public Freelancer getSelectedFreelancer() {
         return selectedFreelancer;
@@ -126,6 +146,11 @@ public class Platform implements Serializable {
         this.selectedTask = selectedTask;
     }
 
+    /**
+     * Returns boolean value depending if the current user is collaborator or not
+     * @param user received user
+     * @return true if the user is collaborator
+     */
     public boolean userIsCollaborator(User user) {
         for (Collaborator collaborator : getListCollaboratorsAllOrganizations()) {
             if (collaborator.getEmail().equalsIgnoreCase(user.getEmail()) && collaborator.getName().equalsIgnoreCase(user.getName())) {
@@ -140,6 +165,11 @@ public class Platform implements Serializable {
         return false;
     }
 
+    /**
+     * Returns boolean value depending if the current user is manager or not
+     * @param user received user
+     * @return true if the user is manager
+     */
     public boolean userIsManager(User user) {
         for (Manager manager : getListManagersAllOrganizations()) {
             if (manager.getEmail().equalsIgnoreCase(user.getEmail()) && manager.getName().equalsIgnoreCase(user.getName())) {
@@ -154,6 +184,12 @@ public class Platform implements Serializable {
         return false;
     }
 
+    /**
+     * Returns boolean value if the user exist
+     * @param email         user's email
+     * @param password      user's password
+     * @return  true if the user exists
+     */
     public boolean userExist(String email, String password) {
         boolean exist = false;
         for (User user : User.getListUsers()) {
@@ -165,54 +201,110 @@ public class Platform implements Serializable {
         return exist;
     }
 
+    /**
+     * Creates a new User object
+     * @param name          user's name
+     * @param email         user's email
+     * @param password      user's password
+     * @return  new user
+     * @throws FileNotFoundException if file not found
+     */
     public User createUser(String name, String email, String password) throws FileNotFoundException {
         return new User(name, email, password);
     }
 
+    /**
+     * Returns boolean value depending if the user received exists on the system
+     * @param user user received
+     * @return true if the list of users contains the received user
+     */
     public boolean userExist(User user) {
         return User.getListUsers().contains(user);
     }
 
+    /**
+     * Returns the organization from a specific collaborator
+     * @param collaborator received collaborator
+     * @return organization
+     */
     public Organization getOrganizationByCollaborator(Collaborator collaborator) {
         return registOrganization.getOrganizationByCollaborator(collaborator);
     }
 
+    /**
+     * Returns list of collaborators of all organizations
+     * @return list of collaborators
+     */
     public List<Collaborator> getListCollaboratorsAllOrganizations() {
         return registOrganization.getListCollaboratorsAllOrganizations();
     }
 
+    /**
+     * Returns list of managers of all organizations
+     * @return list of managers
+     */
     public List<Manager> getListManagersAllOrganizations() {
         return registOrganization.getListManagersAllOrganizations();
     }
 
+    /**
+     * Returns list of users
+     * @return list of users
+     */
     public List<User> getListUsers() {
         return User.getListUsers();
     }
 
 
+    /**
+     * Returns task list of a specific organization
+     * @param organization received organization
+     * @return list of tasks
+     */
     public List<Task> getListOfTasksFromOrganization(Organization organization) {
         return organization.getTaskList();
     }
 
+    /**
+     * Returns collaborator from organization
+     * @return collaborator
+     */
     public Collaborator getCollaborator() {
         return registOrganization.getCollaborator();
     }
 
+    /**
+     * Returns task list instance
+     * @return task list instance
+     */
     public TaskList getTasksList() {
         return taskList;
     }
 
+    /**
+     * Returns current user email
+     * @return user email
+     */
     public String getCurrentUserEmail() {
         return currentUserEmail;
     }
 
+    /**
+     * Returns current user organization
+     * @return user organization
+     */
     public Organization getOrganizationCurrentUser() {
         return registOrganization.getOrganizationByUserEmail(getCurrentUserEmail());
     }
 
+    /**
+     * Returns the payment list of the current user's organization
+     * @return payment list
+     */
     public PaymentTransactionList getPaymentListByOrganization() {
         return getOrganizationCurrentUser().getPaymentTransactionList();
     }
+
 
     public List<Freelancer> getFreelancersByOrganization() {
         List<Freelancer> listFreelancer = new ArrayList<>();
@@ -223,7 +315,7 @@ public class Platform implements Serializable {
     }
 
     /**
-     * Return the mean of delays of 1 organization
+     * Return the mean of delays of one organization
      *
      * @return mean of delays
      */
@@ -238,8 +330,11 @@ public class Platform implements Serializable {
     }
 
 
-//*************************************Media para um freelancer que tenha feito a task da organizacao atual para as scenes de execution statistics do manager e do colaborador***********
-
+    /**
+     * Returns the mean of delays from a specific freelancer that has done a task from the current user organization
+     * @param freelancer  selected freelancer
+     * @return mean
+     */
     public double meanByFreelancer(Freelancer freelancer) {
         double summation = getOrganizationCurrentUser().addSumOfDelays(freelancer);
         int numberOfTasksExecutedByFreelancer = getOrganizationCurrentUser().getPaymentTransactionList().getNumberOfTasks(freelancer);
@@ -249,11 +344,10 @@ public class Platform implements Serializable {
 
     }
 
-//    public double meanByFreelancerAllOrganizations(Freelancer freelancer) {
-//        return 0;
-//    }
-
-    //*************************************************Media de todos os freelancers da plataforma para a scene do admin execution statistics***********************************************
+    /**
+     * Returns the mean of all platform freelancer's delays
+     * @return mean
+     */
     public double meanAllPlataformFreelancers() {
         double summation = 0;
         int numberOfTransactions = 0;
@@ -267,8 +361,11 @@ public class Platform implements Serializable {
         return mean;
     }
 
-//******************************************Desvio padrao de todos os freelancers da plataforma para a scene do administrator execution statistics********************************
 
+    /**
+     * Returns the standard deviation of all platform freelancer's delays
+     * @return standard deviation
+     */
     public double standardDeviationByAllPlataformFreelancers() {
         List<Double> listDelays = new ArrayList<>();
         double summation = 0;
@@ -285,7 +382,11 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
-    //************************************************Media de delays por freelancer na scene do admin execution statistics******************************************************
+    /**
+     * Returns the mean of delays on every organization's tasks from a specific freelancer
+     * @param freelancer received freelancer
+     * @return mean
+     */
     public double meanDelayAllTasksByFreelancer(Freelancer freelancer) {
         double summationFreelancersDelay = 0;
         int numberOfTransactions = 0;
@@ -301,8 +402,12 @@ public class Platform implements Serializable {
         return mean;
     }
 
-//***********************************************Desvio padrao por freelancer na scene do admin execution statistics************************************************************
 
+    /**
+     * Returns the standard deviation of delays on every organization's tasks from a specific freelancer
+     * @param freelancer received freelancer
+     * @return standard deviation
+     */
     public double standardDeviationDelayAllTasksFreelancer(Freelancer freelancer) {
         List<Double> listDelaysFromFreelancer = new ArrayList<>();
         double summation = 0;
@@ -321,8 +426,10 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
-//**************************************************Desvio padrao de toda a organizacao atual para a scene do colaborador e do manager*****************************************************
-
+    /**
+     * Returns the standard deviation of all current user organization's tasks delays
+     * @return standard deviation
+     */
     public double standardDeviationByOrganization() {
         List<Double> listTimesFromDelays = new ArrayList<>();
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -337,7 +444,10 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
-
+    /**
+     * Returns the standard deviation of tasks delays from a specific freelancer
+     * @return standard deviation
+     */
     public double standardDeviationByFreelancer(Freelancer freelancer) {
         List<Double> listTimesFromDelays = new ArrayList<>();
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -353,7 +463,11 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
-    //**************************************************Intervalos para a scene do colaborador e do manager por freelancer e acerca dos delays***********************************************
+    /**
+     * Returns the number of delays from all the tasks from a specific freelancer to the current collaborator's organization and to the specified interval
+     *
+     * @return int number of delays
+     */
     public int numberDelaysFirstIntervalByFreelancer(Freelancer freelancer) {
         int delays = 0;
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -366,6 +480,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the tasks from a specific freelancer to the current collaborator's organization and to the specified interval
+     *
+     * @return int number of delays
+     */
     public int numberDelaysSecondIntervalByFreelancer(Freelancer freelancer) {
         int delays = 0;
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -378,6 +497,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the tasks from a specific freelancer to the current collaborator's organization and to the specified interval
+     *
+     * @return int number of delays
+     */
     public int numberDelaysThirdIntervalByFreelancer(Freelancer freelancer) {
         int delays = 0;
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -390,8 +514,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
-//***********************************************Intervalos para a scene do colaborador e do manager onde apresenta os delays todos da organizaçao respetiva***********************************************
-
+    /**
+     * Returns the number of delays from all the tasks from the current collaborator's organization and to the specified interval
+     *
+     * @return int number of delays
+     */
     public int numberDelaysFirstIntervalByOrganization() {
         int delays = 0;
 
@@ -404,6 +531,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the tasks from the current collaborator's organization and to the specified interval
+     *
+     * @return int number of delays
+     */
     public int numberDelaysSecondIntervalByOrganization() {
         int delays = 0;
 
@@ -416,6 +548,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the tasks from the current collaborator's organization and to the specified interval
+     *
+     * @return int number of delays
+     */
     public int numberDelaysThirdIntervalByOrganization() {
         int delays = 0;
 
@@ -428,8 +565,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
-//************************************************************Media dos pagamentos por freelancer para a scene do colaborador e do manager***************************************************************
-
+    /**
+     * Returns the mean of payments from current user organization's tasks made to a specific freelancer
+     * @param freelancer received freelancer
+     * @return mean
+     */
     public double meanPaymentsByFreelancer(Freelancer freelancer) {
         double summation = 0;
         int numberOfTransactions = 0;
@@ -443,8 +583,11 @@ public class Platform implements Serializable {
         return mean;
     }
 
-//************************************************************Desvio padrao dos pagamentos por freelancer para a scene do colaborador e do manager*************************************
-
+    /**
+     * Returns the standard deviation of payments from current user organization's tasks made to a specific freelancer
+     * @param freelancer received freelancer
+     * @return standard deviation
+     */
     public double standardDeviationPaymentsByFreelancer(Freelancer freelancer) {
         List<Double> listPayment = new ArrayList<>();
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getListTotalPaymentsTransactions()) {
@@ -463,8 +606,11 @@ public class Platform implements Serializable {
 
     }
 
-//************************************************************* Intervalos da scene de execution statistics do administrator ********************************************************
-
+    /**
+     * Returns the number of delays from all the platform's tasks by a specific freelancer to the specified interval
+     * @param freelancer received freelancer
+     * @return int number of delays
+     */
     public int numberDelaysFirstIntervalFromPlatformByFreelancer(Freelancer freelancer) {
         int delays = 0;
 
@@ -480,6 +626,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the platform's tasks by a specific freelancer to the specified interval
+     * @param freelancer received freelancer
+     * @return int number of delays
+     */
     public int numberDelaysSecondIntervalFromPlatformByFreelancer(Freelancer freelancer) {
         int delays = 0;
 
@@ -495,6 +646,11 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the platform's tasks by a specific freelancer to the specified interval
+     * @param freelancer received freelancer
+     * @return int number of delays
+     */
     public int numberDelaysThirdIntervalFromPlatformByFreelancer(Freelancer freelancer) {
         int delays = 0;
 
@@ -510,9 +666,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
-//****************************************Intervalos para os delays de todos os freelancers da plataforma para a scene execution statistics do admin***************************************************************************************************
-
-
+    /**
+     * Returns the number of delays from all the platform's tasks to the specified interval
+     * @return int number of delays
+     */
     public int numberDelaysFirstIntervalFromAllPlatform() {
         int delays = 0;
 
@@ -527,6 +684,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the platform's tasks to the specified interval
+     * @return int number of delays
+     */
     public int numberDelaysSecondIntervalFromAllPlatform() {
         int delays = 0;
 
@@ -542,6 +703,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of delays from all the platform's tasks to the specified interval
+     * @return int number of delays
+     */
     public int numberDelaysThirdIntervalFromAllPlatform() {
         int delays = 0;
 
@@ -555,8 +720,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
-//**********************************************Media e desvio padrao dos pagamentos para todos os freelancers da plataforma para a scene do admin***************************************************************
-
+    /**
+     * Returns the mean of all platform payments made to all freelancers
+     * @return mean
+     */
     public double meanPaymentsToAllPlataformFreelancers() {
         double summation = 0;
         double numberOfpayments = 0;
@@ -571,7 +738,10 @@ public class Platform implements Serializable {
         return mean;
     }
 
-
+    /**
+     * Returns the standard deviation of all platform payments made to all freelancers
+     * @return standard deviation
+     */
     public double standardDeviationPaymentsToAllPlatformFreelancers() {
         double summation = 0;
         List<Double> listPayments = new ArrayList<>();
@@ -588,8 +758,11 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
-//**************************************************Media e desvio padrao dos pagamentos a cada um dos freelancers da plataforma para a scene do admin***********************************************
-
+    /**
+     * Returns the mean of all platform payments made to a specific freelancer
+     * @param freelancer received freelancer
+     * @return mean
+     */
     public double meanPaymentsToAFreelancer(Freelancer freelancer) {
         double summationFromFreelancer = 0;
         double numberOfPaymentsFromFreelancer = 0;
@@ -606,6 +779,11 @@ public class Platform implements Serializable {
         return mean;
     }
 
+    /**
+     * Returns the standard deviation of all platform payments made to a specific freelancer
+     * @param freelancer received freelancer
+     * @return standard deviation
+     */
     public double standardDeviationPaymentsToAFreelancer(Freelancer freelancer) {
         double summation = 0;
         List<Double> listPaymentsToFreelancer = new ArrayList<>();
@@ -625,8 +803,10 @@ public class Platform implements Serializable {
         return standardDeviation;
     }
 
-//***********************************************Intervalos para os dados dos pagamentos a todos os freelancers da plataforma para a scene do admin*************************************************************
-
+    /**
+     * Returns the number of payments from all the platform's tasks to the specified interval
+     * @return int number of payments
+     */
     public int numberPaymentsFirstIntervalToAllPlatformFreelancers() {
         int delays = 0;
 
@@ -641,6 +821,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of payments from all the platform's tasks to the specified interval
+     * @return int number of payments
+     */
     public int numberPaymentsSecondIntervalToAllPlatformFreelancers() {
         int delays = 0;
 
@@ -655,6 +839,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of payments from all the platform's tasks to the specified interval
+     * @return int number of payments
+     */
     public int numberPaymentsThirdIntervalToAllPlatformFreelancers() {
         int delays = 0;
 
@@ -668,9 +856,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
-
-//************************************************Intervalos para os dados dos pagamentos a cada um dos freelancers da plataforma para a scene do admin*************************************************************
-
+    /**
+     * Returns the number of payments from all the platform's tasks by a specific freelancer to the specified interval
+     * @return int number of payments
+     */
     public int numberPaymentsFirstIntervalFromFreelancerAllPlatform(Freelancer freelancer) {
         int delays = 0;
 
@@ -687,6 +876,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of payments from all the platform's tasks by a specific freelancer to the specified interval
+     * @return int number of payments
+     */
     public int numberPaymentsSecondIntervalFromFreelancerAllPlatform(Freelancer freelancer) {
         int delays = 0;
 
@@ -702,6 +895,10 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Returns the number of payments from all the platform's tasks by a specific freelancer to the specified interval
+     * @return int number of payments
+     */
     public int numberPaymentsThirdIntervalFromFreelancerAllPlatform(Freelancer freelancer) {
         int delays = 0;
 
@@ -717,12 +914,26 @@ public class Platform implements Serializable {
         return delays;
     }
 
+    /**
+     * Sets the date to pay received to each one of the current user organization's payments transactions
+     * @param dateToPay date to automatic payment
+     * @throws IOException if there is an input or output exception
+     */
     public void setDateToPay(Date dateToPay) throws IOException {
         for (PaymentTransaction paymentTransaction : getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList()) {
             paymentTransaction.setDateToPay(dateToPay);
+//            getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList().remove(paymentTransaction);
+//            getOrganizationCurrentUser().getPaymentTransactionList().getPaidTransactionList().add(paymentTransaction);
+//            System.out.println(getOrganizationCurrentUser().getPaymentTransactionList().getNotPaidTransactionList().size());
+//            System.out.println(getOrganizationCurrentUser().getPaymentTransactionList().getPaidTransactionList().size());
         }
     }
 
+    /**
+     * Gets the percentage of tasks with delay from a specific freelancer
+     * @param freelancer freelancer received
+     * @return percentage
+     */
     public double percentageDelayByFreelancer(Freelancer freelancer) {
         double numberOfTasksWithDelay = 0;
         double numberOfTaskFreelancerDid = 0;
@@ -739,6 +950,10 @@ public class Platform implements Serializable {
         return numberOfTasksWithDelay / numberOfTaskFreelancerDid;
     }
 
+    /**
+     * Gets the percentage of tasks with delay of all platform's tasks
+     * @return percentage
+     */
     public double percentageDelayTotal() {
         double numberOfTasksWithDelay = 0;
         double numberOfTasks = 0;
@@ -753,6 +968,10 @@ public class Platform implements Serializable {
         return numberOfTasksWithDelay / numberOfTasks;
     }
 
+    /**
+     *  Sends an email to all the freelancers that have a mean of delays higher than 3h and also a percentage of delays higher than the mean of all platform's delays percentage
+     * @throws FileNotFoundException if file not found
+     */
     public void sendEmailWithDelayHigherThanThree() throws FileNotFoundException {
         for (Freelancer freelancer : getRegistFreelancer().getFreelancerList()) {
             if (meanDelayAllTasksByFreelancer(freelancer) > 3  && (percentageDelayByFreelancer(freelancer) > percentageDelayTotal())) {
@@ -762,4 +981,12 @@ public class Platform implements Serializable {
         }
     }
 
+    /**
+     * Creates file with the regist of payment transactions already paid
+     */
+    public void createFileWithPaidTransactions() {
+        for (Organization organization : registOrganization.getListOrganizations()) {
+            Files.writeToAFileAllPaidPaymentTransactions(organization.getPaymentTransactionList().getListTotalPaymentsTransactions());
+        }
+    }
 }

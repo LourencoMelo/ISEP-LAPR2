@@ -1,6 +1,6 @@
 package lapr2.isep.authorization.model;
 
-import lapr2.isep.pot.model.EmailFiles;
+import lapr2.isep.pot.model.Files;
 import lapr2.isep.pot.model.ExternAlgorithmPasswordGenerator;
 
 import java.io.*;
@@ -51,7 +51,7 @@ public class User implements Serializable {
         this.email = email;
         this.password = generatePassword();
         listUsers.add(this);
-        EmailFiles.writeToAFileAboutPasswords(listUsers);
+        Files.writeToAFileAboutPasswords(listUsers);
     }
 
     /**
@@ -66,7 +66,7 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
-        EmailFiles.writeToAFileAboutPasswords(listUsers);
+        Files.writeToAFileAboutPasswords(listUsers);
     }
 
     /**

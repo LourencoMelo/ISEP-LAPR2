@@ -44,7 +44,7 @@ public class RegistFreelancer implements Serializable {
     }
 
     /**
-     *
+     * Returns boolean value depending if the freelancer is added
      * @param freelancer freelancer
      * @return new freelancer
      */
@@ -53,6 +53,11 @@ public class RegistFreelancer implements Serializable {
         return freelancerList.add(freelancer);
     }
 
+    /**
+     * Return boolean value depending if the list of freelancer already contains the freelancer received
+     * @param freelancer received freelancer
+     * @return true if the freelancer already exists
+     */
     public boolean contains(Freelancer freelancer) {
         for (Freelancer freelancerAux : freelancerList) {
             return freelancer.equals(freelancerAux);

@@ -16,12 +16,14 @@ public class RegistOrganization implements Serializable {
      */
     private final List<Organization> listOrganizations;
 
-
     /**
      * ExternAlgorithmPasswordGenerator's initialization
      */
     private ExternAlgorithmPasswordGenerator algorithm;
 
+    /**
+     * Organization's instance
+     */
     private Organization organization;
 
     /**
@@ -29,26 +31,21 @@ public class RegistOrganization implements Serializable {
      */
     private String collabPassword;
 
+    /**
+     * List of the collaborators
+     */
     List<Collaborator> collaboratorList = new ArrayList<>();
 
+    /**
+     * List of managers
+     */
     List<Manager> managerList = new ArrayList<>();
+
     /**
      * Initialize an Organization Regist creating a list of organizations
      */
     public RegistOrganization() {
         this.listOrganizations = new ArrayList<>();
-    }
-
-    /**
-     * Validates an Organization received by parameter
-     *
-     * @param org organization to validate
-     * @return boolean dependent of validation
-     */
-    public boolean validatesOrganization(Organization org) {
-        boolean isValid = false;
-        //write validation code
-        return isValid;
     }
 
     /**
@@ -62,36 +59,6 @@ public class RegistOrganization implements Serializable {
     }
 
     /**
-     * Regists one organization
-     *
-     * @param organization to regist
-     * @return true if regist or false if not
-     */
-    public boolean registOrganization(Organization organization) {
-        if (this.validatesOrganization(organization)) {
-            /*
-            if (this.validaOrganizacao(oOrganizacao)) {                 NECESSARY?!?!?!
-            Colaborador oGestor = oOrganizacao.getGestor();             NECESSARY?!?!?!
-             */
-            return addOrganization(organization);
-        }
-        return false;
-    }
-
-    /**
-     * New instance of organization with the necessary data
-     *
-     * @param name         of Organization
-     * @param NIF          of Organization
-     * @param collaborator of Organization
-     * @param manager      of Organization
-     * @return
-     */
-    public Organization newOrganization(String name, String NIF, Collaborator collaborator, Manager manager) {
-        return new Organization(name, NIF, collaborator, manager);
-    }
-
-    /**
      * If has the organization
      *
      * @param organization to compare
@@ -102,56 +69,18 @@ public class RegistOrganization implements Serializable {
     }
 
     /**
-     * Regists a manager as a system user
-     * @param manager to regist
-     * @return true if registed or false if not
+     * Returns list of organizations
+     * @return organizations
      */
-    /*public boolean registManagerAsUser(Manager manager) {
-        //this.platform = ApplicationPOT.getInstance().getPlatform();
-
-        String managerName = manager.getName();
-        String managerEmail = manager.getEmail();                                            //IMPROVE THIS METHOD
-
-        this.algorithm = this.platform.getAlgorithmPasswordGenerator();
-
-        String password = String.valueOf(this.algorithm.generatePassword(managerName, managerEmail));
-
-        this.facadeAuthorization = platform.getFacadeAutorization();
-
-        //return (facadeAuthorization.registUserWithRole(managerName, managerEmail, password, new String[] {Constants.ORGANIZATION_MANAGER_ROLE}));
-        return false;
-    }
-
-     */
-
-    /**
-     * Regists a manager as a system user
-     * @param collab to regist
-     * @return true if registed or false if not
-     */
-    /*public void registCollaboratorAsUser(Collaborator collab) {
-
-        User user = new User(collab.getName(), collab.getEmail(), password);
-    }
-
-     */
-
-    /**
-     * Sends the password to the email
-     *
-     * @param email    used
-     * @param password sent
-     * @return true if sent or false if not
-     */
-    private boolean sendPassword(String email, Password password) {
-        //                                                              TO IMPLEMENT THE CODE
-        return false;
-    }
-
     public List<Organization> getListOrganizations() {
         return listOrganizations;
     }
 
+    /**
+     * Returns the organization by an user's email
+     * @param email from user
+     * @return organization
+     */
     public Organization getOrganizationByUserEmail(String email) {
         Organization orgReturn = null;
 
@@ -166,11 +95,6 @@ public class RegistOrganization implements Serializable {
         }
         return orgReturn;
     }
-
-//    public List<Task> getTaskListByOrganization() {
-//
-//    }
-
 
     /**
      * Description of the organizations in the list
@@ -189,6 +113,10 @@ public class RegistOrganization implements Serializable {
         return s.toString().trim();
     }
 
+    /**
+     * Returns the organization by a collaborator
+     * @return organization
+     */
     public Organization getOrganizationByCollaborator(Collaborator collaborator) {
         for (Organization organization : listOrganizations) {
             if (collaborator.equals(organization.getCollaborator())) {
@@ -198,6 +126,10 @@ public class RegistOrganization implements Serializable {
         return null;
     }
 
+    /**
+     * Returns list of all collaborators
+     * @return list of collaborators
+     */
     public List<Collaborator> getListCollaboratorsAllOrganizations() {
         for (Organization organization : listOrganizations) {
             collaboratorList.add(organization.getCollaborator());
@@ -205,6 +137,10 @@ public class RegistOrganization implements Serializable {
         return collaboratorList;
     }
 
+    /**
+     * Returns list of all managers
+     * @return list of managers
+     */
     public List<Manager> getListManagersAllOrganizations() {
         for (Organization organization : listOrganizations) {
             managerList.add(organization.getManager());
@@ -212,18 +148,19 @@ public class RegistOrganization implements Serializable {
         return managerList;
     }
 
-    public List<Task> getListOfTasks() {
-        return organization.getTaskList();
-    }
-
+    /**
+     * Returns organization's collaborator
+     * @return collaborator
+     */
     public Collaborator getCollaborator() {
         return organization.getCollaborator();
     }
 
-    public TaskList getTasksList() {
-        return organization.getListTask();
-    }
-
+    /**
+     * Returns payment transaction list instance from received organization
+     * @param organization organization received
+     * @return payment transaction list instance
+     */
     public PaymentTransactionList getPaymentTransactionList(Organization organization){
         return organization.getPaymentTransactionList();
     }

@@ -7,19 +7,57 @@ import java.util.Random;
 
 public final class ExternAlgorithmPasswordGenerator implements Serializable {
 
+    /**
+     * String initialization
+     */
     private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
+
+    /**
+     * String initialization
+     */
     private static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    /**
+     * String initialization
+     */
     private static final String DIGITS = "0123456789";
+
+    /**
+     * String initialization
+     */
     private static final String PUNCTUATION = "!@#$%&*()_+-=[]|,./?><";
+
+    /**
+     * Boolean initialization
+     */
     private boolean useLower;
+
+    /**
+     * Boolean initialization
+     */
     private boolean useUpper;
+
+    /**
+     * Boolean initialization
+     */
     private boolean useDigits;
+
+    /**
+     * Boolean initialization
+     */
     private boolean usePunctuation;
 
+    /**
+     * Constructor that throws an Exception
+     */
     private ExternAlgorithmPasswordGenerator() {
         throw new UnsupportedOperationException("Empty constructor is not supported.");
     }
 
+    /**
+     * Contructor that initializes useLower, useUpper, useDigits and usePunctuation instances
+     * @param builder password builder
+     */
     private ExternAlgorithmPasswordGenerator(PasswordGeneratorBuilder builder) {
         this.useLower = builder.useLower;
         this.useUpper = builder.useUpper;
@@ -27,6 +65,9 @@ public final class ExternAlgorithmPasswordGenerator implements Serializable {
         this.usePunctuation = builder.usePunctuation;
     }
 
+    /**
+     * Static class that generates password for user
+     */
     public static class PasswordGeneratorBuilder {
 
         private boolean useLower;
