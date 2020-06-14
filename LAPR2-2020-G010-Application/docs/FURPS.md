@@ -1,95 +1,1 @@
-# Especificação suplementar
-
-## Funcionalidades
-
-*Especifica as funcionalidades que não se relacionam com os casos de
-uso, nomeadamente: Auditoria, Reporte e Segurança.*
-
-**Segurança:**
-  
-- **As interações dos utilizadores supramencionados (i.e. Adminsitrativo, Freelancer, Gestor, Colaborador) devem ser precedidas de um processo de autenticação.**
-- **A utilização da plataforma por outras pessoas é restrita ao registo de organizações.**
-
-
-## Usabilidade
-
-*Avalia a interface com o utilizador. Possui diversas subcategorias,
-entre elas: prevenção de erros; estética e design; ajudas (Help) e
-documentação; consistência e padrões.*
-
-**Estética:**
-
-- **Em termos visuais, a interface gráfica da aplicação deve assentar numa paleta de cores estruturada em duas cores (primária e secundária).**
-
-**Ajudas:**
-
-- **Durante a utilização do sistemas os diversos utilizadores devem ter facilmente acesso a informação de apoio/suporte à tarefa que estão a realizar no momento.**
-
-## Fiabilidade/Confiabilidade
-*Refere-se a integridade, conformidade e interoperabilidade do software. Os requisitos a serem considerados são: frequência e gravidade de falha, possibilidade de recuperação, possibilidade de previsão, exatidão, tempo médio entre falhas.*
-
--
-
-## Desempenho
-*Avalia os requisitos de desempenho do software, nomeadamente: tempo de resposta, consumo de memória, utilização da CPU, capacidade de carga e disponibilidade da aplicação.*
-
-- **Salienta-se ainda a necessidade do sistema estar preparado para suportar adequamente picos de utilização elevada do sistema, em particular, pelos freelancers.**
-
-## Suportabilidade
-*Os requisitos de suportabilidade agrupam várias características, como:
-testabilidade, adaptabilidade, manutibilidade, compatibilidade,
-configurabilidade, instalabilidade, escalabilidade entre outros.*
-
-**Configurabilidade:**
-
-- **A designação comercial da plataforma e outros dados que venham a ser relevantes devem ser especificados por configuração aquando da sua implantação.**
-- **Algoritmo (gerador de palavras-passe) externo configurado apenas aquando da implantação do sistema.**
-- **A paleta de cores [...deve] ser configurável aquando da sua implantação.**
-- **O precesso de instalação e configuração do sistema deve ser muito simples, intuitivo, rápido e acima de tudo adequado a pessoas com poucos conhecimentos técnicos.**
-
-**Testabilidade:**
-
-- **[...] especificar um conjunto relevante de testes de cobertura e mutação (e.g. unitários, funcionais e de integração) [...]**
-
-
-
-## +
-
-### Restrições de design
-
-*Especifica ou restringe o processo de design do sistema. Exemplos podem incluir: linguagens de programação, processo de software, uso de ferramentas de desenvolvimento, biblioteca de classes, etc.*
-
-- **Adotar boas práticas de identificação de requisitos e de análise e design de software OO**
-
-- **Reutilizar o componente de gestão de utilizadores existente na T4J**
-
-- **As palavras-passe [...] devem ser geradas [...] recorrendo a um algoritmo externo (i.e. concebido por terceiros) e configurado apenas aquando da implantação
-  do sistema.**
-  
-- **Pretende-se que a adição de novos tipos de regimento esteja facilitada e, se possível, possa até ser realizada por terceiros.**
- 
-
-
-### Restrições de implementação
-
-*Especifica ou restringe o código ou a construção de um sistema tais
-como: padrões obrigatórios, linguagens de implementação, políticas de
-integridade de base de dados, limites de recursos, sistema operativo.*
-
-- **Implementar o núcleo principal do software em Java**
- 
-- **Adotar normas de codificação reconhecidas**
-
-### Restrições de interface
-
-*Especifica ou restringe as funcionalidades inerentes à interação do
-sistema com outros sistemas externos.* 
-
-- **As palavras-passe [...] devem ser geradas [...] recorrendo a um algoritmo externo (i.e. concebido por terceiros).**
-
-### Restrições físicas
-
-*Especifica uma limitação ou requisito físico do hardware utilizado, por
-exemplo: material, forma, tamanho ou peso.*
-
-- 
+# Supplementary specification  ## Functionalities* Specifies the features that are not related to the cases of use, namely: Audit, Reporting and Security. ***Safety:**  - ** The interactions of the aforementioned users (i.e. Admin, Freelancer, Manager, Employee) must be preceded by an authentication process. ** - ** The use of the platform by other people is restricted to the registration of organizations. **## Usability* Evaluates the user interface. It has several subcategories, among them: error prevention; aesthetics and design; Help and documentation; consistency and standards. ***Aesthetics:**- ** In visual terms, the application's graphical interface must be based on a colour palette structured in two colours (primary and secondary). ****Help:**- ** During the use of the systems, the different users must have easy access to support information for the task they are currently carrying out. **## Reliability* Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are frequency and severity of the failure, the possibility of recovery, the possibility of prediction, accuracy, the average time between failures. * -## Performance* Evaluates the performance requirements of the software, namely: response time, memory consumption, CPU usage, load capacity and application availability. *- ** It is also emphasized the need for the system to be prepared to adequately support high usage peaks of the system, in particular, by freelancers. **## Supportability* The supportability requirements group several characteristics, such as:testability, adaptability, maintainability, compatibility, installability, scalability and more. *** Configurability: **- ** The platform's commercial name and other data that may be relevant must be specified by configuration at the time of its implementation. ** - ** External algorithm (password generator) configured only when the system was implemented. ** - ** The colour palette [...] must be configurable when it is installed. ** - ** The process of installing and configuring the system must be very simple, intuitive, fast and above all suitable for people with little technical knowledge. **** Testability: **- ** [...] specify a relevant set of coverage and mutation tests (e.g. unitary, functional and integration) [...] **### Design restrictions* Specifies or restrict the system design process. Examples may include: programming languages, software process, use of development tools, class library, etc. *- ** Adopt good practices for identifying requirements and analyzing and designing OO software **- ** Reuse the existing user management component at T4J **- ** Passwords must be generated [...] using an external algorithm (i.e. designed by third parties) and configured only when deploying  of the system.**  - ** It is intended that the addition of new types of regulations is facilitated and, if possible, can even be carried out by third parties. ** ### Implementation restrictions* Specifies or restricts the code or construction of a system suchsuch as: mandatory standards, implementation languages,database integrity, resource limits, operating system. *- ** Implement the main software core in Java ** - ** Adopt recognized coding standards **### Interface restrictions* Specifies or restricts the functionalities inherent to the interaction of thesystem with other external systems. *- ** Passwords must be [...] generated using an external algorithm (i.e. designed by a third party). **### Physical restrictions* Specifies a limitation or physical requirement of the hardware used, forexample: material, shape, size or weight. *- 
