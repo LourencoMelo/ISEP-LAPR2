@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="348.6px" preserveAspectRatio="none" style="width:551px;height:348px;" version="1.1" viewBox="0 0 551 348" width="551.6px" zoomAndPan="magnify"><defs><filter height="300%" id="f1hg62noddh5ty" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.8"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.6" dy="5.6" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1hg62noddh5ty)" height="42" style="stroke: #A80036; stroke-width: 1.4;" width="14" x="273" y="157.2375"/><rect fill="#FFFFFF" filter="url(#f1hg62noddh5ty)" height="42" style="stroke: #A80036; stroke-width: 1.4;" width="14" x="483" y="157.2375"/><line style="stroke: #A80036; stroke-width: 1.4; stroke-dasharray: 5.0,5.0;" x1="63" x2="63" y1="55.4531" y2="291.2219"/><line style="stroke: #A80036; stroke-width: 1.4; stroke-dasharray: 5.0,5.0;" x1="280" x2="280" y1="55.4531" y2="291.2219"/><line style="stroke: #A80036; stroke-width: 1.4; stroke-dasharray: 5.0,5.0;" x1="490" x2="490" y1="55.4531" y2="291.2219"/><rect fill="#FEFECE" filter="url(#f1hg62noddh5ty)" height="44.2531" style="stroke: #A80036; stroke-width: 2.0999999999999996;" width="98" x="11.2" y="4.2"/><text fill="#000000" font-family="sans-serif" font-size="19.6" lengthAdjust="spacingAndGlyphs" textLength="78.4" x="21" y="34.3465">:Platform</text><rect fill="#FEFECE" filter="url(#f1hg62noddh5ty)" height="44.2531" style="stroke: #A80036; stroke-width: 2.0999999999999996;" width="98" x="11.2" y="289.8219"/><text fill="#000000" font-family="sans-serif" font-size="19.6" lengthAdjust="spacingAndGlyphs" textLength="78.4" x="21" y="319.9684">:Platform</text><rect fill="#FEFECE" filter="url(#f1hg62noddh5ty)" height="44.2531" style="stroke: #A80036; stroke-width: 2.0999999999999996;" width="296.8" x="128.8" y="4.2"/><text fill="#000000" font-family="sans-serif" font-size="19.6" lengthAdjust="spacingAndGlyphs" textLength="271.6" x="138.6" y="34.3465">task: TaskPaymentutomatically</text><rect fill="#FEFECE" filter="url(#f1hg62noddh5ty)" height="44.2531" style="stroke: #A80036; stroke-width: 2.0999999999999996;" width="296.8" x="128.8" y="289.8219"/><text fill="#000000" font-family="sans-serif" font-size="19.6" lengthAdjust="spacingAndGlyphs" textLength="271.6" x="138.6" y="319.9684">task: TaskPaymentutomatically</text><rect fill="#FEFECE" filter="url(#f1hg62noddh5ty)" height="44.2531" style="stroke: #A80036; stroke-width: 2.0999999999999996;" width="84" x="445.2" y="4.2"/><text fill="#000000" font-family="sans-serif" font-size="19.6" lengthAdjust="spacingAndGlyphs" textLength="64.4" x="455" y="34.3465">d: Date</text><rect fill="#FEFECE" filter="url(#f1hg62noddh5ty)" height="44.2531" style="stroke: #A80036; stroke-width: 2.0999999999999996;" width="84" x="445.2" y="289.8219"/><text fill="#000000" font-family="sans-serif" font-size="19.6" lengthAdjust="spacingAndGlyphs" textLength="64.4" x="455" y="319.9684">d: Date</text><rect fill="#FFFFFF" filter="url(#f1hg62noddh5ty)" height="42" style="stroke: #A80036; stroke-width: 1.4;" width="14" x="273" y="157.2375"/><rect fill="#FFFFFF" filter="url(#f1hg62noddh5ty)" height="42" style="stroke: #A80036; stroke-width: 1.4;" width="14" x="483" y="157.2375"/><path d="M18.2,76.4531 L18.2,112.8531 L534.8,112.8531 L534.8,90.4531 L520.8,76.4531 L18.2,76.4531 " fill="#FBFB77" filter="url(#f1hg62noddh5ty)" style="stroke: #A80036; stroke-width: 1.4;"/><path d="M520.8,76.4531 L520.8,90.4531 L534.8,90.4531 L520.8,76.4531 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.4;"/><text fill="#000000" font-family="sans-serif" font-size="18.2" lengthAdjust="spacingAndGlyphs" textLength="373.8" x="80.5" y="102.3463">when the time decided by the manager comes</text><polygon fill="#A80036" points="302.4,151.6375,288.4,157.2375,302.4,162.8375,296.8,157.2375" style="stroke: #A80036; stroke-width: 1.4;"/><line style="stroke: #A80036; stroke-width: 1.4;" x1="294" x2="481.6" y1="157.2375" y2="157.2375"/><text fill="#000000" font-family="sans-serif" font-size="18.2" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9.8" x="310.8" y="150.4385">1</text><text fill="#000000" font-family="sans-serif" font-size="18.2" lengthAdjust="spacingAndGlyphs" textLength="36.4" x="326.2" y="150.4385">run()</text><rect fill="#FFFFFF" filter="url(#f1hg62noddh5ty)" height="59.7844" style="stroke: #000000; stroke-width: 2.8;" width="305.2" x="124.6" y="210.4375"/><polygon fill="#EEEEEE" points="124.6,210.4375,211.4,210.4375,211.4,221.6375,197.4,235.6375,124.6,235.6375,124.6,210.4375" style="stroke: #000000; stroke-width: 2.8;"/><text fill="#000000" font-family="sans-serif" font-size="18.2" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="23.8" x="142.8" y="232.1307">ref</text><text fill="#000000" font-family="sans-serif" font-size="18.2" lengthAdjust="spacingAndGlyphs" textLength="239.4" x="160.3" y="260.1307">sd_MakeAutomaticPayments</text><!--MD5=[ada09fcadbdaba92469bef5a3311b3b4]
+@startuml
+autonumber
+
+participant ":Platform" as plat
+participant "task: TaskPaymentutomatically " as aut
+participant "d: Date" as date
+
+note over plat, date
+when the time decided by the manager comes
+end note
+
+date -> aut : run()
+activate date
+activate aut
+
+
+ref over aut : sd_MakeAutomaticPayments
+
+
+deactivate date
+deactivate aut
+
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 11:51:06 BST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.7+10-b765.53
+Operating System: Windows 10
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
