@@ -47,8 +47,8 @@ public class TransactionsRegist implements Serializable {
                 Task task = new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim());
                 Freelancer freelancer = new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim());
                 PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), FormatterCSV(line[6].trim()), Double.parseDouble(line[7].trim()), line[8].trim(), freelancer, task);
-                if (!platform.getRegistOrganization().getPaymentTransactionList(organization).getNotPaidTransactionList().contains(paymentTransaction)) {
-                    platform.getRegistOrganization().getPaymentTransactionList(organization).addNotPaidPaymentTransaction(paymentTransaction);
+                if (!platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList().contains(paymentTransaction)) {
+                    platform.getRegistOrganization().getPaymentTransactionList(organization).addPaidPaymentTransaction(paymentTransaction);
                     if (!platform.getRegistFreelancer().getFreelancerList().contains(freelancer)) {
                         platform.getRegistFreelancer().getFreelancerList().add(freelancer);
                     }
@@ -76,8 +76,8 @@ public class TransactionsRegist implements Serializable {
                 Task task = new Task(line[1].trim(), line[2].trim(), Double.parseDouble(line[3].trim()), Double.parseDouble(line[4].trim()), line[5].trim());
                 Freelancer freelancer = new Freelancer(line[9].trim(), line[10].trim(), line[11].trim(), line[12].trim(), line[13].trim(), line[14].trim(), line[15].trim(), line[16].trim());
                 PaymentTransaction paymentTransaction = new PaymentTransaction(line[0].trim(), FormatterTXT(line[6].trim()), Double.parseDouble(line[7].trim()), line[8].trim(), freelancer, task);
-                if (!platform.getRegistOrganization().getPaymentTransactionList(organization).getNotPaidTransactionList().contains(paymentTransaction)) {
-                    platform.getRegistOrganization().getPaymentTransactionList(organization).addNotPaidPaymentTransaction(paymentTransaction);
+                if (!platform.getRegistOrganization().getPaymentTransactionList(organization).getPaidTransactionList().contains(paymentTransaction)) {
+                    platform.getRegistOrganization().getPaymentTransactionList(organization).addPaidPaymentTransaction(paymentTransaction);
                     if (!platform.getRegistFreelancer().getFreelancerList().contains(freelancer)) {
                         platform.getRegistFreelancer().getFreelancerList().add(freelancer);
                     }

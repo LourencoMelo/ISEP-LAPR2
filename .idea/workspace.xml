@@ -1,105 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07faf7c2-48f5-4334-ab9e-9b34af67c156" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="fce25f1e-1f7d-402b-925e-211e0713b3da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lapr2-2020-g010-application.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAPR2-2020-G010-Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LAPR2-2020-G010-Application/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAPR2-2020-G010-Application/files/LoginCredentials.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LAPR2-2020-G010-Application/files/LoginCredentials.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAPR2-2020-G010-Application/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/TransactionsRegist.class" beforeDir="false" afterPath="$PROJECT_DIR$/LAPR2-2020-G010-Application/out/production/LAPR2-2020-G010-Application/lapr2/isep/pot/model/TransactionsRegist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAPR2-2020-G010-Application/src/src/main/java/lapr2/isep/pot/model/TransactionsRegist.java" beforeDir="false" afterPath="$PROJECT_DIR$/LAPR2-2020-G010-Application/src/src/main/java/lapr2/isep/pot/model/TransactionsRegist.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1cXu5DzvzKULEV3cg1SXEDR9mNT" />
+  <component name="ProjectId" id="2VzX7FWabKlsaUGUUzKyyFA9fAG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
-    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lapr2.isep.pot.UI.console.MainApp" />
-      <module name="lapr2-2020-g010-application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lapr2.isep.pot.UI.console.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MainApp" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="07faf7c2-48f5-4334-ab9e-9b34af67c156" name="Default Changelist" comment="" />
-      <created>1590687073646</created>
+      <changelist id="fce25f1e-1f7d-402b-925e-211e0713b3da" name="Changes" comment="" />
+      <created>1695839716131</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1590687073646</updated>
-      <workItem from="1590687074885" duration="494000" />
-      <workItem from="1590687581948" duration="2643000" />
-      <workItem from="1590690240730" duration="23000" />
-      <workItem from="1590746708453" duration="2074000" />
-      <workItem from="1590944345730" duration="2925000" />
-      <workItem from="1591017824086" duration="2325000" />
-      <workItem from="1591021775288" duration="20000" />
-      <workItem from="1591028004686" duration="1930000" />
-      <workItem from="1591115043498" duration="4569000" />
-      <workItem from="1591634511117" duration="4227000" />
-      <workItem from="1591650026903" duration="599000" />
-      <workItem from="1591697300307" duration="10767000" />
-      <workItem from="1592058174009" duration="8391000" />
+      <updated>1695839716131</updated>
+      <workItem from="1695839718353" duration="46000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
+    <option name="version" value="3" />
   </component>
 </project>
